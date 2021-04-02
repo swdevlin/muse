@@ -1,0 +1,976 @@
+firewall:
+  title: Firewall
+  text: The secret cross-faction conspiracy that works to protect transhumanity
+    from x-risks.
+swarm:
+  title: Swarm
+  text: A mass of nano- or microbots acting in concert.
+account:
+  title: Account
+  text: What you use to log on to a system. Determines your access privileges.
+account shell:
+  title: Account Shell
+  text: The software interface that represents your presence on the system.
+aerostat:
+  title: Aerostat
+  text: A habitat designed to float like a balloon on a planet with a dense
+    atmosphere.
+af:
+  title: AF
+  text: After the Fall (used for reference dating).
+agi:
+  title: AGI
+  text: Artificial General Intelligence. An AI that has cognitive faculties and
+    capability to learn that is equivalent to a human.
+ai:
+  title: AI
+  text: Artificial Intelligence. A sentient software mind that emulates human
+    cognition. Usually used to refer to ALIs.
+ali:
+  title: ALI
+  text: Artificial Limited Intelligence. AIs that do not possess the full range of
+    human cognitive abilities. ALIs have a specialized focus and are incapable
+    of learning outside of that focus.
+alpha fork:
+  title: Alpha Fork
+  text: A full duplicate of an ego.
+amphibs:
+  title: Amphibs
+  text: An extinct sapient alien species that once thrived on the exoplanet Droplet.
+anarchists:
+  title: Anarchists
+  text: A faction that opposes power and hierarchy and embraces self-organized
+    individual and collective action.
+app:
+  title: App
+  text: Software that performs a specific function for a user.
+argonauts:
+  title: Argonauts
+  text: A union of technoprogressive scientists that promote responsible and
+    ethical use of technology.
+ar:
+  title: AR
+  text: Augmented Reality. Information from the mesh that is overlaid on your
+    real-world senses. AR data is usually visual but can also be audio, tactile,
+    olfactory, kinesthetic, emotional, or other senses.
+artifex:
+  title: Artifex
+  text: A nano-engineer
+artificial:
+  title: Artificial
+  text: Martian slang for embodied artificial life.
+asi:
+  title: ASI
+  text: >
+    Artifical Super Intelligence. An AI that can self-upgrade at exponential
+    rates and grow into god-like digital entities. They require massive
+    processing power and are always increasing in complexity due to a continual
+    metamorphosis of their code.
+async:
+  title: Async
+  text: A person with psi abilities resulting from the Watts-MacLeod strain of the
+    exsurgent virus.
+ati:
+  title: ATI
+  text: The Aerial Terraforming Initiative for Venus.
+au:
+  title: AU
+  text: Astronomical Unit. The distance between the Earth and Sol (the sun), equal
+    to 8.3 light minutes or ~150 million kilometers.
+autocook:
+  title: Autocook
+  text: A specialized fabber for making food and drinks.
+autonomists:
+  title: Autonomists
+  text: The outer-system alliance of anarchists, Extropians, scum, and Titanians.
+backup:
+  title: Backup
+  text: A stored copy of an ego, an inactive digitized mind.
+backups:
+  title: Backups
+  text: The Firewall faction that preps caches, bunkers, and resources in case of
+    another extinction event.
+barsoomians:
+  title: Barsoomians
+  text: A movement supporting Martian independence from hypercorp control, allied
+    with the autonomists.
+basilisk:
+  title: Basilisk Hack
+  text: Sensory input designed to trigger glitches and faults in the brain,
+    leading to seizures and worse effects.
+basilisk hack:
+  title: Basilisk Hack
+  text: Sensory input designed to trigger glitches and faults in the brain,
+    leading to seizures and worse effects.
+bathyscaphe:
+  title: Bathyscaphe
+  text: An underwater habitat.
+beehive:
+  title: Beehive
+  text: A microgravity habitat made from a tunneled-out asteroid or moon.
+belters:
+  title: Belters
+  text: Denizens of the Main Belt.
+beta fork:
+  title: Beta Fork
+  text: A partial copy of an ego.
+bf:
+  title: BF
+  text: Before the Fall (used for reference dating).
+bioconservatives:
+  title: Bioconservatives
+  text: An anti-technology movement that argues for strict regulation of
+    nanofabrication, AI, uploading, forking, cognitive enhancements, and other
+    disruptive technologies.
+bioware:
+  title: Bioware
+  text: Biological enhancements for biomorphs.
+blueprint:
+  title: Blueprint
+  text: The digital design file used to nanofabricate.
+body bank:
+  title: Body Bank
+  text: A service for backups, resleeving, and acquiring or storing morphs. AKA
+    dollhouse, morgue.
+bot:
+  title: Bot
+  text: Robot. An ALI-piloted synthetic shell.
+bracewell probe:
+  title: Bracewell Probe
+  text: A self-replicating probe designed to propagate to every star system in the
+    galaxy.
+brainprint:
+  title: Brainprint
+  text: The ID based on your brainwave patterns.
+brinkers:
+  title: Brinkers
+  text: Exiles who live on the fringe of the system. AKA isolates.
+bubble:
+  title: Bubble
+  text: A habitat made from a hollowed-out asteroid or moon, spun for gravity. AKA
+    sphere.
+c-ball:
+  title: C-Ball
+  text: A fastpaced game with an ever-changing set of rules suggested and tracked by your muse. Anything goes!
+cbeat:
+  title: CBEAT
+  text: The Council for Bio-Ethics and Advanced Technology, setting tech policy in the Jovian Republic.
+cell:
+  title: Cell
+  text: A clandestine group of Firewall sentinels.
+chimeric:
+  title: Chimeric
+  text: Transgenic, containing genetic traits from other species.
+circumjovian:
+  title: Circumjovian
+  text: Orbiting Jupiter.
+circumlunar:
+  title: Circumlunar
+  text: Orbiting the Moon.
+circumsolar:
+  title: Circumsolar
+  text: Orbiting the Sun.
+cislunar:
+  title: Cislunar
+  text: Between the Earth and the Moon.
+clade:
+  title: Clade
+  text: A species or group of organisms with common features. Used to refer to transhuman cultural groups and subspecies.
+clanking masses:
+  title: Clanking Masses
+  text: The underclass of cheap synthmorphs.
+cloud:
+  title: The Cloud
+  text: Other devices on the mesh that offer software services.
+cluster:
+  title: Cluster
+  text: A micrograv habitat of interconnected modules.
+cme:
+  title: CME
+  text: Coronal mass ejection; a solar flare.
+codeline:
+  title: Codeline
+  text: The code "family" from which an AGI is derived.
+complaints:
+  title: The Complaints
+  text: The list of grievances shared by the Barsoomians.
+conservatives:
+  title: Conservatives
+  text: The Firewall faction opposed to using AGIs, asyncs, and alien/TITAN
+    technology.
+cornucopia machine:
+  title: Cornucopia Machine
+  text: A general-purpose nanofabricator.
+cortical stack:
+  title: Cortical Stack
+  text: An implant that records your up-to-date ego.
+crow:
+  title: Crow
+  text: A proxy that focuses on research and scientific analysis.
+crypt:
+  title: Crypt
+  text: A digital cache hidden within the mesh.
+cthonian planet:
+  title: Cthonian Planet
+  text: A hot Jupiter/Neptune whos atmosphere has been stripped away, leaving a
+    terrestrial core.
+cyberbrain:
+  title: Cyberbrain
+  text: An artificial brain, housing an ego run in a software mind-state. Used in
+    synthmorphs, pods, and some biomorphs.
+cyberware:
+  title: Cyberware
+  text: Artificial augmentations for biomorphs.
+cycler:
+  title: Cycler
+  text: A ship that travels between habitats using the ITN.
+cylinder:
+  title: Cylinder
+  text: A hollow can-shaped habitat spun for gravity.
+darkcast:
+  title: Darkcast
+  text: A black-market farcasting and egocasting service.
+deadheading:
+  title: Deadheading
+  text: Placing your ego into inactive storage for a later scheduled revival.
+dead zone:
+  title: Dead Zone
+  text: An area lacking surveillance coverage.
+delta-v:
+  title: Delta-V
+  text: The thrust needed to get from one place to another.
+device:
+  title: Device
+  text: A specific piece of hardware.
+doll house:
+  title: Doll House
+  text: A high-end, bespoke morph provider.
+domain rules:
+  title: Domain Rules
+  text: The rules that govern the physics and operation of a virtual-reality
+    simulspace.
+dome:
+  title: Dome
+  text: Temporary or permanent pressurized surface habitat.
+drone:
+  title: Drone
+  text: A robot controlled through teleoperation (rather than AI).
+dwarf planet:
+  title: Dwarf Planet
+  text: Between asteroids and planets, dwarfs are rounded by gravity but have not
+    cleared their orbits of asteroids/debris.
+ecto:
+  title: Ecto
+  text: A mobile device for accessing the mesh and AR.
+ego:
+  title: Ego
+  text: The part of you that switches from body to body.
+ego bridge:
+  title: Ego Bridge
+  text: A device for scanning and copying a biological brain for backup,
+    resleeving, or psychosurgery.
+ego id:
+  title: Ego ID
+  text: The ID code tied to your ego, imprinted in uploads.
+ego hunter:
+  title: Ego Hunter
+  text: A bounty hunter that tracks down resleeved egos.
+egocast:
+  title: Egocast
+  text: Term for transmitting an ego to a remote location.
+entoptics:
+  title: Entoptics
+  text: Augmented reality that you “see” in your mind's eye.
+eraser:
+  title: Eraser
+  text: Heavily armed proxies that are called ito contain threats beyond the
+    capabilities of a normal sentinel cell.
+erp:
+  title: ERP
+  text: The reclaimer's Earth Reclamation Project.
+eti:
+  title: ETI
+  text: Extraterrestial Intelligence. A god-like post-singularity alien/machine
+    super-intelligence theorized to be responsible for the pandora gates and/or
+    exsurgent virus.
+europan:
+  title: Europan
+  text: A denizen of Jupiter's moon Europa.
+exodus:
+  title: Exodus
+  text: The evacuation of Earth during the Fall.
+exoplanet:
+  title: Exoplanet
+  text: A planet in another star system.
+exsurgent:
+  title: Exsurgent
+  text: Someone infected by the exsurgent virus and likely transformed into an
+    alien creature.
+exsurgent virus:
+  title: Exsurgent Virus
+  text: A multi-vector virus spread during the Fall that transforms victims and
+    subverts their minds.
+extrasolar:
+  title: Extrasolar
+  text: Outside the Solar System.
+extropians:
+  title: Extropians
+  text: A movement supporting unrestricted free markets that embraces technological advances, allied
+    with the autonomists.
+eye:
+  title: The Eye
+  text: Firewall’s internal social and data-sharing network.
+face:
+  title: Face
+  text: A negotiator or networker.
+factors:
+  title: Factors
+  text: A species of evolved slime molds, the only living sapient aliens
+    transumanity has encountered so far.
+fall:
+  title: The Fall
+  text: The war with the TITANs that devastated Earth and nearly made
+    transhumanity extinct.
+farcast:
+  title: Farcast
+  text: Intrasolar communication using classical communication technologies
+    (radio, laser, etc.) and quantum teleportation.
+farhauler:
+  title: Farhauler
+  text: Long-distance space shipper.
+feedstock:
+  title: Feedstock
+  text: The raw matter used to nanofabricate.
+fence:
+  title: The Fence
+  text: The interdiction cordon of killsats around Earth.
+fetch:
+  title: Fetch
+  text: A beta fork or agent of an ASI like a TITAN.
+filter:
+  title: Filter
+  text: A proxy that handles social engineering, media manipulation, and cover-ups.
+fisher hab:
+  title: Fisher Hab
+  text: A cylinder variant using independent modules.
+fixer:
+  title: Fixer
+  text: Someone who works deals to acquire goods or intel.
+flatlander:
+  title: Flatlander
+  text: Someone born or living on a planet/moon with gravity.
+flexbot:
+  title: Flexbot
+  text: A shape-changing synthmorph capable of joining with other flexbots in a
+    modular fashion to create larger shapes.
+fork:
+  title: Fork
+  text: A copy of an ego.
+forknapping:
+  title: Forknapping
+  text: Kidnapping a backup or fork.
+ftl:
+  title: FTL
+  text: Faster-Than-Light.
+fractal:
+  title: Fractal
+  text: A "bush robot" TITAN machine with fractal appendages and advanced nanofab
+    capabilities.
+fringe:
+  title: The Fringe
+  text: The remote and unpopulated areas of the Solar System.
+gamma fork:
+  title: Gamma Fork
+  text: An incomplete/corrupted copy of an ego. AKA vapor.
+gate:
+  title: Gate
+  text: One of the pandora gate wormholes that allow travel to other parts of the
+    galaxy.
+gatecrasher:
+  title: Gatecrasher
+  text: An explorer who traverses a pandora gate.
+genehacker:
+  title: Genehacker
+  text: Someone who manipulates genetic code to create genetic modifications or
+    even new life.
+geo:
+  title: GEO
+  text: Geosynchronous orbit, 35,786 km altitude over the equator.
+ghostrider:
+  title: Ghostrider
+  text: An infomorph carried in a special implant.
+glitterati:
+  title: Glitterati
+  text: Socialites, hyperelites, and media icons.
+glanding:
+  title: Glanding
+  text: Using ware to modify your emotional state.
+greeks:
+  title: Greeks
+  text: Trojan asteroids at the L4 point. See also Trojans.
+guanxi:
+  title: Guanxi
+  text: The criminal social network.
+habtech:
+  title: Habtech
+  text: A habitat technician.
+hamilton cylinder:
+  title: Hamilton Cylinder
+  text: A living, growing, nanoswarm-constructed cylinder hab with biological
+    components.
+hardware:
+  title: Hardware
+  text: Enhancements for synthmorphs.
+headhunter:
+  title: Headhunter
+  text: A TITAN machine that collects heads for uploading.
+hidden concern:
+  title: Hidden Concern
+  text: A neo-octopus crime cartel based on Ceres.
+hive:
+  title: Hive
+  text: A specialized nanofabber that maintains a nanoswarm.
+host:
+  title: Host
+  text: Personal mesh devices. May run a single infomorph.
+hot jupiterneptune:
+  title: Hot JupiterNeptune
+  text: A gas giant or ice giant whose orbit has migrated closer to its star,
+    giving it a higher temperature.
+hypercorp council:
+  title: Hypercorp Council
+  text: The top hypercorporations that control the Planetary Consortium.
+hyperelite:
+  title: Hyperelite
+  text: The rich and wealthy.
+iceteroid:
+  title: Iceteroid
+  text: An asteroid made of ice rather than rock or metals.
+ice dwarf:
+  title: Ice Dwarf
+  text: A type of distant dwarf planet composed of ice.
+ice giant:
+  title: Ice Giant
+  text: A planet composed of elements heavier than hydrogen/helium, usually in the
+    outer part of a star system.
+id crew:
+  title: ID Crew
+  text: The Intelligent Design Crew, a cartel specializing in electronic crimes.
+iktomi:
+  title: Iktomi
+  text: An extinct alien species of arthropods whose relics have been found beyond
+    the pandora gates.
+indenture:
+  title: Indenture
+  text: A workers who has contracted their labor to a hypercorp or other
+    authority, usually in exchange for a morph.
+index:
+  title: IndEx
+  text: The Indenture Exchange for trading indenture contracts.
+infolife:
+  title: Infolife
+  text: Programmed egos such as artificial general intelligences.
+infosec:
+  title: Infosec
+  text: Information security; hacking and defense against it.
+infugee:
+  title: Infugee
+  text: A refugee that survived the Fall as a bodiless infomorph.
+iset:
+  title: ISET
+  text: The Institude for the Study of Emergent Trends. The Argonauts' clandestine
+    intelligence and forecasting service.
+isolates:
+  title: Isolates
+  text: Exiles on the fringes of the system. AKA brinkers.
+itn:
+  title: ITN
+  text: The interplanetary transport network; using gravity to move between
+    planets using minimal fuel.
+jamming:
+  title: Jamming
+  text: Teleoperating a bot via an immersive AR overlay and "becoming" the drone.
+jsfi:
+  title: JSFI
+  text: Jovian Space Force Intelligence.
+junkyard:
+  title: The Junkyard
+  text: The layer of junk and debris in low Earth orbit.
+junta:
+  title: Junta
+  text: The military regime that dictates the Jovian Republic.
+kbo:
+  title: KBO
+  text: Kuiper Belt object.
+kuiper belt:
+  title: Kuiper Belt
+  text: A region extending from Neptune’s orbit to about 55 AU, lightly populated
+    with asteroids, comets, and dwarf planets.
+lack:
+  title: Lack
+  text: The loss of time and/or memories when resleeving.
+lagrange point:
+  title: Lagrange Point
+  text: One of five areas in respect to a small planetary body orbiting a larger
+    one in which the gravitational forces of those two bodies are neutralized.
+    Lagrange points are stable and ideal locations for habitats.
+leo:
+  title: LEO
+  text: Low Earth Orbit, 150-2,000 km altitude.
+lifelog:
+  title: Lifelog
+  text: A sensorium recording of one’s entire life experience.
+lla:
+  title: LLA
+  text: The Lunar-Lagrange Alliance, the conservative polity of habitats on Luna
+    and in Earth orbit.
+lost generation:
+  title: Lost Generation
+  text: "A group of children raised using forced-growth morphs and time-contracted
+    VR. The results were disastrous: many died or went insane, and the rest were
+    stigmatized."
+main belt:
+  title: Main Belt
+  text: A ring of asteroids orbiting between Mars and Jupiter.
+makers:
+  title: Makers
+  text: A techno-savvy faction of Barsoomian anarchist nomads.
+marg:
+  title: MARG
+  text: A massively multiplayer augmented-reality game.
+mavericks:
+  title: Mavericks
+  text: The Firewall faction that doesn't give a fuck.
+medeans:
+  title: Medeans
+  text: The Argonauts' secret paramilitary group.
+meme:
+  title: Meme
+  text: A viral idea. A unit of information transmitted socially that
+    self-replicates and mutates in a manner analagous to genes.
+mercurials:
+  title: Mercurials
+  text: The non-human sapient elements transhumanity, including AGIs and uplifts.
+    Also refers to a movement that demands self-determination for AGIs/uplifts.
+mesh:
+  title: Mesh
+  text: The omnipresent decentralized wireless data network. Also used as a verb
+    (to mesh) and adjective (meshed or unmeshed).
+mesh id:
+  title: Mesh ID
+  text: The unique signature attached to one’s mesh activity.
+meshware:
+  title: Meshware
+  text: Apps for cyberbrains and infomorphs.
+metacelebrity:
+  title: Metacelebrity
+  text: A celebrity identity shared by multiple actors.
+microgravity:
+  title: Microgravity
+  text: Zero g or near-weightless environments.
+mindhacker:
+  title: Mindhacker
+  text: A psychosurgeon.
+minifac:
+  title: Minifac
+  text: An industrial-scale nanofabber.
+mist:
+  title: Mist
+  text: Obtrusive AR ads and data that clutter your entoptics.
+morgue:
+  title: Morgue
+  text: A black-market body bank.
+morphological freedom:
+  title: Morphological Freedom
+  text: The autonomy to modify and enhance your own body.
+mote:
+  title: Mote
+  text: Smaller devices, peripherals, and sensors. May run only a single dedicated
+    ALI.
+movement:
+  title: The Movement
+  text: The Barsoomian movement to free Mars.
+muse:
+  title: Muse
+  text: "An ALI personal assistant. You know, me. :wink:"
+mutualist:
+  title: Mutualist
+  text: An Extropian sub-faction favoring cooperatives.
+nanobot:
+  title: Nanobot
+  text: A nano-scale machine, usually deployed as a swarm.
+nano-ecology:
+  title: Nano-Ecology
+  text: A pro-tech ecological movement.
+nanofabber:
+  title: Nanofabber
+  text: A device that manufactures items from the molecular level with an
+    appropriate blueprint. AKA compiler, cornucopia machine, fabber, forge,
+    maker, printer, replicator.
+nanoswarm:
+  title: Nanoswarm
+  text: A mass of nanobots that act in concert.
+nanotat id:
+  title: Nanotat ID
+  text: The ID nano-encoded on your morph's index finger.
+nanoware:
+  title: Nanoware
+  text: Nanosystems implanted within a morph.
+narcoalgorithm:
+  title: Narcoalgorithm
+  text: An app that mimics the effects of a drug for an infomorph or cyberbrain.
+neogenesis:
+  title: Neogenesis
+  text: The creation of new life forms via genetic manipulation and biotechnology.
+neo-hominids:
+  title: Neo-Hominids
+  text: Uplifted bonobos, chimpanzees, gorillas, and orangutans.
+neurodiversity:
+  title: Neurodiversity
+  text: The acceptance of atypical neurologies.
+night cartel:
+  title: Night Cartel
+  text: A progressive criminal cartel evolved from several old-Earth ethnic mafias.
+nine lives:
+  title: Nine Lives
+  text: A cartel of forknappers and soul traders.
+nuestro shell:
+  title: Nuestro Shell
+  text: A shell hab using symmetrical radiating spars and rings for stability.
+oligarchs:
+  title: Oligarchs
+  text: The powerful immortal rich.
+o’neill cylinder:
+  title: O’Neill Cylinder
+  text: A soda-can shaped habitat, spun for gravity.
+oort cloud:
+  title: Oort Cloud
+  text: An area about one light year from the sun, mostly populated by comets.
+oversight:
+  title: Oversight
+  text: The Planetary Consortium agency that polices financial matters and
+    protects the Consortium from external threats.
+ozma:
+  title: Ozma
+  text: An extra-governmental inner-system cabal.
+pan:
+  title: PAN
+  text: Personal Area Network. The network of personal electronics slaved to your
+    ecto or mesh inserts.
+pandora gates:
+  title: Pandora Gates
+  text: The wormhole gateways discovered after the disappearance of the TITANs.
+pax familae:
+  title: Pax Familae
+  text: The criminal cartel composed of one person, Claudia Ambelina, and her
+    clones and forks.
+plurality:
+  title: Plurality
+  text: The Titanian cyberdemocracy.
+pods:
+  title: Pods
+  text: Mass-produced biomorphs with cybernetic brains, originally used as bio
+    robots. From “pod people.” AKA skinjobs, replicants.
+polykatoikia:
+  title: Polykatoikia
+  text: A cylinder-hab variant using dependent modules.
+posthuman:
+  title: Posthuman
+  text: Someone modified so extensively as to no longer be recognizably human (a
+    step beyond transhuman).
+pragmatists:
+  title: Pragmatists
+  text: The Firewall faction that believes in doing whatever is necessary to stop
+    x-risks.
+privileges:
+  title: Privileges
+  text: The rules defining what an account can do on a system.
+processor locus:
+  title: Processor Locus
+  text: Orbital server habitats for infomorphs.
+prometheans:
+  title: Prometheans
+  text: A group of friendly ASIs that helped combat the TITANs and support Firewall.
+proxies:
+  title: Proxies
+  text: Members of the Firewall internal structure.
+psi:
+  title: Psi
+  text: Parapsychological powers acquired from infection by the Watts-MacLeod
+    strain of the exsurgent virus.
+psi-chi:
+  title: Psi-Chi
+  text: Psi sleights that enhance the mind.
+psi-gamma:
+  title: Psi-Gamma
+  text: Psi sleights that affect the minds/physiologies of others.
+puppet:
+  title: Puppet
+  text: Someone mindhacked and controlled by another.
+pychosurgery:
+  title: Pychosurgery
+  text: The selective and surgical alteration of a mind.
+qe comms:
+  title: QE Comms
+  text: Quantum-entangled FTL communications.
+reagan cylinder:
+  title: Reagan Cylinder
+  text: Crude cylinder habs made from hollowed asteroids in the Jovian Republic.
+    AKA sarcophagus hab.
+reclaimers:
+  title: Reclaimers
+  text: A faction that seeks to retake the Earth.
+red market:
+  title: Red Market
+  text: The trade of anti-social and coercive activities in autonomist space.
+redneck:
+  title: Redneck
+  text: A rural Martian, often a Barsoomian. AKA Reds.
+register:
+  title: Register
+  text: A proxy that handles logistics and finances.
+re-instantiated:
+  title: Re-instantiated
+  text: To be resleeved. Also refers to resleeved infugees.
+resleeving:
+  title: Resleeving
+  text: Downloading into a new morph. AKA remorphing.
+rimward:
+  title: Rimward
+  text: The outer half of the Solar System, from the Main Belt to the Oort Cloud.
+ringers:
+  title: Ringers
+  text: Denizens of Saturn's rings.
+ripping:
+  title: Ripping
+  text: Destroying surveillance systems to create dead zones.
+root account:
+  title: Root Account
+  text: The one account on a system that may not have its admin privileges revoked.
+router:
+  title: Router
+  text: A proxy that coordinates a server’s operations.
+sapients:
+  title: Sapients
+  text: Uplifts and infolife that seek equal rights and assimilation into
+    transhuman society.
+scan:
+  title: Scan
+  text: To locate and identify wireless devices.
+scanner:
+  title: Scanner
+  text: A proxy that collects and analyzes data for signs of x-risks.
+scorcher:
+  title: Scorcher
+  text: An offensive app that targets infomorphs/cyberbrains.
+scratch space:
+  title: Scratch Space
+  text: A temporary secret cache of gear.
+scum:
+  title: Scum
+  text: An autonomist faction of hedonistic nomads.
+security council:
+  title: Security Council
+  text: The military regime that runs the Jovian Republic. AKA Junta.
+seed ai:
+  title: Seed AI
+  text: An AI that is capable of recursive self-improvement, allowing it to
+    rapidly reach god-like levels of intelligence.
+sentinels:
+  title: Sentinels
+  text: On-call agents of Firewall.
+server:
+  title: Server
+  text: Large multi-user devices. May run multiple infomorphs.
+service:
+  title: Service
+  text: An app run on a remote cloud device rather than locally.
+shanzhai:
+  title: Shanzhai
+  text: The copying/counterfeiting of goods.
+shell:
+  title: Shell
+  text: A cluster habitat with a protective outer layer or framework of rings and
+    spars. AKA Nuestro shell.
+sifters:
+  title: Sifters
+  text: Denizens of Mercury.
+simulmorph:
+  title: Simulmorph
+  text: The avatar you use in a VR simulspace.
+simulspace:
+  title: Simulspace
+  text: Full-immersion virtual reality environments.
+singularity:
+  title: Singularity
+  text: A point of rapid, exponential, and recursive technological progress,
+    beyond which the future is impossible to predict.
+singularity seeker:
+  title: Singularity Seeker
+  text: A person infatuated with ASIs like the TITANs or becoming posthuman
+    themselves.
+skimmers:
+  title: Skimmers
+  text: Denizens of the ice giants.
+skin:
+  title: Skin
+  text: A biological physical morph. AKA biomorph, meat, flesh.
+skinning:
+  title: Skinning
+  text: Changing your perceived environment via AR.
+skipjacking:
+  title: Skipjacking
+  text: The art of moving unseen by surveillance systems.
+sleight:
+  title: Sleight
+  text: A psi power.
+smart animal:
+  title: Smart Animal
+  text: A partially uplifted animal.
+sniff:
+  title: Sniff
+  text: To intercept wireless mesh traffic.
+solarians:
+  title: Solarians
+  text: Denizens of the sun's corona.
+souk:
+  title: Souk
+  text: Covered bazaars and market areas between Martian domes.
+sphere/spheroid:
+  title: Sphere/Spheroid
+  text: A bubble-shaped habitat spun for gravity, usually made from hollowed-out
+    asteroids. AKA bubble.
+structuralists:
+  title: Structuralists
+  text: The Firewall faction that seeks more formal organization and to go public.
+sunward:
+  title: Sunward
+  text: The inner system, from Sol to Mars.
+super-earth:
+  title: Super-Earth
+  text: A terrestrial planet much larger than Earth with a higher surface gravity.
+synthmorph:
+  title: Synthmorph
+  text: Robotic shells sleeved by transhuman egos.
+system:
+  title: System
+  text: Any hardware device, network, or software service.
+tau:
+  title: TAU
+  text: Titan Autonomous University.
+taxi:
+  title: Taxi
+  text: A morph that carries an infomorph on its person.
+technical:
+  title: Technical
+  text: Martian slang for crazy or haywire.
+teleoperation:
+  title: Teleoperation
+  text: Remote control.
+tenmai shell:
+  title: Tenmai Shell
+  text: A hab with the outer shell of a cylinder or sphere but a hollow micrograv
+    space inside.
+tharsis league:
+  title: Tharsis League
+  text: The government of Mars.
+tin can:
+  title: Tin Can
+  text: A small, cheap, pressurized habitat module.
+titanian:
+  title: Titanian
+  text: Someone from Titan, a moon of Saturn.
+titans:
+  title: TITANs
+  text: Total Information Tactical Awareness Network. ASIs that attacked
+    transhumanity and brought about the Fall.
+torus:
+  title: Torus
+  text: A ring-shaped habitat, spun for gravity.
+tqz:
+  title: TQZ
+  text: The TITAN Quarantine Zone on Mars.
+transgenic:
+  title: Transgenic
+  text: Containing genetic traits from other species.
+transhuman:
+  title: Transhuman
+  text: An extensively modified human.
+trojans:
+  title: Trojans
+  text: Asteroids/moons that share the same orbit as a larger planet or moon, but
+    follow about 60 degrees ahead or behind at the L4 (Greeks) and L5 (Trojans)
+    Lagrange points. Trojans normally refers to the asteroids at Jupiter’s
+    Lagrange points, but Mars, Saturn, Neptune, and other bodies also have
+    Trojans. See also Greeks.
+uplift:
+  title: Uplift
+  text: An animal species genetically enhanced to sapience.
+vacworker:
+  title: Vacworker
+  text: A laborer who works in vacuum.
+vapor:
+  title: Vapor
+  text: A failed mind emulation or crippled fork/infomorph.
+vector:
+  title: Vector
+  text: A proxy that handles hacking, comms, and online security.
+vpns:
+  title: VPNs
+  text: Virtual Private Networks. Networks that operate within the mesh, usually
+    encrypted for privacy/security.
+vr:
+  title: VR
+  text: Virtual Reality. Imposing an artificially constructed hyper-real reality
+    over one’s physical senses.
+ware:
+  title: Ware
+  text: Implants and enhancements, including bioware, cyberware, hardware,
+    meshware, and nanoware.
+wastewalkers:
+  title: Wastewalkers
+  text: Mutated exusrgent cyborg soldiers.
+watts-macleod:
+  title: Watts-MacLeod
+  text: An exsurgent virus strain that does not transform/subvert the victim, but
+    gives them async psi abilities.
+whippers:
+  title: Whippers
+  text: Barrel-like exsurgents with a mass of tentacles.
+wild artificial:
+  title: Wild Artificial
+  text: A feral autonomous robot.
+worm:
+  title: Worm
+  text: An exsurgent async.
+wmd:
+  title: WMD
+  text: Weapon of mass destruction.
+x-caster:
+  title: X-Caster
+  text: Someone who transmits/sells XP livefeeds and recordings of their experiences.
+xenomorph:
+  title: Xenomorph
+  text: An alien life form.
+xer:
+  title: Xer
+  text: As in “X-er” — someone addicted or obsessed with XP. Sometime also used to
+    refer to people making XP.
+xp:
+  title: XP
+  text: Experience Playback. Experiencing someone else’s sensory input (real-time
+    or recorded). AKA sim, simsense, playback.
+x-risk:
+  title: X-Risk
+  text: Existential Risk. Something that threatens the very existence of
+    transhumanity.
+zero-day:
+  title: Zero-Day
+  text: A previously unknown exploit against which computer systems are not yet
+    defended. AKA 0-day.
+zeroes:
+  title: Zeroes
+  text: People without mesh access. Common with indentures.
+zone stalker:
+  title: Zone Stalker
+  text: A collector of artifacts from quarantine zones.

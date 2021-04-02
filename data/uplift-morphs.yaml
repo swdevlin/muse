@@ -1,0 +1,95 @@
+neo-avians:
+  title: Neo-Avians
+  text: >
+    Neo-avians include ravens, crows, and gray parrots uplifted to human-level
+    intelligence. Their physical sizes are much larger than their non-uplifted
+    cousins (to the size of a human child), with larger heads for their
+    increased brain size. Numerous transgenic modifications have been made to
+    their wings, allowing them to retain limited flight capabilities at 1 g,
+    but giving them a more bat-like physiology so they can bend and fold
+    better and adding primitive digits for basic tool manipulation. Their toes
+    are also more articulated and now accompanied with an opposable thumb.
+    Neo-avians have adapted well to microgravity environments, and are favored
+    for their small size and reduced resource use.
+
+    **Cost**: 0 MP • **Avail**: 50
+
+    **WT**: 5 • **DUR**: 25 • **DR**: 38
+
+    <:Insight:821743329297301504>2   <:Moxie:821743387328643104>1   <:Vigor:821743354303479829>0   <:Flex:821743231124897854>0
+neo-bonobo:
+  title: Neo-Bonobo
+  text: >
+    Like other neo-hominids, uplifted bonobo and chimpanzee morphs feature
+    enhanced intelligence and bipedal frames. Their long arms and
+    prehensile feet are a boon for climbing and maneuvering in microgravity
+    environments. They retain the body hair of their forebears, though it
+    is a common cultural practice to dye, stylize, or otherwise manipulate
+    it. Transgenic vocal systems allow them to speak as humans do.
+
+    **Cost**: 1 MP • **Avail**: 50
+
+    **WT**: 6 • **DUR**: 30 • **DR**: 45
+
+    <:Insight:821743329297301504>0   <:Moxie:821743387328643104>2   <:Vigor:821743354303479829>1   <:Flex:821743231124897854>0
+neo-chimp:
+  references: neo-bonobo
+neo-chimpanzee:
+  references: neo-bonobo
+neo-gorilla:
+  title: Neo-Gorilla
+  text: >
+    Neo-gorillas benefit from enhanced cognition and upright stances like other
+    neo-hominids, though they are not as adept at climbing. They stand roughly
+    as tall as humans and have stronger and larger frames.
+
+    **Cost**: 3 MP • **Avail**: 40
+
+    **WT**: 9 • **DUR**: 45 • **DR**: 68
+
+    <:Insight:821743329297301504>0   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>3   <:Flex:821743231124897854>1
+neo-neanderthal:
+  title: Neo-Neanderthal
+  text: >
+    This morph is derived from fossilized Neanderthal DNA, uplifted and
+    enhanced to transhuman equivalence. Neanderthal morphs appear
+    muscular with a heavy bone structure, distinctively long skulls,
+    heavy brow ridges, and weak chins. Pale complexions and red hair are
+    common features.
+
+    **Cost**: 2 MP • **Avail**: 35
+
+    **WT**: 7 • **DUR**: 35 • **DR**: 53
+
+    <:Insight:821743329297301504>0   <:Moxie:821743387328643104>1   <:Vigor:821743354303479829>2   <:Flex:821743231124897854>1
+neo-octopus:
+  title: Neo-Octopus
+  text: >
+    Colloquially known as “octomorphs,” these uplifted octopus sleeves are quite
+    useful in zero-gravity environments. They retain eight arms, their chameleon
+    ability to change skin color, ink sacs, and a sharp beak. They also have
+    increased brain mass and longevity, can breathe both air and water, and lack
+    a skeletal structure so they can squeeze through tight spaces. Octomorphs
+    typically crawl along in zero gravity using their arm suckers and expelling
+    air for propulsion; in low gravity they walk on two of their arms. Their
+    eyes have been enhanced with color vision, provide a 360-degree field of
+    vision, and rotationally adjust to keep the slitshaped pupil aligned with
+    “up.” A transgenic vocal system allows them to speak.
+
+    **Cost**: 3 MP • **Avail**: 35
+
+    **WT**: 6 • **DUR**: 30 • **DR**: 45
+
+    <:Insight:821743329297301504>1   <:Moxie:821743387328643104>1   <:Vigor:821743354303479829>1   <:Flex:821743231124897854>2
+neo-orangutan:
+  title: Neo-Orangutan
+  text: >
+    Neo-orangutans have the same uplifted features as their neo-hominid cousins.
+    Compared to humans, their legs are shorter and arms longer. Neo-orangutans
+    tend to be more solitary than social.
+
+    **Cost**: 3 MP • **Avail**: 35
+
+    **WT**: 7 • **DUR**: 35 • **DR**: 53
+
+    <:Insight:821743329297301504>1   <:Moxie:821743387328643104>1   <:Vigor:821743354303479829>2   <:Flex:821743231124897854>0
