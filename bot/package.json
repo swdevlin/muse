@@ -1,0 +1,35 @@
+{
+  "name": "muse",
+  "version": "0.1.0",
+  "description": "A muse meshed through Discord",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swdevlin/muse.git"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "mesh",
+    "muse",
+    "eclipsephase"
+  ],
+  "author": "Shawn W. Devlin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/swdevlin/muse/issues"
+  },
+  "homepage": "https://github.com/swdevlin/muse#readme",
+  "dependencies": {
+    "discord": "^0.8.2",
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
+    "knex": "^0.21.17",
+    "natural": "^3.0.1",
+    "pg": "^8.5.1",
+    "yaml": "^1.10.0"
+  }
+}
