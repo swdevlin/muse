@@ -395,7 +395,11 @@ genehacker:
     even new life.
 geo:
   title: GEO
-  text: Geosynchronous orbit, 35,786 km altitude over the equator.
+  text: >
+    Geosynchronous Orbit. 35,786 kilometers above sea level and close to the
+    equatorial plane, matching Earth's sidereal rotation period. Objects in
+    geosynchronous orbit (with no inclination) appear to be in a fixed position
+    from the ground.
 ghostrider:
   title: Ghostrider
   text: An infomorph carried in a special implant.
@@ -424,6 +428,10 @@ hardware:
 headhunter:
   title: Headhunter
   text: A TITAN machine that collects heads for uploading.
+heo:
+  title: HEO
+  text: >
+    High Earth Orbit. Above 35,786 kilometers above sea level.
 hidden concern:
   title: Hidden Concern
   text: A neo-octopus crime cartel based on Ceres.
@@ -516,7 +524,11 @@ lagrange point:
     Lagrange points are stable and ideal locations for habitats.
 leo:
   title: LEO
-  text: Low Earth Orbit, 150-2,000 km altitude.
+  text: >
+    Low Earth Orbit, 150-2,000 km above sea level. Currently, the lower end of
+    this range is restricted territory, defended by an interdiction cordon of
+    killsats between 300 and 350 kilometers up that will shoot down anything
+    attempting to move past them in either direction.
 lifelog:
   title: Lifelog
   text: A sensorium recording of one’s entire life experience.
@@ -548,6 +560,10 @@ meme:
   title: Meme
   text: A viral idea. A unit of information transmitted socially that
     self-replicates and mutates in a manner analagous to genes.
+meo:
+  title: MEO
+  text: >
+    Medium Earth Orbit. Between 2.000 and 35.786 kilometers above sea level.
 mercurials:
   title: Mercurials
   text: The non-human sapient elements transhumanity, including AGIs and uplifts.

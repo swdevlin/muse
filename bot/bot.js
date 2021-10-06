@@ -37,8 +37,12 @@ const podMorphs = YAML.parse(file);
 file = fs.readFileSync(path.resolve(__dirname, '../data/aptitudes.yaml'), 'utf8');
 const aptitudes = YAML.parse(file);
 
-file = fs.readFileSync(path.resolve(__dirname, '../campaign.yaml'), 'utf8');
-const campaign = YAML.parse(file);
+const campaignFile = path.resolve(__dirname, '../campaign.yaml');
+let campaign = {};
+if (fs.existsSync(campaignFile)) {
+    file = fs.readFileSync(campaignFile, 'utf8');
+    campaign = YAML.parse(file);
+}
 
 const muse = Object.assign(
   {}, m,
@@ -66,6 +70,7 @@ const queries = [
     'who is ',
     'who are ',
     'describe ',
+    'look up ',
     'what about ',
     'tell me about ',
     'do you know about ',
