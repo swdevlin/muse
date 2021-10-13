@@ -7,61 +7,58 @@ const version = '0.2';
 
 const muse_prefix = process.env.MUSE_PREFIX || 'muse';
 
-let file = fs.readFileSync( path.resolve(__dirname, './data/muse.yaml'), 'utf8');
-const m = YAML.parse(file);
-
-file = fs.readFileSync(path.resolve(__dirname, './data/skills.yaml'), 'utf8');
-const skills = YAML.parse(file);
-
-file = fs.readFileSync(path.resolve(__dirname, './data/morphs.yaml'), 'utf8');
-const morphs = YAML.parse(file);
-
-file = fs.readFileSync(path.resolve(__dirname, './data/bio-morphs.yaml'), 'utf8');
-const bioMorphs = YAML.parse(file);
-
-file = fs.readFileSync(path.resolve(__dirname, './data/info-morphs.yaml'), 'utf8');
-const infoMorphs = YAML.parse(file);
-
-file = fs.readFileSync(path.resolve(__dirname, './data/uplift-morphs.yaml'), 'utf8');
-const upliftMorphs = YAML.parse(file);
-
-file = fs.readFileSync(path.resolve(__dirname, './data/synth-morphs.yaml'), 'utf8');
-const synthMorphs = YAML.parse(file);
-
-file = fs.readFileSync(path.resolve(__dirname, './data/pod-morphs.yaml'), 'utf8');
-const podMorphs = YAML.parse(file);
-
-file = fs.readFileSync(path.resolve(__dirname, './data/aptitudes.yaml'), 'utf8');
-const aptitudes = YAML.parse(file);
-
-file = fs.readFileSync(path.resolve(__dirname, './data/ware.yaml'), 'utf8');
-const wares = YAML.parse(file);
-
-const campaignFile = path.resolve(__dirname, './campaign.yaml');
-let campaign = {};
-if (fs.existsSync(campaignFile)) {
-    file = fs.readFileSync(campaignFile, 'utf8');
-    campaign = YAML.parse(file);
+const keyJoin = (obj) => {
+	return Object.keys(obj).join(', ');
 }
 
-const muse = Object.assign(
-  {}, m,
-  skills, aptitudes,
-  morphs, bioMorphs, infoMorphs, upliftMorphs, synthMorphs, podMorphs,
-  campaign, wares
-);
-muse['skills'] = {title: 'Skills', text: 'The skills I know about are: ' + Object.keys(skills).join(', ')};
-muse['aptitudes'] = {title: 'Aptitudes', text: 'Your aptitudes represent your natural, inherent abilities. There are 6 aptitude scores: ' + Object.keys(skills).join(', ')};
+const parseYaml = (yamlPath) => {
+	if (fs.existsSync(yamlPath)) {
+		let file = fs.readFileSync(path.resolve(__dirname, yamlPath), 'utf8');
+		const parsed = YAML.parse(file);
+		return parsed;
+	}
+	console.error(`cant find '${yamlPath}'`);
+	if (yamlPath == "campaign.yaml") {
+		console.info("You can make your own campaign by renaming `campaign.yaml.template` to `campaign.yaml`");
+	}
+	return null;
+}
+
+let museConfig = {
+	m: './data/muse.yaml',
+	skills: './data/skills.yaml',
+	morphs: './data/morphs.yaml',
+	bioMorphs: './data/bio-morphs.yaml',
+	infoMorphs: './data/info-morphs.yaml',
+	upliftMorphs: './data/uplift-morphs.yaml',
+	synthMorphs: './data/synth-morphs.yaml',
+	podMorphs: './data/pod-morphs.yaml',
+	aptitudes: './data/aptitudes.yaml',
+	wares: './data/ware.yaml',
+	campaign: 'campaign.yaml'
+};
+
+const museData = {}
+for (cfgKey in museConfig) {
+	museData[cfgKey] = parseYaml(museConfig[cfgKey]);
+}
+
+const muse = Object.assign({}, ...Object.values(museData));
+
+muse['skills'] = {title: 'Skills', text: 'The skills I know about are: ' + keyJoin(museData.skills)};
+muse['aptitudes'] = {title: 'Aptitudes', text: 'Your aptitudes represent your natural, inherent abilities. There are 6 aptitude scores: ' + keyJoin(museData.aptitudes)};
 muse['ware'] = {
     title: 'Aptitudes',
     text: `Ware is a catch-all category for augmentations of different kinds. Unless otherwise noted, each ware item can only be installed in the same morph once, no matter if it is available in different forms.`
 };
-muse['biomorphs'].text += '\nCommon morphs are: ' + Object.keys(bioMorphs).join(', ');
-muse['infomorphs'].text += '\nCommon morphs are: ' + Object.keys(infoMorphs).join(', ');
-muse['podmorphs'].text += '\nCommon morphs are: ' + Object.keys(podMorphs).join(', ');
-muse['synthmorphs'].text += '\nCommon morphs are: ' + Object.keys(synthMorphs).join(', ');
-muse['upliftmorphs'].text += '\nCommon morphs are: ' + Object.keys(upliftMorphs).join(', ');
-muse['ware'].text += '\nAvailable augmentation wares are: ' + Object.keys(wares).join(', ');
+muse['biomorphs'].text += '\nCommon morphs are: ' + keyJoin(museData.bioMorphs);
+muse['infomorphs'].text += '\nCommon morphs are: ' + keyJoin(museData.infoMorphs);
+muse['podmorphs'].text += '\nCommon morphs are: ' + keyJoin(museData.podMorphs);
+muse['synthmorphs'].text += '\nCommon morphs are: ' + keyJoin(museData.synthMorphs);
+muse['upliftmorphs'].text += '\nCommon morphs are: ' + keyJoin(museData.upliftMorphs);
+muse['ware'].text += '\nAvailable augmentation wares are: ' + keyJoin(museData.wares);
 muse['muse'].text += ` I am version ${version}.`;
+
+console.log("Bot running...");
 
 module.exports = muse;
