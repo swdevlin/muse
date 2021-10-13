@@ -51,7 +51,7 @@ const muse = Object.assign(
   campaign, wares
 );
 muse['skills'] = {title: 'Skills', text: 'The skills I know about are: ' + Object.keys(skills).join(', ')};
-muse['aptitudes'] = {title: 'Aptitudes', text: 'Your aptitudes represent your natural, inherent abilities. There are 6 aptitude scores: ' + Object.keys(skills).join(', ')};
+muse['aptitudes'] = {title: 'Aptitudes', text: 'Your aptitudes represent your natural, inherent abilities. There are 6 aptitude scores: ' + Object.keys(aptitudes).join(', ')};
 muse['ware'] = {
     title: 'Aptitudes',
     text: `Ware is a catch-all category for augmentations of different kinds. Unless otherwise noted, each ware item can only be installed in the same morph once, no matter if it is available in different forms.`
