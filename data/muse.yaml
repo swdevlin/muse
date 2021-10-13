@@ -122,9 +122,6 @@ bioconservatives:
   text: An anti-technology movement that argues for strict regulation of
     nanofabrication, AI, uploading, forking, cognitive enhancements, and other
     disruptive technologies.
-bioware:
-  title: Bioware
-  text: Biological enhancements for biomorphs.
 blueprint:
   title: Blueprint
   text: The digital design file used to nanofabricate.
@@ -218,9 +215,6 @@ cyberbrain:
   title: Cyberbrain
   text: An artificial brain, housing an ego run in a software mind-state. Used in
     synthmorphs, pods, and some biomorphs.
-cyberware:
-  title: Cyberware
-  text: Artificial augmentations for biomorphs.
 cycler:
   title: Cycler
   text: A ship that travels between habitats using the ITN.
@@ -422,9 +416,6 @@ hamilton cylinder:
   title: Hamilton Cylinder
   text: A living, growing, nanoswarm-constructed cylinder hab with biological
     components.
-hardware:
-  title: Hardware
-  text: Enhancements for synthmorphs.
 headhunter:
   title: Headhunter
   text: A TITAN machine that collects heads for uploading.
@@ -575,9 +566,6 @@ mesh:
 mesh id:
   title: Mesh ID
   text: The unique signature attached to one’s mesh activity.
-meshware:
-  title: Meshware
-  text: Apps for cyberbrains and infomorphs.
 metacelebrity:
   title: Metacelebrity
   text: A celebrity identity shared by multiple actors.
@@ -629,9 +617,6 @@ nanoswarm:
 nanotat id:
   title: Nanotat ID
   text: The ID nano-encoded on your morph's index finger.
-nanoware:
-  title: Nanoware
-  text: Nanosystems implanted within a morph.
 narcoalgorithm:
   title: Narcoalgorithm
   text: An app that mimics the effects of a drug for an infomorph or cyberbrain.

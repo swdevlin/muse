@@ -34,6 +34,9 @@ const podMorphs = YAML.parse(file);
 file = fs.readFileSync(path.resolve(__dirname, './data/aptitudes.yaml'), 'utf8');
 const aptitudes = YAML.parse(file);
 
+file = fs.readFileSync(path.resolve(__dirname, './data/ware.yaml'), 'utf8');
+const wares = YAML.parse(file);
+
 const campaignFile = path.resolve(__dirname, './campaign.yaml');
 let campaign = {};
 if (fs.existsSync(campaignFile)) {
@@ -45,15 +48,20 @@ const muse = Object.assign(
   {}, m,
   skills, aptitudes,
   morphs, bioMorphs, infoMorphs, upliftMorphs, synthMorphs, podMorphs,
-  campaign
+  campaign, wares
 );
 muse['skills'] = {title: 'Skills', text: 'The skills I know about are: ' + Object.keys(skills).join(', ')};
 muse['aptitudes'] = {title: 'Aptitudes', text: 'Your aptitudes represent your natural, inherent abilities. There are 6 aptitude scores: ' + Object.keys(skills).join(', ')};
+muse['ware'] = {
+    title: 'Aptitudes',
+    text: `Ware is a catch-all category for augmentations of different kinds. Unless otherwise noted, each ware item can only be installed in the same morph once, no matter if it is available in different forms.`
+};
 muse['biomorphs'].text += '\nCommon morphs are: ' + Object.keys(bioMorphs).join(', ');
 muse['infomorphs'].text += '\nCommon morphs are: ' + Object.keys(infoMorphs).join(', ');
 muse['podmorphs'].text += '\nCommon morphs are: ' + Object.keys(podMorphs).join(', ');
 muse['synthmorphs'].text += '\nCommon morphs are: ' + Object.keys(synthMorphs).join(', ');
 muse['upliftmorphs'].text += '\nCommon morphs are: ' + Object.keys(upliftMorphs).join(', ');
+muse['ware'].text += '\nAvailable augmentation wares are: ' + Object.keys(wares).join(', ');
 muse['muse'].text += ` I am version ${version}.`;
 
 module.exports = muse;
