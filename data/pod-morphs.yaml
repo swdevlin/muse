@@ -1,81 +1,103 @@
-basic pod:
-  title: Basic Pod
-  text: >
-    These original general-purpose models are designed to keep the buyer/user
-    dependent on the manufacturer.
+topic: podmorphs
+title: Pod biomorphs
+text: >
+  Pods (a colloquialism derived from “pod people”) were originally
+  designed as biological androids. Their parts are vat-grown separately
+  using accelerated-growth processes and assembled with a number of
+  cybernetic system “short-cuts;” this entire process producing a functional
+  body in a fraction of the time it takes to clone a standard biomorph.
+  Cyberbrains replace their undeveloped gray matter. The first generations of
+  pods were operated by ALIs and primarily used in service industries where a
+  biological aesthetic was preferred to robots, in hazardous labor
+  industries, and for sex work. They were visually distinguished from normal
+  humans by stylized seamlined patterns in their skin, a designation that
+  remains common today. In the wake of the Fall and the subsequent demand for
+  more biomorphs, pods are now commonly sleeved by transhumans, especially
+  indentures, but they still often suffer a classist stigma. Pods lack
+  reproductive functions and are usually neuter. Non-human pods are
+  increasingly common.
 
-    **Cost**: 1 MP • **Avail**: 80
 
-    **WT**: 8 • **DUR**: 40 • **DR**: 80
+  Common morphs are:
+entries:
+  basic pod:
+    title: Basic Pod
+    text: >
+      These original general-purpose models are designed to keep the buyer/user
+      dependent on the manufacturer.
 
-    <:Insight:821743329297301504>4   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>0   <:Flex:821743231124897854>0
-novacrab:
-  title: Novacrab
-  text: >
-    Bioengineered from coconut crab and spider crab stock and grown to a larger
-    (human) size, novacrabs are ideal for hazardous work environments as well
-    as vacworker, police, or bodyguard duties. They climb and handle
-    microgravity well and can withstand a wide range of atmospheric pressure
-    (and sudden pressure changes) from vacuum to deep sea. They are equipped
-    with ten 2-meter long legs, massive claws, chitinous armor, compound eyes
-    (with human-equivalent image resolution), gills, dexterous manipulatory
-    digits on their fifth set of limbs, and transgenic vocal cords.
+      **Cost**: 1 MP • **Avail**: 80
 
-    **Cost**: 4 MP • **Avail**: 50
+      **WT**: 8 • **DUR**: 40 • **DR**: 80
 
-    **WT**: 9 • **DUR**: 45 • **DR**: 68
+      <:Insight:821743329297301504>4   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>0   <:Flex:821743231124897854>0
+  novacrab:
+    title: Novacrab
+    text: >
+      Bioengineered from coconut crab and spider crab stock and grown to a larger
+      (human) size, novacrabs are ideal for hazardous work environments as well
+      as vacworker, police, or bodyguard duties. They climb and handle
+      microgravity well and can withstand a wide range of atmospheric pressure
+      (and sudden pressure changes) from vacuum to deep sea. They are equipped
+      with ten 2-meter long legs, massive claws, chitinous armor, compound eyes
+      (with human-equivalent image resolution), gills, dexterous manipulatory
+      digits on their fifth set of limbs, and transgenic vocal cords.
 
-    <:Insight:821743329297301504>0   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>3   <:Flex:821743231124897854>0
-pleasure pod:
-  title: Pleasure Pod
-  text: >
-    Pleasure pods are faux humans intended for intimate entertainment purposes
-    and indulgent hedonism. Their biology includes extra nerve clusters in
-    their erogenous zones, fine motor control over certain muscle groups,
-    enhanced pheromones, sanitized metabolisms, and the capability to purr.
-    They are capable of switching between multiple sex configurations and
-    are often enhanced in other areas.
+      **Cost**: 4 MP • **Avail**: 50
 
-    **Cost**: 4 MP • **Avail**: 70
+      **WT**: 9 • **DUR**: 45 • **DR**: 68
 
-    **WT**: 6 • **DUR**: 30 • **DR**: 45
+      <:Insight:821743329297301504>0   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>3   <:Flex:821743231124897854>0
+  pleasure pod:
+    title: Pleasure Pod
+    text: >
+      Pleasure pods are faux humans intended for intimate entertainment purposes
+      and indulgent hedonism. Their biology includes extra nerve clusters in
+      their erogenous zones, fine motor control over certain muscle groups,
+      enhanced pheromones, sanitized metabolisms, and the capability to purr.
+      They are capable of switching between multiple sex configurations and
+      are often enhanced in other areas.
 
-    <:Insight:821743329297301504>0   <:Moxie:821743387328643104>3   <:Vigor:821743354303479829>0   <:Flex:821743231124897854>0
-security pod:
-  title: Security Pod
-  text: >
-    Security pods were originally manufactured as mass-produced AI-operated
-    soldiers for joint peacekeeping missions and enclave border/security
-    roles. Many were co-opted by the TITANs during the Fall, so they fell
-    out of favor for many years, but a demand for cheap mercenary morphs has
-    revived interest.
+      **Cost**: 4 MP • **Avail**: 70
 
-    **Cost**: 5 MP • **Avail**: 60
+      **WT**: 6 • **DUR**: 30 • **DR**: 45
 
-    **WT**: 7 • **DUR**: 35 • **DR**: 53
+      <:Insight:821743329297301504>0   <:Moxie:821743387328643104>3   <:Vigor:821743354303479829>0   <:Flex:821743231124897854>0
+  security pod:
+    title: Security Pod
+    text: >
+      Security pods were originally manufactured as mass-produced AI-operated
+      soldiers for joint peacekeeping missions and enclave border/security
+      roles. Many were co-opted by the TITANs during the Fall, so they fell
+      out of favor for many years, but a demand for cheap mercenary morphs has
+      revived interest.
 
-    <:Insight:821743329297301504>1   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>2   <:Flex:821743231124897854>1
-shaper:
-  title: Shaper
-  text: >
-    Shapers are designed for infiltration and disguise. They lack the
-    seamlines common to pods and incorporate ware that allows them
-    to alter their appearance. Favored by spies and criminals, they are
-    illegal in many habitats.
+      **Cost**: 5 MP • **Avail**: 60
 
-    **Cost**: 5 MP • **Avail**: 40
+      **WT**: 7 • **DUR**: 35 • **DR**: 53
 
-    **WT**: 7 • **DUR**: 35 • **DR**: 53
+      <:Insight:821743329297301504>1   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>2   <:Flex:821743231124897854>1
+  shaper:
+    title: Shaper
+    text: >
+      Shapers are designed for infiltration and disguise. They lack the
+      seamlines common to pods and incorporate ware that allows them
+      to alter their appearance. Favored by spies and criminals, they are
+      illegal in many habitats.
 
-    <:Insight:821743329297301504>1   <:Moxie:821743387328643104>2   <:Vigor:821743354303479829>0   <:Flex:821743231124897854>0
-worker pod:
-  title: Worker Pod
-  text: >
-    Heavily feature in menial-labor jobs that involve interaction with other
-    transhumans.
+      **Cost**: 5 MP • **Avail**: 40
 
-    **Cost**: 3 MP • **Avail**: 70
+      **WT**: 7 • **DUR**: 35 • **DR**: 53
 
-    **WT**: 8 • **DUR**: 40 • **DR**: 80
+      <:Insight:821743329297301504>1   <:Moxie:821743387328643104>2   <:Vigor:821743354303479829>0   <:Flex:821743231124897854>0
+  worker pod:
+    title: Worker Pod
+    text: >
+      Heavily feature in menial-labor jobs that involve interaction with other
+      transhumans.
 
-    <:Insight:821743329297301504>0   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>1   <:Flex:821743231124897854>1
+      **Cost**: 3 MP • **Avail**: 70
+
+      **WT**: 8 • **DUR**: 40 • **DR**: 80
+
+      <:Insight:821743329297301504>0   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>1   <:Flex:821743231124897854>1
