@@ -1,6 +1,8 @@
-const muse = require("../muse");
 const client = require("../client");
 const logger = require("../logger");
+const knex = require('../db/connection');
+const {sendEntry} = require("../helpers");
+const refresh = require("../commands/refresh");
 
 const muse_prefix = process.env.MUSE_PREFIX || 'muse';
 
@@ -22,9 +24,35 @@ const queries = [
   'what do you know about ',
 ];
 
-const sendEntry = async (msg, muse) => {
-  const text = `**${muse.title}**\n${muse.text}`;
-  await msg.reply(text);
+const reList = /[^$]\$list/;
+const reListReplace = /([^$])\$list/gm;
+
+const getChildren = async (topic, discord_id) => {
+  const topics = await knex('topic')
+    .select('title')
+    .join('discord_server', 'discord_server.id', 'topic.server_id')
+    .where({parent: topic, discord_id: discord_id});
+  return topics.map(t => t.title).join(', ');
+}
+
+const findEntry = async (topic, server_id) => {
+  const topics = await knex('topic')
+    .select('title', 'text', 'alias_for')
+    .join('discord_server', 'discord_server.id', 'topic.server_id')
+    .where({key: topic, discord_id: server_id});
+  if (topics.length === 1) {
+    const entry = topics[0];
+    if (entry.alias_for !== null) {
+      return await findEntry(entry.alias_for, server_id);
+    } else {
+      if (entry.text.match(reList)) {
+        const children = await getChildren(topic, server_id);
+        entry.text = entry.text.replace(reListReplace, "$1" + children);
+      }
+      return entry;
+    }
+  } else
+    return null;
 }
 
 const message = async (msg) => {
@@ -32,11 +60,17 @@ const message = async (msg) => {
   if (`${msg.author.username}#${msg.author.discriminator}` === client.user.tag)
     return;
 
-  const tokens = msg.content.split(' ');
+  let {content} = msg;
+  content = content.trim();
+  const tokens = content.split(' ');
   if (tokens < 2)
     return;
   if (!muse_prefix.startsWith(tokens[0]))
     return;
+
+  if (tokens[1] === '-refresh') {
+    return await refresh(msg);
+  }
 
   const {id: author_id} = msg.author;
   const {channel} = msg;
@@ -57,16 +91,20 @@ const message = async (msg) => {
       lookup = lookup.substr(4);
     if (lookup.startsWith('a '))
       lookup = lookup.substr(2);
-    if (muse[lookup]) {
-      await sendEntry(msg, muse[lookup]);
+
+    let entry = await findEntry(lookup, guild.id);
+    if (entry) {
+      await sendEntry(msg, entry);
     } else {
       const nos = lookup.replace(/s$/, "");
-      if (muse[nos])
-        await sendEntry(msg, muse[nos]);
+      entry = await findEntry(nos, guild.id);
+      if (entry)
+        await sendEntry(msg, entry);
       else {
         const pluss = lookup + 's';
-        if (muse[pluss])
-          await sendEntry(msg, muse[pluss]);
+        entry = await findEntry(pluss, guild.id);
+        if (entry)
+          await sendEntry(msg, entry);
         else
           await msg.reply(`no data found for ${lookup}`);
       }

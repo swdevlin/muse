@@ -1,35 +1,48 @@
-topic: aptitudes
-title: Aptitudes
-text: 'Your aptitudes represent your natural, inherent abilities. There are 6 aptitude scores:'
-entries:
-  cognition:
-    title: Cognition
-    text: >
-      Cognition (COG) represents your intelligence, problem-solving talent, and
-      capacity for logical analysis.
-  intuition:
-    title: Intuition
-    text: >
-      Intuition (INT) is your gut instinct and ability to evaluate on the fly.
-      It includes physical awareness, creativity, cleverness, and cunning.
-  reflexes:
-    title: Reflexes
-    text: >
-      Reflexes (REF) is your coordination, manual dexterity, nimbleness, balance,
-      and reaction speed.
-  savvy:
-    title: Savvy
-    text: >
-      Savvy (SAV) represents your social awareness, adaptability, empathy, and
-      ability to influence others.
-  somatics:
-    title: Somatics
-    text: >
-      Somatics (SOM) is how well you can exploit your morph’s physical
-      capabilities, including strength, stamina, and sustained positioning and
-      motion.
-  willpower:
-    title: Willpower
-    text: >
-      Willpower (WIL) is your self-control, mental fortitude, and strength
-      of personality.
+aptitudes:
+  title: Aptitudes
+  page: 36
+  text: >
+    Your aptitudes represent your natural, inherent abilities. There are 6 aptitude scores: $list
+cognition:
+  title: Cognition
+  page: 36
+  parent: aptitudes
+  text: >
+    Cognition (COG) represents your intelligence, problem-solving talent, and
+    capacity for logical analysis.
+intuition:
+  title: Intuition
+  page: 36
+  parent: aptitudes
+  text: >
+    Intuition (INT) is your gut instinct and ability to evaluate on the fly.
+    It includes physical awareness, creativity, cleverness, and cunning.
+reflexes:
+  title: Reflexes
+  page: 36
+  parent: aptitudes
+  text: >
+    Reflexes (REF) is your coordination, manual dexterity, nimbleness, balance,
+    and reaction speed.
+savvy:
+  title: Savvy
+  page: 36
+  parent: aptitudes
+  text: >
+    Savvy (SAV) represents your social awareness, adaptability, empathy, and
+    ability to influence others.
+somatics:
+  title: Somatics
+  page: 36
+  parent: aptitudes
+  text: >
+    Somatics (SOM) is how well you can exploit your morph’s physical
+    capabilities, including strength, stamina, and sustained positioning and
+    motion.
+willpower:
+  title: Willpower
+  page: 36
+  parent: aptitudes
+  text: >
+    Willpower (WIL) is your self-control, mental fortitude, and strength
+    of personality.

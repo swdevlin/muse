@@ -1,6 +1,7 @@
 const logger = require("../logger");
 const muse = require("../muse");
 const knex = require('../db/connection');
+const {populateMuse} = require("../helpers");
 
 const guildCreate = async guild => {
   try {
@@ -16,17 +17,8 @@ const guildCreate = async guild => {
     }).returning('id');
     id = parseInt(id);
 
-    // Populate muse data
-    for (const topic of Object.keys(muse)) {
-      await trx('topic').insert({
-        title: topic,
-        text: muse[topic].text,
-        custom: false,
-        modified: false,
-        alias_for: muse[topic].references,
-        server_id: id
-      });
-    }
+    await populateMuse(id, trx);
+
     await trx.commit();
 
     logger.info(`invited to server ${guild.id}`);

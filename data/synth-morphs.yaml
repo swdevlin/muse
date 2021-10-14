@@ -1,187 +1,200 @@
-topic: synthmorphs
-title: Synthmorphs
-text: >
-  Most synthmorph designs were originally intended to be robots, piloted by
-  ALIs. Robot forms are optimized to suit their function, and so a wide
-  variety of body plans exist. Robots designed to interact with transhumans
-  often have biped or quadruped walker frames, to better navigate transhuman
-  dwellings and spaces, but were often distinctly non-human in appearance.
-  Many feature a sort of symbolic “face,” to give transhumans something to
-  look at and interact with, but these were rarely realistic, so as to avoid
-  uncanny-valley creepiness.
+synthmorphs:
+  title: Synthmorphs
+  parent: morphs
+  text: >
+    Most synthmorph designs were originally intended to be robots, piloted by
+    ALIs. Robot forms are optimized to suit their function, and so a wide
+    variety of body plans exist. Robots designed to interact with transhumans
+    often have biped or quadruped walker frames, to better navigate transhuman
+    dwellings and spaces, but were often distinctly non-human in appearance.
+    Many feature a sort of symbolic “face,” to give transhumans something to
+    look at and interact with, but these were rarely realistic, so as to avoid
+    uncanny-valley creepiness.
 
-  Since the Fall, more synthmorphs have been designed specifically for
-  transhuman egos, as they are cheaper and quicker to make than biomorphs.
-  Without specialized robotic functions in mind, many of these synthmorph
-  designs feature anthropomorphic frames (androids and gynoids) specifically
-  tailored for egos used to human forms, including heads and distinctive
-  (though still non-realistic) faces. As transhumanity grows accustomed
-  to synthmorphs and more creative, however, innovative and unusual
-  synthmorph designs become more common-place.
+    Since the Fall, more synthmorphs have been designed specifically for
+    transhuman egos, as they are cheaper and quicker to make than biomorphs.
+    Without specialized robotic functions in mind, many of these synthmorph
+    designs feature anthropomorphic frames (androids and gynoids) specifically
+    tailored for egos used to human forms, including heads and distinctive
+    (though still non-realistic) faces. As transhumanity grows accustomed
+    to synthmorphs and more creative, however, innovative and unusual
+    synthmorph designs become more common-place.
 
 
-  Common morphs are:
-entries:
-  arachnoid:
-    title: Arachnoid
-    text: >
-      Arachnoid shells mimic the shapes of spiders, termites, ants, beetles, and
-      other arthropods. Three or four sets of pneumatic limbs are capable of
-      rotating around their meter-long torso, and an additional set of
-      manipulator arms near the head enables fine manipulation and tool use.
-      Arachnoids move by walking, hopping, extending omnidirectional mini-wheels
-      for skating movement, or by retracting their limbs and maneuvering with
-      vectored-air thrusters in microgravity.
+    Common morphs are: $list
+arachnoid:
+  title: Arachnoid
+  parent: synthmorphs
+  text: >
+    Arachnoid shells mimic the shapes of spiders, termites, ants, beetles, and
+    other arthropods. Three or four sets of pneumatic limbs are capable of
+    rotating around their meter-long torso, and an additional set of
+    manipulator arms near the head enables fine manipulation and tool use.
+    Arachnoids move by walking, hopping, extending omnidirectional mini-wheels
+    for skating movement, or by retracting their limbs and maneuvering with
+    vectored-air thrusters in microgravity.
 
-      **Cost**: 6 MP • **Avail**: 40
+    **Cost**: 6 MP • **Avail**: 40
 
-      **WT**: 11 • **DUR**: 55 • **DR**: 110
+    **WT**: 11 • **DUR**: 55 • **DR**: 110
 
-      <:Insight:821743329297301504>1   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>3   <:Flex:821743231124897854>0
-  case:
-    title: Case
-    text: >
-      Cases are mass-produced robotic shells, an affordable resleeving option for
-      the poor, though of notoriously poor quality. They are available in many
-      varieties to suit a client’s taste. Most case morphs are anthropomorphic,
-      with a thin framework body standing just shorter than an average human.
+    <:Insight:821743329297301504>1   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>3   <:Flex:821743231124897854>0
+case:
+  title: Case
+  parent: synthmorphs
+  text: >
+    Cases are mass-produced robotic shells, an affordable resleeving option for
+    the poor, though of notoriously poor quality. They are available in many
+    varieties to suit a client’s taste. Most case morphs are anthropomorphic,
+    with a thin framework body standing just shorter than an average human.
 
-      **Cost**: 0 MP • **Avail**: 100
+    **Cost**: 0 MP • **Avail**: 100
 
-      **WT**: 5 • **DUR**: 25 • **DR**: 50
+    **WT**: 5 • **DUR**: 25 • **DR**: 50
 
-      <:Insight:821743329297301504>0   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>0   <:Flex:821743231124897854>0
-  dragonfly:
-    title: Dragonfly
-    text: >
-      The dragonfly takes the shape of a meter long flexible shell with eight
-      wings, four manipulator limbs, and a prehensile tail. Capable of
-      near-silent flight in Earth gravity, dragonfly bots fare even better in
-      microgravity. Their wings operate independently and can rotate, allowing
-      for graceful maneuvering, hovering, and tight turns.
+    <:Insight:821743329297301504>0   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>0   <:Flex:821743231124897854>0
+dragonfly:
+  title: Dragonfly
+  parent: synthmorphs
+  text: >
+    The dragonfly takes the shape of a meter long flexible shell with eight
+    wings, four manipulator limbs, and a prehensile tail. Capable of
+    near-silent flight in Earth gravity, dragonfly bots fare even better in
+    microgravity. Their wings operate independently and can rotate, allowing
+    for graceful maneuvering, hovering, and tight turns.
 
-      **Cost**: 1 MP • **Avail**: 70
+    **Cost**: 1 MP • **Avail**: 70
 
-      **WT**: 5 • **DUR**: 25 • **DR**: 50
+    **WT**: 5 • **DUR**: 25 • **DR**: 50
 
-      <:Insight:821743329297301504>1   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>1   <:Flex:821743231124897854>0
-  flexbot:
-    title: Flexbot
-    text: A shape-changing synthmorph capable of joining with other flexbots in a
-      modular fashion to create larger shapes.
-  galatea:
-    title: Galatea
-    text: >
-      This high-end shell was designed to increase the appeal and social
-      acceptance of synthmorphs. Galateas look expensive and their mental
-      architecture is crafted to enhance the wearer’s personality and
-      charm. Though many media icons have embraced this morph’s novelty,
-      biochauvinists still view it as a monstrosity.
+    <:Insight:821743329297301504>1   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>1   <:Flex:821743231124897854>0
+flexbot:
+  title: Flexbot
+  parent: synthmorphs
+  text: >
+    A shape-changing synthmorph capable of joining with other flexbots in a
+    modular fashion to create larger shapes.
+galatea:
+  title: Galatea
+  parent: synthmorphs
+  text: >
+    This high-end shell was designed to increase the appeal and social
+    acceptance of synthmorphs. Galateas look expensive and their mental
+    architecture is crafted to enhance the wearer’s personality and
+    charm. Though many media icons have embraced this morph’s novelty,
+    biochauvinists still view it as a monstrosity.
 
-      **Cost**: 5 MP • **Avail**: 50
+    **Cost**: 5 MP • **Avail**: 50
 
-      **WT**: 8 • **DUR**: 40 • **DR**: 80
+    **WT**: 8 • **DUR**: 40 • **DR**: 80
 
-      <:Insight:821743329297301504>1   <:Moxie:821743387328643104>2   <:Vigor:821743354303479829>1   <:Flex:821743231124897854>1
-  reaper:
-    title: Reaper
-    text: >
-      The reaper is a combat morph in the form of an armored disc, so that it can
-      turn and present a thin profile to an enemy. Four legs/manipulating arms and
-      four weapon pods are folded inside its frame. It uses vector-thrust nozzles
-      to maneuver in microgravity and also takes advantage of an ionic drive for
-      fast movement over distance. Reapers are infamous due to military sims
-      and Fall XPs; bringing one into most habitats will undoubtedly raise
-      eyebrows if not get you arrested.
+    <:Insight:821743329297301504>1   <:Moxie:821743387328643104>2   <:Vigor:821743354303479829>1   <:Flex:821743231124897854>1
+reaper:
+  title: Reaper
+  parent: synthmorphs
+  text: >
+    The reaper is a combat morph in the form of an armored disc, so that it can
+    turn and present a thin profile to an enemy. Four legs/manipulating arms and
+    four weapon pods are folded inside its frame. It uses vector-thrust nozzles
+    to maneuver in microgravity and also takes advantage of an ionic drive for
+    fast movement over distance. Reapers are infamous due to military sims
+    and Fall XPs; bringing one into most habitats will undoubtedly raise
+    eyebrows if not get you arrested.
 
-      **Cost**: 12 MP • **Avail**: 10
+    **Cost**: 12 MP • **Avail**: 10
 
-      **WT**: 12 • **DUR**: 60 • **DR**: 120
+    **WT**: 12 • **DUR**: 60 • **DR**: 120
 
-      <:insight:821743329297301504>1   <:moxie:821743387328643104>0   <:vigor:821743354303479829>6   <:flex:821743231124897854>1
+    <:insight:821743329297301504>1   <:moxie:821743387328643104>0   <:vigor:821743354303479829>6   <:flex:821743231124897854>1
 
-      Armor 12/10
-  savant:
-    title: Savant
-    text: >
-      Developed by brinker hardware hackers, savants feature neural-state
-      enhancements that make them appealing to engineers, scientists, and
-      intellectuals.
+    Armor 12/10
+savant:
+  title: Savant
+  parent: synthmorphs
+  text: >
+    Developed by brinker hardware hackers, savants feature neural-state
+    enhancements that make them appealing to engineers, scientists, and
+    intellectuals.
 
-      **Cost**: 4 MP • **Avail**: 50
+    **Cost**: 4 MP • **Avail**: 50
 
-      **WT**: 7 • **DUR**: 35 • **DR**: 70
+    **WT**: 7 • **DUR**: 35 • **DR**: 70
 
-      <:Insight:821743329297301504>3   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>1   <:Flex:821743231124897854>1
-  slitheroid:
-    title: Slitheroid
-    text: >
-      Slitheroid shells take the form of a humanoid torso with retractable
-      arms atop a 2-meter-long segmented metallic snake. Slitheroids use
-      lateral undulation to move, though they can also pull themselves along
-      by their arms or coil, twist, and roll their bodies like a ball or hoop.
+    <:Insight:821743329297301504>3   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>1   <:Flex:821743231124897854>1
+slitheroid:
+  title: Slitheroid
+  parent: synthmorphs
+  text: >
+    Slitheroid shells take the form of a humanoid torso with retractable
+    arms atop a 2-meter-long segmented metallic snake. Slitheroids use
+    lateral undulation to move, though they can also pull themselves along
+    by their arms or coil, twist, and roll their bodies like a ball or hoop.
 
-      **Cost**: 5 MP • **Avail**: 50
+    **Cost**: 5 MP • **Avail**: 50
 
-      **WT**: 9 • **DUR**: 45 • **DR**: 90
+    **WT**: 9 • **DUR**: 45 • **DR**: 90
 
-      <:Insight:821743329297301504>0   <:Moxie:821743387328643104>1   <:Vigor:821743354303479829>3   <:Flex:821743231124897854>0
-  spare:
-    title: Spare
-    text: >
-      Spares are small, portable shells designed as a temporary replacement
-      sleeve should your primary morph be killed/destroyed. They are common
-      gear for gatecrashing missions. Packed as a flat 15-centimeter disc, when
-      activated they pop into a six-limbed spherical shape. Just plug your
-      original cortical stack in and you are ready to go. Built-in
-      stress-management systems help survivors handle the trauma of their recent death.
+    <:Insight:821743329297301504>0   <:Moxie:821743387328643104>1   <:Vigor:821743354303479829>3   <:Flex:821743231124897854>0
+spare:
+  title: Spare
+  parent: synthmorphs
+  text: >
+    Spares are small, portable shells designed as a temporary replacement
+    sleeve should your primary morph be killed/destroyed. They are common
+    gear for gatecrashing missions. Packed as a flat 15-centimeter disc, when
+    activated they pop into a six-limbed spherical shape. Just plug your
+    original cortical stack in and you are ready to go. Built-in
+    stress-management systems help survivors handle the trauma of their recent death.
 
-      **Cost**: 0 MP • **Avail**: 80
+    **Cost**: 0 MP • **Avail**: 80
 
-      **WT**: 3 • **DUR**: 15 • **DR**: 30
+    **WT**: 3 • **DUR**: 15 • **DR**: 30
 
-      <:Insight:821743329297301504>0   <:Moxie:821743387328643104>1   <:Vigor:821743354303479829>0   <:Flex:821743231124897854>0
-  steel morph:
-    title: Steel Morph
-    text: >
-      Like the galatea, this upscale shell was designed to counter biochauvinist
-      attitudes and make synthmorphs more appealing. Where the galatea is
-      optimized for social interaction, steel morphs provide enhanced physical
-      capabilities for both work and recreation.
+    <:Insight:821743329297301504>0   <:Moxie:821743387328643104>1   <:Vigor:821743354303479829>0   <:Flex:821743231124897854>0
+steel morph:
+  title: Steel Morph
+  parent: synthmorphs
+  text: >
+    Like the galatea, this upscale shell was designed to counter biochauvinist
+    attitudes and make synthmorphs more appealing. Where the galatea is
+    optimized for social interaction, steel morphs provide enhanced physical
+    capabilities for both work and recreation.
 
-      **Cost**: 5 MP • **Avail**: 50
+    **Cost**: 5 MP • **Avail**: 50
 
-      **WT**: 8 • **DUR**: 40 • **DR**: 80
+    **WT**: 8 • **DUR**: 40 • **DR**: 80
 
-      <:Insight:821743329297301504>0   <:Moxie:821743387328643104>1   <:Vigor:821743354303479829>3   <:Flex:821743231124897854>1
-  swarmanoid:
-    title: Swarmanoid
-    text: >
-      Swarmanoids are swarms composed of hundreds of insect-sized microbots. Each
-      individual “bug” is capable of crawling, rolling, hopping several meters,
-      or using nanocopter fan blades for airlift. The cyberbrain, cortical stack,
-      and sensor systems are distributed throughout the swarm. Though the swarm
-      can “meld” together into various loose shapes, it is incapable of physical
-      tasks like grabbing, lifting, or holding. Individual bots are linked by
-      radio and laser and are quite capable of interfacing with electronics.
-      Swarmanoids follow swarm rules ▶344.
+    <:Insight:821743329297301504>0   <:Moxie:821743387328643104>1   <:Vigor:821743354303479829>3   <:Flex:821743231124897854>1
+swarmanoid:
+  title: Swarmanoid
+  parent: synthmorphs
+  text: >
+    Swarmanoids are swarms composed of hundreds of insect-sized microbots. Each
+    individual “bug” is capable of crawling, rolling, hopping several meters,
+    or using nanocopter fan blades for airlift. The cyberbrain, cortical stack,
+    and sensor systems are distributed throughout the swarm. Though the swarm
+    can “meld” together into various loose shapes, it is incapable of physical
+    tasks like grabbing, lifting, or holding. Individual bots are linked by
+    radio and laser and are quite capable of interfacing with electronics.
+    Swarmanoids follow swarm rules ▶344.
 
-      **Cost**: 3 MP • **Avail**: 60
+    **Cost**: 3 MP • **Avail**: 60
 
-      **WT**: — • **DUR**: 50 • **DR**: 100
+    **WT**: — • **DUR**: 50 • **DR**: 100
 
-      <:Insight:821743329297301504>2   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>0   <:Flex:821743231124897854>0
-  synths:
-    title: Synths
-    text: >
-      Synths are even more humanoid than cases and of better quality. They are
-      commonly deployed for labor-intensive tasks in environments not suited for
-      biomorphs or for people who need a body quickly and cheaply or simply on a
-      transient basis. Most designs are anthropomorphic, though various
-      alternatives exist, including some based on uplift physiology.
+    <:Insight:821743329297301504>2   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>0   <:Flex:821743231124897854>0
+synths:
+  title: Synths
+  parent: synthmorphs
+  text: >
+    Synths are even more humanoid than cases and of better quality. They are
+    commonly deployed for labor-intensive tasks in environments not suited for
+    biomorphs or for people who need a body quickly and cheaply or simply on a
+    transient basis. Most designs are anthropomorphic, though various
+    alternatives exist, including some based on uplift physiology.
 
-      **Cost**: 3 MP • **Avail**: 80
+    **Cost**: 3 MP • **Avail**: 80
 
-      **WT**: 8 • **DUR**: 40 • **DR**: 80
+    **WT**: 8 • **DUR**: 40 • **DR**: 80
 
-      <:Insight:821743329297301504>0   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>1   <:Flex:821743231124897854>1
+    <:Insight:821743329297301504>0   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>1   <:Flex:821743231124897854>1

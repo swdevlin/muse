@@ -1,11 +1,5 @@
-topic: morphs
-title: Morphs
-text: >
-  A physical body. AKA sleeve, shell, suit, jacket, form. Morphs are
-  categorized as: Biomorphs, Infomorphs, Podmorphs, Synthmorphs, or
-  Upliftmorphs.
-entries:
-  pod biomorphs:
-    references: podmorphs
-  pods:
-    references: podmorphs
+morphs:
+  title: Morphs
+  text: >
+    A physical body. AKA sleeve, shell, suit, jacket, form. Morphs are
+    categorized as: $list
