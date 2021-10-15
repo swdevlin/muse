@@ -243,3 +243,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+/bot/campaign.yaml

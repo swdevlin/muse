@@ -35,3 +35,4 @@ class Topic(models.Model):
     alias_for = models.TextField(null=True)
     server = models.ForeignKey(Server, on_delete=models.CASCADE)
     parent = models.TextField(null=True)
+    page = models.TextField(null=True)

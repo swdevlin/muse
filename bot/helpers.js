@@ -9,6 +9,7 @@ const populateMuse = async (server_id, trx) => {
       custom: false,
       modified: false,
       parent: muse[topic].parent,
+      page: muse[topic].page,
       alias_for: muse[topic].references,
       server_id: server_id
     });
@@ -40,7 +41,7 @@ const getServerId = async (discord_id, trx) => {
 const sendEntry = async (msg, entry) => {
   let text;
   if (entry.page)
-    text = `**${entry.title}** ▶${entry.page}\n${entry.text}`;
+    text = `**${entry.title}**   :book: ${entry.page}\n${entry.text}`;
   else
     text = `**${entry.title}**\n${entry.text}`;
   await msg.reply(text);

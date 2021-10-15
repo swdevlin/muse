@@ -37,7 +37,7 @@ const getChildren = async (topic, discord_id) => {
 
 const findEntry = async (topic, server_id) => {
   const topics = await knex('topic')
-    .select('title', 'text', 'alias_for')
+    .select('title', 'text', 'alias_for', 'page')
     .join('discord_server', 'discord_server.id', 'topic.server_id')
     .where({key: topic, discord_id: server_id});
   if (topics.length === 1) {
