@@ -1,4 +1,5 @@
 const muse = require("./muse");
+const logger = require("./logger");
 
 const populateMuse = async (server_id, trx) => {
   for (const topic of Object.keys(muse)) {
@@ -47,10 +48,17 @@ const sendEntry = async (msg, entry) => {
   await msg.reply(text);
 }
 
+const hackDetected = async (msg) => {
+  const text = 'infosec check failed';
+  logger.info(`permissions fail - ${msg.guild.id} ${msg.author.id} ${msg.content}`);
+  await msg.reply(text);
+}
+
 module.exports = {
   deleteCoreMuseEntries: deleteCoreMuseEntries,
   deleteMuseEntries: deleteMuseEntries,
   getServerId: getServerId,
   populateMuse: populateMuse,
   sendEntry: sendEntry,
+  hackDetected: hackDetected,
 }
