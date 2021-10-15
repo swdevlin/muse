@@ -31,7 +31,8 @@ const getChildren = async (topic, discord_id) => {
   const topics = await knex('topic')
     .select('title')
     .join('discord_server', 'discord_server.id', 'topic.server_id')
-    .where({parent: topic, discord_id: discord_id});
+    .where({parent: topic, discord_id: discord_id})
+    .orderBy('title');
   return topics.map(t => t.title).join(', ');
 }
 
