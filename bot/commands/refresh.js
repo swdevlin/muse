@@ -1,20 +1,27 @@
 const logger = require("../logger");
 const knex = require('../db/connection');
-const {populateMuse, getServerId, deleteCoreMuseEntries} = require("../helpers");
+const { Permissions } = require('discord.js');
+const {populateMuse, getServerId, deleteCoreMuseEntries, hackDetected} = require("../helpers");
 
 const refresh = async (msg) => {
   const {content, channel} = msg;
   const {guild} = channel;
+
   if (content.endsWith('-refresh confirm')) {
     try {
-      const trx = await knex.transaction();
-      const id = await getServerId(guild.id, trx);
-      await deleteCoreMuseEntries(guild.id, trx);
-      await populateMuse(id, trx);
-      await trx.commit();
+      const member = msg.guild.member(msg.author);
+      if (member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) {
+        const trx = await knex.transaction();
+        const id = await getServerId(guild.id, trx);
+        await deleteCoreMuseEntries(guild.id, trx);
+        await populateMuse(id, trx);
+        await trx.commit();
 
-      logger.info(`core muse entries updated for ${guild.id}`);
-      await msg.reply('Core muse entries have been updated.')
+        logger.info(`core muse entries updated for ${guild.id}`);
+        await msg.reply('Core muse entries have been updated.')
+      } else
+        await hackDetected(msg);
+
     } catch(err) {
         logger.error(err);
     }
