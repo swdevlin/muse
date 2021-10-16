@@ -1,5 +1,4 @@
 const logger = require("../logger");
-const muse = require("../muse");
 const knex = require('../db/connection');
 const {populateMuse, populateCampaign} = require("../helpers");
 
