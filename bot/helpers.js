@@ -1,5 +1,8 @@
 const muse = require("./muse");
 const logger = require("./logger");
+const fs = require("fs");
+const path = require("path");
+const YAML = require("yaml");
 
 const populateMuse = async (server_id, trx) => {
   for (const topic of Object.keys(muse)) {
@@ -13,7 +16,25 @@ const populateMuse = async (server_id, trx) => {
       page: muse[topic].page,
       alias_for: muse[topic].references,
       server_id: server_id
-    });
+    }).onConflict(['server_id', 'key']).merge();
+  }
+}
+
+const populateCampaign = async (server_id, trx) => {
+  let file = fs.readFileSync( path.resolve(__dirname, 'campaign.yaml'), 'utf8');
+  const campaign = YAML.parse(file);
+  for (const topic of Object.keys(campaign)) {
+    await trx('topic').insert({
+      title: campaign[topic].title,
+      key: topic,
+      text: campaign[topic].text,
+      custom: true,
+      modified: false,
+      parent: campaign[topic].parent,
+      page: campaign[topic].page,
+      alias_for: campaign[topic].references,
+      server_id: server_id
+    }).onConflict(['server_id', 'key']).merge();
   }
 }
 
@@ -59,6 +80,7 @@ module.exports = {
   deleteMuseEntries: deleteMuseEntries,
   getServerId: getServerId,
   populateMuse: populateMuse,
+  populateCampaign: populateCampaign,
   sendEntry: sendEntry,
   hackDetected: hackDetected,
 }

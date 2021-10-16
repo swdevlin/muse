@@ -1,7 +1,7 @@
 const logger = require("../logger");
 const muse = require("../muse");
 const knex = require('../db/connection');
-const {populateMuse} = require("../helpers");
+const {populateMuse, populateCampaign} = require("../helpers");
 
 const guildCreate = async guild => {
   try {
@@ -18,6 +18,7 @@ const guildCreate = async guild => {
     id = parseInt(id);
 
     await populateMuse(id, trx);
+    await populateCampaign(id, trx);
 
     await trx.commit();
 
