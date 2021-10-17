@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+    <div class="goodbye">
+        {% if username %}
+        <h2>Goodbye {{ name }}#{{ discriminator }}!</h2>
+        {% else %}
+         <h2>Goodbye!</h2>
+        {% endif %}
+        <p>It looks like you've logged out. If that was a mistake, go ahead and click the "Login with Discord" button in the top right to log back in.</p>
+    </div>
+{% endblock %}
