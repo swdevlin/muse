@@ -47,8 +47,6 @@ def get_context(request, include_servers=False):
 
 def authenticate(request):
     if not request.user.is_anonymous:
-        # return the user to the admin portal?
-        # return render(request, 'index.html', context=get_context(request))
         return HttpResponseRedirect(reverse('dashboard'))
 
     # do code exchange
