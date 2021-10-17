@@ -15,7 +15,10 @@ class Server(models.Model):
     joined_at = models.DateTimeField(default=timezone.now)
     icon = models.TextField(null=True)
 
-    admins = models.ManyToManyField(DiscordUser)
+    admins = models.ManyToManyField(DiscordUser, related_name='servers')
+
+    def __str__(self):
+        return f'{self.name} ({self.discord_id})'
 
 
 class Topic(models.Model):
@@ -36,3 +39,6 @@ class Topic(models.Model):
     server = models.ForeignKey(Server, on_delete=models.CASCADE)
     parent = models.TextField(null=True)
     page = models.TextField(null=True)
+
+    def __str__(self):
+        return f'{self.title} ({key})'
