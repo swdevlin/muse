@@ -12,7 +12,6 @@ class DiscordUser(AbstractUser):
     locale = models.TextField(blank=True, null=True)
     last_authenticated = models.DateTimeField('last_authenticated', blank=True, null=True)
     expires = models.DateTimeField('access_token_expiry', blank=True, null=True)
-    server_permissions = models.JSONField(default=dict, null=True)
 
     def __str__(self):
         return f'{self.name}#{self.discriminator}'

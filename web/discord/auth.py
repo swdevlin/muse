@@ -36,8 +36,7 @@ def get_context(request, include_servers=False):
                 servers[server.discord_id] = {
                     'name': server.name,
                     'owner': True if server.owner_id == request.user.username else False,
-                    'is_admin': True if request.user in server.admins.all() else False,
-                    'permissions': request.user.server_permissions.get(server.discord_id)
+                    'is_admin': True if request.user in server.admins.all() else False
                 }
             context.update({
                 'servers': servers
@@ -85,8 +84,6 @@ def authenticate(request):
             discriminator=response['discriminator'],
             email=response['email']
         )
-        if created:
-            discord_user.joined_at = datetime.datetime.now(tz=pytz.utc)
     else:
         return HttpResponse(status=response.status_code, content=response.text)
 
@@ -117,11 +114,6 @@ def authenticate(request):
             s.admins.add(discord_user)
         elif discord_user in s.admins.all():
             s.admins.remove(discord_user)
-
-        discord_user.server_permissions.update({
-            server['id']: permissions
-        })
-        discord_user.save()
 
     login(request, discord_user)
 
