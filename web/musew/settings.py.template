@@ -54,10 +54,13 @@ ROOT_URLCONF = 'musew.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.jinja2.Jinja2'
-        ,
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'BACKEND': 'django.template.backends.jinja2.Jinja2',
+        'DIRS': [BASE_DIR / 'templates'],
+        'APP_DIRS': True
+    },
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -126,3 +129,20 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+DISCORD = {
+    'authorize_url': 'https://discord.com/api/oauth2/authorize',
+    'token_url': 'https://discord.com/api/oauth2/token',
+    'revoke_url': 'https://discord.com/api/oauth2/token/revoke',
+    'client_id': '',
+    'client_secret': '',
+    'redirect_uri': '',
+    'api_base_url': 'https://discord.com/api',
+    'current_user_endpoint': 'https://discord.com/api/users/@me',
+    'current_user_guilds_endpoint': 'https://discord.com/api/users/@me/guilds',
+}
+
+if not DISCORD['redirect_uri'] or not DISCORD['client_id'] or not DISCORD['client_secret']:
+    raise Exception('ah ah ah, looks like you forgot to set the discord credentials and redirect URI!'
+
+AUTH_USER_MODEL = 'users.DiscordUser'
