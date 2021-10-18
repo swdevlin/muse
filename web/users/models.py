@@ -3,7 +3,6 @@ from django.contrib.auth.models import AbstractUser
 
 
 class DiscordUser(AbstractUser):
-    username = models.TextField(unique=True)  # Discord ID
     name = models.TextField(blank=True, null=True)  # Discord Username
     discriminator = models.TextField(blank=True, null=True)
     access_token = models.TextField(blank=True, null=True)
