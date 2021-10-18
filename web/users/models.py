@@ -10,7 +10,6 @@ class DiscordUser(AbstractUser):
     verified = models.BooleanField(blank=True, null=True)
     avatar = models.TextField(blank=True, null=True)
     locale = models.TextField(blank=True, null=True)
-    joined_at = models.DateTimeField('joined_at', blank=True, null=True)
     last_authenticated = models.DateTimeField('last_authenticated', blank=True, null=True)
     expires = models.DateTimeField('access_token_expiry', blank=True, null=True)
     server_permissions = models.JSONField(default=dict, null=True)
