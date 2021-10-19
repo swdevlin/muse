@@ -3,6 +3,7 @@ const logger = require("./logger");
 const fs = require("fs");
 const path = require("path");
 const YAML = require("yaml");
+const knex = require("./db/connection");
 
 const populateMuse = async (server_id, trx) => {
   for (const topic of Object.keys(muse)) {
@@ -75,6 +76,38 @@ const hackDetected = async (msg) => {
   await msg.reply(text);
 }
 
+const reList = /[^$]\$list/;
+const reListReplace = /([^$])\$list/gm;
+
+const getChildren = async (topic, discord_id) => {
+  const topics = await knex('topic')
+    .select('title')
+    .join('discord_server', 'discord_server.id', 'topic.server_id')
+    .where({parent: topic, discord_id: discord_id})
+    .orderBy('title');
+  return topics.map(t => t.title).join(', ');
+}
+
+const findEntry = async (topic, server_id) => {
+  const topics = await knex('topic')
+    .select('title', 'text', 'alias_for', 'page')
+    .join('discord_server', 'discord_server.id', 'topic.server_id')
+    .where({key: topic, discord_id: server_id});
+  if (topics.length === 1) {
+    const entry = topics[0];
+    if (entry.alias_for !== null) {
+      return await findEntry(entry.alias_for, server_id);
+    } else {
+      if (entry.text.match(reList)) {
+        const children = await getChildren(topic, server_id);
+        entry.text = entry.text.replace(reListReplace, "$1" + children);
+      }
+      return entry;
+    }
+  } else
+    return null;
+}
+
 module.exports = {
   deleteCoreMuseEntries: deleteCoreMuseEntries,
   deleteMuseEntries: deleteMuseEntries,
@@ -83,4 +116,5 @@ module.exports = {
   populateCampaign: populateCampaign,
   sendEntry: sendEntry,
   hackDetected: hackDetected,
+  findEntry: findEntry,
 }

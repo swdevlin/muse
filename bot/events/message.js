@@ -1,8 +1,8 @@
 const client = require("../client");
 const logger = require("../logger");
-const knex = require('../db/connection');
-const {sendEntry} = require("../helpers");
+const {sendEntry, findEntry} = require("../helpers");
 const refresh = require("../commands/refresh");
+const randomTopic = require("../commands/random");
 
 const muse_prefix = process.env.MUSE_PREFIX || 'muse';
 
@@ -24,38 +24,6 @@ const queries = [
   'what do you know about ',
 ];
 
-const reList = /[^$]\$list/;
-const reListReplace = /([^$])\$list/gm;
-
-const getChildren = async (topic, discord_id) => {
-  const topics = await knex('topic')
-    .select('title')
-    .join('discord_server', 'discord_server.id', 'topic.server_id')
-    .where({parent: topic, discord_id: discord_id})
-    .orderBy('title');
-  return topics.map(t => t.title).join(', ');
-}
-
-const findEntry = async (topic, server_id) => {
-  const topics = await knex('topic')
-    .select('title', 'text', 'alias_for', 'page')
-    .join('discord_server', 'discord_server.id', 'topic.server_id')
-    .where({key: topic, discord_id: server_id});
-  if (topics.length === 1) {
-    const entry = topics[0];
-    if (entry.alias_for !== null) {
-      return await findEntry(entry.alias_for, server_id);
-    } else {
-      if (entry.text.match(reList)) {
-        const children = await getChildren(topic, server_id);
-        entry.text = entry.text.replace(reListReplace, "$1" + children);
-      }
-      return entry;
-    }
-  } else
-    return null;
-}
-
 const message = async (msg) => {
   // ignore our own messages
   if (`${msg.author.username}#${msg.author.discriminator}` === client.user.tag)
@@ -71,6 +39,10 @@ const message = async (msg) => {
 
   if (tokens[1] === '-refresh') {
     return await refresh(msg);
+  }
+
+  if (tokens[1] === '-random') {
+    return await randomTopic(msg);
   }
 
   const {id: author_id} = msg.author;
