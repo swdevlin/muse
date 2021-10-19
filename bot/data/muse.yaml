@@ -46,6 +46,7 @@ app:
   text: Software that performs a specific function for a user.
 argonauts:
   title: Argonauts
+  page: 160
   text: A union of technoprogressive scientists that promote responsible and
     ethical use of technology.
 ar:
@@ -92,6 +93,7 @@ backups:
     another extinction event.
 barsoomians:
   title: Barsoomians
+  page: 160
   text: A movement supporting Martian independence from hypercorp control, allied
     with the autonomists.
 basilisk:
@@ -653,7 +655,7 @@ oversight:
     protects the Consortium from external threats.
 ozma:
   title: Ozma
-  text: An extra-governmental inner-system cabal.
+  references: project ozma
 pan:
   title: PAN
   text: Personal Area Network. The network of personal electronics slaved to your
@@ -689,6 +691,10 @@ privileges:
 processor locus:
   title: Processor Locus
   text: Orbital server habitats for infomorphs.
+project ozma:
+  title: Project Ozma
+  page: 155
+  text: An extra-governmental inner-system cabal.
 prometheans:
   title: Prometheans
   text: A group of friendly ASIs that helped combat the TITANs and support Firewall.
@@ -874,6 +880,7 @@ tenmai shell:
     space inside.
 tharsis league:
   title: Tharsis League
+  page: 155
   text: The government of Mars.
 tin can:
   title: Tin Can
