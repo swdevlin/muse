@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}An error has occurred{% endblock %}
+
+{% block content %}
+    <div>
+        <div class="errorlist">
+            {{ error }}
+            {{ error_description }}
+        </div>
+    </div>
+{% endblock %}

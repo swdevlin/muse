@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <div>
+    {% if request.user.is_anonymous %}
+        <h2>Hello mysterious stranger,</h2>
+        <p>looks like you're not logged in. Click on the Login with Discord button in the top right to change that.</p>
+    {% else %}
+        <div class="profile">
+            <h2>Profile Details</h2>
+            <ul>
+                <li><strong>Username:</strong> {{ name }}#{{ discriminator }}</li>
+                <li><strong>Avatar Hash:</strong> {{ avatar }}</li>
+                <li><strong>Last Authenticated:</strong> {{ last_authenticated }}</li>
+                <li><strong>User locale:</strong> {{ locale }}</li>
+            </ul>
+        </div>
+        {% if servers %}
+            <h2>Servers</h2>
+            {% for server_id, values in servers.items %}
+            <div class="guild-{{ server_id }}">
+                <ul>
+                    <li><strong>Server name:</strong> {{ values.name }}</li>
+                    <li><strong>Server Discord ID:</strong> {{ server_id }}</li>
+                    <li><strong>Server Owner:</strong> {{ values.owner }}</li>
+                    <li><strong>Server Administrator:</strong> {{ values.is_admin }}</li>
+                    <li><strong>Server Permissions:</strong> {{ values.permissions }}</li>
+                </ul>
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+    </div>
+{% endblock %}
