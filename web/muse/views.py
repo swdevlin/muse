@@ -32,7 +32,7 @@ def dashboard(request):
 def login(request):
     url_params = f"?client_id={discord['client_id']}&redirect_uri={discord['redirect_uri']}"
     return HttpResponseRedirect(
-        discord['authorize_url'] + url_params + "&response_type=code&scope=identify%20email%20connections%20guilds")
+        discord['authorize_url'] + url_params + "&response_type=code&scope=identify%20email%20guilds")
 
 
 def logout(request):
