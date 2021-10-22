@@ -3,8 +3,9 @@ const logger = require("../logger");
 const {sendEntry, findEntry} = require("../helpers");
 const refresh = require("../commands/refresh");
 const randomTopic = require("../commands/random");
+const knex = require('../db/connection');
 
-const muse_prefix = process.env.MUSE_PREFIX || 'muse';
+const cache = require('../cache');
 
 const queries = [
   'what is ',
@@ -24,17 +25,35 @@ const queries = [
   'what do you know about ',
 ];
 
+const getPrefix = async (guild_id) => {
+  const prefixKey = `${guild_id}:prefix`;
+  let prefix = await cache.get(prefixKey);
+  if (!prefix) {
+    const recs = await knex('discord_server').select('prefix').where({discord_id: guild_id});
+    if (recs.length === 1) {
+      prefix = recs[0].prefix;
+      await cache.set(prefixKey, prefix)
+    } else
+      prefix = process.env.MUSE_PREFIX;
+  }
+  return prefix;
+}
 const message = async (msg) => {
   // ignore our own messages
   if (`${msg.author.username}#${msg.author.discriminator}` === client.user.tag)
     return;
+
+  const {id: author_id} = msg.author;
+  const {channel} = msg;
+  const {guild} = channel;
 
   let {content} = msg;
   content = content.trim();
   const tokens = content.split(' ');
   if (tokens < 2)
     return;
-  if (!muse_prefix.startsWith(tokens[0]))
+  const prefix= await getPrefix(guild.id);
+  if (prefix !== tokens[0])
     return;
 
   if (tokens[1] === '-refresh') {
@@ -45,9 +64,6 @@ const message = async (msg) => {
     return await randomTopic(msg);
   }
 
-  const {id: author_id} = msg.author;
-  const {channel} = msg;
-  const {guild} = channel;
   try {
     tokens.shift();
     let lookup = tokens.join(' ').toLocaleLowerCase().trim();
