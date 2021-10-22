@@ -24,12 +24,14 @@
   },
   "homepage": "https://github.com/swdevlin/muse#readme",
   "dependencies": {
+    "async-redis": "^2.0.0",
     "discord": "^0.8.2",
-    "discord.js": "^12.5.1",
+    "discord.js": "^13",
     "dotenv": "^8.2.0",
     "knex": "^0.21.17",
     "natural": "^3.0.1",
     "pg": "^8.5.1",
+    "redis": "^4.0.0-rc.3",
     "winston": "^3.3.3",
     "yaml": "^1.10.0"
   }

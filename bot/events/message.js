@@ -1,10 +1,8 @@
 const client = require("../client");
 const logger = require("../logger");
 const {sendEntry, findEntry} = require("../helpers");
-const refresh = require("../commands/refresh");
-const randomTopic = require("../commands/random");
 const knex = require('../db/connection');
-
+const commands = require("../commands");
 const cache = require('../cache');
 
 const queries = [
@@ -56,13 +54,8 @@ const message = async (msg) => {
   if (prefix !== tokens[0])
     return;
 
-  if (tokens[1] === '-refresh') {
-    return await refresh(msg);
-  }
-
-  if (tokens[1] === '-random') {
-    return await randomTopic(msg);
-  }
+  if (commands[tokens[1]])
+    return await commands[tokens[1]].do(msg);
 
   try {
     tokens.shift();
