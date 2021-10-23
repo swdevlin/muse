@@ -19,6 +19,7 @@ class Commands {
   static command = '-commands';
 
   static async do(msg) {
+    const {guild} = msg.channel;
     const listOfCommands = Object.keys(commands).map(c => c).join(', ');
 
     const text = 'I know the following commands: ' + listOfCommands;
