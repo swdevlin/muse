@@ -39,6 +39,7 @@ class Topic(models.Model):
     server = models.ForeignKey(Server, on_delete=models.CASCADE)
     parent = models.TextField(null=True)
     page = models.TextField(null=True)
+    wiki_slug = models.TextField(null=True)
 
     def __str__(self):
-        return f'{self.title} ({key})'
+        return f'{self.title} ({self.key})'
