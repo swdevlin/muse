@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse
 
 from discord.auth import get_context, process_logout, discord
+from models import Topic
 from .forms import PersonalityForm
 
 sample_text = 'bacon ipsum dolor amet leberkas porchetta in dolore jerky rump tenderloin velit brisket occaecat ' \
@@ -54,31 +55,40 @@ def database(request):
     if request.user.is_anonymous:
         return HttpResponseRedirect(reverse('login_with_discord'))
     context = get_context(request, include_servers=True)
+    topics = Topic.objects.filter(server_id=request.user.servers.all().first())
     context.update({
-        'articles': [
+        'topics': [
+            {
+                'title': topics[i].title,
+                'text': topics[i].text
+            } for i in range(0, len(topics))
+        ]
+    })
+    context.update({
+        'topics': [
             {
                 'id': '001',
-                'title': 'First Article',
+                'title': 'First topic',
                 'text': sample_text
             },
             {
                 'id': '002',
-                'title': 'Second Article',
+                'title': 'Second topic',
                 'text': sample_text
             },
             {
                 'id': '003',
-                'title': 'Third Article',
+                'title': 'Third topic',
                 'text': sample_text
             },
             {
                 'id': '004',
-                'title': 'Fourth Article',
+                'title': 'Fourth topic',
                 'text': sample_text
             },
             {
                 'id': '005',
-                'title': 'Fifth Article',
+                'title': 'Fifth topic',
                 'text': sample_text
             }
         ],
@@ -90,7 +100,7 @@ def database(request):
             'factions',
         ]
     })
-    return render(request, f'article_database.html', context=context)
+    return render(request, f'database.html', context=context)
 
 
 def login(request):

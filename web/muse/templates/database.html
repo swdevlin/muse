@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    {% if request.user.is_anonymous %}
+    <div>
+        <h2>Hello mysterious stranger,</h2>
+        <p>looks like you're not logged in. Click on the Login with Discord button in the top right to change that.</p>
+    </div>
+    {% else %}
+        <div class="interface">
+            <div class="navigation">
+                <div class="tabs">
+                    <ul>
+                        {% for topic in topics %}
+                            <li>{{ topic }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="topic-viewer">
+                <div class="left-pane">
+                    <ul>
+                        {% for topic in topics %}
+                           <li id="list_id__{{ topic.id }}" class="topic_btn" onclick="displayItem('{{ topic.id }}')"><div class="topic_list_id">{{ topic.id }}</div><div class="topic_list_title">{{ topic.title }}</div></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="right-pane">
+                        <div class="topics">
+                        {% for topic in topics %}
+                            <div class="topic" id="topic__{{ topic.id }}">
+                                <div class="topic_id" id="topic_id__{{ topic.id }}">{{ topic.id }}</div>
+                                <div class="topic_title" id="topic_title__{{ topic.id }}">{{ topic.title }}</div>
+                                <div class="topic_content" id="topic_text__{{ topic.id }}">
+                                    {{ topic.text|linebreaks }}
+                                </div>
+                            </div>
+                        {% endfor %}
+                        </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            window.onload = function() {
+                var topics = document.getElementsByClassName('topic_btn');
+                topics[0].classList.toggle('selected');
+                document.getElementsByClassName('topic')[0].classList.toggle("show");
+            }
+
+            function displayItem(topic_item) {
+                var selected_choice = document.getElementById('list_id__'+ topic_item)
+                selected_choice.classList.add("selected");
+
+                var selected_topic = document.getElementById('topic__'+ topic_item)
+                selected_topic.classList.add("show");
+
+                var topic_list = document.getElementsByClassName("topic_btn");
+                var topics = document.getElementsByClassName("topic");
+
+                    var i;
+                    for (i = 0; i < topic_list.length; i++) {
+                        var topicChoice = topic_list[i];
+                        if (topicChoice.id !== selected_choice.id) {
+                            if (topicChoice.classList.contains('selected')) {
+                                topicChoice.classList.remove('selected');
+                            }
+                        }
+                        var topic = topics[i];
+                        if (topic.id !== selected_topic.id) {
+                            if (topic.classList.contains('show')) {
+                                topic.classList.remove('show');
+                            }
+                        }
+                    }
+            }
+        </script>
+    {% endif %}
+{% endblock %}

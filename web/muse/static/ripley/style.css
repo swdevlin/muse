@@ -289,24 +289,24 @@ h6 {
     font-weight: bold;
     box-shadow: 0 0 20px 0 rgba(156, 157, 173, 15);
 }
-.article_list_id {
+.topic_list_id {
     width: 2em;
     padding-left: 10px;
     float: left;
     transform: scale(1, .9);
 }
-.article_list_title {
+.topic_list_title {
 }
-.article_id {
+.topic_id {
     padding-left: 0.5em;
     margin-block-start: 0.4em;
 }
-.article_title {
+.topic_title {
     padding-left: 0.3em;
     font-size: 32px;
     transform: scale(1, 1.3);
 }
-.article_content {
+.topic_content {
     height: 75%;
     border-top: 1px solid #797979;
     margin-top: 2.5em;
@@ -315,14 +315,14 @@ h6 {
     position: relative;
     overflow-y: scroll;
 }
-.articles {
+.topics {
     min-width: 150px;
     overflow: auto;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.05);
     z-index: 1;
     color: #FFFFFFFF;
 }
-.article {
+.topic {
     display: none;
 }
 br {
