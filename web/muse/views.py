@@ -65,34 +65,34 @@ def database(request):
         ]
     })
     context.update({
-        'topics': [
-            {
-                'id': '001',
-                'title': 'First topic',
-                'text': sample_text
-            },
-            {
-                'id': '002',
-                'title': 'Second topic',
-                'text': sample_text
-            },
-            {
-                'id': '003',
-                'title': 'Third topic',
-                'text': sample_text
-            },
-            {
-                'id': '004',
-                'title': 'Fourth topic',
-                'text': sample_text
-            },
-            {
-                'id': '005',
-                'title': 'Fifth topic',
-                'text': sample_text
-            }
-        ],
-        'topics': [
+    #     'topics': [
+    #         {
+    #             'id': '001',
+    #             'title': 'First topic',
+    #             'text': sample_text
+    #         },
+    #         {
+    #             'id': '002',
+    #             'title': 'Second topic',
+    #             'text': sample_text
+    #         },
+    #         {
+    #             'id': '003',
+    #             'title': 'Third topic',
+    #             'text': sample_text
+    #         },
+    #         {
+    #             'id': '004',
+    #             'title': 'Fourth topic',
+    #             'text': sample_text
+    #         },
+    #         {
+    #             'id': '005',
+    #             'title': 'Fifth topic',
+    #             'text': sample_text
+    #         }
+    #     ],
+        'topic_categories': [
             'skills',
             'places',
             'weapons',
