@@ -1,6 +1,7 @@
 "use strict"
 
 const fs = require('fs');
+const logger = require("../logger");
 
 const commands = {};
 
@@ -14,5 +15,18 @@ fs.readdirSync(__dirname + '/').forEach(function(file) {
   }
 });
 
-module.exports = commands;
+class Commands {
+  static command = '-commands';
 
+  static async do(msg) {
+    const listOfCommands = Object.keys(commands).map(c => c).join(', ');
+
+    const text = 'I know the following commands: ' + listOfCommands;
+    await msg.reply(text);
+    logger.info(`command list for ${guild.id} ${msg.author.id}`);
+  }
+}
+
+commands[Commands.command] = Commands;
+
+module.exports = commands;
