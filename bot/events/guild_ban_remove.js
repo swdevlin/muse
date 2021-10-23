@@ -1,3 +1,5 @@
+"use strict"
+
 const logger = require("../logger");
 
 const guildBanRemove = async ban => {

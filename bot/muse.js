@@ -1,9 +1,11 @@
+"use strict"
+
 const fs = require('fs');
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, './.env') });
 const YAML = require('yaml');
 
-const version = '0.4';
+const version = '0.5';
 
 const files = fs.readdirSync(path.resolve(__dirname, './data/'));
 
@@ -20,5 +22,10 @@ for (const name of yamlFiles) {
 }
 
 muse['muse'].text += ` I am version ${version}.`;
+
+muse['about'] = {
+    title: 'About',
+    text: `An Eclipse Phase RPG AvLI muse meshed through Discord. Eclipse Phase is published by Posthuman Studios.`
+};
 
 module.exports = muse;

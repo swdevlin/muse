@@ -1,3 +1,5 @@
+"use strict"
+
 const guildMemberRemove = async msg => {
 };
 

@@ -1,3 +1,5 @@
+"use strict"
+
 const client = require("../client");
 const logger = require("../logger");
 const {sendEntry, findEntry} = require("../helpers");

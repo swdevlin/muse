@@ -1,3 +1,5 @@
+"use strict"
+
 const muse = require("./muse");
 const logger = require("./logger");
 const fs = require("fs");

@@ -1,3 +1,5 @@
+"use strict"
+
 const logger = require("../logger");
 const knex = require('../db/connection');
 const { Permissions } = require('discord.js');
@@ -12,8 +14,7 @@ class Refresh {
 
     if (content.endsWith('-refresh confirm')) {
       try {
-        const member = msg.guild.member(msg.author);
-        if (member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) {
+        if (msg.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) {
           const trx = await knex.transaction();
           const id = await getServerId(guild.id, trx);
           await deleteCoreMuseEntries(guild.id, trx);

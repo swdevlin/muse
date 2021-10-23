@@ -1,3 +1,5 @@
+"use strict"
+
 const logger = require("../logger");
 const knex = require('../db/connection');
 const {populateMuse, populateCampaign} = require("../helpers");
