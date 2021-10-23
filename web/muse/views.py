@@ -59,7 +59,7 @@ def database(request):
     context.update({
         'topics': [
             {
-                'id': topics[i].key,
+                'id': topics[i].key[0],
                 'title': topics[i].title,
                 'text': topics[i].text
             } for i in range(0, len(topics))
