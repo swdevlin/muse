@@ -14,6 +14,7 @@ class Server(models.Model):
     prefix = models.TextField(default='muse')
     joined_at = models.DateTimeField(default=timezone.now)
     icon = models.TextField(null=True)
+    wiki_url = models.URLField(null=True)
 
     admins = models.ManyToManyField(DiscordUser, related_name='servers')
 
