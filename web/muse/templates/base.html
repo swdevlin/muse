@@ -5,15 +5,14 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}{% endblock %}</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="{% static 'discord/style.css' %}">
+        {% with personality|add:'/style.css' as stylesheet %}
+            <link rel="stylesheet" type="text/css" href="{% static stylesheet %}">
+        {% endwith %}
     </head>
     <body>
         <div class="container">
             <div class="header">
-                <div class="header-left"><h6>Muse</h6></div>
+                <div class="header-left"><a href="{% url 'index' %}"><h1>MUSE</h1></a></div>
                 <div class="header-mid"><h6>{{ page_title }}</h6></div>
                 <div class="header-right">
                 {% if request.user.is_anonymous %}
@@ -23,6 +22,7 @@
                         <button onclick="displayDropdown()" class="dropdown-btn">{{ name }}#{{ discriminator }}</button>
                         <div id="account_menu" class="dropdown-content">
                             <a href="{% url 'dashboard' %}">Dashboard</a>
+                            <a href="{% url 'database' %}">Database</a>
                             <a href="{% url 'profile' %}">My profile</a>
                             <a href="{% url 'logout' %}">Logout</a>
                         </div>

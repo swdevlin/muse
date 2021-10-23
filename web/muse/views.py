@@ -3,7 +3,20 @@ from django.shortcuts import render
 from django.urls import reverse
 
 from discord.auth import get_context, process_logout, discord
+from .forms import PersonalityForm
 
+sample_text = 'bacon ipsum dolor amet leberkas porchetta in dolore jerky rump tenderloin velit brisket occaecat ' \
+              'lorem short loin aliquip culpa. cow culpa beef ribs do ea turkey venison pork belly veniam aliqua ut. ' \
+              'veniam tongue drumstick ham pork pancetta. landjaeger voluptate laborum sausage cow leberkas chislic ' \
+              'veniam ut. tempor ut ipsum adipisicing frankfurter. occaecat bacon qui jowl et aliqua esse culpa aute ' \
+              'bresaola. jowl bresaola andouille, anim culpa filet mignon eiusmod jerky labore fatback pork chop ' \
+              'boudin ullamco.\n\n' \
+              'sed nulla ut landjaeger pork belly nisi, incididunt beef ribs leberkas. dolor deserunt commodo beef ' \
+              'ribs. qui aute filet mignon rump cupim dolor, turkey sint in pork. beef enim boudin magna spare ribs ' \
+              'id sint ullamco et lorem pork loin sausage kielbasa.\n\n' \
+              'hamburger alcatra est leberkas pork pancetta jowl ipsum aliquip. corned beef occaecat kevin duis ' \
+              'prosciutto eiusmod ad ipsum pork chop tongue ball tip elit culpa. corned beef occaecat kevin duis ' \
+              'occaecat kevin duis prosciutto eiusmod ad ipsum pork chop tongue ball tip elit culpa.\n\n'
 
 def index(request):
     context = get_context(request)
@@ -11,22 +24,73 @@ def index(request):
         'page_title': 'Welcome',
         'page_text': 'This is still a work in progress and proof of concept.'
     })
-    return render(request, 'index.html', context=context)
+    return render(request, f'index.html', context=context)
 
 
 def profile(request):
+    if request.POST and not request.user.is_anonymous:
+        request.user.personality = request.POST.get('personality') or request.user.personality or 'default'
+        request.user.save()
+    if not request.user.is_anonymous:
+        personality = request.user.personality
+    else:
+        personality = 'default'
     context = get_context(request, include_servers=True)
     context.update({
-        'page_title': 'My Profile'
+        'page_title': 'My Profile',
+        'form': PersonalityForm(personality)
     })
-    return render(request, 'profile.html', context=context)
+    return render(request, f'profile.html', context=context)
 
 
 def dashboard(request):
     if request.user.is_anonymous:
         return HttpResponseRedirect(reverse('login_with_discord'))
     context = get_context(request, include_servers=True)
-    return render(request, 'dashboard.html', context=context)
+    return render(request, f'dashboard.html', context=context)
+
+
+def database(request):
+    if request.user.is_anonymous:
+        return HttpResponseRedirect(reverse('login_with_discord'))
+    context = get_context(request, include_servers=True)
+    context.update({
+        'articles': [
+            {
+                'id': '001',
+                'title': 'First Article',
+                'text': sample_text
+            },
+            {
+                'id': '002',
+                'title': 'Second Article',
+                'text': sample_text
+            },
+            {
+                'id': '003',
+                'title': 'Third Article',
+                'text': sample_text
+            },
+            {
+                'id': '004',
+                'title': 'Fourth Article',
+                'text': sample_text
+            },
+            {
+                'id': '005',
+                'title': 'Fifth Article',
+                'text': sample_text
+            }
+        ],
+        'topics': [
+            'skills',
+            'places',
+            'weapons',
+            'vehicles',
+            'factions',
+        ]
+    })
+    return render(request, f'article_database.html', context=context)
 
 
 def login(request):
@@ -36,9 +100,10 @@ def login(request):
 
 
 def logout(request):
-    context = {
+    context = get_context(request)
+    context.update({
         'page_title': 'Logged Out',
-        'page_text': ''
-    }
+        'page_text': '',
+    })
     process_logout(request, context)
-    return render(request, 'logout.html', context=context)
+    return render(request, f'logout.html', context=context)
