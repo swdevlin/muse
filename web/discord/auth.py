@@ -7,6 +7,7 @@ from django.urls import reverse
 from django.conf import settings
 from django.contrib.auth import login, logout
 
+import muse.models
 from muse.models import Server
 from users.models import DiscordUser
 
@@ -100,21 +101,26 @@ def authenticate(request):
     server_memberships = requests.request("GET", discord['current_user_guilds_endpoint'], headers=headers).json()
 
     for server in server_memberships:
-        s, created = Server.objects.get_or_create(
-            discord_id=server['id']
-        )
-        if server['owner']:
-            s.owner_id = discord_user.username
-        s.name = server['name']
-        s.icon = server['icon']
-        s.save()
-
         permissions = server['permissions']
         if permissions & 8 or permissions & 32:
+            s, created = Server.objects.get_or_create(
+                discord_id=server['id']
+            )
+            if server['owner']:
+                s.owner_id = discord_user.username
             s.admins.add(discord_user)
-        elif discord_user in s.admins.all():
-            s.admins.remove(discord_user)
-
+            s.name = server['name']
+            s.icon = server['icon']
+            s.save()
+        else:
+            try:
+                s = Server.objects.get(discord_id=server['id'])
+                if discord_user in s.admins.all():
+                    s.admins.remove(discord_user)
+                if len(s.admins.all()) <= 0:
+                    s.delete()
+            except Server.DoesNotExist:
+                pass
     login(request, discord_user)
 
     return HttpResponseRedirect(reverse('dashboard'))
