@@ -13,19 +13,17 @@ const yamlFiles = files.filter(function (file) {
     return path.extname(file) === ".yaml";
 });
 
-let muse = {};
+let file = fs.readFileSync(path.resolve(__dirname, 'data', 'muse.yaml'), 'utf8');
+let muse = YAML.parse(file);
 
 for (const name of yamlFiles) {
-    let file = fs.readFileSync( path.resolve(__dirname, 'data', name), 'utf8');
-    const y = YAML.parse(file);
-    muse = Object.assign(muse, y);
+    if (name !== 'muse.yaml') {
+        let file = fs.readFileSync(path.resolve(__dirname, 'data', name), 'utf8');
+        const y = YAML.parse(file);
+        muse = Object.assign(muse, y);
+    }
 }
 
 muse['muse'].text += ` I am version ${version}.`;
-
-muse['about'] = {
-    title: 'About',
-    text: `An Eclipse Phase RPG AvLI muse meshed through Discord. Eclipse Phase is published by Posthuman Studios.`
-};
 
 module.exports = muse;
