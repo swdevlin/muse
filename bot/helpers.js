@@ -16,6 +16,7 @@ const populateMuse = async (server_id, trx) => {
       custom: false,
       modified: false,
       parent: muse[topic].parent,
+      wiki_slug: muse[topic].wiki_slug,
       page: muse[topic].page,
       alias_for: muse[topic].references,
       server_id: server_id
@@ -33,6 +34,7 @@ const populateCampaign = async (server_id, trx) => {
       text: campaign[topic].text,
       custom: true,
       modified: false,
+      wiki_slug: campaign[topic].wiki_slug,
       parent: campaign[topic].parent,
       page: campaign[topic].page,
       alias_for: campaign[topic].references,
@@ -69,6 +71,8 @@ const sendEntry = async (msg, entry) => {
     text = `**${entry.title}**   :book: ${entry.page}\n${entry.text}`;
   else
     text = `**${entry.title}**\n${entry.text}`;
+  if (entry.wiki_slug)
+    text += `_ https://wiki.eclipsephase.com/index.php/${entry.wiki_slug} _`
   await msg.reply(text);
 }
 
@@ -92,7 +96,7 @@ const getChildren = async (topic, discord_id) => {
 
 const findEntry = async (topic, server_id) => {
   const topics = await knex('topic')
-    .select('title', 'text', 'alias_for', 'page')
+    .select('title', 'text', 'alias_for', 'page', 'wiki_slug')
     .join('discord_server', 'discord_server.id', 'topic.server_id')
     .where({key: topic, discord_id: server_id});
   if (topics.length === 1) {
