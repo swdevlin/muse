@@ -1,5 +1,6 @@
 infomorphs:
   title: Infomorphs
+  page: 67
   parent: morphs
   text: >
     Infomorphs are digital-only forms — they lack a physical body. They are
@@ -10,6 +11,7 @@ infomorphs:
     Common morphs are: $list
 agent:
   title: Agent
+  page: 67
   parent: infomorphs
   text: >
     Popular with network security specialists, penetration testers, and hackers,
@@ -22,6 +24,7 @@ agent:
     <:Insight:821743329297301504>4   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>0   <:Flex:821743231124897854>0
 digimorph:
   title: Digimorph
+  page: 67
   parent: infomorphs
   text: >
     Digimorphs are bare-bones mind emulations, though customizable and widely
@@ -35,6 +38,7 @@ digimorph:
     <:Insight:821743329297301504>0   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>0   <:Flex:821743231124897854>0
 ikon:
   title: Ikon
+  page: 67
   parent: infomorphs
   text: >
     Designed for online performers, media icons, and social networkers, this
@@ -47,6 +51,7 @@ ikon:
     <:Insight:821743329297301504>1   <:Moxie:821743387328643104>3   <:Vigor:821743354303479829>0   <:Flex:821743231124897854>0
 operator:
   title: Operator
+  page: 67
   parent: infomorphs
   text: >
     This infomorph is ideal for professions that involve drone remote

@@ -24,6 +24,7 @@ synthmorphs:
     Common morphs are: $list
 arachnoid:
   title: Arachnoid
+  page: 65
   parent: synthmorphs
   text: >
     Arachnoid shells mimic the shapes of spiders, termites, ants, beetles, and
@@ -41,6 +42,7 @@ arachnoid:
     <:Insight:821743329297301504>1   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>3   <:Flex:821743231124897854>0
 case:
   title: Case
+  page: 63
   parent: synthmorphs
   text: >
     Cases are mass-produced robotic shells, an affordable resleeving option for
@@ -55,6 +57,7 @@ case:
     <:Insight:821743329297301504>0   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>0   <:Flex:821743231124897854>0
 dragonfly:
   title: Dragonfly
+  page: 63
   parent: synthmorphs
   text: >
     The dragonfly takes the shape of a meter long flexible shell with eight
@@ -70,12 +73,14 @@ dragonfly:
     <:Insight:821743329297301504>1   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>1   <:Flex:821743231124897854>0
 flexbot:
   title: Flexbot
+  page: 66
   parent: synthmorphs
   text: >
     A shape-changing synthmorph capable of joining with other flexbots in a
     modular fashion to create larger shapes.
 galatea:
   title: Galatea
+  page: 64
   parent: synthmorphs
   text: >
     This high-end shell was designed to increase the appeal and social
@@ -91,6 +96,7 @@ galatea:
     <:Insight:821743329297301504>1   <:Moxie:821743387328643104>2   <:Vigor:821743354303479829>1   <:Flex:821743231124897854>1
 reaper:
   title: Reaper
+  page: 65
   parent: synthmorphs
   text: >
     The reaper is a combat morph in the form of an armored disc, so that it can
@@ -110,6 +116,7 @@ reaper:
     Armor 12/10
 savant:
   title: Savant
+  page: 64
   parent: synthmorphs
   text: >
     Developed by brinker hardware hackers, savants feature neural-state
@@ -124,6 +131,7 @@ savant:
 slitheroid:
   title: Slitheroid
   parent: synthmorphs
+  page: 64
   text: >
     Slitheroid shells take the form of a humanoid torso with retractable
     arms atop a 2-meter-long segmented metallic snake. Slitheroids use
@@ -138,6 +146,7 @@ slitheroid:
 spare:
   title: Spare
   parent: synthmorphs
+  page: 63
   text: >
     Spares are small, portable shells designed as a temporary replacement
     sleeve should your primary morph be killed/destroyed. They are common
@@ -153,6 +162,7 @@ spare:
     <:Insight:821743329297301504>0   <:Moxie:821743387328643104>1   <:Vigor:821743354303479829>0   <:Flex:821743231124897854>0
 steel morph:
   title: Steel Morph
+  page: 65
   parent: synthmorphs
   text: >
     Like the galatea, this upscale shell was designed to counter biochauvinist
@@ -167,6 +177,7 @@ steel morph:
     <:Insight:821743329297301504>0   <:Moxie:821743387328643104>1   <:Vigor:821743354303479829>3   <:Flex:821743231124897854>1
 swarmanoid:
   title: Swarmanoid
+  page: 63
   parent: synthmorphs
   text: >
     Swarmanoids are swarms composed of hundreds of insect-sized microbots. Each
@@ -185,6 +196,7 @@ swarmanoid:
     <:Insight:821743329297301504>2   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>0   <:Flex:821743231124897854>0
 synths:
   title: Synths
+  page: 63
   parent: synthmorphs
   text: >
     Synths are even more humanoid than cases and of better quality. They are
