@@ -10,7 +10,7 @@ https://discord.com/api/oauth2/authorize?client_id=796356258319564822&permission
 
 ## Requirements
 If you want to run your own instance of Muse you will need:
-* nodejs
+* nodejs, v17
 * Python
 * Postgresql
 
@@ -25,22 +25,27 @@ There are plenty of sites on the web that step you through registering a Discord
 
 ### Create the database
 
-No need to create any tables at this point.
-
-### Setting up the bot
-Install nodejs. `npm install` to load the required packages
-
-Copy `.env.template` to `.env` and update the discord token and muse prefix.
-
-Copy `knexfile.js.template` to `knexfile.js` and update the database settings.
+Create the PostgreSQL database.
 
 ### Setting up web management
 
 The web manager uses Discord's oauth for user registration.
 
+Set up oauth2 in the discord developer's portal. The redirect will be `https://yourserver/discord/authenticate/`.
+
 Install python. `pip install -r requirements.txt` to install the required Python packages
 
-Copy `settings.py.template` to `settings.py` and update database settings and the secret key.
+Copy `settings.py.template` to `settings.py` and update database settings and the discord settings.
+
+Run `manage.py migrate` to create the tables and add initial data.
+
+### Setting up the bot
+
+Install nodejs. `npm install` to load the required packages
+
+Copy `.env.template` to `.env` and update the discord token and muse prefix.
+
+Copy `knexfile.js.template` to `knexfile.js` and update the database settings.
 
 ### Your own data
 
