@@ -14,7 +14,7 @@
                 <div class="tabs">
                     <ul>
                         {% for category in topic_categories %}
-                            <li>{{ topic }}</li>
+                            <li>{{ category }}</li>
                         {% endfor %}
                     </ul>
                 </div>
@@ -23,17 +23,17 @@
                 <div class="left-pane">
                     <ul>
                         {% for topic in topics %}
-                           <li id="list_id__{{ topic.id }}" class="topic_btn" onclick="displayItem('{{ topic.id }}')"><div class="topic_list_id">{{ topic.id }}</div><div class="topic_list_title">{{ topic.title }}</div></li>
+                           <li id="list_id__{{ topic.key }}" class="topic_btn" onclick="displayItem('{{ topic.key }}')"><div class="topic_list_id">{{ topic.key }}</div><div class="topic_list_title">{{ topic.title }}</div></li>
                         {% endfor %}
                     </ul>
                 </div>
                 <div class="right-pane">
                         <div class="topics">
                         {% for topic in topics %}
-                            <div class="topic" id="topic__{{ topic.id }}">
-                                <div class="topic_id" id="topic_id__{{ topic.id }}">{{ topic.id }}</div>
-                                <div class="topic_title" id="topic_title__{{ topic.id }}">{{ topic.title }}</div>
-                                <div class="topic_content" id="topic_text__{{ topic.id }}">
+                            <div class="topic" id="topic__{{ topic.key }}">
+                                <div class="topic_id" id="topic_id__{{ topic.key }}">{{ topic.key }}</div>
+                                <div class="topic_title" id="topic_title__{{ topic.key }}">{{ topic.title }}</div>
+                                <div class="topic_content" id="topic_text__{{ topic.key }}">
                                     {{ topic.text|linebreaks }}
                                 </div>
                             </div>
