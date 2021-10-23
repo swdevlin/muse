@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse
 
 from discord.auth import get_context, process_logout, discord
-from models import Topic
+from .models import Topic
 from .forms import PersonalityForm
 
 sample_text = 'bacon ipsum dolor amet leberkas porchetta in dolore jerky rump tenderloin velit brisket occaecat ' \
