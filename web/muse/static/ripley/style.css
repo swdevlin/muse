@@ -146,6 +146,11 @@ body {
     align-items: center;
     justify-content: right;
 }
+.footer-right li {
+    float: left;
+    padding-right: .5em;
+}
+
 .btn {
     background-color: #5865f2;
     color: #FFFFFFFF;
@@ -235,8 +240,6 @@ h6 {
     float: left;
     border-top: 1px solid #797979;
     border-bottom: 1px solid #797979;
-    position: relative;
-    overflow: auto;
 }
 .right-pane {
     width: 49%;
@@ -305,6 +308,16 @@ h6 {
 }
 .topic_list_title {
 }
+.topic_list {
+    width: 100%;
+    height: 25.58em;
+    margin-right: 1%;
+    padding-top: 5px;
+    float: left;
+    border-top: 1px solid #797979;
+    position: relative;
+    overflow: auto;
+}
 .topic_id {
     padding-left: 0.5em;
     margin-block-start: 0.4em;
@@ -336,7 +349,9 @@ h6 {
 br {
     line-height: 0;
 }
-
+.sorter {
+    padding-bottom: 4px;
+}
 /* Works on Firefox */
 /** {*/
 /*    scrollbar-width: thin;*/

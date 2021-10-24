@@ -123,6 +123,10 @@ body {
     align-items: center;
     justify-content: right;
 }
+.footer-right li {
+    float: left;
+    padding-right: .5em;
+}
 .btn {
     background-color: #5865f2;
     color: #FFFFFFFF;

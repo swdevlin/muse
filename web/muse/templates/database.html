@@ -21,11 +21,14 @@
             </div>
             <div class="topic-viewer">
                 <div class="left-pane">
-                    <ul>
-                        {% for topic in topics %}
-                           <li id="list_id__{{ topic.id }}" class="topic_btn" onclick="displayItem('{{ topic.id }}')"><div class="topic_list_id">{{ topic.id }}</div><div class="topic_list_title">{{ topic.title }}</div></li>
-                        {% endfor %}
-                    </ul>
+                    <div class="sorter">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</div>
+                    <div class="topic_list">
+                        <ul>
+                            {% for topic in topics %}
+                               <li id="list_id__{{ topic.id }}" class="topic_btn" onclick="displayItem('{{ topic.id }}')"><div class="topic_list_id">{{ topic.id }}</div><div class="topic_list_title">{{ topic.title }}</div></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </div>
                 <div class="right-pane">
                         <div class="topics">
