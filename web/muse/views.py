@@ -55,7 +55,7 @@ def database(request):
     if request.user.is_anonymous:
         return HttpResponseRedirect(reverse('login_with_discord'))
     context = get_context(request, include_servers=True)
-    topics = sorted(Topic.objects.filter(server_id=request.user.servers.all()), key=lambda t: t.key)
+    topics = sorted(Topic.objects.all().filter(server__in=request.user.servers.all()), key=lambda t: t.key)
     total_topics = len(topics)
     context.update({
         'topics': [
