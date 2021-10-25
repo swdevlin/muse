@@ -310,7 +310,7 @@ h6 {
 }
 .topic_list {
     width: 100%;
-    height: 25.58em;
+    height: 24em;
     margin-right: 1%;
     padding-top: 5px;
     float: left;
@@ -351,6 +351,9 @@ br {
 }
 .sorter {
     padding-bottom: 4px;
+    font-size: 16px;
+    text-align: center;
+    border-bottom: 1px solid #797979;
 }
 /* Works on Firefox */
 /** {*/
