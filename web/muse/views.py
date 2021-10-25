@@ -64,7 +64,8 @@ def database(request):
                 'title': topics[i].title,
                 'text': topics[i].text
             } for i in range(0, total_topics)
-        ]
+        ],
+        'sorter': [l for l in 'abcdefghijklmnopqrstuvwxyz']
     })
     context.update({
         'topic_categories': [

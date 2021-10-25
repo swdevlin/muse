@@ -21,7 +21,11 @@
             </div>
             <div class="topic-viewer">
                 <div class="left-pane">
-                    <div class="sorter">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</div>
+                    <div class="sorter">
+                        {% for letter in sorter %}
+                            <a href="#">{{ letter }}</a>
+                    	{% endfor %}
+                    </div>
                     <div class="topic_list">
                         <ul>
                             {% for topic in topics %}
