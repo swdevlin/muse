@@ -313,7 +313,7 @@ h6 {
     height: 24em;
     margin-right: 1%;
     padding-top: 5px;
-    float: left;    
+    float: left;
     position: relative;
     overflow: auto;
 }
@@ -349,7 +349,7 @@ br {
     line-height: 0;
 }
 .sorter {
-    padding-bottom: 4px;    
+    padding-bottom: 4px;
     font-size: 16px;
     text-align: center;
     border-bottom: 1px solid #797979;
@@ -408,19 +408,23 @@ a, a h1 {
 }
 /* Up */
 ::-webkit-scrollbar-button:single-button:vertical:decrement {
-  border-width: 0 8px 8px 8px;
-  border-color: transparent transparent #eeeeee transparent;
+    /*border-width: 0 8px 8px 8px;*/
+    /*border-color: transparent transparent #eeeeee transparent;*/
+    background: url("media/ripley-scroll-up-white.png");
 }
 
 ::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
-  border-color: transparent transparent #eeeeee transparent;
+    /*border-color: transparent transparent #eeeeee transparent;*/
+    background: url("media/ripley-scroll-up-white.png");
 }
 /* Down */
 ::-webkit-scrollbar-button:single-button:vertical:increment {
-  border-width: 8px 8px 0 8px;
-  border-color: #eeeeee transparent transparent transparent;
+    /*border-width: 8px 8px 0 8px;*/
+    /*border-color: #eeeeee transparent transparent transparent;*/
+    background: url("media/ripley-scroll-up-white.png");
 }
 
 ::-webkit-scrollbar-button:vertical:single-button:increment:hover {
-  border-color: #eeeeee transparent transparent transparent;
+    /*border-color: #eeeeee transparent transparent transparent;*/
+    background: url("media/ripley-scroll-up-white.png");
 }
