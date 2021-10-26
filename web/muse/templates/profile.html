@@ -20,7 +20,7 @@
             <div class="profile">
                 <div class="profile-details">
                     <h2>Profile Details</h2>
-                    <div class="avatar">
+                    <div class="avatar flex-center">
                         <img src="https://cdn.discordapp.com/avatars/{{ request.user.username }}/{{ avatar }}.jpg">
                     </div>
                     <ul>
@@ -45,7 +45,7 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="settings">
+            <div class="settings flex-center">
                 <form method="POST">
                     {% csrf_token %}
                     {{ form }}
