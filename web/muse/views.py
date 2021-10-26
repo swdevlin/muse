@@ -6,18 +6,6 @@ from discord.auth import get_context, process_logout, discord
 from .models import Topic
 from .forms import PersonalityForm
 
-sample_text = 'bacon ipsum dolor amet leberkas porchetta in dolore jerky rump tenderloin velit brisket occaecat ' \
-              'lorem short loin aliquip culpa. cow culpa beef ribs do ea turkey venison pork belly veniam aliqua ut. ' \
-              'veniam tongue drumstick ham pork pancetta. landjaeger voluptate laborum sausage cow leberkas chislic ' \
-              'veniam ut. tempor ut ipsum adipisicing frankfurter. occaecat bacon qui jowl et aliqua esse culpa aute ' \
-              'bresaola. jowl bresaola andouille, anim culpa filet mignon eiusmod jerky labore fatback pork chop ' \
-              'boudin ullamco.\n\n' \
-              'sed nulla ut landjaeger pork belly nisi, incididunt beef ribs leberkas. dolor deserunt commodo beef ' \
-              'ribs. qui aute filet mignon rump cupim dolor, turkey sint in pork. beef enim boudin magna spare ribs ' \
-              'id sint ullamco et lorem pork loin sausage kielbasa.\n\n' \
-              'hamburger alcatra est leberkas pork pancetta jowl ipsum aliquip. corned beef occaecat kevin duis ' \
-              'prosciutto eiusmod ad ipsum pork chop tongue ball tip elit culpa. corned beef occaecat kevin duis ' \
-              'occaecat kevin duis prosciutto eiusmod ad ipsum pork chop tongue ball tip elit culpa.\n\n'
 
 def index(request):
     context = get_context(request)
@@ -32,14 +20,10 @@ def profile(request):
     if request.POST and not request.user.is_anonymous:
         request.user.personality = request.POST.get('personality') or request.user.personality or 'default'
         request.user.save()
-    if not request.user.is_anonymous:
-        personality = request.user.personality
-    else:
-        personality = 'default'
     context = get_context(request, include_servers=True)
     context.update({
         'page_title': 'My Profile',
-        'form': PersonalityForm(personality)
+        'form': PersonalityForm(context['personality'])
     })
     return render(request, f'profile.html', context=context)
 
@@ -58,15 +42,15 @@ def database(request):
     topics = sorted(Topic.objects.all().filter(server__in=request.user.servers.all()), key=lambda t: t.key)
     total_topics = len(topics)
     context.update({
-        'topics': [
-            {
+        'topics': {
+            topics[i].title[0].lower: [{
                 'id': str(i + 1).zfill(len(str(total_topics))),
                 'title': topics[i].title,
                 'text': topics[i].text
-            } for i in range(0, total_topics)
-        ],
-        'sorter': [l for l in 'abcdefghijklmnopqrstuvwxyz']
+            }] for i in range(0, total_topics)
+        }
     })
+
     context.update({
         'topic_categories': [
             'skills',

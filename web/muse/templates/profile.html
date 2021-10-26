@@ -4,31 +4,33 @@
 
 {% block content %}
     {% if request.user.is_anonymous %}
-    <h2>Hello mysterious stranger!</h2>
-    <p>Looks like you're not logged in. Click on the Login with Discord button in the top right to change that.</p>
+        <div class="welcome">
+            <h2>Hello mysterious stranger!</h2>
+            <p>Looks like you're not logged in. Click on the Login with Discord button in the top right to change that.</p>
+        </div>
     {% else %}
         <div class="interface">
-        <div class="navigation">
-            <div class="tabs">
-                <ul>
-                    <li>SETTINGS</li>
-                </ul>
+            <div class="navigation">
+                <div class="tabs">
+                    <ul>
+                        <li>SETTINGS</li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="topic-viewer">
-            <div class="left-pane">
-                <ul>
-                    <li><div class="topic_list_id">001</div><div class="topic_list_title">Template</div></li>
-                </ul>
+            <div class="topic-viewer">
+                <div class="left-pane">
+                    <ul>
+                        <li><div class="topic-list-id">001</div><div class="topic-list-title">Template</div></li>
+                    </ul>
+                </div>
+                <div class="right-pane">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form }}
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
             </div>
-            <div class="right-pane">
-                <form method="POST">
-                    {% csrf_token %}
-                    {{ form }}
-                    <input type="submit" value="Submit">
-                </form>
-            </div>
-        </div>
-    </div>
+         </div>
     {% endif %}
 {% endblock %}

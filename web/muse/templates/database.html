@@ -22,14 +22,17 @@
             <div class="topic-viewer">
                 <div class="left-pane">
                     <div class="sorter">
-                        {% for letter in sorter %}
+                        {% for l in topics.keys %}
                             <a href="#">{{ letter }}</a>
-                    	{% endfor %}
+                        {% endfor %}
                     </div>
-                    <div class="topic_list">
+                    <div class="topic-list">
                         <ul>
                             {% for topic in topics %}
-                               <li id="list_id__{{ topic.id }}" class="topic_btn" onclick="displayItem('{{ topic.id }}')"><div class="topic_list_id">{{ topic.id }}</div><div class="topic_list_title">{{ topic.title }}</div></li>
+                               <li id="list-id--{{ topic.id }}" class="topic-btn" onclick="displayItem('{{ topic.id }}')">
+                                   <div class="topic-list-id">{{ topic.id }}</div>
+                                   <div class="topic-list-title">{{ topic.title }}</div>
+                               </li>
                             {% endfor %}
                         </ul>
                     </div>
@@ -37,10 +40,10 @@
                 <div class="right-pane">
                         <div class="topics">
                         {% for topic in topics %}
-                            <div class="topic" id="topic__{{ topic.id }}">
-                                <div class="topic_id" id="topic_id__{{ topic.id }}">{{ topic.id }}</div>
-                                <div class="topic_title" id="topic_title__{{ topic.id }}">{{ topic.title }}</div>
-                                <div class="topic_content" id="topic_text__{{ topic.id }}">
+                            <div class="topic" id="topic--{{ topic.id }}">
+                                <div class="topic-id" id="topic-id--{{ topic.id }}">{{ topic.id }}</div>
+                                <div class="topic-title" id="topic-title--{{ topic.id }}">{{ topic.title }}</div>
+                                <div class="topic-content" id="topic-text--{{ topic.id }}">
                                     {{ topic.text|linebreaks }}
                                 </div>
                             </div>
@@ -51,19 +54,19 @@
         </div>
         <script>
             window.onload = function() {
-                var topics = document.getElementsByClassName('topic_btn');
+                var topics = document.getElementsByClassName('topic-btn');
                 topics[0].classList.toggle('selected');
                 document.getElementsByClassName('topic')[0].classList.toggle("show");
             }
 
-            function displayItem(topic_item) {
-                var selected_choice = document.getElementById('list_id__'+ topic_item)
+            function displayItem(topic) {
+                var selected_choice = document.getElementById('list-id--'+ topic)
                 selected_choice.classList.add("selected");
 
-                var selected_topic = document.getElementById('topic__'+ topic_item)
+                var selected_topic = document.getElementById('topic--'+ topic)
                 selected_topic.classList.add("show");
 
-                var topic_list = document.getElementsByClassName("topic_btn");
+                var topic_list = document.getElementsByClassName("topic-btn");
                 var topics = document.getElementsByClassName("topic");
 
                     var i;
