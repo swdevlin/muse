@@ -36,6 +36,12 @@ body {
     width: 100%;
     height: 100%;
 }
+.anchor, .anchor:hover {
+    background: none!important;
+    color: #FFFFFF!important; 
+    font-weight: bold;
+    box-shadow: none!important;
+}
 .container {
     max-width: 1280px;
     min-width: 200px;
@@ -300,7 +306,7 @@ h6 {
     position: relative;
     overflow: auto;
 }
-.topic-list-id {
+.topic-list-id, .topic-anchor {
     width: 2em;
     padding-left: 10px;
     float: left;

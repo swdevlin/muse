@@ -41,17 +41,17 @@ def database(request):
     context = get_context(request, include_servers=True)
     topics = sorted(Topic.objects.all().filter(server__in=request.user.servers.all()), key=lambda t: t.key)
     total_topics = len(topics)
+    topic_first_characters = sorted(set([t.title[0].lower() for t in topics]))
     context.update({
         'topics': {
-            topics[i].title[0].lower: [{
+            c: [
+                {
                 'id': str(i + 1).zfill(len(str(total_topics))),
                 'title': topics[i].title,
                 'text': topics[i].text
-            }] for i in range(0, total_topics)
-        }
-    })
-
-    context.update({
+            } for i in range(0, total_topics) if topics[i].title.lower().startswith(c.lower())
+            ] for c in topic_first_characters
+        },
         'topic_categories': [
             'skills',
             'places',
