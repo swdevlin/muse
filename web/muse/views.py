@@ -46,10 +46,10 @@ def database(request):
         'topics': {
             c: [
                 {
-                'id': str(i + 1).zfill(len(str(total_topics))),
-                'title': topics[i].title,
-                'text': topics[i].text
-            } for i in range(0, total_topics) if topics[i].title.lower().startswith(c.lower())
+                    'id': str(i + 1).zfill(len(str(total_topics))),
+                    'title': topics[i].title,
+                    'text': topics[i].text
+                } for i in range(0, total_topics) if topics[i].title.lower().startswith(c.lower())
             ] for c in topic_first_characters
         },
         'topic_categories': [

@@ -10,13 +10,13 @@
         {% endwith %}
     </head>
     <body>
-        <div class="container">
+        <div class="container max-hw">
             <div class="header">
                 <div class="header-left"><a href="{% url 'index' %}"><h1>MUSE</h1></a></div>
-                <div class="header-mid"><h6>{{ page_title }}</h6></div>
+                <div class="header-mid flex-center"><h6>{{ page_title }}</h6></div>
                 <div class="header-right">
                 {% if request.user.is_anonymous %}
-                    <a class="btn" href="{% url 'login-with-discord' %}">Login with Discord</a>
+                    <a class="btn flex-center" href="{% url 'login-with-discord' %}">Login with Discord</a>
                 {% else %}
                     <div class="dropdown">
                         <button onclick="displayDropdown()" class="dropdown-btn">{{ name }}#{{ discriminator }}</button>
@@ -30,12 +30,12 @@
                 {% endif %}
                 </div>
             </div>
-            <div class="content">
+            <div class="content flex-center">
                 {% block content %}{% endblock %}
             </div>
             <div class="footer">
                 <div class="footer-left"></div>
-                <div class="footer-mid">All copyrighted symbols/logos are the property of their respective owners.</div>
+                <div class="footer-mid flex-center">All copyrighted symbols/logos are the property of their respective owners.</div>
                 <div class="footer-right">
                     <ul>
                         <li><a href="https://github.com/swdevlin/muse">Contribute</a></li></ul>

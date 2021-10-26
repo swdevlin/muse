@@ -4,33 +4,54 @@
 
 {% block content %}
     {% if request.user.is_anonymous %}
-        <div class="welcome">
+        <div id="welcome" class="flex-center">
             <h2>Hello mysterious stranger!</h2>
             <p>Looks like you're not logged in. Click on the Login with Discord button in the top right to change that.</p>
         </div>
     {% else %}
         <div class="interface">
             <div class="navigation">
-                <div class="tabs">
+                <div class="tabs flex-center">
                     <ul>
                         <li>SETTINGS</li>
                     </ul>
                 </div>
             </div>
-            <div class="topic-viewer">
-                <div class="left-pane">
+            <div class="profile">
+                <div class="profile-details">
+                    <h2>Profile Details</h2>
+                    <div class="avatar">
+                        <img src="https://cdn.discordapp.com/avatars/{{ request.user.username }}/{{ avatar }}.jpg">
+                    </div>
                     <ul>
-                        <li><div class="topic-list-id">001</div><div class="topic-list-title">Template</div></li>
+                        <li><strong>Username:</strong> {{ name }}#{{ discriminator }}</li>
+                        <li><strong>Last Authenticated:</strong> {{ last_authenticated }}</li>
+                        <li><strong>User locale:</strong> {{ locale }}</li>
                     </ul>
-                </div>
-                <div class="right-pane">
-                    <form method="POST">
-                        {% csrf_token %}
-                        {{ form }}
-                        <input type="submit" value="Submit">
-                    </form>
+                    {% if servers %}
+                        <div class="servers">
+                            <h2>Servers</h2>
+                            {% for server_id, values in servers.items %}
+                            <div class="server-{{ server_id }}">
+                                <ul>
+                                    <li><strong>Server name:</strong> {{ values.name }}</li>
+                                    <li><strong>Server Discord ID:</strong> {{ server_id }}</li>
+                                    <li><strong>Server Owner:</strong> {{ values.owner }}</li>
+                                    <li><strong>Server Administrator:</strong> {{ values.is_admin }}</li>
+                                </ul>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
                 </div>
             </div>
-         </div>
+            <div class="settings">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form }}
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
     {% endif %}
 {% endblock %}

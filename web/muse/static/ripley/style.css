@@ -11,11 +11,6 @@
   src: url("fonts/TeenyTinyPixls-o2zo.ttf");
 }
 html {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background-image: url('media/jupiter3.png');
     background-repeat: no-repeat;
     background-position: center;
@@ -25,16 +20,20 @@ html {
     font-size: 18px;
     min-height: 25em;
 }
+html, body, .flex-center  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+html, body, .max-hw {
+    height: 100%;
+    width: 100%;
+}
 body {
     color: hsl(0, 0%, 100%);
     font-weight: 500;
     font-family: Sevastopol-Interface;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     min-height: inherit;
-    width: 100%;
-    height: 100%;
 }
 .anchor, .anchor:hover {
     background: none!important;
@@ -45,8 +44,6 @@ body {
 .container {
     max-width: 1280px;
     min-width: 200px;
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     align-content: space-between;
@@ -58,9 +55,6 @@ body {
     margin-top: 10px;
     margin-bottom: 10px;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background-color: rgb(156 157 173 / 18%);
     overflow: hidden;
     min-height: inherit;
@@ -94,9 +88,6 @@ body {
     font-weight: 500;
     font-size: 16px;
     margin-right: 1%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 .header-right {
     width: 32%;
@@ -136,9 +127,6 @@ body {
     font-weight: 300;
     font-size: 16px;
     margin-right: 1%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 .footer-right {
     width: 32%;
@@ -159,14 +147,28 @@ body {
 li {
     list-style: none;
 }
-.welcome, .goodbye {
+.welcome, .goodbye, .dashboard {
     text-align: center;
 }
 h2 {
     font-size: 35px;
 }
-.avatar { 
-	
+.avatar {
+}
+.profile-details {
+    width: 29%;
+    float: left;
+    border-top: 1px solid #797979;
+    border-bottom: 1px solid #797979;
+}
+.settings {
+    height: inherit;
+    width: 70%;
+    padding-top: 5px;
+    float: right;
+    border-top: 1px solid #797979;
+    border-bottom: 1px solid #797979;
+    overflow-y: hidden;
 }
 .dropdown-btn {
     font-family: inherit;
@@ -253,9 +255,6 @@ h6 {
     letter-spacing: 3px;
     word-spacing: 5px;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-bottom: 1em;
 }
 .tabs li {
