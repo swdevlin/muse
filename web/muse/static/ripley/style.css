@@ -159,11 +159,14 @@ body {
 li {
     list-style: none;
 }
-.welcome, .profile-container, .goodbye {
+.welcome, .goodbye {
     text-align: center;
 }
 h2 {
     font-size: 35px;
+}
+.avatar { 
+	
 }
 .dropdown-btn {
     font-family: inherit;
