@@ -38,6 +38,7 @@ const getPrefix = async (guild_id) => {
   }
   return prefix;
 }
+
 const message = async (msg) => {
   // ignore our own messages
   if (`${msg.author.username}#${msg.author.discriminator}` === client.user.tag)
@@ -48,20 +49,20 @@ const message = async (msg) => {
   const {guild} = channel;
 
   let {content} = msg;
-  content = content.trim();
+  content = content.toLocaleLowerCase().trim();
   const tokens = content.split(' ');
-  if (tokens < 2)
-    return;
   const prefix= await getPrefix(guild.id);
   if (prefix !== tokens[0])
     return;
+  if (tokens.length === 1)
+    tokens.push('help');
 
   if (commands[tokens[1]])
     return await commands[tokens[1]].do(msg);
 
   try {
     tokens.shift();
-    let lookup = tokens.join(' ').toLocaleLowerCase().trim();
+    let lookup = tokens.join(' ');
     if (lookup.startsWith('please '))
       lookup = lookup.substr(7);
 
@@ -76,21 +77,29 @@ const message = async (msg) => {
     if (lookup.startsWith('a '))
       lookup = lookup.substr(2);
 
-    let entry = await findEntry(lookup, guild.id);
-    if (entry) {
+    if (lookup === 'help') {
+      let entry = {
+        title: 'Help',
+        text: `Add text after \`${prefix}\` and I will look up information about the topic. For example, enter \`${prefix} c-ball\` to find out information about c-ball`
+      }
       await sendEntry(msg, entry);
     } else {
-      const nos = lookup.replace(/s$/, "");
-      entry = await findEntry(nos, guild.id);
-      if (entry)
+      let entry = await findEntry(lookup, guild.id);
+      if (entry) {
         await sendEntry(msg, entry);
-      else {
-        const pluss = lookup + 's';
-        entry = await findEntry(pluss, guild.id);
+      } else {
+        const nos = lookup.replace(/s$/, "");
+        entry = await findEntry(nos, guild.id);
         if (entry)
           await sendEntry(msg, entry);
-        else
-          await msg.reply(`no data found for ${lookup}`);
+        else {
+          const pluss = lookup + 's';
+          entry = await findEntry(pluss, guild.id);
+          if (entry)
+            await sendEntry(msg, entry);
+          else
+            await msg.reply(`no data found for ${lookup}`);
+        }
       }
     }
   } catch(err) {
