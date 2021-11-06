@@ -5,7 +5,7 @@ const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, './.env') });
 const YAML = require('yaml');
 
-const version = '0.5';
+const version = '0.6';
 
 const files = fs.readdirSync(path.resolve(__dirname, './data/'));
 
