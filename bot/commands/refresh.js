@@ -22,7 +22,7 @@ class Refresh {
           await trx.commit();
 
           logger.info(`core muse entries updated for ${guild.id}`);
-          await msg.reply('Core muse entries have been updated.')
+          await msg.reply('My core knowledge base has been refreshed.')
         } else
           await hackDetected(msg);
 
@@ -38,7 +38,7 @@ class Refresh {
           await trx.commit();
 
           logger.info(`campaign muse entries updated for ${guild.id}`);
-          await msg.reply('Campaign muse entries have been updated.')
+          await msg.reply('My campaign knowledge base bas been refreshed.')
         } else
           await hackDetected(msg);
 
