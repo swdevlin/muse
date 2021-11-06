@@ -10,7 +10,6 @@ surveillance bots:
   text: >
     Eyes in the sky remain one of the main uses of robots.
 
-
     Available bots are: $list
 aerostat:
   title: Aerostat
@@ -99,3 +98,88 @@ zephyr:
     **Complexity/GP**: _Mod/2_
 
     <:Flex:821743231124897854>1
+personal bots:
+  title: Personal Bots
+  page: 348
+  wiki_slug: en/16/21-robots.html#personal-bots
+  text: >
+    Personal bots are worn or found throughout transhuman habitats.
+
+    Available bots are: $list
+creepy:
+  title: Creepy
+  parent: personal bots
+  page: 348
+  wiki_slug: en/16/21-robots.html#personal-bots
+  text: >
+    Creepies come in an eclectic variety of forms, from robo-squirrels
+    to insectoids to bizarre artsy mechanical creatures. Creepies were
+    originally designed as a robotic pet, but are commonly used as a
+    general-purpose household minion, like a more beloved servitor. Many
+    people wear a creepy on their person, dropping it to handle small tasks
+    for them and letting it crawl up, down, and over their body.
+
+
+    **Ware**: Chameleon Skin, Grip Pads
+
+    **Armor**: 2/2   **WT**: 3   **DUR**: 15   **DR**: 30   **Size**: vs   **Movement Rate**: 4/12 Hopper/Walker
+
+    **Complexity/GP**: _Min/1_
+manipulator:
+  title: Manipulator
+  parent: personal bots
+  page: 348
+  wiki_slug: en/16/21-robots.html#personal-bots
+  text: >
+    This bot takes the form of an extra limb and a supportive band, bracing
+    frame, rig, or cuff for wearing it. The manipulator can be meshed and
+    treated as an extension of your body or detached for autonomous
+    operation or remote control. Though human arm designs are common, a variety
+    of limb designs are available, from claws to tentacles. Treat as a
+    cyberlimb plus when worn.
+
+
+    **Ware**: Grip Pads, Magnetic System, Telescoping Limb, Utilimod
+
+    **Armor**: 6/4   **WT**: 3   **DUR**: 15   **DR**: 30   **Size**: s   **Movement Rate**: 4/12 Walker
+
+    **Complexity/GP**: _Maj/3
+
+    <:Vigor:821743354303479829>1_
+servitor:
+  title: Servitor
+  parent: personal bots
+  page: 348
+  wiki_slug: en/16/21-robots.html#personal-bots
+  text: >
+    Servitors are the most common robot, acting as cooks, janitors,
+    universal helpers, movers, and personal aides. Every home has one,
+    if not several. They come in a variety of non-humanoid shapes and
+    sizes, though most are medium sized, with 4–8 limbs on average.
+
+
+    **Ware**: Grip Pads, Magnetic System, Telescoping Limb, Utilimod
+
+    **Armor**: 6/4   **WT**: 3   **DUR**: 15   **DR**: 30   **Size**: s   **Movement Rate**: 4/12 Walker
+
+    **Complexity/GP**: _Min/1
+spider hand:
+  title: Spider Hand
+  parent: personal bots
+  page: 348
+  wiki_slug: en/16/21-robots.html#personal-bots
+  text: >
+    This hand-shaped bot scurries like a spider. It functions as a
+    detachable hand for a cyberarm, though it is sometimes used by
+    uplifts or other morphs who need a hand design for certain tasks. Its
+    “legs” are more articulated than human fingers and can rotate/bend in
+    any direction. Though this bot does not have the leverage of a full
+    arm/body behind it, it can extend a meter-long brace for stabilization
+    and support.
+
+
+    **Ware**: Claws, Grip Pads, Magnetic System
+
+    **Armor**: 2/2   **WT**: 2   **DUR**: 10   **DR**: 20   **Size**: s   **Movement Rate**: 4/12 Walker
+
+    **Complexity/GP**: _Min/1
