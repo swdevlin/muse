@@ -3,6 +3,9 @@ aptitudes:
   page: 36
   text: >
     Your aptitudes represent your natural, inherent abilities. There are 6 aptitude scores: $list
+cog:
+  title: Cognition
+  references: cognition
 cognition:
   title: Cognition
   page: 36
@@ -10,6 +13,9 @@ cognition:
   text: >
     Cognition (COG) represents your intelligence, problem-solving talent, and
     capacity for logical analysis.
+int:
+  title: Intuition
+  references: intuition
 intuition:
   title: Intuition
   page: 36
@@ -17,6 +23,9 @@ intuition:
   text: >
     Intuition (INT) is your gut instinct and ability to evaluate on the fly.
     It includes physical awareness, creativity, cleverness, and cunning.
+ref:
+  title: Reflexes
+  references: reflexes
 reflexes:
   title: Reflexes
   page: 36
@@ -24,6 +33,9 @@ reflexes:
   text: >
     Reflexes (REF) is your coordination, manual dexterity, nimbleness, balance,
     and reaction speed.
+sav:
+  title: Savvy
+  references: savvy
 savvy:
   title: Savvy
   page: 36
@@ -31,6 +43,9 @@ savvy:
   text: >
     Savvy (SAV) represents your social awareness, adaptability, empathy, and
     ability to influence others.
+som:
+  title: Somatics
+  references: somatics
 somatics:
   title: Somatics
   page: 36
@@ -39,6 +54,9 @@ somatics:
     Somatics (SOM) is how well you can exploit your morph’s physical
     capabilities, including strength, stamina, and sustained positioning and
     motion.
+will:
+  title: Willpower
+  references: willpower
 willpower:
   title: Willpower
   page: 36
