@@ -72,7 +72,7 @@ const sendEntry = async (msg, entry) => {
   else
     text = `**${entry.title}**\n${entry.text}`;
   if (entry.wiki_slug)
-    text += `_ https://wiki.eclipsephase.com/index.php/${entry.wiki_slug} _`
+    text += `_ https://eclipsephase.github.io/${entry.wiki_slug} _`
   await msg.reply(text);
 }
 
