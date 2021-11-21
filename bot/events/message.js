@@ -2,7 +2,7 @@
 
 const client = require("../client");
 const logger = require("../logger");
-const {sendEntry, findEntry} = require("../helpers");
+const {sendEntry, findEntry, addGuild, populateMuse, populateCampaign, guildExists} = require("../helpers");
 const knex = require('../db/connection');
 const commands = require("../commands");
 const cache = require('../cache');
@@ -48,6 +48,24 @@ const message = async (msg) => {
   const {channel} = msg;
   const {guild} = channel;
 
+  if (!await guildExists(guild.id)) {
+    try {
+      const trx = await knex.transaction();
+      const id = await addGuild(guild, trx);
+
+      await populateMuse(id, trx);
+      await populateCampaign(id, trx);
+
+      await trx.commit();
+
+      logger.info(`created guild ${guild.id} on muse lookup`);
+    } catch(err) {
+      if (err.message.includes('duplicate key value violates'))
+        logger.warn(`server ${guild.id} already registered`);
+      else
+        logger.error(err);
+    }
+  }
   let {content} = msg;
   content = content.toLocaleLowerCase().trim();
   const tokens = content.split(' ');
