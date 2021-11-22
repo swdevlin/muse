@@ -133,7 +133,7 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-DISCORD = {
+DISCORD_CONFIG = {
     'authorize_url': 'https://discord.com/api/oauth2/authorize',
     'token_url': 'https://discord.com/api/oauth2/token',
     'revoke_url': 'https://discord.com/api/oauth2/token/revoke',

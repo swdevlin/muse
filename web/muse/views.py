@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from discord.auth import get_context, process_logout, discord
+from discord.auth import get_context, process_logout, discord_config
 from .models import Topic
 from .forms import PersonalityForm
 
@@ -65,9 +65,9 @@ def database(request):
 
 
 def login(request):
-    url_params = f"?client_id={discord['client_id']}&redirect_uri={discord['redirect_uri']}"
+    url_params = f"?client_id={discord_config['client_id']}&redirect_uri={discord_config['redirect_uri']}"
     return HttpResponseRedirect(
-        discord['authorize_url'] + url_params + "&response_type=code&scope=identify%20email%20guilds")
+        discord_config['authorize_url'] + url_params + "&response_type=code&scope=identify%20email%20guilds")
 
 
 def logout(request):

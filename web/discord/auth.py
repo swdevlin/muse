@@ -11,13 +11,13 @@ import muse.models
 from muse.models import Server
 from users.models import DiscordUser
 
-discord = settings.DISCORD
+discord_config = settings.DISCORD_CONFIG
 
 code_exchange_payload = {
-    'client_id': discord['client_id'],
-    'client_secret': discord['client_secret'],
+    'client_id': discord_config['client_id'],
+    'client_secret': discord_config['client_secret'],
     'grant_type': 'authorization_code',
-    'redirect_uri': discord['redirect_uri']
+    'redirect_uri': discord_config['redirect_uri']
 }
 
 
@@ -59,7 +59,7 @@ def authenticate(request):
         return HttpResponseRedirect(reverse('index'))
 
     # Request the access token using the code challenge
-    response = requests.request("POST", discord['token_url'], data=code_exchange_payload)
+    response = requests.request("POST", discord_config['token_url'], data=code_exchange_payload)
 
     if response.status_code != 200:
         return HttpResponse(
@@ -77,7 +77,7 @@ def authenticate(request):
     }
 
     # Request user details for user who signed in
-    response = requests.request("GET", discord['current_user_endpoint'], headers=headers)
+    response = requests.request("GET", discord_config['current_user_endpoint'], headers=headers)
 
     if response.status_code == 200:
         response = response.json()
@@ -100,7 +100,7 @@ def authenticate(request):
     discord_user.expires = expiry
     discord_user.save()
 
-    server_memberships = requests.request("GET", discord['current_user_guilds_endpoint'], headers=headers).json()
+    server_memberships = requests.request("GET", discord_config['current_user_guilds_endpoint'], headers=headers).json()
 
     for server in server_memberships:
         permissions = server['permissions']
@@ -146,9 +146,9 @@ def process_logout(request, context=None):
 
 def revoke_token(discord_user):
     payload = {
-        "client_id": discord["client_id"],
-        "client_secret": discord["client_secret"],
+        "client_id": discord_config["client_id"],
+        "client_secret": discord_config["client_secret"],
         "token": discord_user.access_token
     }
-    revoked = requests.request("POST", discord['revoke_url'], data=payload)
+    revoked = requests.request("POST", discord_config['revoke_url'], data=payload)
     return revoked
