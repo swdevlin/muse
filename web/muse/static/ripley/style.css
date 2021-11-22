@@ -79,6 +79,7 @@ height:3em;
 margin-bottom:10%;
 width:100%;
 }
+
 .footer a {
 text-decoration: none;
 font-weight: 800;
@@ -96,12 +97,15 @@ margin-left:1%;
 text-align:left;
 width:15%;
 }
+
 .header-right img {
     width: 5em;
 }
+
 .footer-left img {
     width: 7em;
 }
+
 .footer-mid {
 float:left;
 font-size:16px;
