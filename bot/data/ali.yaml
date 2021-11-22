@@ -1,0 +1,32 @@
+bot ali:
+  title: Bot/Vehicle ALI
+  text: >
+    Fray 30, Guns 30, Hardware: [appropriate field] 20 (specific bot/vehicle 30),
+    Infosec 20, Interface 30, Know: [bot/vehicle] Specs 80, Perceive 40,
+    Pilot: [appropriate field] 60 (specific bot/vehicle 70), Research 20
+vehicle ali:
+  title: Bot/Vehicle ALI
+  references: bot ali
+device ali:
+  title: Device ALI
+  text: >
+    Hardware: Electronics 20 (specific device 30), Infosec 20,
+    Interface 30 (specific device 40), Know: [device] Specs 80,
+    Know: [device] Usage 80, Perceive 20, Program 30 (specific device 40),
+    Research 20
+kaos ali:
+  title: Kaos ALI
+  text: >
+    Guns 40, Hardware: Electronics 40, Infosec 60, Interface 40,
+    Know: Security Systems 80, Perceive 30, Program 40, Research 30
+security ali:
+  title: Security ALI
+  text: >
+    Guns 30, Hardware: Electronics 30, Infosec 60, Interface 40,
+    Know: Security Systems 80, Perceive 30, Program 30, Research 20
+sentry ali:
+  title: Sentry ALI
+  text: >
+    Fray 30, Guns 60, Hardware: [appropriate field] 30, Interface 30,
+    Kinesics 40, Know: [bot/vehicle] Specs 80, Know: Security Ops 80,
+    Perceive 40, Pilot: [appropriate field] 40, Provoke 30

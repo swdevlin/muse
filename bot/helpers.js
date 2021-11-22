@@ -65,6 +65,18 @@ const getServerId = async (discord_id, trx) => {
     return null;
 }
 
+const addGuild = async (guild, trx) => {
+  let id = await trx('discord_server').insert({
+    discord_id: guild.id,
+    name: guild.name,
+    icon: guild.icon,
+    owner_id: guild.ownerID,
+    prefix: 'muse',
+    joined_at: new Date()
+  }).returning('id');
+  return parseInt(id);
+}
+
 const sendEntry = async (msg, entry) => {
   let text;
   if (entry.page)
@@ -72,7 +84,7 @@ const sendEntry = async (msg, entry) => {
   else
     text = `**${entry.title}**\n${entry.text}`;
   if (entry.wiki_slug)
-    text += `_ https://wiki.eclipsephase.com/index.php/${entry.wiki_slug} _`
+    text += `_ https://eclipsephase.github.io/${entry.wiki_slug} _`
   await msg.reply(text);
 }
 
@@ -114,6 +126,11 @@ const findEntry = async (topic, server_id) => {
     return null;
 }
 
+const guildExists = async id => {
+  const ret = await knex('discord_server').select('id').where({discord_id: id}).limit(1);
+  return ret.length === 1;
+}
+
 module.exports = {
   deleteCoreMuseEntries: deleteCoreMuseEntries,
   deleteMuseEntries: deleteMuseEntries,
@@ -123,4 +140,6 @@ module.exports = {
   sendEntry: sendEntry,
   hackDetected: hackDetected,
   findEntry: findEntry,
+  addGuild: addGuild,
+  guildExists: guildExists,
 }

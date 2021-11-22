@@ -3,7 +3,7 @@
 const logger = require("../logger");
 const knex = require('../db/connection');
 const { Permissions } = require('discord.js');
-const {populateMuse, getServerId, deleteCoreMuseEntries, hackDetected} = require("../helpers");
+const {populateMuse, getServerId, deleteCoreMuseEntries, hackDetected, populateCampaign} = require("../helpers");
 
 class Refresh {
   static command = '-refresh';
@@ -22,7 +22,23 @@ class Refresh {
           await trx.commit();
 
           logger.info(`core muse entries updated for ${guild.id}`);
-          await msg.reply('Core muse entries have been updated.')
+          await msg.reply('My core knowledge base has been refreshed.')
+        } else
+          await hackDetected(msg);
+
+      } catch (err) {
+        logger.error(err);
+      }
+    } else if (content.endsWith('-refresh campaign confirm')) {
+      try {
+        if (msg.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) {
+          const trx = await knex.transaction();
+          const id = await getServerId(guild.id, trx);
+          await populateCampaign(id, trx);
+          await trx.commit();
+
+          logger.info(`campaign muse entries updated for ${guild.id}`);
+          await msg.reply('My campaign knowledge base bas been refreshed.')
         } else
           await hackDetected(msg);
 

@@ -2,21 +2,12 @@
 
 const logger = require("../logger");
 const knex = require('../db/connection');
-const {populateMuse, populateCampaign} = require("../helpers");
+const {populateMuse, populateCampaign, addGuild} = require("../helpers");
 
 const guildCreate = async guild => {
   try {
     const trx = await knex.transaction();
-
-    let id = await trx('discord_server').insert({
-      discord_id: guild.id,
-      name: guild.name,
-      icon: guild.icon,
-      owner_id: guild.ownerID,
-      prefix: 'muse',
-      joined_at: new Date()
-    }).returning('id');
-    id = parseInt(id);
+    const id = await addGuild(guild, trx);
 
     await populateMuse(id, trx);
     await populateCampaign(id, trx);
