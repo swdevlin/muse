@@ -30,14 +30,14 @@ def profile(request):
 
 def dashboard(request):
     if request.user.is_anonymous:
-        return HttpResponseRedirect(reverse('login_with_discord'))
+        return HttpResponseRedirect(reverse('login-with-discord'))
     context = get_context(request, include_servers=True)
     return render(request, f'dashboard.html', context=context)
 
 
 def database(request):
     if request.user.is_anonymous:
-        return HttpResponseRedirect(reverse('login_with_discord'))
+        return HttpResponseRedirect(reverse('login-with-discord'))
     context = get_context(request, include_servers=True)
     topics = sorted(Topic.objects.all().filter(server__in=request.user.servers.all()), key=lambda t: t.key)
     total_topics = len(topics)
