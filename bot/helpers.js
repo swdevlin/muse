@@ -9,18 +9,29 @@ const knex = require("./db/connection");
 
 const populateMuse = async (server_id, trx) => {
   for (const topic of Object.keys(muse)) {
+    const entry = muse[topic];
     await trx('topic').insert({
-      title: muse[topic].title,
+      title: entry.title,
       key: topic,
-      text: muse[topic].text,
+      text: entry.text,
       custom: false,
       modified: false,
-      parent: muse[topic].parent,
-      wiki_slug: muse[topic].wiki_slug,
-      page: muse[topic].page,
-      alias_for: muse[topic].references,
+      parent: entry.parent,
+      wiki_slug: entry.wiki_slug,
+      page: entry.page,
       server_id: server_id
     }).onConflict(['server_id', 'key']).merge();
+    if (entry.aliases)
+      for (const alias of entry.aliases) {
+        await trx('topic').insert({
+          title: entry.title,
+          key: alias,
+          custom: false,
+          modified: false,
+          alias_for: topic,
+          server_id: server_id
+        }).onConflict(['server_id', 'key']).ignore();
+    }
   }
 }
 

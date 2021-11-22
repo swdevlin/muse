@@ -1,10 +1,9 @@
 about:
   title: About
+  aliases:
+    credits
   text: >
     An Eclipse Phase RPG AvLI muse meshed through Discord. Eclipse Phase is
     published by Posthuman Studios. See https://eclipsephase.com/ .
 
     The source code for the muse can be found at https://github.com/swdevlin/muse
-credits:
-  title: Credits
-  references: about

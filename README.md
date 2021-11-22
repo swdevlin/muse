@@ -58,21 +58,20 @@ your entries there.
 The yaml file is a dictionary. The key for each entry is the key used in the look up. keys are case insensitive and 
 converted to lower case. The properties of the entries are:
 * title: the title of the entry
-* page: if included, the page will be included in the entry. Page does not need to be numeric
+* page: if included, the page will be included in the entry; page does not need to be numeric
 * text: the text for the entry. The maximum length is 2000 characters
-* references: if present, it indicates this is an alias and the text from the referenced item will be displayed
-* parent: the parent topic for this topic. In the parent topic, $list will be replaced with the list of child topics
+* aliases: if present, an array of alternate keys for the same entry
+* parent: the parent topic for this topic; in the parent topic, $list will be replaced with the list of child topics
 * wiki_slug: if present, the last line in the entry will be a link to the wiki page associated with the topic  
 
 ```yaml
 sample entry:
   title: Sample Entry
+  aliases:
+    - sample
   page: 37
   text: >
     This is the text of the entry
-sample:
-  title: Sample
-  references: sample entry
 category:
   title: Category
   page: 49

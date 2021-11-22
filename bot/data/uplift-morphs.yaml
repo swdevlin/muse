@@ -31,6 +31,9 @@ neo-avians:
 neo-bonobo:
   title: Neo-Bonobo
   parent: upliftmorphs
+  aliases:
+    - neo-chimp
+    - neo-chimpanzee
   text: >
     Like other neo-hominids, uplifted bonobo and chimpanzee morphs feature
     enhanced intelligence and bipedal frames. Their long arms and
@@ -44,12 +47,6 @@ neo-bonobo:
     **WT**: 6 • **DUR**: 30 • **DR**: 45
 
     <:Insight:821743329297301504>0   <:Moxie:821743387328643104>2   <:Vigor:821743354303479829>1   <:Flex:821743231124897854>0
-neo-chimp:
-  title: Neo-Chimp
-  references: neo-bonobo
-neo-chimpanzee:
-  title: Neo-Chimpanzee
-  references: neo-bonobo
 neo-gorilla:
   title: Neo-Gorilla
   parent: upliftmorphs

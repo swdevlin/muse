@@ -1,6 +1,9 @@
 podmorphs:
   title: Pod biomorphs
   page: 58
+  aliases:
+    - pod biomorphs
+    - pods
   parent: morphs
   text: >
     Pods (a colloquialism derived from “pod people”) were originally
@@ -114,9 +117,3 @@ worker pod:
     **WT**: 8 • **DUR**: 40 • **DR**: 80
 
     <:Insight:821743329297301504>0   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>1   <:Flex:821743231124897854>1
-pod biomorphs:
-  title: POD Biomorphs
-  references: podmorphs
-pods:
-  title: PODs
-  references: podmorphs

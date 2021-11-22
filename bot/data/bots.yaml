@@ -1,10 +1,7 @@
-recon bots:
-  references: surveillance bots
-  title: Recon/Surveillance Bots
-  page: 349
-  wiki_slug: en/16/21-robots.html#reconsurveillance-bots
 surveillance bots:
   title: Recon/Surveillance Bots
+  aliases:
+    - recon bots
   page: 349
   wiki_slug: en/16/21-robots.html#reconsurveillance-bots
   text: >

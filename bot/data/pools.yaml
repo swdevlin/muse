@@ -15,12 +15,11 @@ pools:
     • Vigor <:Vigor:821743354303479829> pool is linked to physical efforts: Reflexes, Somatics, and their linked skills.
 
     • Flex <:Flex:821743231124897854> is a wild-card pool. It can be used to affect dice rolls for any tests and for narrative control.
-insight:
-  title: Insight
-  references: insight pool
 insight pool:
   title: Insight Pool
   page: 34
+  aliases:
+    - insight
   parent: pools
   text: >
     <:Insight:821743329297301504> is your mental pool and may be used to:
@@ -30,12 +29,11 @@ insight pool:
     • Extra Action: Take an extra complex mental or mesh action (or 2 quick actions) in an action turn.
 
     • Acquire a Clue: Gain a hint or lead through investigation, research, or analysis of the facts at hand, without needing to make a test.
-moxie:
-  title: Moxie
-  references: moxie pool
 moxie pool:
   title: Moxie Pool
   page: 34
+  aliases:
+    - moxie
   parent: pools
   text: >
     <:Moxie:821743387328643104> is your social pool and may be used to affect rep tests and also:
@@ -49,12 +47,11 @@ moxie pool:
     • Control Your Infection: Avoid making an Infection Test when using a psi sleight (asyncs only).
 
     • Negate Gaffe: Ignore a player’s social gaffe that the character wouldn’t make.
-vigor:
-  title: Vigor Pool
-  references: vigor pool
 vigor pool:
   title: Vigor Pool
   page: 34
+  aliases:
+    - vigor
   parent: pools
   text: >
     <:Vigor:821743354303479829> is your physical pool may be used to:
@@ -64,12 +61,11 @@ vigor pool:
     • Extra Action: Take an extra complex physical action (or 2 quick actions) in an action turn.
 
     • Ignore Wound: Ignore the effects of 1 wound for 24 hours or until your next recharge.
-flex:
-  title: Flex Pool
-  references: flex pool
 flex pool:
   title: Flex Pool
   page: 34
+  aliases:
+    - flex
   parent: pools
   text: >
     <:Flex:821743231124897854> is your wild-card pool and may be used to:

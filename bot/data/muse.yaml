@@ -96,11 +96,10 @@ barsoomians:
   page: 160
   text: A movement supporting Martian independence from hypercorp control, allied
     with the autonomists.
-basilisk:
-  title: Basilisk Hack
-  references: basilisk hack
 basilisk hack:
   title: Basilisk Hack
+  aliases:
+    - basilisk
   text: Sensory input designed to trigger glitches and faults in the brain,
     leading to seizures and worse effects.
 bathyscaphe:
@@ -652,9 +651,6 @@ oversight:
   title: Oversight
   text: The Planetary Consortium agency that polices financial matters and
     protects the Consortium from external threats.
-ozma:
-  title: Ozma
-  references: project ozma
 pan:
   title: PAN
   text: Personal Area Network. The network of personal electronics slaved to your
@@ -678,8 +674,11 @@ polykatoikia:
   text: A cylinder-hab variant using dependent modules.
 posthuman:
   title: Posthuman
-  text: Someone modified so extensively as to no longer be recognizably human (a
+  text: >
+    Someone modified so extensively as to no longer be recognizably human (a
     step beyond transhuman).
+
+    Also, apparently, an RPG design house from the 21st century.
 pragmatists:
   title: Pragmatists
   text: The Firewall faction that believes in doing whatever is necessary to stop
@@ -692,6 +691,8 @@ processor locus:
   text: Orbital server habitats for infomorphs.
 project ozma:
   title: Project Ozma
+  aliases:
+    - ozma
   page: 155
   text: An extra-governmental inner-system cabal.
 prometheans:
