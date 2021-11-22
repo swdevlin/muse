@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    {% if request.user.is_anonymous %}
+    <div>
+        <h2>Hello mysterious stranger,</h2>
+        <p>looks like you're not logged in. Click on the Login with Discord button in the top right to change that.</p>
+    </div>
+    {% else %}
+        <div class="interface">
+            <div class="navigation">
+                <div class="tabs flex-center">
+                    <ul>
+                        {% for category in topic_categories %}
+                            <li>{{ category }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="topic-viewer">
+                <div class="left-pane">
+                    <div class="sorter">
+                        {% for c in topics %}
+                            <a href="#list-anchor--{{ c }}">{{ c }}</a>
+                        {% endfor %}
+                    </div>
+                    <div class="topic-list">
+                        <ul>
+                            {% for k, v in topics.items %}
+                                <li id="list-anchor--{{ k }}" class="anchor">&gt;&gt;&gt;&nbsp;{{ k }}</li>
+                                {% for t in v %}
+                                <li id="list-id--{{ t.id }}" class="topic-btn" onclick="displayItem('{{ t.id }}')">
+                                    <div class="topic-list-id">{{ t.id }}</div>
+                                    <div class="topic-list-title">{{ t.title }}</div>
+                                </li>
+				                {% endfor %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="right-pane">
+                    <div class="topics">
+			            {% for k, v in topics.items %}
+				            {% for t in v %}
+					            <div class="topic" id="topic--{{ t.id }}">
+                                    <div class="topic-id" id="topic-id--{{ t.id }}">{{ t.id }}</div>
+                                    <div class="topic-title" id="topic-title--{{ t.id }}">{{ t.title }}</div>
+                                    <div class="topic-content" id="topic-text--{{ t.id }}">
+                                            {{ t.text|linebreaks }}
+                                    </div>
+					            </div>
+					        {% endfor %}
+                   		{% endfor %}				
+			        </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            window.onload = function() {
+                var topics = document.getElementsByClassName('topic-btn');
+                topics[0].classList.toggle('selected');
+                document.getElementsByClassName('topic')[0].classList.toggle("show");
+            }
+
+            function displayItem(topic) {
+                var selected_choice = document.getElementById('list-id--'+ topic)
+                selected_choice.classList.add("selected");
+
+                var selected_topic = document.getElementById('topic--'+ topic)
+                selected_topic.classList.add("show");
+
+                var topic_list = document.getElementsByClassName("topic-btn");
+                var topics = document.getElementsByClassName("topic");
+
+                    var i;
+                    for (i = 0; i < topic_list.length; i++) {
+                        var topicChoice = topic_list[i];
+                        if (topicChoice.id !== selected_choice.id) {
+                            if (topicChoice.classList.contains('selected')) {
+                                topicChoice.classList.remove('selected');
+                            }
+                        }
+                        var topic = topics[i];
+                        if (topic.id !== selected_topic.id) {
+                            if (topic.classList.contains('show')) {
+                                topic.classList.remove('show');
+                            }
+                        }
+                    }
+            }
+        </script>
+    {% endif %}
+{% endblock %}

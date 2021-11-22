@@ -5,24 +5,26 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}{% endblock %}</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="{% static 'discord/style.css' %}">
+        {% with personality|add:'/style.css' as stylesheet %}
+            <link rel="stylesheet" type="text/css" href="{% static stylesheet %}">
+        {% endwith %}
     </head>
     <body>
-        <div class="container">
+        <div class="container max-hw">
             <div class="header">
-                <div class="header-left"><h6>Muse</h6></div>
-                <div class="header-mid"><h6>{{ page_title }}</h6></div>
+                <div class="header-left"><a href="{% url 'index' %}"><h1>MUSE</h1></a></div>
+                <div class="header-mid flex-center"><h6>{{ page_title }}</h6></div>
                 <div class="header-right">
                 {% if request.user.is_anonymous %}
-                    <a class="btn" href="{% url 'login_with_discord' %}">Login with Discord</a>
+                    <a class="btn flex-center" href="{% url 'login-with-discord' %}">
+                        Login with Discord
+                    </a>
                 {% else %}
                     <div class="dropdown">
                         <button onclick="displayDropdown()" class="dropdown-btn">{{ name }}#{{ discriminator }}</button>
-                        <div id="account_menu" class="dropdown-content">
+                        <div id="account-menu" class="dropdown-content">
                             <a href="{% url 'dashboard' %}">Dashboard</a>
+                            <a href="{% url 'database' %}">Database</a>
                             <a href="{% url 'profile' %}">My profile</a>
                             <a href="{% url 'logout' %}">Logout</a>
                         </div>
@@ -30,18 +32,26 @@
                 {% endif %}
                 </div>
             </div>
-            <div class="content">
+            <div class="content flex-center">
                 {% block content %}{% endblock %}
             </div>
             <div class="footer">
-                <div class="footer-left"></div>
-                <div class="footer-mid">All copyrighted symbols/logos are the property of their respective owners.</div>
-                <div class="footer-right">v0.0.0</div>
+                {% with personality|add:'/media/discord.png' as discord %}
+                    <div class="footer-left"><a href="https://discord.gg/nAsE9rp4Ua"><img src="{% static discord %}"></a></div>
+                {% endwith %}
+                <div class="footer-mid flex-center">
+                    <span>All copyrighted symbols/logos are the property of their respective owners. <a href="https://eclipsephase.com/">Eclipse Phase</a> is published by <a href="https://posthumanstudios.com/">Posthuman Studios.</a></span>
+                </div>
+                <div class="footer-right">
+                    <ul>
+                        <li><a href="https://github.com/swdevlin/muse">Contribute</a></li></ul>
+                    |
+                    <div style="text-transform: lowercase; padding-left:10px;">v0.5.0</div></div>
             </div>
         </div>
         <script>
             function displayDropdown() {
-                document.getElementById("account_menu").classList.toggle("show");
+                document.getElementById("account-menu").classList.toggle("show");
             }
             window.onclick = function(event) {
                 if (!event.target.matches('.dropdown-btn')) {

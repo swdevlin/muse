@@ -22,15 +22,17 @@ code_exchange_payload = {
 
 
 def get_context(request, include_servers=False):
-    context = {}
+    context = {
+        'personality': request.user.personality if hasattr(request.user, 'personality') else 'default'
+    }
     if not request.user.is_anonymous:
-        context = {
+        context.update({
             'name': request.user.name,
             'discriminator': request.user.discriminator,
             'avatar': request.user.avatar,
             'last_authenticated': request.user.last_authenticated,
-            'locale': request.user.locale
-        }
+            'locale': request.user.locale,
+        })
         if include_servers:
             servers = {}
             for server in request.user.servers.all():
