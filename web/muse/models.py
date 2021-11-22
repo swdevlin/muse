@@ -41,6 +41,8 @@ class Topic(models.Model):
     parent = models.TextField(null=True)
     page = models.TextField(null=True)
     wiki_slug = models.TextField(null=True)
+    image = models.TextField(null=True)
+    category = models.TextField(null=True)
 
     def __str__(self):
         return f'{self.title} ({self.key})'
