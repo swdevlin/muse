@@ -42,6 +42,13 @@ def database(request):
     topics = sorted(Topic.objects.all().filter(server__in=request.user.servers.all()), key=lambda t: t.key)
     total_topics = len(topics)
     topic_first_characters = sorted(set([t.title[0].lower() for t in topics]))
+    categories = [
+        'skills',
+        'places',
+        'weapons',
+        'vehicles',
+        'factions',
+    ]
     context.update({
         'topics': {
             c: [
@@ -52,13 +59,7 @@ def database(request):
                 } for i in range(0, total_topics) if topics[i].title.lower().startswith(c.lower())
             ] for c in topic_first_characters
         },
-        'topic_categories': [
-            'skills',
-            'places',
-            'weapons',
-            'vehicles',
-            'factions',
-        ]
+        'topic_categories': categories
     })
     return render(request, f'database.html', context=context)
 
