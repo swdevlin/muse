@@ -25,6 +25,8 @@ const queries = [
   'what do you know about ',
 ];
 
+const tokenSplit = /\s+/;
+
 const getPrefix = async (guild_id) => {
   const prefixKey = `${guild_id}:prefix`;
   let prefix = await cache.get(prefixKey);
@@ -68,7 +70,7 @@ const message = async (msg) => {
   }
   let {content} = msg;
   content = content.toLocaleLowerCase().trim();
-  const tokens = content.split(' ');
+  const tokens = content.split(tokenSplit);
   const prefix= await getPrefix(guild.id);
   if (prefix !== tokens[0])
     return;
