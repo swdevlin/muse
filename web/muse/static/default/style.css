@@ -376,7 +376,6 @@ padding-right: 1em;
 
 ::-webkit-scrollbar {
 width:12px;
-width:12px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -389,5 +388,21 @@ width:12px;
 
 ::-webkit-scrollbar-track {
 opacity:0;
+}
+
+.profile-details {
+border-top:1px solid #797979;
+float:left;
+width:29%;
+height:inherit;
+}
+
+.settings {
+border-top:1px solid #797979;
+float:right;
+height:inherit;
+overflow-y:hidden;
+padding-top:5px;
+width:70%;
 }
 
