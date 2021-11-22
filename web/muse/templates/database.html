@@ -23,37 +23,37 @@
                 <div class="left-pane">
                     <div class="sorter">
                         {% for c in topics %}
-				<a href="#{{ c }}">{{ c }}</a>
+                            <a href="#list-anchor--{{ c }}">{{ c }}</a>
                         {% endfor %}
                     </div>
                     <div class="topic-list">
                         <ul>
                             {% for k, v in topics.items %}
-			    <li id="list-anchor--{{ k }}" class="anchor">&gt;&gt;&gt;&nbsp;{{ k }}</li>
-			    	{% for t in v %}
-					<li id="list-id--{{ t.id }}" class="topic-btn" onclick="displayItem('{{ t.id }}')">
-					<div class="topic-list-id">{{ t.id }}</div>
-                                	<div class="topic-list-title">{{ t.title }}</div>
-					</li>
-				{% endfor %}
+                                <li id="list-anchor--{{ k }}" class="anchor">&gt;&gt;&gt;&nbsp;{{ k }}</li>
+                                {% for t in v %}
+                                <li id="list-id--{{ t.id }}" class="topic-btn" onclick="displayItem('{{ t.id }}')">
+                                    <div class="topic-list-id">{{ t.id }}</div>
+                                    <div class="topic-list-title">{{ t.title }}</div>
+                                </li>
+				                {% endfor %}
                             {% endfor %}
                         </ul>
                     </div>
                 </div>
                 <div class="right-pane">
-                        <div class="topics">                   
-			{% for k, v in topics.items %}
-				{% for t in v %}
-					<div class="topic" id="topic--{{ t.id }}">
-                                        	<div class="topic-id" id="topic-id--{{ t.id }}">{{ t.id }}</div>
-                                        	<div class="topic-title" id="topic-title--{{ t.id }}">{{ t.title }}</div>
-                                        	<div class="topic-content" id="topic-text--{{ t.id }}">
-                                               		{{ t.text|linebreaks }}
-                                        	</div>
-					</div>
-					{% endfor %}
+                    <div class="topics">
+			            {% for k, v in topics.items %}
+				            {% for t in v %}
+					            <div class="topic" id="topic--{{ t.id }}">
+                                    <div class="topic-id" id="topic-id--{{ t.id }}">{{ t.id }}</div>
+                                    <div class="topic-title" id="topic-title--{{ t.id }}">{{ t.title }}</div>
+                                    <div class="topic-content" id="topic-text--{{ t.id }}">
+                                            {{ t.text|linebreaks }}
+                                    </div>
+					            </div>
+					        {% endfor %}
                    		{% endfor %}				
-			</div>
+			        </div>
                 </div>
             </div>
         </div>
