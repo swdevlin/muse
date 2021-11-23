@@ -296,6 +296,16 @@ exodus:
 exoplanet:
   title: Exoplanet
   text: A planet in another star system.
+experience playback:
+  title: Experience Playback
+  page: 242
+  aliases:
+    - xp
+  text: >
+    Every morph with mesh inserts has the capability to transmit or
+    record their experiences in the form of XP. Sharing with friends,
+    social networks, or with the public at large is popular. Short clips are
+    common, but some x-casters post an ongoing lifelog for subscribers.
 exsurgent:
   title: Exsurgent
   text: Someone infected by the exsurgent virus and likely transformed into an
@@ -964,10 +974,6 @@ xer:
   title: Xer
   text: As in “X-er” — someone addicted or obsessed with XP. Sometime also used to
     refer to people making XP.
-xp:
-  title: XP
-  text: Experience Playback. Experiencing someone else’s sensory input (real-time
-    or recorded). AKA sim, simsense, playback.
 x-risk:
   title: X-Risk
   text: Existential Risk. Something that threatens the very existence of
