@@ -78,7 +78,7 @@ text-align:right;
 z-index:1;
 }
 
-.dropdown-content a {
+.dropdown-content a, .dropdown-content li {
 color:#FFFFFFFF;
 display:block;
 font-size:14px;
@@ -216,7 +216,7 @@ padding-top:1px;
 transform:scale(1,1.3);
 }
 
-.left-pane li:hover,.tabs li:hover,.dropdown a:hover,.selected, .sorter a:hover {
+.left-pane li:hover,.tabs li:hover,.dropdown a:hover,.selected, .sorter a:hover, .server-dropdown li:hover {
 background-color:#6470ef;
 color:#000;
 font-weight:700;
@@ -406,3 +406,23 @@ padding-top:5px;
 width:70%;
 }
 
+.topic-viewer {
+display: none;
+}
+
+.server-select {
+font-size: 16px;
+padding-bottom: 4px;
+text-align: center;
+}
+
+.server-dropdown {
+display: inline-block;
+position: relative;
+margin-left: 1em;
+margin-bottom: 1em;
+}
+
+#server-menu {
+background-color:rgba(208, 204, 204, 0.4);
+}
