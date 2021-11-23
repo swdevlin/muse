@@ -39,9 +39,24 @@ def database(request):
     if request.user.is_anonymous:
         return HttpResponseRedirect(reverse('login-with-discord'))
     context = get_context(request, include_servers=True)
-    topics = sorted(Topic.objects.all().filter(server__in=request.user.servers.all()), key=lambda t: t.key)
-    total_topics = len(topics)
-    topic_first_characters = sorted(set([t.title[0].lower() for t in topics]))
+    for server in context['servers']:
+        server_topics = sorted(Topic.objects.all().filter(server__discord_id=server), key=lambda t: t.key)
+        total_topics = len(server_topics)
+        topic_first_characters = sorted(set([t.title[0].lower() for t in server_topics]))
+        context['servers'][f'{server}'].update({
+                'topics': {
+                    c: [
+                        {
+                            'id': str(i + 1).zfill(len(str(total_topics))),
+                            'title': server_topics[i].title,
+                            'text': server_topics[i].text
+                        } for i in range(0, total_topics) if server_topics[i].title.lower().startswith(c.lower())
+                    ] for c in topic_first_characters
+                },
+                'total_topics': total_topics,
+                'topic_first_characters': topic_first_characters
+        })
+
     categories = [
         'skills',
         'places',
@@ -50,15 +65,6 @@ def database(request):
         'factions',
     ]
     context.update({
-        'topics': {
-            c: [
-                {
-                    'id': str(i + 1).zfill(len(str(total_topics))),
-                    'title': topics[i].title,
-                    'text': topics[i].text
-                } for i in range(0, total_topics) if topics[i].title.lower().startswith(c.lower())
-            ] for c in topic_first_characters
-        },
         'topic_categories': categories
     })
     return render(request, f'database.html', context=context)

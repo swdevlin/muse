@@ -21,8 +21,8 @@
                     </a>
                 {% else %}
                     <div class="dropdown">
-                        <button onclick="displayDropdown()" class="dropdown-btn">{{ name }}#{{ discriminator }}</button>
-                        <div id="account-menu" class="dropdown-content">
+                        <button onclick="displayDropdown('main-menu')" class="dropdown-btn">{{ name }}#{{ discriminator }}</button>
+                        <div id="main-menu" class="dropdown-content">
                             <a href="{% url 'dashboard' %}">Dashboard</a>
                             <a href="{% url 'database' %}">Database</a>
                             <a href="{% url 'profile' %}">My profile</a>
@@ -50,20 +50,8 @@
             </div>
         </div>
         <script>
-            function displayDropdown() {
-                document.getElementById("account-menu").classList.toggle("show");
-            }
-            window.onclick = function(event) {
-                if (!event.target.matches('.dropdown-btn')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
-                }
+            function displayDropdown(dropdown) {
+                document.getElementById(dropdown).classList.toggle("show");
             }
         </script>
     </body>
