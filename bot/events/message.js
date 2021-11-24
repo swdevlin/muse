@@ -98,9 +98,15 @@ const message = async (msg) => {
       lookup = lookup.substr(2);
 
     if (lookup === 'help') {
+      const commandList = Object.keys(commands).join(', ');
+      const helpText = `Add text after \`${prefix}\` and I will look up information about the topic. For example, enter \`${prefix} c-ball\` to find out information about c-ball
+
+I know the following commands: ${commandList}
+
+You can configure me using a browser at ${process.env.WEB_URL}`;
       let entry = {
         title: 'Help',
-        text: `Add text after \`${prefix}\` and I will look up information about the topic. For example, enter \`${prefix} c-ball\` to find out information about c-ball`
+        text: helpText
       }
       await sendEntry(msg, entry);
     } else {
