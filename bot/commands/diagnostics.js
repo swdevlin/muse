@@ -4,6 +4,7 @@ const logger = require("../logger");
 const knex = require('../db/connection');
 const { Permissions } = require('discord.js');
 const {hackDetected} = require("../helpers");
+const fs = require('fs')
 
 class Diagnostics {
   static command = '-diagnostics';
@@ -19,7 +20,10 @@ class Diagnostics {
           .where({discord_id: guild.id})
           .count('topic.id as topic_count')
           .groupBy('custom');
-        const message = `running self diagnostics....\n\nI know ${diag[0].topic_count} common topics and ${diag[1].topic_count} campaign topics`;
+
+        const length = fs.readdirSync('./commands').length - 1;
+
+        const message = `running self diagnostics....\n\nI know ${diag[0].topic_count} common topics and ${diag[1].topic_count} campaign topics and ${length} commands`;
         logger.info(`diagnostics run for ${guild.id}`);
         await msg.reply(message);
       } else
