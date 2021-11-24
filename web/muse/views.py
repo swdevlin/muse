@@ -40,9 +40,9 @@ def database(request):
         return HttpResponseRedirect(reverse('login-with-discord'))
     context = get_context(request, include_servers=True)
     for server in context['servers']:
-        server_topics = sorted(Topic.objects.all().filter(server__discord_id=server), key=lambda t: t.key)
+        server_topics = Topic.objects.filter(server__discord_id=server, alias_for__isnull=True).order_by('key')
         total_topics = len(server_topics)
-        topic_first_characters = sorted(set([t.title[0].lower() for t in server_topics]))
+        topic_first_characters = sorted(set([t.key[0].lower() for t in server_topics]))
         context['servers'][f'{server}'].update({
                 'topics': {
                     c: [
@@ -50,7 +50,7 @@ def database(request):
                             'id': str(i + 1).zfill(len(str(total_topics))),
                             'title': server_topics[i].title,
                             'text': server_topics[i].text
-                        } for i in range(0, total_topics) if server_topics[i].title.lower().startswith(c.lower())
+                        } for i in range(0, total_topics) if server_topics[i].key.lower().startswith(c.lower())
                     ] for c in topic_first_characters
                 },
                 'total_topics': total_topics,
