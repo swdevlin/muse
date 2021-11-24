@@ -110,6 +110,8 @@ You can configure me using a browser at ${process.env.WEB_URL}`;
       }
       await sendEntry(msg, entry);
     } else {
+      if (lookup === 'you')
+        lookup = 'muse';
       let entry = await findEntry(lookup, guild.id);
       if (entry) {
         await sendEntry(msg, entry);
