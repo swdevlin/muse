@@ -2,57 +2,61 @@
 {% csrf_token %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}{% endblock %}</title>
-        {% with personality|add:'/style.css' as stylesheet %}
-            <link rel="stylesheet" type="text/css" href="{% static stylesheet %}">
-        {% endwith %}
-    </head>
-    <body>
-        <div class="container max-hw">
-            <div class="header">
-                <div class="header-left"><a href="{% url 'index' %}"><h1>MUSE</h1></a></div>
-                <div class="header-mid flex-center"><h6>{{ page_title }}</h6></div>
-                <div class="header-right">
-                {% if request.user.is_anonymous %}
-                    <a class="btn flex-center" href="{% url 'login-with-discord' %}">
-                        Login with Discord
-                    </a>
-                {% else %}
-                    <div class="dropdown">
-                        <button onclick="displayDropdown('main-menu')" class="dropdown-btn">{{ name }}#{{ discriminator }}</button>
-                        <div id="main-menu" class="dropdown-content">
-                            <a href="{% url 'dashboard' %}">Dashboard</a>
-                            <a href="{% url 'database' %}">Database</a>
-                            <a href="{% url 'profile' %}">My profile</a>
-                            <a href="{% url 'logout' %}">Logout</a>
-                        </div>
-                    </div>
-                {% endif %}
-                </div>
-            </div>
-            <div class="content flex-center">
-                {% block content %}{% endblock %}
-            </div>
-            <div class="footer">
-                {% with personality|add:'/media/discord.png' as discord %}
-                    <div class="footer-left"><a href="https://discord.gg/nAsE9rp4Ua"><img src="{% static discord %}"></a></div>
-                {% endwith %}
-                <div class="footer-mid flex-center">
-                    <span>All copyrighted symbols/logos are the property of their respective owners. <a href="https://eclipsephase.com/">Eclipse Phase</a> is published by <a href="https://posthumanstudios.com/">Posthuman Studios.</a></span>
-                </div>
-                <div class="footer-right">
-                    <ul>
-                        <li><a href="https://github.com/swdevlin/muse">Contribute</a></li></ul>
-                    |
-                    <div style="text-transform: lowercase; padding-left:10px;">v0.5.0</div></div>
-            </div>
-        </div>
-        <script>
-            function displayDropdown(dropdown) {
-                document.getElementById(dropdown).classList.toggle("show");
-            }
-        </script>
-    </body>
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}{% endblock %}</title>
+	{% with personality|add:'/style.css' as stylesheet %}
+		<link rel="stylesheet" type="text/css" href="{% static stylesheet %}">
+	{% endwith %}
+</head>
+<body>
+<div class="container max-hw">
+	<div class="header">
+		<div class="header-left"><a href="{% url 'index' %}"><h1>MUSE</h1></a></div>
+		<div class="header-mid flex-center"><h6>{{ page_title }}</h6></div>
+		<div class="header-right">
+			{% if request.user.is_anonymous %}
+				<a class="btn flex-center" href="{% url 'login-with-discord' %}">
+					Login with Discord
+				</a>
+			{% else %}
+				<div class="dropdown">
+					<button onclick="displayDropdown('main-menu')" class="dropdown-btn">{{ name }}#{{ discriminator }}</button>
+					<div id="main-menu" class="dropdown-content">
+						<a href="{% url 'dashboard' %}">Dashboard</a>
+						<a href="{% url 'database' %}">Database</a>
+						<a href="{% url 'profile' %}">My profile</a>
+						<a href="{% url 'logout' %}">Logout</a>
+					</div>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+	<div class="content flex-center">
+		{% block content %}{% endblock %}
+	</div>
+	<div class="footer">
+		{% with personality|add:'/media/discord.png' as discord %}
+			<div class="footer-left"><a href="https://discord.gg/nAsE9rp4Ua" target="_blank"><img src="{% static discord %}"></a>
+			</div>
+		{% endwith %}
+		<div class="footer-mid flex-center">
+			<span>All copyrighted symbols/logos are the property of their respective owners. <a
+					href="https://eclipsephase.com/">Eclipse Phase</a> is published by <a href="https://posthumanstudios.com/">Posthuman Studios.</a></span>
+		</div>
+		<div class="footer-right">
+			<ul>
+				<li><a href="https://github.com/swdevlin/muse">Contribute</a></li>
+			</ul>
+			|
+			<div style="text-transform: lowercase; padding-left:10px;">v0.5.0</div>
+		</div>
+	</div>
+</div>
+<script>
+	function displayDropdown(dropdown) {
+		document.getElementById(dropdown).classList.toggle("show");
+	}
+</script>
+</body>
 </html>
