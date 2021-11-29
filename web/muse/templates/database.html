@@ -3,120 +3,114 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block content %}
-    {% if request.user.is_anonymous %}
-    <div>
-        <h2>Hello mysterious stranger,</h2>
-        <p>looks like you're not logged in. Click on the Login with Discord button in the top right to change that.</p>
-    </div>
-    {% else %}
-        <div class="interface">
-            <div class="navigation">
-                <div class="tabs flex-center">
-                    <ul>
-                        {% for category in topic_categories %}
-                            <li>{{ category }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                <div class="server-dropdown">
-                    <button onclick="displayDropdown('server-menu')" class="servers dropdown-btn">Servers</button>
-                    <div id="server-menu" class="dropdown-content">
-                        {% for server, info in servers.items %}
-                            <li id="server--{{ server }}" class="server-item" onclick="selectServer('{{ server }}')">{{ info.name }}</li>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-            {% for server, v in servers.items %}
-                <div id="{{ server  }}" class="topic-viewer">
-                    <div class="left-pane">
-                        <div class="sorter">
-                            {% for c in v.topic_first_characters %}
-                                <a href="#{{ server }}--list-anchor--{{ c }}">{{ c }}</a>
-                            {% endfor %}
-                        </div>
-                        <div class="topic-list">
-                            <ul>
-                                {% for k, v in v.topics.items %}
-                                    <li id="{{ server }}--list-anchor--{{ k }}" class="anchor">&gt;&gt;&gt;&nbsp;{{ k }}</li>
-                                    {% for t in v %}
-                                    <li id="{{ server }}--list-id--{{ t.id }}" class="topic-btn" onclick="displayItem('{{ server }}', '{{ t.id }}')">
-                                        <div class="topic-list-id">{{ t.id }}</div>
-                                        <div class="topic-list-title">{{ t.title }}</div>
-                                    </li>
-                                    {% endfor %}
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="right-pane">
-                        <div class="topics">
-                            {% for k, d in v.topics.items %}
-                                {% for t in d %}
-                                    <div class="topic" id="{{ server }}--topic--{{ t.id }}">
-                                        <div class="topic-id" id="{{ server }}--topic-id--{{ t.id }}">{{ t.id }}</div>
-                                        <div class="topic-title" id="{{ server }}--topic-title--{{ t.id }}">{{ t.title }}</div>
-                                        <div class="topic-content" id="{{ server }}--topic-text--{{ t.id }}">
-                                                {{ t.text|linebreaks }}
-                                        </div>
-                                    </div>
-                                {% endfor %}
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-        <script>
-            window.onload = function() {
-                var topics = document.getElementsByClassName('topic-btn');
-                topics[0].classList.toggle('selected');
-                document.getElementsByClassName('topic-viewer')[0].classList.toggle("show");
-                document.getElementsByClassName('topic')[0].classList.toggle("show");
-            }
+	<div class="interface">
+		<div class="navigation">
+			<div class="tabs flex-center">
+				<ul>
+					{% for category in topic_categories %}
+						<li>{{ category }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="server-dropdown">
+				<button onclick="displayDropdown('server-menu')" class="servers dropdown-btn">Servers</button>
+				<div id="server-menu" class="dropdown-content">
+					{% for server, info in servers.items %}
+						<li id="server--{{ server }}" class="server-item"
+								onclick="selectServer('{{ server }}')">{{ info.name }}</li>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+		{% for server, v in servers.items %}
+			<div id="{{ server }}" class="topic-viewer">
+				<div class="left-pane">
+					<div class="sorter">
+						{% for c in v.topic_first_characters %}
+							<a href="#{{ server }}--list-anchor--{{ c }}">{{ c }}</a>
+						{% endfor %}
+					</div>
+					<div class="topic-list">
+						<ul>
+							{% for k, v in v.topics.items %}
+								<li id="{{ server }}--list-anchor--{{ k }}" class="anchor">&gt;&gt;&gt;&nbsp;{{ k }}</li>
+								{% for t in v %}
+									<li id="{{ server }}--list-id--{{ t.id }}" class="topic-btn"
+											onclick="displayItem('{{ server }}', '{{ t.id }}')">
+										<div class="topic-list-id">{{ t.id }}</div>
+										<div class="topic-list-title">{{ t.title }}</div>
+									</li>
+								{% endfor %}
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+				<div class="right-pane">
+					<div class="topics">
+						{% for k, d in v.topics.items %}
+							{% for t in d %}
+								<div class="topic" id="{{ server }}--topic--{{ t.id }}">
+									<div class="topic-id" id="{{ server }}--topic-id--{{ t.id }}">{{ t.id }}</div>
+									<div class="topic-title" id="{{ server }}--topic-title--{{ t.id }}">{{ t.title }}</div>
+									<div class="topic-content" id="{{ server }}--topic-text--{{ t.id }}">
+										{{ t.text|linebreaks }}
+									</div>
+								</div>
+							{% endfor %}
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+	<script>
+		window.onload = function () {
+			var topics = document.getElementsByClassName('topic-btn');
+			topics[0].classList.toggle('selected');
+			document.getElementsByClassName('topic-viewer')[0].classList.toggle("show");
+			document.getElementsByClassName('topic')[0].classList.toggle("show");
+		}
 
-            function selectServer(server) {
-                var selected_server = document.getElementById(server)
-                var topic_viewers = document.getElementsByClassName("topic-viewer");
-                selected_server.classList.add("show");
-                var i;
-                for (i = 0; i < topic_viewers.length; i++) {
-                    var t = topic_viewers[i];
-                    if (t.id !== selected_server.id) {
-                        if (t.classList.contains('show')) {
-                            t.classList.remove('show');
-                        }
-                    }
-                }
-                displayItem(server, '001');
-            }
+		function selectServer(server) {
+			var selected_server = document.getElementById(server)
+			var topic_viewers = document.getElementsByClassName("topic-viewer");
+			selected_server.classList.add("show");
+			var i;
+			for (i = 0; i < topic_viewers.length; i++) {
+				var t = topic_viewers[i];
+				if (t.id !== selected_server.id) {
+					if (t.classList.contains('show')) {
+							t.classList.remove('show');
+					}
+				}
+			}
+			displayItem(server, '001');
+		}
 
-            function displayItem(server, topic) {
-                var selected_choice = document.getElementById(server + '--list-id--'+ topic)
-                selected_choice.classList.add("selected");
+		function displayItem(server, topic) {
+			var selected_choice = document.getElementById(server + '--list-id--' + topic)
+			selected_choice.classList.add("selected");
 
-                var selected_topic = document.getElementById(server + '--topic--'+ topic)
-                selected_topic.classList.add("show");
+			var selected_topic = document.getElementById(server + '--topic--' + topic)
+			selected_topic.classList.add("show");
 
-                var topic_list = document.getElementsByClassName("topic-btn");
-                var topics = document.getElementsByClassName("topic");
+			var topic_list = document.getElementsByClassName("topic-btn");
+			var topics = document.getElementsByClassName("topic");
 
-                var i;
-                for (i = 0; i < topic_list.length; i++) {
-                    var topicChoice = topic_list[i];
-                    if (topicChoice.id !== selected_choice.id) {
-                        if (topicChoice.classList.contains('selected')) {
-                            topicChoice.classList.remove('selected');
-                        }
-                    }
-                    var topic = topics[i];
-                    if (topic.id !== selected_topic.id) {
-                        if (topic.classList.contains('show')) {
-                            topic.classList.remove('show');
-                        }
-                    }
-                }
-            }
-        </script>
-    {% endif %}
+			for (var i = 0; i < topic_list.length; i++) {
+				var topicChoice = topic_list[i];
+				if (topicChoice.id !== selected_choice.id) {
+					if (topicChoice.classList.contains('selected')) {
+							topicChoice.classList.remove('selected');
+					}
+				}
+				var topic = topics[i];
+				if (topic.id !== selected_topic.id) {
+					if (topic.classList.contains('show')) {
+							topic.classList.remove('show');
+					}
+				}
+			}
+		}
+	</script>
 {% endblock %}
