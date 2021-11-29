@@ -19,7 +19,10 @@ def index(request):
 
 
 def profile(request):
-    if request.POST and not request.user.is_anonymous:
+    if request.user.is_anonymous:
+        return redirect(reverse('index'))
+
+    if request.POST:
         request.user.personality = request.POST.get('personality') or request.user.personality or 'default'
         request.user.save()
     context = get_context(request, include_servers=True)
