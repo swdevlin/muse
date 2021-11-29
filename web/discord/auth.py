@@ -128,20 +128,13 @@ def authenticate(request):
     return HttpResponseRedirect(reverse('dashboard'))
 
 
-def process_logout(request, context=None):
-    if not context:
-        context = {}
+def process_logout(request):
     if not request.user.is_anonymous:
-        context.update({
-            'name': request.user.name,
-            'discriminator': request.user.discriminator
-        })
         revoke_token(request.user)
         request.user.access_token = None
         request.user.refresh_token = None
         request.user.save()
         logout(request)
-    return context
 
 
 def revoke_token(discord_user):

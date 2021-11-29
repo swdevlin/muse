@@ -83,10 +83,5 @@ def login(request):
 
 
 def logout(request):
-    context = get_context(request)
-    context.update({
-        'page_title': 'Logged Out',
-        'page_text': '',
-    })
-    process_logout(request, context)
-    return render(request, f'logout.html', context=context)
+    process_logout(request)
+    return redirect(reverse('index'))
