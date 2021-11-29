@@ -1,16 +1,27 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}Dashboard{% endblock %}
+{% block title %}Muse{% endblock %}
 
 {% block content %}
-    <div>
-        <div class="welcome">
-            {% if request.user.is_anonymous %}
-            <h2>Hello mysterious stranger!</h2>
-            {% else %}
-                <h2>Hello {{ name }}#{{ discriminator }}!</h2>
-            {% endif %}
-            <p>{{ page_text }}</p>
-        </div>
-    </div>
+	<div>
+		<div class="welcome">
+			{% if request.user.is_anonymous %}
+				<h2>Welcome to Muse</h2>
+				<p>Muse is a <a href="https://discord.com">Discord</a> dictionary bot. You can type
+				<pre>muse topic</pre>
+				and the bot will reply with that it knows about <i>topic</i>. Server administrators can use this website
+				to manage their muse's knowledge base.</p>
+				<p>You can add Muse to your Discord server via
+					<a href="https://discord.com/api/oauth2/authorize?client_id=796356258319564822&permissions=522304&scope=bot">
+						https://discord.com/api/oauth2/authorize?client_id=796356258319564822&permissions=522304&scope=bot
+					</a>
+				</p>
+				<p>Muse was inspired by the muse ALI in the <a href="https://www.eclipsephase.com">Eclipse Phase RPG</a>
+					by <a href="https://posthumanstudios.com">Posthuman Studios, LLC</a>
+				</p>
+			{% else %}
+				<h2>Hello {{ name }}#{{ discriminator }}!</h2>
+			{% endif %}
+		</div>
+	</div>
 {% endblock %}
