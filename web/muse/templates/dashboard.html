@@ -3,14 +3,9 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block content %}
-    <div class="interface">
-        <div id="dashboard" class="max-hw flex-center">
-            {% if request.user.is_anonymous %}
-                <h2>Hello mysterious stranger,</h2>
-                <p>looks like you're not logged in. Click on the Login with Discord button in the top right to change that.</p>
-            {% else %}
-                <p>Show some logged in things here.</p>
-            {% endif %}
-        </div>
-    </div>
+	<div class="interface">
+		<div id="dashboard" class="max-hw flex-center">
+			<p>Show some logged in things here.</p>
+		</div>
+	</div>
 {% endblock %}

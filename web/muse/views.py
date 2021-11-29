@@ -35,7 +35,8 @@ def profile(request):
 
 def dashboard(request):
     if request.user.is_anonymous:
-        return HttpResponseRedirect(reverse('login-with-discord'))
+        return reverse('index')
+
     context = get_context(request, include_servers=True)
     return render(request, f'dashboard.html', context=context)
 
