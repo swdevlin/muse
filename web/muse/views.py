@@ -1,5 +1,5 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse
 
 from discord.auth import get_context, process_logout, discord_config
@@ -8,12 +8,14 @@ from .forms import PersonalityForm
 
 
 def index(request):
-    context = get_context(request)
-    context.update({
-        'page_title': 'Welcome',
-        'page_text': 'This is still a work in progress and proof of concept.'
-    })
-    return render(request, f'index.html', context=context)
+    if request.user.is_anonymous:
+        context = get_context(request)
+        context.update({
+            'page_title': 'Muse',
+        })
+        return render(request, 'index.html', context=context)
+    else:
+        return redirect(reverse('database'))
 
 
 def profile(request):
