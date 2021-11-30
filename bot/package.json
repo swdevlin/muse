@@ -4,7 +4,9 @@
   "description": "A muse meshed through Discord",
   "main": "bot.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bot",
+    "test": "node ./node_modules/mocha/bin/mocha",
+    "coverage": "nyc ./node_modules/mocha/bin/mocha --recursive"
   },
   "repository": {
     "type": "git",
@@ -17,7 +19,7 @@
     "muse",
     "eclipsephase"
   ],
-  "author": "Shawn W. Devlin",
+  "author": "Shawn W. Devlin & Matthew Marion",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/swdevlin/muse/issues"
@@ -31,8 +33,15 @@
     "knex": "^0.21.17",
     "natural": "^3.0.1",
     "pg": "^8.5.1",
+    "random-js": "^2.1.0",
     "redis": "^4.0.0-rc.3",
     "winston": "^3.3.3",
     "yaml": "^1.10.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "eslint": "^8.3.0",
+    "mocha": "^9.1.3",
+    "sinon": "^12.0.1"
   }
 }

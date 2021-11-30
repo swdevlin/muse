@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "async-redis": "^2.0.0",
-    "random-js": "^2.1.0",
-    "redis": "^4.0.0-rc.3"
-  }
-}
