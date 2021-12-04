@@ -46,3 +46,16 @@ class Topic(models.Model):
 
     def __str__(self):
         return f'{self.title} ({self.key})'
+
+
+class CampaignJobsLog(models.Model):
+    class Meta:
+        db_table = 'campaign_jobs'
+
+    server = models.ForeignKey(Server, on_delete=models.CASCADE)
+    last_error = models.TextField(null=True)
+    results = models.TextField(null=True)
+    filename = models.TextField(null=True)
+    created_at = models.DateTimeField(default=timezone.now)
+    completed_at = models.DateTimeField(null=True)
+

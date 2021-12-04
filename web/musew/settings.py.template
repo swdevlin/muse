@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'muse.apps.MuseConfig',
     'users.apps.UsersConfig',
     'discord.apps.DiscordConfig'
+    'eb_sqs',
 ]
 
 MIDDLEWARE = [
@@ -149,3 +150,42 @@ if not DISCORD['redirect_uri'] or not DISCORD['client_id'] or not DISCORD['clien
     raise Exception('ah ah ah, looks like you forgot to set the discord credentials and redirect URI!')
 
 AUTH_USER_MODEL = 'users.DiscordUser'
+
+CAMPAIGN_BUCKET=None
+SQS_CAMPAIGN_QUEUE=None
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+         'jobs': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'logs/jobs.log',
+        },
+   },
+    'root': {
+        'handlers': ['console'],
+        'level': 'WARNING',
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+            'propagate': False,
+        },
+        'eb_sqs': {
+            'handlers': ['console', 'jobs'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
+            'propagate': False,
+        },
+        'jobs': {
+            'handlers': ['console', 'jobs'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
+            'propagate': False,
+        },
+    },
+}
