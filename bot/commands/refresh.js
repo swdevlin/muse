@@ -29,22 +29,6 @@ class Refresh {
       } catch (err) {
         logger.error(err);
       }
-    } else if (content.endsWith('-refresh campaign confirm')) {
-      try {
-        if (msg.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) {
-          const trx = await knex.transaction();
-          const id = await getServerId(guild.id, trx);
-          await populateCampaign(id, trx);
-          await trx.commit();
-
-          logger.info(`campaign muse entries updated for ${guild.id}`);
-          await msg.reply('My campaign knowledge base bas been refreshed.')
-        } else
-          await hackDetected(msg);
-
-      } catch(err) {
-        logger.error(err);
-      }
     } else {
       await msg.reply('The -refresh command will refresh all core muse entries. Any custom muse entries will not be modified.')
     }

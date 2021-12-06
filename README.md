@@ -50,8 +50,8 @@ Copy `knexfile.js.template` to `knexfile.js` and update the database settings.
 ### Your own data
 
 Core data files are in the data folder. While you can edit them, it is cleaner to use a campaign.yaml file 
-to hold entries specific to your game. Copy the `campaign.yaml.template` file to `campaign.yaml` and add
-your entries there.
+to hold entries specific to your game. You can upload a campaign file using the web UI. Use `campaign.yaml.template` 
+as a template.
 
 #### muse yaml format
 
