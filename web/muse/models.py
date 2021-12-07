@@ -78,7 +78,9 @@ class TopicAdminForm(ModelForm):
 @admin.register(Topic)
 class TopicAdmin(admin.ModelAdmin):
     form = TopicAdminForm
+    list_display = ('key', 'title', 'server')
     list_filter = ('server', 'custom', 'modified', 'category')
+    ordering = ('server', 'key',)
 
 
 class CampaignJobsLog(models.Model):
