@@ -1,5 +1,7 @@
 from django.db import models
+from django.forms import TextInput, forms, Textarea, ModelForm
 from django.utils import timezone
+from django.contrib import admin
 
 from users.models import DiscordUser
 
@@ -20,6 +22,13 @@ class Server(models.Model):
 
     def __str__(self):
         return f'{self.name} ({self.discord_id})'
+
+
+@admin.register(Server)
+class ServerAdmin(admin.ModelAdmin):
+    formfield_overrides = {
+        models.TextField: {'widget': TextInput}
+    }
 
 
 class Topic(models.Model):
@@ -48,6 +57,29 @@ class Topic(models.Model):
         return f'{self.title} ({self.key})'
 
 
+class TopicAdminForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields['key'].widget = TextInput()
+        self.fields['title'].widget = TextInput()
+        self.fields['alias_for'].widget = TextInput()
+        self.fields['parent'].widget = TextInput()
+        self.fields['page'].widget = TextInput()
+        self.fields['wiki_slug'].widget = TextInput()
+        self.fields['image'].widget = TextInput()
+        self.fields['category'].widget = TextInput()
+
+    class Meta:
+        model = Topic
+        exclude = []
+
+
+@admin.register(Topic)
+class TopicAdmin(admin.ModelAdmin):
+    form = TopicAdminForm
+
+
 class CampaignJobsLog(models.Model):
     class Meta:
         db_table = 'campaign_jobs'
@@ -59,3 +91,12 @@ class CampaignJobsLog(models.Model):
     created_at = models.DateTimeField(default=timezone.now)
     completed_at = models.DateTimeField(null=True)
 
+
+@admin.register(CampaignJobsLog)
+class CampaignJobsLogAdmin(admin.ModelAdmin):
+    list_display = ('server', 'created_at', 'completed_at', 'filename')
+    ordering = ('-created_at',)
+    list_filter = ('server',)
+    formfield_overrides = {
+        models.TextField: {'widget': TextInput}
+    }
