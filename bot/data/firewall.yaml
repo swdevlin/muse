@@ -1,0 +1,85 @@
+firewall:
+  title: Firewall
+  category: Organization
+  page: 172
+  text: >
+    The secret cross-faction conspiracy that works to protect transhumanity
+    from x-risks.
+firewall roles:
+  title: Firewall Roles
+  page: 173
+  aliases:
+    - proxies
+    - proxy
+    - roles
+    - firewall proxies
+  text: >
+    Proxies are full-time members of Firewall. They are assigned specific roles. Proxies can change or assume roles
+    depending on need. Roles include: $list
+cell:
+  title: Cell
+  text: >
+    A clandestine group of Firewall sentinels.
+crow:
+  title: Crow
+  parent: firewall roles
+  text: >
+    A proxy that focuses on research and scientific analysis.
+crypt:
+  title: Crypt
+  text: >
+    A digital cache hidden within the mesh.
+eraser:
+  title: Eraser
+  parent: firewall roles
+  text: >
+    Heavily armed proxies that are called in to contain threats beyond the capabilities of a normal sentinel cell.
+eye:
+  title: Eye
+  text: >
+    Firewall’s internal social and data-sharing network.
+filter:
+  title: Filter
+  parent: firewall roles
+  text: >
+    A proxy that handles social engineering, media manipulation, and cover-ups.
+promethean:
+  title: promethean
+  text: >
+    A rumored artificial super-intelligence (or group of), allegedly friendly to Firewall and transhumanity.
+proxy:
+  title: Proxy
+  text: >
+    a full-time firewall agent with an assigned role within a server.
+register:
+  title: Register
+  parent: firewall roles
+  text: >
+    A proxy that handles logistics and finances.
+router:
+  title: Router
+  parent: firewall roles
+  text: >
+    A proxy that coordinates a server’s operations.
+scanner:
+  title: Scanner
+  parent: firewall roles
+  text: >
+    A proxy that collects and analyzes data for signs of x-risks.
+scratch space:
+  title: Scratch Space
+  text: >
+    A temporary secret cache of gear.
+sentinel:
+  title: Sentinel
+  text: >
+    An on-call Firewall agent that works with a cell on field ops. Sentinels are typically not full-time members.
+server:
+  title: Server
+  text: >
+    A working group of proxies, focused on a particular area or mission.
+vector:
+  title: Vector
+  parent: firewall roles
+  text: >
+    A proxy that handles hacking, communications, and online security.
