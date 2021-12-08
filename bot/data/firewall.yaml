@@ -23,8 +23,15 @@ cell:
 crow:
   title: Crow
   parent: firewall roles
+  page: 172
   text: >
-    A proxy that focuses on research and scientific analysis.
+    Firewall’s broad interests require in-depth research capabilities, and these are carried out or supervised by
+    crows. Crows are our expert scientists and researchers specializing in various fields. Some of the most brilliant
+    individuals in transhumanity work as crows, offering insights into xenobiology, memetics, physics, applied
+    mathematics, economics, nanoweaponry, and other fields of knowledge. Crows work closely with scanners to assess
+    threats or research items or data unearthed during Firewall operations. Firewall’s black laboratories and
+    research facilities are maintained by our crows, but much of our scientific access comes from crows misappropriating
+    facility use and equipment from their civilian careers.
 crypt:
   title: Crypt
   text: >
@@ -32,8 +39,15 @@ crypt:
 eraser:
   title: Eraser
   parent: firewall roles
+  page: 173
   text: >
-    Heavily armed proxies that are called in to contain threats beyond the capabilities of a normal sentinel cell.
+    The most dangerous operations are carried out or overseen by erasers. Typically, Firewall prefers to conduct its
+    work with a minimum of collateral damage and attention, but when this is not desirable, or has been made
+    impossible in the wake of a mission gone wrong, erasers are called in to address a threat with a maximal response.
+    Erasers are not deployed casually, they represent a final line of response only used in the most dire of
+    circumstances. Most Firewall members will never require the services of an eraser or even be in the presence of one
+    during the course of their field operations. Erasers tend to work in teams with heavy firepower and tricked-out
+    combat morphs. A few erasers work solo; these are sometimes deployed as assassins or saboteurs.
 eye:
   title: Eye
   text: >
@@ -41,8 +55,13 @@ eye:
 filter:
   title: Filter
   parent: firewall roles
+  page: 173
   text: >
-    A proxy that handles social engineering, media manipulation, and cover-ups.
+    The actions of sentinels and erasers may require the attention of a filter. Where erasers mop up the opposition,
+    filters are the ones who make the whole mess go away. These individuals specialize in public-relations
+    manipulation and will work to pin the blame for a disastrous operation on an appropriate accident, external agency,
+    hypercorp, or individual. Filters are also sometimes called upon to assist operations in progress when they
+    require public misdirection or spin control to fulfil their objectives.
 promethean:
   title: promethean
   text: >
@@ -54,18 +73,42 @@ proxy:
 register:
   title: Register
   parent: firewall roles
+  page: 173
   text: >
-    A proxy that handles logistics and finances.
+    Registers are one of the most critical but invisible of proxy roles. These individuals are talented financiers
+    and fixers, capable of finding credits to finance ongoing operations and research and making sure our sentinels
+    in the field are equipped. As an unofficial network, Firewall receives no official support or endowments. It
+    falls to the registers to find funding through investment, creative financing, and even theft. Every server makes
+    use of several registers without whom the entire organization would vanish overnight. Registers also use their
+    rep network ties to pull in favors for servers and sentinel cells. In these regards, they sometimes call on the
+    other proxies and sentinels to help repay favors or earn good karma.
 router:
   title: Router
   parent: firewall roles
+  page: 172
   text: >
-    A proxy that coordinates a server’s operations.
+    A router is charged with initiating and managing an operation. A router will assess all of the available intel,
+    determine which cell is best able to respond to the threat, coordinate with other proxies to prepare their
+    necessary support (morphs, lines of credit, cover stories, etc), and then activate the cell. Routers then monitor
+    the cell's activities and provide support as necessary or possible. As the mission coordinators, routers have one
+    of the most difficult, thankless, and critical jobs in Firewall.
 scanner:
   title: Scanner
   parent: firewall roles
+  page: 172
   text: >
-    A proxy that collects and analyzes data for signs of x-risks.
+    Scanners are expert data analysts and researchers. A server’s
+    scanners are responsible for gathering information of interest to
+    Firewall, analyzing it, and then making a threat analysis. Scanners
+    rely on sophisticated search algorithms and ALIs to monitor particular
+    channels, both public and private. A scanner is constantly
+    assessing a broad range of data looking for anomalous items or
+    events that may relate to an ongoing case or operations. Scanners
+    are the members of a server most likely to initiate an operation.
+    Tasked with gathering information from the entire Solar System
+    and filtering it for items of interest to Firewall places a heavy
+    burden on our scanners; if something crucial gets overlooked, they
+    get the blame.
 scratch space:
   title: Scratch Space
   text: >
@@ -76,10 +119,21 @@ sentinel:
     An on-call Firewall agent that works with a cell on field ops. Sentinels are typically not full-time members.
 server:
   title: Server
+  page: 173
   text: >
-    A working group of proxies, focused on a particular area or mission.
+    Each cell is part of a server. Servers are collections of cells that share a common interest or overarching
+    objective. Servers often have a focus or specialization: the observation and identification of threats in a
+    specific region, infiltration of hypercorps suspected of meddling with ASI, countering a known group of exhumans,
+    and so forth. Many are dedicated to ongoing research projects or action task forces, known as cases or
+    operations respectively. An individual cell within a server may further specialize in necessary sub-tasks.
 vector:
   title: Vector
   parent: firewall roles
+  page: 172
   text: >
-    A proxy that handles hacking, communications, and online security.
+    Vectors are those proxies specializing in the broad array of skills we loosely refer to as “hacking.” Primarily a
+    support role, vectors are responsible for digital intrusion, information security, data manipulation,
+    infrastructure sabotage, and social engineering. Vectors rarely deploy to the field, but often provide remote
+    overwatch on operations in real-time when necessary. Most often vectors spend their time assessing potential
+    targets, testing their existing assets, or helping clean up loose ends from operations. During a field operation,
+    your assigned vector is likely to be the only dedicated support you can expect to receive.
