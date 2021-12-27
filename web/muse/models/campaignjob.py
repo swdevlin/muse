@@ -3,14 +3,14 @@ from django.db import models
 from django.forms import TextInput
 from django.utils import timezone
 
-from muse.models.server import Server
+from muse.models import Channel
 
 
 class CampaignJobsLog(models.Model):
     class Meta:
         db_table = 'campaign_jobs'
 
-    server = models.ForeignKey(Server, on_delete=models.CASCADE)
+    channel = models.ForeignKey(Channel, on_delete=models.CASCADE)
     last_error = models.TextField(null=True)
     results = models.TextField(null=True)
     filename = models.TextField(null=True)
@@ -20,9 +20,13 @@ class CampaignJobsLog(models.Model):
 
 @admin.register(CampaignJobsLog)
 class CampaignJobsLogAdmin(admin.ModelAdmin):
+    readonly_fields = ('server',)
     list_display = ('server', 'created_at', 'completed_at', 'filename')
     ordering = ('-created_at',)
-    list_filter = ('server',)
+    list_filter = ('channel_id',)
     formfield_overrides = {
         models.TextField: {'widget': TextInput}
     }
+
+    def server(self, obj):
+        return obj.channel.server.discord_id

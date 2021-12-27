@@ -1,6 +1,6 @@
 import yaml
 
-from muse.models import Topic
+from muse.models import ChannelTopic
 
 VALID_KEYS = ['title', 'text', 'aliases', 'page', 'parent', 'wiki_slug', 'category']
 
@@ -81,20 +81,19 @@ class CampaignParser:
             self.last_error = err
             return False
 
-    def save(self, server_id, campaign_contents):
+    def save(self, channel_id, campaign_contents):
         is_ok = self.verify(campaign_contents)
         if not is_ok:
             return is_ok
         for key in self.campaign:
             entry = self.campaign[key]
             try:
-                Topic.objects.update_or_create(
+                ChannelTopic.objects.update_or_create(
                     key=key,
-                    server_id=server_id,
+                    channel_id=channel_id,
                     defaults={
                         'title': entry.get('title'),
                         'text': entry.get('text'),
-                        'custom': True,
                         'parent': entry.get('parent'),
                         'page': entry.get('page'),
                         'wiki_slug': entry.get('wiki_slug'),
@@ -103,12 +102,11 @@ class CampaignParser:
                     }
                 )
                 for alias in entry.get('aliases', []):
-                    Topic.objects.get_or_create(
+                    ChannelTopic.objects.get_or_create(
                         key=alias,
-                        server_id=server_id,
+                        channel_id=channel_id,
                         defaults={
                             'title': entry.get('title'),
-                            'custom': True,
                             'alias_for': key,
                         }
                     )
