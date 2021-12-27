@@ -9,25 +9,25 @@ const rng = new Random();
 class RandomTopic {
   static command = '-random';
 
-  static async do(msg) {
+  static async do(msg, personality_id) {
     const {channel} = msg;
-    const {guild} = channel;
 
     try {
-      const items = await knex('topic')
-        .join('discord_server', 'discord_server.id', 'topic.server_id')
-        .where({discord_id: guild.id, custom: false})
-        .count('topic.id as c');
-      const r = rng.integer(0, items[0].c-1);
-      const topic = await knex('topic')
-        .select('key')
-        .join('discord_server', 'discord_server.id', 'topic.server_id')
-        .where({discord_id: guild.id})
-        .limit(1)
-        .offset(r).first();
-      let entry = await findEntry(topic.key, guild.id);
+      const items = await knex.select('key')
+        .from('channel_topic')
+        .join('channel', 'channel.id', 'channel_topic.channel_id')
+        .where({'channel.channel_id': channel.id})
+        .union([
+          knex.select('key')
+            .from('topic')
+            .where({personality: personality_id})
+        ])
+      ;
+
+      const r = rng.integer(0, items.length-1);
+      let entry = await findEntry(items[r].key, channel.id, personality_id);
       await sendEntry(msg, entry);
-      logger.info(`${guild.id} ${msg.author.id} random`);
+      logger.info(`${channel.id} ${msg.author.id} random`);
     } catch(err) {
       logger.error(err);
     }

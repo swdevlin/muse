@@ -9,22 +9,24 @@ const fs = require('fs')
 class Diagnostics {
   static command = '-diagnostics';
 
-  static async do(msg) {
-    const {guild} = msg.channel;
+  static async do(msg, personality_id) {
+    const {channel} = msg;
 
     try {
-      if (msg.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) {
-        const diag = await knex('topic')
-          .join('discord_server', 'discord_server.id', 'topic.server_id')
-          .select('custom')
-          .where({discord_id: guild.id})
-          .count('topic.id as topic_count')
-          .groupBy('custom');
+      if (channel.permissionsFor(msg.member).has(Permissions.FLAGS.MANAGE_CHANNELS)) {
+        const topics = await knex('topic')
+          .where({personality: personality_id, alias_for: null})
+          .count('topic.id as topic_count');
 
-        const length = fs.readdirSync('./commands').length - 1;
+        const campaign = await knex('channel_topic')
+          .join('channel', 'channel.id', 'channel_topic.channel_id')
+          .where({'channel.channel_id': channel.id, alias_for: null})
+          .count('channel_topic.id as topic_count');
 
-        const message = `running self diagnostics....\n\nI know ${diag[0].topic_count} common topics and ${diag[1].topic_count} campaign topics and ${length} commands`;
-        logger.info(`diagnostics run for ${guild.id}`);
+        const commandCount = fs.readdirSync('./commands').length - 1;
+
+        const message = `running self diagnostics....\n\nI know ${topics[0].topic_count} common topics and ${campaign[0].topic_count} campaign topics and ${commandCount} commands`;
+        logger.info(`diagnostics run for ${channel.id}`);
         await msg.reply(message);
       } else
         await hackDetected(msg);

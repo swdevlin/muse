@@ -11,19 +11,18 @@ class Prefix {
   static async do(msg) {
     const {channel} = msg;
     let {content} = msg;
-    const {guild} = channel;
 
     content = content.trim();
     const tokens = content.split(' ');
 
     if (tokens.length === 4 && tokens[3] === 'confirm') {
-      const [oldPrefix, command, newPrefix, confirmation] = tokens;
+      const newPrefix = tokens[2];
       try {
-        if (msg.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) {
-          await knex('discord_server').update({prefix: newPrefix}).where({discord_id: guild.id});
-          await cache.set(`${guild.id}:prefix`, newPrefix);
+        if (channel.permissionsFor(msg.member).has(Permissions.FLAGS.MANAGE_CHANNELS)) {
+          await knex('channel').update({prefix: newPrefix}).where({channel_id: channel.id});
+          await cache.set(`${channel.id}:prefix`, newPrefix);
 
-          logger.info(`prefix changed to ${newPrefix} for ${guild.id}`);
+          logger.info(`prefix changed to ${newPrefix} for ${channel.id}`);
           await msg.reply(`Muse prefix is now ${newPrefix}`)
         } else
           await hackDetected(msg);

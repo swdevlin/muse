@@ -2,10 +2,11 @@
 
 const client = require("../client");
 const logger = require("../logger");
-const {sendEntry, findEntry, addGuild, populateMuse, populateCampaign, guildExists} = require("../helpers");
+const {sendEntry, findEntry, addGuild, populateMuse, populateCampaign, guildExists, addChannel, findChannel} = require("../helpers");
 const knex = require('../db/connection');
 const commands = require("../commands");
 const cache = require('../cache');
+const personalities = require("../personalities");
 
 const queries = [
   'what is ',
@@ -25,117 +26,39 @@ const queries = [
   'what do you know about ',
 ];
 
-const tokenSplit = /\s+/;
-
-const getPrefix = async (guild_id) => {
-  const prefixKey = `${guild_id}:prefix`;
-  let prefix = await cache.get(prefixKey);
-  if (!prefix) {
-    const recs = await knex('discord_server').select('prefix').where({discord_id: guild_id});
-    if (recs.length === 1) {
-      prefix = recs[0].prefix;
-      await cache.set(prefixKey, prefix)
-    } else
-      prefix = process.env.MUSE_PREFIX;
-  }
-  return prefix;
-}
-
 const message = async (msg) => {
   // ignore our own messages
   if (`${msg.author.username}#${msg.author.discriminator}` === client.user.tag)
     return;
 
   const {id: author_id} = msg.author;
-  const {channel} = msg;
-  const {guild} = channel;
+  const msgChannel = msg.channel;
+  const {guild} = msgChannel;
 
-  if (!await guildExists(guild.id)) {
-    try {
-      const trx = await knex.transaction();
-      const id = await addGuild(guild, trx);
-
-      await populateMuse(id, trx);
-      await populateCampaign(id, trx);
-
-      await trx.commit();
-
-      logger.info(`created guild ${guild.id} on muse lookup`);
-    } catch(err) {
-      if (err.message.includes('duplicate key value violates'))
-        logger.warn(`server ${guild.id} already registered`);
-      else
-        logger.error(err);
-    }
-  }
-  let {content} = msg;
-  content = content.toLocaleLowerCase().trim();
-  const tokens = content.split(tokenSplit);
-  const prefix= await getPrefix(guild.id);
-  if (prefix !== tokens[0])
-    return;
-  if (tokens.length === 1)
-    tokens.push('help');
-
-  if (commands[tokens[1]])
-    return await commands[tokens[1]].do(msg);
-
+  let channel;
+  let guildId;
   try {
-    tokens.shift();
-    let lookup = tokens.join(' ');
-    if (lookup.startsWith('please '))
-      lookup = lookup.substr(7);
+    const trx = await knex.transaction();
+    channel = await findChannel(msgChannel.id);
+    if (!channel) {
+      guildId = await guildExists(guild.id);
+      if (!guildId)
+        guildId = await addGuild(guild, trx);
+      channel = await addChannel(guildId, msgChannel, trx);
 
-    for (let q of queries) {
-      if (lookup.startsWith(q)) {
-        lookup = lookup.substr(q.length);
-        break;
-      }
+      logger.info(`added channel ${msgChannel.id} to guild ${guild.id} on muse lookup`);
     }
-    if (lookup.startsWith('the '))
-      lookup = lookup.substr(4);
-    if (lookup.startsWith('a '))
-      lookup = lookup.substr(2);
+    await trx.commit();
 
-    if (lookup === 'help') {
-      const commandList = Object.keys(commands).join(', ');
-      const helpText = `Add text after \`${prefix}\` and I will look up information about the topic. For example, enter \`${prefix} c-ball\` to find out information about c-ball
-
-I know the following commands: ${commandList}
-
-You can configure me using a browser at ${process.env.WEB_URL}`;
-      let entry = {
-        title: 'Help',
-        text: helpText
-      }
-      await sendEntry(msg, entry);
-    } else {
-      if (lookup === 'you')
-        lookup = 'muse';
-      let entry = await findEntry(lookup, guild.id);
-      if (entry) {
-        await sendEntry(msg, entry);
-      } else {
-        const nos = lookup.replace(/s$/, "");
-        entry = await findEntry(nos, guild.id);
-        if (entry)
-          await sendEntry(msg, entry);
-        else {
-          const pluss = lookup + 's';
-          entry = await findEntry(pluss, guild.id);
-          if (entry)
-            await sendEntry(msg, entry);
-          else
-            await msg.reply(`no data found for ${lookup}`);
-        }
-      }
-    }
   } catch(err) {
-    logger.error(err);
-    await msg.reply(err);
-  } finally {
-    logger.info(`${guild.id} ${author_id} ${msg.content}`);
+    if (err.message.includes('duplicate key value violates'))
+      logger.warn(`channel ${channel.id} or ${guild.id} already registered`);
+    else
+      logger.error(err);
   }
+
+  const personality = channel.personality ? new personalities[channel.personality](channel.prefix) : new personalities[0](process.env.MUSE_PREFIX);
+  await personality.handleMessage(msg);
 }
 
 module.exports = message;

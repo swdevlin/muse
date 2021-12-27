@@ -10,9 +10,6 @@ const guildDelete = async guild => {
     if (server.length === 1) {
       server = server[0];
       server.id = parseInt(server.id);
-      await trx('topic')
-        .where({server_id: server.id})
-        .delete();
       await trx('discord_server').delete().where({discord_id: guild.id});
     }
     await trx.commit();

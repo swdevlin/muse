@@ -19,12 +19,12 @@ class Commands {
   static command = '-commands';
 
   static async do(msg) {
-    const {guild} = msg.channel;
+    const {channel} = msg;
     const listOfCommands = Object.keys(commands).map(c => c).join(', ');
 
     const text = 'I know the following commands: ' + listOfCommands;
     await msg.reply(text);
-    logger.info(`command list for ${guild.id} ${msg.author.id}`);
+    logger.info(`command list for ${channel.id} ${msg.author.id}`);
   }
 }
 

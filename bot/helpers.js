@@ -1,36 +1,31 @@
 "use strict"
 
-const muse = require("./muse");
 const logger = require("./logger");
 const fs = require("fs");
 const path = require("path");
 const YAML = require("yaml");
 const knex = require("./db/connection");
 
-const populateMuse = async (server_id, trx) => {
-  for (const topic of Object.keys(muse)) {
-    const entry = muse[topic];
+const populateMuse = async (personality_id, data, trx) => {
+  for (const topic of Object.keys(data)) {
+    const entry = data[topic];
     await trx('topic').insert({
       title: entry.title,
       key: topic,
       text: entry.text,
-      custom: false,
-      modified: false,
+      personality: personality_id,
       parent: entry.parent,
       wiki_slug: entry.wiki_slug,
       page: entry.page,
-      server_id: server_id
-    }).onConflict(['server_id', 'key']).merge();
+    }).onConflict(['personality', 'key']).merge();
     if (entry.aliases)
       for (const alias of entry.aliases) {
         await trx('topic').insert({
           title: entry.title,
           key: alias,
-          custom: false,
-          modified: false,
           alias_for: topic,
-          server_id: server_id
-        }).onConflict(['server_id', 'key']).ignore();
+          personality: personality_id
+        }).onConflict(['personality', 'key']).ignore();
     }
   }
 }
@@ -82,10 +77,21 @@ const addGuild = async (guild, trx) => {
     name: guild.name,
     icon: guild.icon,
     owner_id: guild.ownerID,
-    prefix: 'muse',
     joined_at: new Date()
   }).returning('id');
   return parseInt(id);
+}
+
+const addChannel = async (guild_id, channel, trx) => {
+  const data = {
+    channel_id: channel.id,
+    server_id: guild_id,
+    name: channel.name,
+    prefix: 'muse',
+  }
+  let id = await trx('channel').insert(data).returning('id');
+  data.id = parseInt(id);
+  return data;
 }
 
 const sendEntry = async (msg, entry) => {
@@ -108,27 +114,40 @@ const hackDetected = async (msg) => {
 const reList = /[^$]\$list/;
 const reListReplace = /([^$])\$list/gm;
 
-const getChildren = async (topic, discord_id) => {
-  const topics = await knex('topic')
-    .select('title')
-    .join('discord_server', 'discord_server.id', 'topic.server_id')
-    .where({parent: topic, discord_id: discord_id})
+const getChildren = async (topic, channel_id, personality_id) => {
+  const topics = await knex.select('title')
+    .from('channel_topic')
+    .join('channel', 'channel.id', 'channel_topic.channel_id')
+    .where({parent: topic, 'channel.channel_id': channel_id})
+    .union([
+      knex('topic')
+        .select('title')
+        .where({parent: topic, personality: personality_id})
+    ])
     .orderBy('title');
+
   return topics.map(t => t.title).join(', ');
 }
 
-const findEntry = async (topic, server_id) => {
-  const topics = await knex('topic')
-    .select('title', 'text', 'alias_for', 'page', 'wiki_slug')
-    .join('discord_server', 'discord_server.id', 'topic.server_id')
-    .where({key: topic, discord_id: server_id});
-  if (topics.length === 1) {
+const findEntry = async (topic, channel_id, personality_id) => {
+  const topics = await knex.select('title', 'text', 'alias_for', 'page', 'wiki_slug')
+    .from('channel_topic')
+    .join('channel', 'channel.id', 'channel_topic.channel_id')
+    .where({key: topic, 'channel.channel_id': channel_id})
+    .union([
+      knex.select('title', 'text', 'alias_for', 'page', 'wiki_slug')
+        .from('topic')
+        .where({key: topic, personality: personality_id})
+    ])
+  ;
+
+  if (topics.length > 0) {
     const entry = topics[0];
     if (entry.alias_for !== null) {
-      return await findEntry(entry.alias_for, server_id);
+      return await findEntry(entry.alias_for, channel_id, personality_id);
     } else {
       if (entry.text.match(reList)) {
-        const children = await getChildren(topic, server_id);
+        const children = await getChildren(topic, channel_id, personality_id);
         entry.text = entry.text.replace(reListReplace, "$1" + children);
       }
       return entry;
@@ -139,7 +158,12 @@ const findEntry = async (topic, server_id) => {
 
 const guildExists = async id => {
   const ret = await knex('discord_server').select('id').where({discord_id: id}).limit(1);
-  return ret.length === 1;
+  return ret.length === 1 ? ret[0].id : null;
+}
+
+const findChannel = async id => {
+  const ret = await knex('channel').where({channel_id: id}).limit(1);
+  return ret.length === 1 ? ret[0] : null;
 }
 
 module.exports = {
@@ -152,5 +176,7 @@ module.exports = {
   hackDetected: hackDetected,
   findEntry: findEntry,
   addGuild: addGuild,
+  addChannel: addChannel,
   guildExists: guildExists,
+  findChannel: findChannel,
 }
