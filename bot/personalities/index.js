@@ -1,7 +1,6 @@
 "use strict"
 
 const fs = require('fs');
-const logger = require("../logger");
 const BasePersonality = require("./base");
 
 const personalities = {};
