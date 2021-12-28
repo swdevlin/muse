@@ -23,8 +23,11 @@ class Channel(models.Model):
 
 @admin.register(Channel)
 class ChannelAdmin(admin.ModelAdmin):
+    readonly_fields = ('server',)
     formfield_overrides = {
         models.TextField: {'widget': TextInput}
     }
+    list_display = ('id', 'server', 'channel_id', 'name', 'personality', 'prefix')
 
-
+    def server(self, obj):
+        return obj.server.discord_id

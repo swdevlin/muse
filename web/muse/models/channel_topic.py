@@ -52,8 +52,8 @@ class ChannelTopicAdmin(admin.ModelAdmin):
     readonly_fields = ('server',)
     form = ChannelTopicAdminForm
     list_display = ('key', 'title', 'server', 'channel')
-    list_filter = ('channel', 'category')
+    list_filter = ('channel__server', 'channel', 'category')
     ordering = ('channel__server', 'channel', 'key',)
 
     def server(self, obj):
-        return obj.server.discord_id
+        return obj.channel.server.discord_id
