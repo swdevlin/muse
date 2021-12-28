@@ -1,0 +1,49 @@
+characteristics:
+  title: Characteristics
+  text: >
+    Characteristics measure a character's most basic abilities: how strong, 
+    dexterous, educated or intelligent they are. Characteristic scores 
+    influence almost everything your character does. Stronger characters 
+    can lift greater weights, more dexterous characters have better balance, 
+    and so forth.
+    
+    Characters have six abilities: $list. Strength, Dexterity, and Endurance 
+    are called physical abilities, whereas Intelligence, Education, and 
+    Social Standing are loosely termed mental abilities. Each above-average 
+    ability score provides a bonus on certain die rolls; while below average 
+    abilities apply a penalty to some die rolls.
+strength:
+  title: Strength
+  aliases:
+    - str
+  parent: characteristics
+  text: >
+    A character's physical strength, fitness and forcefulness.
+dexterity:
+  title: Dexterity
+  aliases:
+    - dex
+  parent: characteristics
+  text: >
+    Physical co-ordination and agility, reflexes.
+intelligence:
+  title: Intelligence
+  aliases:
+    - int
+  parent: characteristics
+  text: >
+    A character's intellect and quickness of mind.
+education:
+  title: Education
+  aliases:
+    - edu
+  parent: characteristics
+  text: >
+    A character's physical strength, fitness and forcefulness.
+social standing:
+  title: Social Standing
+  aliases:
+    - soc
+  parent: characteristics
+  text: >
+    A character's place in society
