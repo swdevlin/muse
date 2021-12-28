@@ -16,11 +16,11 @@ class RandomTopic {
       const items = await knex.select('key')
         .from('channel_topic')
         .join('channel', 'channel.id', 'channel_topic.channel_id')
-        .where({'channel.channel_id': channel.id})
+        .where({'channel.channel_id': channel.id, alias_for: null})
         .union([
           knex.select('key')
             .from('topic')
-            .where({personality: personality_id})
+            .where({personality: personality_id, alias_for: null})
         ])
       ;
 
