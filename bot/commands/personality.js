@@ -36,7 +36,7 @@ class Personality {
       }
     } else {
       let content = '';
-      await msg.reply(`The \`-personality\` command will change the text Muse uses to look for posts to respond to. Use \`${Personality.command} newpersonality confirm\` to change Muse's personality.`)
+      await msg.reply(`The \`-personality\` command will change the base source of data for OpenMuse. Use \`${Personality.command} newpersonality confirm\` to change Muse's personality.`)
     }
   }
 }

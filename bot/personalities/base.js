@@ -50,7 +50,9 @@ class BasePersonality {
 
   doHelp = async (msg) => {
     const commandList = Object.keys(commands).join(', ');
-    const helpText = `Add text after \`${this.prefix}\` and I will look up information about the topic. For example, enter \`${this.prefix} c-ball\` to find out information about c-ball
+    const helpText = `Add text after \`${this.prefix}\` and I will look up information about the topic. For example, enter \`${this.prefix} c-ball\` to find out information about c-ball.
+
+My current personality is ${this.constructor.title}. You can change my personality with the \`-personality\` command.
 
 I know the following commands: ${commandList}
 

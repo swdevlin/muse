@@ -18,6 +18,7 @@ fs.readdirSync(__dirname + '/').forEach(function(file) {
 
 class Blank extends BasePersonality {
   static data = 'blank';
+  static title = 'Blank';
   static id = 0;
 
 }
