@@ -68,6 +68,8 @@ fray:
 free fall:
   title: Feee Fall
   parent: skills
+  aliases:
+    - freefall
   text: >
     _<:Vigor:821743354303479829>  Active, Physical/Somatics_
 
