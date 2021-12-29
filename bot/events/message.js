@@ -2,10 +2,8 @@
 
 const client = require("../client");
 const logger = require("../logger");
-const {sendEntry, findEntry, addGuild, populateMuse, populateCampaign, guildExists, addChannel, findChannel} = require("../helpers");
+const {addGuild, guildExists, addChannel, findChannel} = require("../helpers");
 const knex = require('../db/connection');
-const commands = require("../commands");
-const cache = require('../cache');
 const personalities = require("../personalities");
 
 const queries = [

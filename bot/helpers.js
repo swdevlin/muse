@@ -129,7 +129,7 @@ const getChildren = async (topic, channel_id, personality_id) => {
   return topics.map(t => t.title).join(', ');
 }
 
-const findEntry = async (topic, channel_id, personality_id) => {
+const findEntryInDB = async (topic, channel_id, personality_id) => {
   const topics = await knex.select('title', 'text', 'alias_for', 'page', 'wiki_slug')
     .from('channel_topic')
     .join('channel', 'channel.id', 'channel_topic.channel_id')
@@ -144,7 +144,7 @@ const findEntry = async (topic, channel_id, personality_id) => {
   if (topics.length > 0) {
     const entry = topics[0];
     if (entry.alias_for !== null) {
-      return await findEntry(entry.alias_for, channel_id, personality_id);
+      return await findEntryInDB(entry.alias_for, channel_id, personality_id);
     } else {
       if (entry.text.match(reList)) {
         const children = await getChildren(topic, channel_id, personality_id);
@@ -174,7 +174,7 @@ module.exports = {
   populateCampaign: populateCampaign,
   sendEntry: sendEntry,
   hackDetected: hackDetected,
-  findEntry: findEntry,
+  findEntryInDB: findEntryInDB,
   addGuild: addGuild,
   addChannel: addChannel,
   guildExists: guildExists,

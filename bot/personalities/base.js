@@ -2,7 +2,7 @@
 
 const commands = require("../commands");
 const logger = require("../logger");
-const {sendEntry, findEntry, addGuild, populateMuse, populateCampaign} = require("../helpers");
+const {sendEntry, populateMuse, findEntryInDB} = require("../helpers");
 const path = require("path");
 const fs = require("fs");
 const YAML = require("yaml");
@@ -34,21 +34,29 @@ class BasePersonality {
   constructor(prefix) {
     this.tokens = [];
     this.prefix = prefix;
+    this.channelId = null;
+    this.lookup = null;
+    this.content = null;
+    this.originalContent = null;
   }
 
-  getTokens = async (msg) => {
+  async getTokens(msg) {
     this.content = msg.content;
     this.content = this.content.toLocaleLowerCase().trim();
     this.tokens = this.content.split(tokenSplit);
     if (this.tokens.length === 1)
       this.tokens.push('help');
+
+    let ot = msg.content.split(tokenSplit);
+    ot.shift();
+    this.originalContent = ot.join(' ');
   }
 
-  prefixMatch = () => {
+  prefixMatch() {
     return this.tokens[0] === this.prefix;
   }
 
-  doHelp = async (msg) => {
+  async doHelp(msg) {
     const commandList = Object.keys(commands).join(', ');
     const helpText = `Add text after \`${this.prefix}\` and I will look up information about the topic. For example, enter \`${this.prefix} c-ball\` to find out information about c-ball.
 
@@ -64,54 +72,64 @@ You can configure me using a browser at ${process.env.WEB_URL}`;
     await sendEntry(msg, entry);
   }
 
-  replyToMessage = async (msg) => {
+  async findEntry() {
+    let entry = await findEntryInDB(this.lookup, this.channelId, this.constructor.id);
+    if (entry)
+      return entry;
+
+    const nos = this.lookup.replace(/s$/, "");
+    entry = await findEntryInDB(nos, this.channelId, this.constructor.id);
+    if (entry)
+      return entry;
+
+    const pluss = this.lookup + 's';
+    entry = await findEntryInDB(pluss, this.channelId, this.constructor.id);
+    return entry;
+  }
+
+  async getLookup() {
+    this.lookup = this.tokens.join(' ');
+    if (this.lookup.startsWith('please '))
+      this.lookup = this.lookup.substr(7);
+
+    for (let q of QUERIES) {
+      if (this.lookup.startsWith(q)) {
+        this.lookup = this.lookup.substr(q.length);
+        break;
+      }
+    }
+    if (this.lookup.startsWith('the '))
+      this.lookup = this.lookup.substr(4);
+    if (this.lookup.startsWith('a '))
+      this.lookup = this.lookup.substr(2);
+    if (this.lookup === 'you')
+      this.lookup = 'muse';
+  }
+
+  async replyToMessage(msg) {
     if (commands[this.tokens[1]])
       return await commands[this.tokens[1]].do(msg, this.constructor.id);
 
     this.tokens.shift();
-    let lookup = this.tokens.join(' ');
-    if (lookup.startsWith('please '))
-      lookup = lookup.substr(7);
+    this.getLookup();
 
-    for (let q of QUERIES) {
-      if (lookup.startsWith(q)) {
-        lookup = lookup.substr(q.length);
-        break;
-      }
-    }
-    if (lookup.startsWith('the '))
-      lookup = lookup.substr(4);
-    if (lookup.startsWith('a '))
-      lookup = lookup.substr(2);
+    if (this.lookup === 'help')
+      return await this.doHelp(msg);
 
-    if (lookup === 'help')
-      await this.doHelp(msg);
-    else {
-      const channel_id = msg.channel.id;
-      if (lookup === 'you')
-        lookup = 'muse';
-      let entry = await findEntry(lookup, channel_id, this.constructor.id);
-      if (entry) {
-        await sendEntry(msg, entry);
-      } else {
-        const nos = lookup.replace(/s$/, "");
-        entry = await findEntry(nos, channel_id, this.constructor.id);
-        if (entry)
-          await sendEntry(msg, entry);
-        else {
-          const pluss = lookup + 's';
-          entry = await findEntry(pluss, channel_id, this.constructor.id);
-          if (entry)
-            await sendEntry(msg, entry);
-          else
-            await msg.reply(`no data found for ${lookup}`);
-        }
-      }
-    }
+    this.channelId = msg.channel.id;
 
+    const entry = await this.findEntry();
+    if (entry)
+      await sendEntry(msg, entry);
+    else
+      await this.noMatch(msg);
   }
 
-  handleMessage = async (msg) => {
+  async noMatch(msg) {
+    await msg.reply(`no data found for ${this.lookup}`);
+  }
+
+  async handleMessage(msg) {
     try {
       this.getTokens(msg);
       if (!this.prefixMatch())
@@ -125,7 +143,7 @@ You can configure me using a browser at ${process.env.WEB_URL}`;
     }
   }
 
-  loadData = async () => {
+  async loadData() {
     try {
       if (!this.constructor.id)
         return;

@@ -2,7 +2,7 @@
 
 const logger = require("../logger");
 const knex = require('../db/connection');
-const {sendEntry, findEntry} = require("../helpers");
+const {sendEntry, findEntryInDB} = require("../helpers");
 const Random = require("random-js").Random;
 const rng = new Random();
 
@@ -25,7 +25,7 @@ class RandomTopic {
       ;
 
       const r = rng.integer(0, items.length-1);
-      let entry = await findEntry(items[r].key, channel.id, personality_id);
+      let entry = await findEntryInDB(items[r].key, channel.id, personality_id);
       await sendEntry(msg, entry);
       logger.info(`${channel.id} ${msg.author.id} random`);
     } catch(err) {
