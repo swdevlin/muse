@@ -1,0 +1,27 @@
+disassembly tools:
+  title: Disassembly Tools
+  page: 340
+  text: >
+    This collection of tools is useful for salvage ops,
+    breaking down wrecks, or dissembling anything from a habitat room
+    to a vehicle or synthmorph. They include plasma torches, laser cutters,
+    pneumatic jaws, and smart-material tools like spanners and wrenches
+    that can be adapted to a wide array of connections and fittings.
+    Together, these tools are medium sized, usually ported by robomule.
+    
+    **Mod/2**
+superthermite charges:
+  title: Superthermite Charges
+  page: 340
+  text: >
+    These powerful and highly stable
+    demolition charges are made from a combination of nanometals and
+    metal oxides. A single charge can be used to create an explosive blast
+    inflicting DV 6d10 + 10 [43] when set with Hardware: Demolitions. A
+    charge can be shaped with a successful Hardware: Demolitions Test,
+    focusing the blast in a particular 90-degree direction (for example,
+    to blow through a door). This triples the damage of the blast in the
+    focused direction; in all other directions, the damage is reduced
+    to 1/3rd. Multiple charges apply a cumulative effect.
+    
+    **Maj/R/3 (per 5 charges)**

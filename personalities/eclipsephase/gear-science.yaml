@@ -1,0 +1,66 @@
+adaptive interface:
+  title: Adaptive Interface
+  page: 340
+  text: >
+    If the event you must interact with ancient
+    technology — perhaps even a still-functioning alien relic — the adaptive
+    interface features smart-material connectors that can connect to
+    almost any conceivable piece of technology. It is also equipped with
+    nano-probe sensors that can analyze the device’s structure and map
+    out its internal functions. The interface’s ALI is equipped with Know:
+    Computer Science, Know: Electrical Engineering, Know: Xenodata,
+    and Interface skills at 60, as well as Infosec and Program at 40.
+    Connecting to and analyzing relics is a task action with a timeframe
+    of 1 hour, possibly longer (GM discretion). This interface severs
+    mesh connections when analyzing unknown devices, so as not to
+    unwittingly spread infections. It is not compatible with biological
+    technology or nanotech more advanced than transhumanity’s.
+    
+    **Maj/3**
+fractal gloves:
+  title: Fractal Gloves
+  page: 340
+  text: >
+    These gloves mimic the function of fractal
+    digits ▶324. The digits include micro-cameras that provide the function
+    of nanoscopic vision ▶318.
+    
+    **Mod/2**
+pocket lab:
+  title: Pocket Lab
+  page: 340
+  text: >
+    This small handheld device contains numerous
+    sensors for analyzing both organic and inorganic compounds
+    in liquid, gaseous, and solid form. It performs material analysis
+    using different methods of spectrometry, chromatography, and
+    biochemical testing, comparing results to a built-in database. Using
+    a pocket lab you could test soil fertility, identify clean water, detect
+    hazardous emissions, discover traces of life, pinpoint contaminants,
+    determine the presence of explosives or firearms, identify strange
+    substances, and so on. It operates with Know: Chemistry 60.
+    
+    **Mod/2**
+portable solarchive:
+  title: Portable SolArchive
+  page: 340
+  text: >
+    These very small data storage units contain
+    impressive archives related to a particular subject (equivalent to one
+    Know skill). They allow you to make Research Tests on that subject
+    even when isolated from the mesh.
+    
+    **Min/1**
+specimen container:
+  title: Specimen Container
+  page: 340
+  text: >
+    This capsule container is designed to
+    hold samples of any sort (chemical, biological, etc.) in near stasis.
+    It can be programmed to reproduce whatever conditions the user
+    specifies, from cryogenic freezing to extreme heat, or even vacuum
+    or high-pressure atmosphere. The containers are also encased in a
+    superconductive wire mesh that acts as a faraday cage and blocks
+    mesh and radio signals and similar electromagnetic radiation.
+    
+    **Min/1**
