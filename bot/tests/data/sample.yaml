@@ -1,0 +1,12 @@
+is ok:
+  title: Is OK
+  text: >
+    this entry requires no changes
+Convert to Lower:
+  title: Convert to Lower
+  text: >
+    this entry is converted to lower case
+AccÉnt test:
+  title: accént test
+  text: >
+    The É was converted

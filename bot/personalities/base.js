@@ -143,6 +143,18 @@ You can configure me using a browser at ${process.env.WEB_URL}`;
     }
   }
 
+  async loadYAMLFile(filename) {
+    let file = fs.readFileSync(filename, 'utf8');
+    const y = YAML.parse(file);
+    for (const k of Object.keys(y)) {
+      if (k !== k.toLocaleLowerCase()) {
+        y[k.toLocaleLowerCase()] = y[k];
+        delete y[k];
+      }
+    }
+    return y;
+  }
+
   async loadData() {
     try {
       if (!this.constructor.id)

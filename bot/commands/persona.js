@@ -4,8 +4,8 @@ const knex = require('../db/connection');
 const { Permissions } = require('discord.js');
 const {hackDetected} = require("../helpers");
 
-class Personality {
-  static command = '-personality';
+class Persona {
+  static command = '-persona';
 
   static async do(msg) {
     const {channel} = msg;
@@ -23,11 +23,11 @@ class Personality {
             const p = personalities[k];
             if (p.textName === newPersonality) {
               await knex('channel').update({personality: p.id, prefix: p.defaultPrefix}).where({channel_id: channel.id});
-              logger.info(`personality changed to ${p.textName} for ${channel.id}`);
-              return await msg.reply(`My personality has been changed to ${p.textName}; I respond to ${p.defaultPrefix}`)
+              logger.info(`persona changed to ${p.textName} for ${channel.id}`);
+              return await msg.reply(`My persona has been changed to ${p.textName}; I respond to ${p.defaultPrefix}`)
             }
           }
-          return await msg.reply(`Muse cannot adopt the ${newPersonality} personality`)
+          return await msg.reply(`Muse cannot adopt the ${newPersonality} persona`)
         } else
           await hackDetected(msg);
 
@@ -35,10 +35,12 @@ class Personality {
         logger.error(err);
       }
     } else {
-      let content = '';
-      await msg.reply(`The \`-personality\` command will change the base source of data for OpenMuse. Use \`${Personality.command} newpersonality confirm\` to change Muse's personality.`)
+      let content = `The \`-persona\` command will change the base source of data for OpenMuse.
+        Use \`${Persona.command} newpersonality confirm\` to change Muse's persona.`
+      ;
+      await msg.reply(content);
     }
   }
 }
 
-module.exports = Personality;
+module.exports = Persona;
