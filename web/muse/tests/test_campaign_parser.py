@@ -198,6 +198,51 @@ class CampaignParserTest(TestCase):
         self.assertFalse(is_ok)
         self.assertEqual(self.parser.last_error, 'entry / page invalid data type')
 
+    def test_key_cannot_start_with_space(self):
+        yaml = """" entry":
+            title: the title
+            text: some text
+            page:
+                - 17
+            parent: the parent
+            aliases:
+                - two
+                - three
+        """
+        is_ok = self.parser.verify(yaml)
+        self.assertFalse(is_ok)
+        self.assertEqual(self.parser.last_error, ' entry cannot start with a space')
+
+    def test_key_cannot_end_with_space(self):
+        yaml = """"entry ":
+            title: the title
+            text: some text
+            page:
+                - 17
+            parent: the parent
+            aliases:
+                - two
+                - three
+        """
+        is_ok = self.parser.verify(yaml)
+        self.assertFalse(is_ok)
+        self.assertEqual(self.parser.last_error, 'entry  cannot end with a space')
+
+    def test_key_cannot_contain_punctuation(self):
+        yaml = """"ent.ry":
+            title: the title
+            text: some text
+            page:
+                - 17
+            parent: the parent
+            aliases:
+                - two
+                - three
+        """
+        is_ok = self.parser.verify(yaml)
+        self.assertFalse(is_ok)
+        self.assertEqual(self.parser.last_error, 'ent.ry cannot contain punctuation')
+
     def test_parent_must_be_string(self):
         yaml = """entry:
             title: the title

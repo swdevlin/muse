@@ -1,3 +1,5 @@
+from string import punctuation
+
 import yaml
 
 from muse.models import ChannelTopic
@@ -20,6 +22,15 @@ class CampaignParser:
             for key in self.campaign:
                 if key.startswith('-'):
                     self.last_error = f'{key} cannot start with a -'
+                    return False
+                if key.startswith(' '):
+                    self.last_error = f'{key} cannot start with a space'
+                    return False
+                if key.endswith(' '):
+                    self.last_error = f'{key} cannot end with a space'
+                    return False
+                if any(p in key for p in punctuation):
+                    self.last_error = f'{key} cannot contain punctuation'
                     return False
                 if len(key) > MAX_KEY_LENGTH:
                     self.last_error = f'{key} max length of {MAX_KEY_LENGTH} exceeded'
