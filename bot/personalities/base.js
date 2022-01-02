@@ -27,6 +27,8 @@ const QUERIES = [
 ];
 
 const tokenSplit = /\s+/;
+const spaceCollapse = /\s{2,}/g;
+const punctuationRx = /[~!@#$%^&*()`{}\[\];:"'<,.>?\/\\|\-_+=]+/g;
 
 class BasePersonality {
   static data = null;
@@ -131,7 +133,7 @@ You can configure me using a browser at ${process.env.WEB_URL}`;
 
   async handleMessage(msg) {
     try {
-      this.getTokens(msg);
+      await this.getTokens(msg);
       if (!this.prefixMatch())
         return;
       await this.replyToMessage(msg);
@@ -147,8 +149,13 @@ You can configure me using a browser at ${process.env.WEB_URL}`;
     let file = fs.readFileSync(filename, 'utf8');
     const y = YAML.parse(file);
     for (const k of Object.keys(y)) {
-      if (k !== k.toLocaleLowerCase()) {
-        y[k.toLocaleLowerCase()] = y[k];
+      let goodK = k.replace(punctuationRx, ' ');
+      goodK = goodK.replace(spaceCollapse, ' ');
+      goodK = goodK.replace(/^\s+/, '');
+      goodK = goodK.replace(/\s+$/, '');
+      goodK = goodK.toLocaleLowerCase();
+      if (k !== goodK) {
+        y[goodK] = y[k];
         delete y[k];
       }
     }

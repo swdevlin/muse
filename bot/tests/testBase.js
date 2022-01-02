@@ -12,7 +12,6 @@ describe('Test Base Persona', function () {
     const yamlFile = path.resolve(__dirname, 'data', 'sample.yaml');
     const persona = new BasePersonality('p');
     const y = await persona.loadYAMLFile(yamlFile)
-    console.log(y);
     y.should.not.have.property('Convert to Lower')
     y.should.have.property('convert to lower')
   });
@@ -21,9 +20,23 @@ describe('Test Base Persona', function () {
     const yamlFile = path.resolve(__dirname, 'data', 'sample.yaml');
     const persona = new BasePersonality('p');
     const y = await persona.loadYAMLFile(yamlFile)
-    console.log(y);
     y.should.not.have.property('AccÉnt test')
     y.should.have.property('accént test')
+  });
+
+  it('keys are stripped of punctuation', async() => {
+    const yamlFile = path.resolve(__dirname, 'data', 'sample.yaml');
+    const persona = new BasePersonality('p');
+    const y = await persona.loadYAMLFile(yamlFile)
+    y.should.not.have.property('Got ~`1234567890-=_+][{}\\"\'|,./?><no punctuation')
+    y.should.have.property('got no punctuation')
+  });
+
+  it('keys have no extra spaces', async() => {
+    const yamlFile = path.resolve(__dirname, 'data', 'sample.yaml');
+    const persona = new BasePersonality('p');
+    const y = await persona.loadYAMLFile(yamlFile)
+    y.should.have.property('extra spaces')
   });
 
 });
