@@ -7,10 +7,12 @@ class Personalities:
     TRAVELLER = 1
     ECLIPSE_PHASE = 2
     CALL_OF_CTHULHU = 3
+    BLANK_CANVAS = 4
     choices = [
         (TRAVELLER, 'Traveller'),
         (ECLIPSE_PHASE, 'Eclipse Phase'),
         (CALL_OF_CTHULHU, 'Call of Cthulhu'),
+        (BLANK_CANVAS, 'Blank Canvas'),
     ]
 
 

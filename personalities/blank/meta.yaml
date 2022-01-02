@@ -1,0 +1,9 @@
+about:
+  title: About
+  aliases:
+    credits
+  text: >
+    An RPG dictionary bot, networked through Discord. The Blank Canvas persona
+    has no default data. The world is your oyster.
+
+    The source code for OpenMuse can be found at https://github.com/swdevlin/muse

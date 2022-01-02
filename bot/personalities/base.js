@@ -166,8 +166,13 @@ You can configure me using a browser at ${process.env.WEB_URL}`;
         return path.extname(file) === ".yaml";
       });
 
-      let file = fs.readFileSync(path.resolve(basePath, 'muse.yaml'), 'utf8');
-      let muse = YAML.parse(file);
+      let muse;
+      try {
+        let file = fs.readFileSync(path.resolve(basePath, 'muse.yaml'), 'utf8');
+        muse = YAML.parse(file);
+      } catch (err) {
+        muse = {};
+      }
 
       for (const name of yamlFiles) {
         if (name !== 'muse.yaml') {
