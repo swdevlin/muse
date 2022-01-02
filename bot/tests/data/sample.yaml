@@ -2,6 +2,10 @@ is ok:
   title: Is OK
   text: >
     this entry requires no changes
+" extra   spaces ":
+  title: Extra Spaces
+  text: >
+    This has extra spaces
 Convert to Lower:
   title: Convert to Lower
   text: >
@@ -10,3 +14,7 @@ AccÉnt test:
   title: accént test
   text: >
     The É was converted
+"Got ~`!@#$%^&*()-=_+][{}\\\"'|,./?><no punctuation":
+  title: "Got ~`!@#$%^&*()-=_+][{}\\\"'|,./?><punctuation"
+  text: >
+    punctuation should be stripped

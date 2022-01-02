@@ -243,6 +243,21 @@ class CampaignParserTest(TestCase):
         self.assertFalse(is_ok)
         self.assertEqual(self.parser.last_error, 'ent.ry cannot contain punctuation')
 
+    def test_key_cannot_contain_multiple_spaces(self):
+        yaml = """"my  entry":
+            title: the title
+            text: some text
+            page:
+                - 17
+            parent: the parent
+            aliases:
+                - two
+                - three
+        """
+        is_ok = self.parser.verify(yaml)
+        self.assertFalse(is_ok)
+        self.assertEqual(self.parser.last_error, 'my  entry cannot have multiple spaces')
+
     def test_parent_must_be_string(self):
         yaml = """entry:
             title: the title

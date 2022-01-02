@@ -29,6 +29,9 @@ class CampaignParser:
                 if key.endswith(' '):
                     self.last_error = f'{key} cannot end with a space'
                     return False
+                if '  ' in key:
+                    self.last_error = f'{key} cannot have multiple spaces'
+                    return False
                 if any(p in key for p in punctuation):
                     self.last_error = f'{key} cannot contain punctuation'
                     return False
