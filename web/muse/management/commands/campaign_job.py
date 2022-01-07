@@ -27,4 +27,4 @@ class Command(BaseCommand):
             load_campaign(job.id, channel_id, filename)
         else:
             load_campaign.delay(job.id, channel_id, filename, delay=10)
-        print('campaign parse job created')
+            print('campaign parse job created')
