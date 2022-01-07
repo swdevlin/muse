@@ -5,6 +5,7 @@ const fs = require("fs");
 const path = require("path");
 const YAML = require("yaml");
 const knex = require("./db/connection");
+const {MessageEmbed} = require("discord.js");
 
 const populateMuse = async (personality_id, data, trx) => {
   for (const topic of Object.keys(data)) {
@@ -15,6 +16,7 @@ const populateMuse = async (personality_id, data, trx) => {
       text: entry.text,
       personality: personality_id,
       parent: entry.parent,
+      image: entry.image,
       wiki_slug: entry.wiki_slug,
       page: entry.page,
     }).onConflict(['personality', 'key']).merge();
@@ -101,8 +103,15 @@ const sendEntry = async (msg, entry) => {
   else
     text = `**${entry.title}**\n${entry.text}`;
   if (entry.wiki_slug)
-    text += `_ https://eclipsephase.github.io/${entry.wiki_slug} _`
-  await msg.reply(text);
+    text += `_ https://eclipsephase.github.io/${entry.wiki_slug} _`;
+  let embed = null;
+  if (entry.image)
+    embed = new MessageEmbed().setImage(entry.image)
+  const messagePayload = {
+    content: text,
+    embeds: embed ? [embed] : []
+  };
+  await msg.reply(messagePayload);
 }
 
 const hackDetected = async (msg) => {
@@ -130,12 +139,12 @@ const getChildren = async (topic, channel_id, personality_id) => {
 }
 
 const findEntryInDB = async (topic, channel_id, personality_id) => {
-  const topics = await knex.select('title', 'text', 'alias_for', 'page', 'wiki_slug')
+  const topics = await knex.select('title', 'text', 'alias_for', 'page', 'wiki_slug', 'image')
     .from('channel_topic')
     .join('channel', 'channel.id', 'channel_topic.channel_id')
     .where({key: topic, 'channel.channel_id': channel_id})
     .union([
-      knex.select('title', 'text', 'alias_for', 'page', 'wiki_slug')
+      knex.select('title', 'text', 'alias_for', 'page', 'wiki_slug', 'image')
         .from('topic')
         .where({key: topic, personality: personality_id})
     ])

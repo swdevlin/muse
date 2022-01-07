@@ -4,7 +4,7 @@ import yaml
 
 from muse.models import ChannelTopic
 
-VALID_KEYS = ['title', 'text', 'aliases', 'page', 'parent', 'wiki_slug', 'category']
+VALID_KEYS = ['title', 'text', 'aliases', 'page', 'parent', 'wiki_slug', 'category', 'image']
 
 MAX_KEY_LENGTH = 100
 MAX_MESSAGE_LENGTH = 2000
