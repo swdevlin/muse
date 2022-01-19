@@ -151,7 +151,7 @@ sonar:
     the environment (Senses and Sensors). This augmentation works in both air 
     and water, out to a range of 20 (air) or 100 (water) meters.
     
-    Ware: **BCH**  **Min/1**
+    **Ware**: BCH  **Min/1**
 t-ray emitter:
   title: T-Ray Emitter
   aliases:
