@@ -48,6 +48,12 @@ class BasePersonality {
     this.tokens = this.content.split(tokenSplit);
     if (this.tokens.length === 1)
       this.tokens.push('help');
+    else if (this.tokens.length ===2) {
+      if (this.tokens[1] === '-about')
+        this.tokens[1] = 'about';
+      else if (this.tokens[1] === '-help')
+        this.tokens[1] = 'help';
+    }
 
     let ot = msg.content.split(tokenSplit);
     ot.shift();
@@ -62,7 +68,7 @@ class BasePersonality {
     const commandList = Object.keys(commands).join(', ');
     const helpText = `Add text after \`${this.prefix}\` and I will look up information about the topic. For example, enter \`${this.prefix} c-ball\` to find out information about c-ball.
 
-My current personality is ${this.constructor.title}. You can change my personality with the \`-persona\` command.
+My current persona is ${this.constructor.title}. You can change my persona with the \`-persona\` command.
 
 I know the following commands: ${commandList}`;
     let entry = {
