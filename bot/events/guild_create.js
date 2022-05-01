@@ -4,10 +4,10 @@ const logger = require("../logger");
 const knex = require('../db/connection');
 const {addGuild} = require("../helpers");
 
-const guildCreate = async guild => {
+const guildCreate = async (guild) => {
   try {
     const trx = await knex.transaction();
-    const id = await addGuild(guild, trx);
+    await addGuild(guild, trx);
 
     await trx.commit();
 

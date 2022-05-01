@@ -22,7 +22,7 @@ class Persona {
           for (const k of Object.keys(personalities)) {
             const p = personalities[k];
             if (p.textName === newPersonality) {
-              await knex('channel').update({personality: p.id, prefix: p.defaultPrefix}).where({channel_id: channel.id});
+              await knex('channel').update({personality: p.id, prefix: p.defaultPrefix}).where({id: channel.id});
               logger.info(`persona changed to ${p.textName} for ${channel.id}`);
               return await msg.reply(`My persona has been changed to ${p.textName}; I respond to ${p.defaultPrefix}`)
             }

@@ -2,7 +2,7 @@
 
 const logger = require("../logger");
 
-const guildBanAdd = async ban => {
+const guildBanAdd = async (ban) => {
   logger.info(ban);
 };
 

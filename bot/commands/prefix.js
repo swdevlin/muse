@@ -19,7 +19,7 @@ class Prefix {
       const newPrefix = tokens[2];
       try {
         if (channel.permissionsFor(msg.member).has(Permissions.FLAGS.MANAGE_CHANNELS)) {
-          await knex('channel').update({prefix: newPrefix}).where({channel_id: channel.id});
+          await knex('channel').update({prefix: newPrefix}).where({id: channel.id});
           await cache.set(`${channel.id}:prefix`, newPrefix);
 
           logger.info(`prefix changed to ${newPrefix} for ${channel.id}`);

@@ -1,0 +1,15 @@
+entry:
+    title: Entry
+    text: should not be here
+    page: 17b
+    parent: has to exist
+    wiki_slug: abc
+    aliases:
+        - one
+        - two
+entry 2:
+    title: Entry 2
+    text: here we go
+    aliases:
+        - four
+        - three

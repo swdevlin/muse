@@ -3,16 +3,14 @@
 const logger = require("../logger");
 const knex = require('../db/connection');
 
-const guildDelete = async guild => {
+const guildDelete = async (guild) => {
   try {
-    const trx = await knex.transaction();
-    let server = await trx('discord_server').select('id').where({discord_id: guild.id});
-    if (server.length === 1) {
-      server = server[0];
-      server.id = parseInt(server.id);
-      await trx('discord_server').delete().where({discord_id: guild.id});
+    let channels = await knex('channel').select('id').where({guild_id: guild.id});
+    for (const channel of channels) {
+      await trx('channel_topic').delete().where({channel_id: channel.id});
+      await trx('channel').delete().where({id: channel.id});
     }
-    await trx.commit();
+    await trx('guild').delete().where({id: guild.id});
     logger.info(`Removed from server ${guild.id}`);
   } catch(err) {
     logger.error(err);

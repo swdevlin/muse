@@ -51,48 +51,19 @@ const populateCampaign = async (server_id, trx) => {
   }
 }
 
-const deleteCoreMuseEntries = async (discord_id, trx) => {
-  const server_id = await getServerId(discord_id, trx);
-  await trx('topic')
-    .where({server_id: server_id, custom: false})
-    .delete();
-}
-
-const deleteMuseEntries = async (discord_id, trx) => {
-  const server_id = await getServerId(discord_id, trx);
-  await trx('topic')
-    .where({server_id: server_id})
-    .delete();
-}
-
-const getServerId = async (discord_id, trx) => {
-  const server = await trx('discord_server').select('id').where({discord_id: discord_id});
-  if (server.length === 1) {
-    return parseInt(server[0].id);
-  } else
-    return null;
-}
-
 const addGuild = async (guild, trx) => {
-  let id = await trx('discord_server').insert({
-    discord_id: guild.id,
-    name: guild.name,
-    icon: guild.icon,
-    owner_id: guild.ownerID,
-    joined_at: new Date()
-  }).returning('id');
-  return parseInt(id);
+  let id = await trx('guild').insert({
+    id: guild.id,
+  });
 }
 
 const addChannel = async (guild_id, channel, trx) => {
   const data = {
-    channel_id: channel.id,
-    server_id: guild_id,
-    name: channel.name,
+    id: channel.id,
+    guild_id: guild_id,
     prefix: 'muse',
   }
-  let id = await trx('channel').insert(data).returning('id');
-  data.id = parseInt(id);
+  await trx('channel').insert(data);
   return data;
 }
 
@@ -127,7 +98,7 @@ const getChildren = async (topic, channel_id, personality_id) => {
   const topics = await knex.select('title')
     .from('channel_topic')
     .join('channel', 'channel.id', 'channel_topic.channel_id')
-    .where({parent: topic, 'channel.channel_id': channel_id})
+    .where({parent: topic, 'channel.id': channel_id})
     .union([
       knex('topic')
         .select('title')
@@ -142,7 +113,7 @@ const findEntryInDB = async (topic, channel_id, personality_id) => {
   const topics = await knex.select('title', 'text', 'alias_for', 'page', 'wiki_slug', 'image')
     .from('channel_topic')
     .join('channel', 'channel.id', 'channel_topic.channel_id')
-    .where({key: topic, 'channel.channel_id': channel_id})
+    .where({key: topic, 'channel.id': channel_id})
     .union([
       knex.select('title', 'text', 'alias_for', 'page', 'wiki_slug', 'image')
         .from('topic')
@@ -166,19 +137,16 @@ const findEntryInDB = async (topic, channel_id, personality_id) => {
 }
 
 const guildExists = async id => {
-  const ret = await knex('discord_server').select('id').where({discord_id: id}).limit(1);
-  return ret.length === 1 ? ret[0].id : null;
+  const ret = await knex('guild').select('id').where({id: id}).limit(1);
+  return ret.length === 1;
 }
 
 const findChannel = async id => {
-  const ret = await knex('channel').where({channel_id: id}).limit(1);
+  const ret = await knex('channel').where({id: id}).limit(1);
   return ret.length === 1 ? ret[0] : null;
 }
 
 module.exports = {
-  deleteCoreMuseEntries: deleteCoreMuseEntries,
-  deleteMuseEntries: deleteMuseEntries,
-  getServerId: getServerId,
   populateMuse: populateMuse,
   populateCampaign: populateCampaign,
   sendEntry: sendEntry,

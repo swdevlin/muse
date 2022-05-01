@@ -20,7 +20,7 @@ class Diagnostics {
 
         const campaign = await knex('channel_topic')
           .join('channel', 'channel.id', 'channel_topic.channel_id')
-          .where({'channel.channel_id': channel.id, alias_for: null})
+          .where({'channel.id': channel.id, alias_for: null})
           .count('channel_topic.id as topic_count');
 
         const commandCount = fs.readdirSync('./commands').length - 1;

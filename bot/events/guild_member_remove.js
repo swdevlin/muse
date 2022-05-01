@@ -1,6 +1,6 @@
 "use strict"
 
-const guildMemberRemove = async msg => {
+const guildMemberRemove = async (msg) => {
 };
 
 module.exports = guildMemberRemove;

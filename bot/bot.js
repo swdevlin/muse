@@ -13,7 +13,7 @@ const guildDelete = require("./events/guild_delete");
 const guildBanRemove = require("./events/guild_ban_remove");
 
 discordClient.on('ready', ready);
-discordClient.on('message', message);
+discordClient.on('messageCreate', message);
 discordClient.on('guildBanAdd', guildBanAdd);
 discordClient.on('guildBanRemove', guildBanRemove);
 discordClient.on('guildCreate', guildCreate);

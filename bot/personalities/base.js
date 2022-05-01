@@ -62,11 +62,9 @@ class BasePersonality {
     const commandList = Object.keys(commands).join(', ');
     const helpText = `Add text after \`${this.prefix}\` and I will look up information about the topic. For example, enter \`${this.prefix} c-ball\` to find out information about c-ball.
 
-My current personality is ${this.constructor.title}. You can change my personality with the \`-personality\` command.
+My current personality is ${this.constructor.title}. You can change my personality with the \`-persona\` command.
 
-I know the following commands: ${commandList}
-
-You can configure me using a browser at ${process.env.WEB_URL}`;
+I know the following commands: ${commandList}`;
     let entry = {
       title: 'Help',
       text: helpText
@@ -92,18 +90,18 @@ You can configure me using a browser at ${process.env.WEB_URL}`;
   async getLookup() {
     this.lookup = this.tokens.join(' ');
     if (this.lookup.startsWith('please '))
-      this.lookup = this.lookup.substr(7);
+      this.lookup = this.lookup.substring(7);
 
     for (let q of QUERIES) {
       if (this.lookup.startsWith(q)) {
-        this.lookup = this.lookup.substr(q.length);
+        this.lookup = this.lookup.substring(q.length);
         break;
       }
     }
     if (this.lookup.startsWith('the '))
-      this.lookup = this.lookup.substr(4);
+      this.lookup = this.lookup.substring(4);
     if (this.lookup.startsWith('a '))
-      this.lookup = this.lookup.substr(2);
+      this.lookup = this.lookup.substring(2);
     if (this.lookup === 'you')
       this.lookup = 'muse';
   }
