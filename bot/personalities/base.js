@@ -20,6 +20,7 @@ const QUERIES = [
   'who are ',
   'describe ',
   'look up ',
+  'lookup ',
   'what about ',
   'tell me about ',
   'do you know about ',
