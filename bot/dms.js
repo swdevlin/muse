@@ -36,7 +36,6 @@ const dm = async msg => {
     const channel = discordClient.channels.cache.get(channelId);
     if (!channel)
       return await msg.reply('invalid channel id');
-    console.log(channel);
     if (!channel.isText())
       return await msg.reply('invalid channel id');
     let guild = channel.guild;
