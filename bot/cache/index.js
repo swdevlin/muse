@@ -21,8 +21,14 @@ const set = async (key, value) => {
   await client.set(rkey, value);
 };
 
+const del = async (key) => {
+  const rkey = `${redis_key}:${key}`;
+  await client.del(rkey);
+};
+
 module.exports = {
   get: get,
   set: set,
+  del: del,
   client: client,
 }
