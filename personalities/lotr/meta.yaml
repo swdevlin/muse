@@ -1,0 +1,13 @@
+about:
+  title: About
+  aliases:
+    - credits
+  text: >
+    Lord of the Rings: The Card Game card look up and rules summary muse. Lord of the Rings
+    is published by Fantasy Flight Games. See https://www.fantasyflightgames.com/en/products/the-lord-of-the-rings-the-card-game/ .
+    
+    
+    Card images and text from https://ringsdb.com
+    
+
+    The source code for OpenMuse can be found at https://github.com/swdevlin/muse
