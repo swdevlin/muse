@@ -1,0 +1,15 @@
+module.exports = {
+  leadership: '<:lotrleadership:971732910786899970>',
+  spirit: '<:lotrspirit:971750721001242705>',
+  lore: '<:lotrlore:971750795387240488>',
+  tactics: '<:lotrtactics:971750629997428746>',
+  neutral: '',
+  baggins: '<:lotrbaggins:971750460123910244>',
+  fellowship: '<:lotrfellowship:971750432345047060>',
+  attack: '<:lotrattack:971732794491420672>',
+  defense: '<:lotrdefense:971732765810761758>',
+  willpower: '<:lotrwillpower:971731802047774741>',
+  health: '<:lotrhealth:971732831761997837>',
+  threat: '<:lotrthreat:972109367790956545>',
+  unique: '<:lotrunique:972670966394155008>',
+};
