@@ -7,30 +7,11 @@ const {addGuild, guildExists, addChannel, findChannel} = require("../helpers");
 const knex = require('../db/connection');
 const personalities = require("../personalities");
 
-const queries = [
-  'what is ',
-  'what are ',
-  'what is the definition of ',
-  'definition of ',
-  'definition ',
-  'define ',
-  'who are the ',
-  'who is ',
-  'who are ',
-  'describe ',
-  'look up ',
-  'what about ',
-  'tell me about ',
-  'do you know about ',
-  'what do you know about ',
-];
-
 const message = async (msg) => {
-  // ignore our own messages
-  if (`${msg.author.username}#${msg.author.discriminator}` === client.user.tag)
+  // ignore our own messages or messages from any bot
+  if (`${msg.author.username}#${msg.author.discriminator}` === client.user.tag || msg.author.bot)
     return;
 
-  const {id: author_id} = msg.author;
   const msgChannel = msg.channel;
 
   if (msgChannel.type === "DM") {

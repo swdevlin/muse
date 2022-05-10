@@ -20,6 +20,12 @@ const populateMuse = async (personality_id, data, trx) => {
       wiki_slug: entry.wiki_slug,
       page: entry.page,
     }).onConflict(['personality', 'key']).merge();
+    const normalized = topic.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    if (normalized !== topic) {
+      if (!entry.aliases)
+        entry.aliases = [];
+      entry.aliases.push(normalized);
+    }
     if (entry.aliases)
       for (const alias of entry.aliases) {
         await trx('topic').insert({
@@ -52,7 +58,7 @@ const populateCampaign = async (server_id, trx) => {
 }
 
 const addGuild = async (guild, trx) => {
-  let id = await trx('guild').insert({
+  await trx('guild').insert({
     id: guild.id,
   });
 }
@@ -67,14 +73,14 @@ const addChannel = async (guild_id, channel, trx) => {
   return data;
 }
 
-const sendEntry = async (msg, entry) => {
+const sendEntry = async (msg, entry, personality) => {
   let text;
   if (entry.page)
     text = `**${entry.title}**   :book: ${entry.page}\n${entry.text}`;
   else
     text = `**${entry.title}**\n${entry.text}`;
   if (entry.wiki_slug)
-    text += `_ https://eclipsephase.github.io/${entry.wiki_slug} _`;
+    text += `_ ${personality.constructor.wikiBase}/${entry.wiki_slug} _`;
   let embed = null;
   if (entry.image)
     embed = new MessageEmbed().setImage(entry.image)

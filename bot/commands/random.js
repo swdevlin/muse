@@ -9,7 +9,7 @@ const rng = new Random();
 class RandomTopic {
   static command = '-random';
 
-  static async do(msg, personality_id) {
+  static async do(msg, personality) {
     const {channel} = msg;
 
     try {
@@ -20,13 +20,13 @@ class RandomTopic {
         .union([
           knex.select('key')
             .from('topic')
-            .where({personality: personality_id, alias_for: null})
+            .where({personality: personality.id, alias_for: null})
         ])
       ;
 
       const r = rng.integer(0, items.length-1);
-      let entry = await findEntryInDB(items[r].key, channel.id, personality_id);
-      await sendEntry(msg, entry);
+      let entry = await findEntryInDB(items[r].key, channel.id, personality.id);
+      await sendEntry(msg, entry, personality);
       logger.info(`${channel.id} ${msg.author.id} random`);
     } catch(err) {
       logger.error(err);

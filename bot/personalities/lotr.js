@@ -12,6 +12,7 @@ class LordOfTheRings extends BasePersonality {
   static title = 'Lord of the Rings';
   static id = 3;
   static defaultPrefix = 'muse';
+  static wikiBase = 'https://ringsdb.com';
 
   async checkExternal(msg) {
     const lookup = this.tokens.join(' ');

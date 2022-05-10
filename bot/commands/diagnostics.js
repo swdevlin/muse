@@ -9,13 +9,13 @@ const fs = require('fs')
 class Diagnostics {
   static command = '-diagnostics';
 
-  static async do(msg, personality_id) {
+  static async do(msg, personality) {
     const {channel} = msg;
 
     try {
       if (channel.permissionsFor(msg.member).has(Permissions.FLAGS.MANAGE_CHANNELS)) {
         const topics = await knex('topic')
-          .where({personality: personality_id, alias_for: null})
+          .where({personality: personality.id, alias_for: null})
           .count('topic.id as topic_count');
 
         const campaign = await knex('channel_topic')

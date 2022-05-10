@@ -41,6 +41,7 @@ class BasePersonality {
     this.lookup = null;
     this.content = null;
     this.originalContent = null;
+    this.authorId = null;
   }
 
   async getTokens(msg) {
@@ -76,7 +77,7 @@ I know the following commands: ${commandList}`;
       title: 'Help',
       text: helpText
     }
-    await sendEntry(msg, entry);
+    await sendEntry(msg, entry, this);
   }
 
   async findEntry() {
@@ -113,22 +114,31 @@ I know the following commands: ${commandList}`;
       this.lookup = 'muse';
   }
 
+  async checkExternal(msg) {
+    return null;
+  }
+
+  async doCommand(msg) {
+    return await commands[this.tokens[1]].do(msg, this);
+  }
+
   async replyToMessage(msg) {
     if (commands[this.tokens[1]])
-      return await commands[this.tokens[1]].do(msg, this.constructor.id);
+      return this.doCommand(msg);
 
     this.tokens.shift();
+    this.channelId = msg.channel.id;
+    this.authorId = msg.author.id;
+
     this.getLookup();
 
     if (this.lookup === 'help')
       return await this.doHelp(msg);
 
-    this.channelId = msg.channel.id;
-
     const entry = await this.findEntry();
     if (entry)
-      await sendEntry(msg, entry);
-    else
+      await sendEntry(msg, entry, this);
+    else if (!await this.checkExternal(msg))
       await this.noMatch(msg);
   }
 
@@ -195,7 +205,7 @@ I know the following commands: ${commandList}`;
       }
 
       const trx = await knex.transaction();
-
+      await trx('topic').where({personality: this.constructor.id}).delete();
       await populateMuse(this.constructor.id, muse, trx);
 
       await trx.commit();

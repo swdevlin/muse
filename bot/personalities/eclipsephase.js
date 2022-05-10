@@ -8,6 +8,7 @@ class EclipsePhase extends BasePersonality {
   static title = 'Eclipse Phase';
   static id = 2;
   static defaultPrefix = 'muse';
+  static wikiBase = 'https://eclipsephase.github.io';
 
 }
 

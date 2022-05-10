@@ -18,7 +18,7 @@ fs.readdirSync(__dirname + '/').forEach(function(file) {
 class Commands {
   static command = '-commands';
 
-  static async do(msg) {
+  static async do(msg, personality) {
     const {channel} = msg;
     const listOfCommands = Object.keys(commands).map(c => c).join(', ');
 
