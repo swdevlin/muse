@@ -234,6 +234,7 @@ I know the following commands: ${commandList}`;
 
   async createDocumentation() {
     try {
+      this.loadData();
       const data = {letters: [], topics: {}};
       data.title = this.constructor.title;
       const letters = [];
