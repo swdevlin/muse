@@ -9,6 +9,9 @@ class EclipsePhase extends BasePersonality {
   static id = 2;
   static defaultPrefix = 'muse';
   static wikiBase = 'https://eclipsephase.github.io';
+  static webAbout = `
+    <p>Knowledge in the Eclipse Phase persona is from the 2nd edition of the game.</p>
+  `;
 
 }
 

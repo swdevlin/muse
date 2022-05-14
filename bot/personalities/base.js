@@ -38,6 +38,7 @@ const punctuationRx = /[~!@#$%^&*()`{}\[\];:"'<,.>?\/\\|\-_+=]+/g;
 
 class BasePersonality {
   static data = null;
+  static webAbout = '';
 
   constructor(prefix) {
     this.tokens = [];
@@ -252,6 +253,7 @@ I know the following commands: ${commandList}`;
           topics[l] = topics[l].sort((a,b) => { if (a.title < b.title) return -1; else return 1;});
         data.topics = topics;
       }
+      data.about = this.constructor.webAbout;
       const docs = documentationTemplate(data);
       console.log(`documentation generated for ${this.constructor.data}`);
       await fsp.writeFile(docsFolder + this.constructor.data + '.html', docs);

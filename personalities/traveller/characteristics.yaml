@@ -24,6 +24,7 @@ dexterity:
   aliases:
     - dex
   parent: characteristics
+  page: 8
   text: >
     Physical co-ordination and agility, reflexes.
 intelligence:

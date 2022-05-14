@@ -307,6 +307,35 @@ class Traveller extends BasePersonality {
   static title = 'Traveller';
   static id = 1;
   static defaultPrefix = 'library';
+  static webAbout = `
+    <p>A Muse persona for the Traveller RPG.</p>
+    <p>Muse can decompose a UWP. Enter <span class="command">library UWP</span> and Muse will breakdown the UWP. For example enter,
+    <span class="command">library A832921-C</span> and Muse will reply with</p>
+    <p>
+      <b>A832921-C</b><br/>
+      <b>Starport (A)</b><br/>
+      This port is Excellent Berthing costs are 1DxCR1000 per day This port has Refined fuel<br/> 
+      <b>Size (8)</b><br/>
+      12,800km in diameter<br/>
+      Gravity is 1G<br/>
+      <b>Atmosphere (3)</b><br/>
+      Very Thin atmosphere<br/>
+      This atmosphere requires Respirator <br/>
+      <b>Hydrosphere (2)</b><br/>
+      A few small seas<br/>
+      <b>Population: (9)</b><br/>
+      1,000,000,000<br/>
+      <b>Government (2)</b><br/>
+      Participating Democracy <br/>
+      <b>Law (1)</b><br/>
+      Bans:<br/>
+          Poison Gas, Explosives, Undetectable Weapons and WMD;<br/>
+          Battle Dress<br/>
+      <b>Tech (C)</b><br/>
+       TL 12<br/>
+      Average Stellar<br/>
+    </p>
+  `;
 
   validateUWP([starport, size, atmosphere, hydrosphere, population, government, law, tech]) {
     return (

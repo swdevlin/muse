@@ -3,6 +3,8 @@ aoa’iw-class light trader:
   category: Ship
   page: AoCS 102
   aliases:
+    - aoa’iw-class
+    - aoa’iw
     - pouncer
   text: >
     A popular design inside the Hierate, especially within the Trojan Reach,
@@ -25,6 +27,7 @@ halaheike-class pocket warship:
     and customs inspections. Some owners convert the cargo bay to hold troops 
     or some 200 low berths (although this will put a serious strain on the 
     power plant), allowing the Halaheike to serve as a troop transport.
+    
     
     The design is known for maintenance issues and jump drive failures but the
     vessel’s main problem is that it tries to do too much in one package,
