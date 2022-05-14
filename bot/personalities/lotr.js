@@ -3,7 +3,14 @@
 const BasePersonality = require("./base");
 const cache = require("../cache");
 const emojiMap = require("../lotr-emoji-map");
-const cards = require('../../personalities/lotr/resources/lotr_cards.json');
+let cards;
+try {
+  cards = require('../../personalities/lotr/resources/lotr_cards.json');
+
+} catch(err) {
+  cards = {};
+}
+
 const {MessageEmbed} = require("discord.js");
 
 class LordOfTheRings extends BasePersonality {
