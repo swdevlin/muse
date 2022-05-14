@@ -10,6 +10,7 @@ require('dotenv').config({ path: path.resolve(__dirname, './.env') });
   for (const k of Object.keys(personalities)) {
     const p = new personalities[k]();
     await p.loadData();
+    await p.updateDB();
   }
   console.log('finished loading data');
 })()
