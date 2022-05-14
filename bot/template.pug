@@ -1,0 +1,73 @@
+mixin meta(topic)
+  if topic.page || topic.aliases || topic.parent
+    p
+      em
+        if topic.page
+          span.meta Page: #{topic.page}
+        if topic.aliases
+          span.meta Aliases: #{topic.aliases.join(', ')}
+        if topic.parent
+          span.meta Parent: #{topic.parent}
+
+mixin renderTopic(topic)
+  dt #{topic.title}
+  dd
+    +meta(topic)
+    each line in topic.text.split(/\n/)
+      p.
+        #{line}
+
+doctype html
+html(lang="en")
+  head
+    title= title
+    meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0")
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge;")
+
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous")
+    script(src="https://kit.fontawesome.com/2886b76956.js" crossorigin="anonymous")
+    link(rel="preconnect" href="https://fonts.googleapis.com")
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Radio+Canada:wght@300;400&display=swap" rel="stylesheet")
+    style.
+      body {font-family: "Radio Canada"}
+      dd p {margin-left: 8px;}
+      .meta {padding-right: 12px;}
+body
+  .container
+    h1 #{title}
+    p.
+      About the lotr persona
+    hr
+    h2 Topics
+    nav
+      .nav.nav-tabs#nav-tab(role="tablist")
+        each letter, index in letters
+          button(class=`nav-link ${index === 0 ? 'active': ''}` id=`nav-${letter}-tab` data-bs-toggle="tab" data-bs-target=`#nav-${letter}` type="button" role="tab" aria-controls=`nav-${letter}` aria-selected="true") #{letter}
+    .tab-content#nav-tabContent
+      each letter, index in letters
+        case index
+          when 0
+            .tab-pane.fade.show.active(id=`#nav-${letter}` role="tabpanel" aria-labelledby=`nav-${letter}-tab`)
+              dl
+                each topic in topics[letter]
+                  +renderTopic(topic)
+          default
+            .tab-pane.fade(id=`nav-${letter}` role="tabpanel" aria-labelledby=`nav-${letter}-tab`)
+              dl
+                each topic in topics[letter]
+                  +renderTopic(topic)
+    .container
+      footer.d-flex.flex-wrap.justify-content-between.align-items-center.py-3.my-4.border-top
+        .col-md-4.d-flex.align-items-center
+          span.text-muted OpenMuse v0.9
+        ul.nav.col-md-4.justify-content-end.list-unstyled.d-flex
+          li.ms-3
+            a.text-muted(href="https://discord.gg/nAsE9rp4Ua" target="_blank")
+              i.fab.fa-discord
+          li.ms-3
+            a.text-muted(href="https://github.com/swdevlin/muse")
+              i.fab.fa-github
+
+  script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous")

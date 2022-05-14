@@ -1,7 +1,7 @@
 about:
   title: About
   aliases:
-    credits
+    - credits
   text: >
     An Traveller RPG library bot, networked through Discord. Traveller is
     published by Far Future Enterprises. See https://www.farfuture.net/ .

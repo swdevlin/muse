@@ -245,3 +245,4 @@ dmypy.json
 .pyre/
 /bot/campaign.yaml
 /personalities/lotr/resources/lotr_cards.json
+/muse_web/personas/*.html

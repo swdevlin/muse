@@ -5,8 +5,13 @@ const logger = require("../logger");
 const {sendEntry, populateMuse, findEntryInDB} = require("../helpers");
 const path = require("path");
 const fs = require("fs");
+const fsp = require("fs/promises");
 const YAML = require("yaml");
 const knex = require("../db/connection");
+const pug = require('pug');
+
+const docsFolder = '../muse_web/personas/';
+const documentationTemplate = pug.compileFile('./template.pug', {});
 
 const QUERIES = [
   'what is ',
@@ -42,6 +47,7 @@ class BasePersonality {
     this.content = null;
     this.originalContent = null;
     this.authorId = null;
+    this.knowledge = null;
   }
 
   async getTokens(msg) {
@@ -203,10 +209,20 @@ I know the following commands: ${commandList}`;
           muse = Object.assign(muse, y);
         }
       }
+      this.knowledge = muse;
+    } catch(err) {
+      console.log(err);
+    }
+  }
+
+  async updateDB() {
+    try {
+      if (!this.constructor.id)
+        return;
 
       const trx = await knex.transaction();
       await trx('topic').where({personality: this.constructor.id}).delete();
-      await populateMuse(this.constructor.id, muse, trx);
+      await populateMuse(this.constructor.id, this.knowledge, trx);
 
       await trx.commit();
 
@@ -215,6 +231,34 @@ I know the following commands: ${commandList}`;
       console.log(err);
     }
   }
+
+  async createDocumentation() {
+    try {
+      const data = {letters: [], topics: {}};
+      data.title = this.constructor.title;
+      const letters = [];
+      const topics = {};
+      if (this.knowledge) {
+        for (const topic of Object.keys(this.knowledge)) {
+          let l = topic.charAt(0).toLocaleUpperCase();
+          letters.push(l);
+          if (topics[l] === undefined)
+            topics[l] = [];
+          topics[l].push(this.knowledge[topic]);
+        }
+        data.letters = [...new Set(letters)].sort();
+        for (const l of data.letters)
+          topics[l] = topics[l].sort((a,b) => { if (a.title < b.title) return -1; else return 1;});
+        data.topics = topics;
+      }
+      const docs = documentationTemplate(data);
+      console.log(`documentation generated for ${this.constructor.data}`);
+      await fsp.writeFile(docsFolder + this.constructor.data + '.html', docs);
+    } catch(err) {
+      console.log(err);
+    }
+  }
+
 }
 
 module.exports = BasePersonality;

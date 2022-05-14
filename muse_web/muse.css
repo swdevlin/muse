@@ -1,0 +1,17 @@
+body {
+  font-family: "Radio Canada";
+}
+
+span.command {
+  padding-left: 4px;
+  padding-right: 4px;
+  background-color: #eeeeee;
+}
+
+dd p {
+  margin-left: 8px;
+}
+
+.meta {
+  padding-right: 12px;
+}
