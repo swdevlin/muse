@@ -135,7 +135,6 @@ const findChannel = async id => {
 
 module.exports = {
   populateMuse: populateMuse,
-  populateCampaign: populateCampaign,
   sendEntry: sendEntry,
   hackDetected: hackDetected,
   findEntryInDB: findEntryInDB,
