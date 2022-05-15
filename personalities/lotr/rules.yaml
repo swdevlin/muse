@@ -19,6 +19,24 @@ active location:
     ⦁ If the active location becomes explored by a game or card effect that requires the placement of multiple progress 
     on the quest (and the progress is instead being placed on the active location), the remaining progress created by 
     the effect is placed on the current quest.
+aflame x:
+  title: Aflame X
+  aliases:
+    - aflame
+  text: >
+    At the end of each round, the players must place 1 damage token on each
+    Aflame location in the staging area. Many encounter card effects can also
+    cause damage tokens to be placed on Aflame locations.
+    
+    
+    If at any point an Aflame location has damage tokens on it equal to its
+    Aflame X value, it is destroyed, and must be placed facedown underneath
+    The Havens Burn objective card. Cards facedown underneath The Havens
+    Burn are considered to be out of play.
+    
+    
+    If an Aflame location is explored, it is placed in the discard pile as
+    normal, and all damage tokens on it are also discarded.
 ally cards:
   title: Ally Cards
   aliases:
@@ -53,6 +71,8 @@ ambush:
     checks are made against it.
 archery:
   title: Archery
+  aliases:
+    - archery x
   text: >
     While a card with the archery keyword is in play, players must deal damage
     to character cards in play equal to the specified archery value at the
@@ -62,6 +82,14 @@ archery:
     first player makes the final decision. If multiple cards with the archery
     keyword are in play, the effects are cumulative. Remember that <:lotrdefense:971732765810761758> 
     does not block archery damage.
+assault:
+  title: Assault
+  text: >
+    When the players quest unsuccessfully, each player does not raise his or
+    her threat. Instead, the players must deal X damage to Minas Tirith.
+    X is the amount by which the total threat in the staging area was greater
+    than the total willpower of each character committed to the quest. (This
+    damage is only calculated once for the group, not per player.)
 Attachment Cards:
   title: Attachment Cards
   aliases:
@@ -110,6 +138,16 @@ blank:
     ⦁ Included in a card’s text box are its abilities, keywords, and traits.
 
     ⦁ A card with a blank text box retains its flavor and/or story text.
+boarding x:
+  title: Boarding X
+  aliases:
+    - boarding
+  text: >
+    When a ship-enemy with the Boarding keyword engages a player from the
+    staging area, reveal the top X cards from the Corsair Deck and put the
+    revealed enemies into play, engaged with that player. Note that the
+    Boarding keyword does not resolve if the ship-enemy engages a player
+    from another player’s play area, or from the encounter deck or discard pile.
 burgle:
   title: Burgle
   text: >
@@ -152,6 +190,28 @@ cannot:
   title: Cannot
   text: >
     The word “cannot” is absolute, and cannot be countermanded by other abilities or effects.
+capture x:
+  title: Capture X
+  aliases:
+    - capture
+  text: >
+    When an encounter card or quest card with the capture X keyword enters play, 
+    before resolving that card’s “when revealed” effects, each player takes the
+    top X cards of his or her captured deck and captures them by placing them 
+    facedown underneath that card. (If the players are at different stages of
+    the quest, only the players at that stage perform this act.)
+    
+
+    When cards are captured facedown underneath an encounter card, those cards
+    are called “captured cards,” and are considered to be out of play, under
+    no player’s control. This can occur from the capture X keyword, or from
+    encounter card effects that instruct a player to capture 1 or more cards 
+    underneath a specified card. If a card is captured from play, all tokens on
+    that card and attachments on that card are discarded. When an encounter
+    card or quest card with 1 or more captured cards underneath it leaves play,
+    all of the captured cards underneath it are “rescued” by their owners.
+    Rescued cards are placed in their owners’ hands. If a hero card is rescued,
+    immediately put it into play under its owner’s control.
 cardtypes:
   title: Cardtypes
   aliases:
@@ -215,6 +275,15 @@ constant ability:
 
     ⦁ If multiple instances of the same constant ability are in play, each instance affects the game
     state independently.
+contracts:
+  title: Contracts
+  text: >
+    Contracts count as player cards, but they are never included in a player’s
+    deck and do not count towards a player’s minimum deck size. Instead, each
+    player may choose one contract to put into play along with his or her
+    heroes at the beginning of the game with its “A” side faceup. If a contract
+    places restrictions on the contents of a player’s deck, those restrictions
+    must be met in order to choose that contract.
 controlling locations:
   title: Controlling Locations
   aliases:
@@ -259,6 +328,27 @@ current quest:
   title: Current Quest
   text: >
     The “current quest” refers to the quest stage that the players are currently attempting to defeat.
+defense:
+  title: Defence
+  text: >
+    While the current quest has the defense keyword, players cannot place
+    progress on the quest (or active location) by questing successfully. 
+    Instead, the encounter deck tries to place progress on the current quest.
+    
+    
+    During quest resolution, if the total <:lotrthreat:972109367790956545> in 
+    the staging area is greater than the total <:lotrwillpower:971731802047774741>
+    of characters committed to the quest, players do not raise their threat
+    by the difference. Instead, the first player places progress on the
+    current quest equal to the difference.
+    
+    
+    The active location still acts as a buffer to the quest, so progress made
+    by the encounter deck or encounter card effect must be placed on the
+    active location first before it is placed on the quest (unless a card
+    effect bypasses the active location). When a quest has progress equal
+    to its quest points, that stage is defeated and the players should
+    advance to the next stage as usual.
 damage:
   title: Damage
   text: >
@@ -314,6 +404,15 @@ destroy:
     
     Placing a hero, ally, or enemy in the discard pile as the result of being destroyed is not the same as
     “discarding” that card.
+dire:
+  title: Dire
+  text: >
+    While the main quest has the dire keyword, each player’s threat elimination 
+    level is increased to 99 and each player’s threat cannot be reduced by more
+    than 1 each round by non-boon player card effects. Boon card effects that
+    reduce a player’s threat are not affected by the dire keyword. Additionally,
+    the threat value for triggering Valour effects is changed from 40 threat
+    to 80.
 discard pile:
   title: Discard Pile
   text: >
@@ -336,10 +435,10 @@ does not stack:
   text: >
     While two or more effects that do not stack with one another are active, 
     only one of them will affect the game state.
-doomed:
+doomed x:
   title: Doomed X
   alias:
-    - doomed x
+    - doomed
   text: >
     Doomed is a keyword ability. If an encounter card with the doomed keyword 
     is revealed, each player must raise his or her threat by the specified value.
@@ -387,6 +486,36 @@ effects:
     
     ⦁ If an ability instructs a player to select among multiple effects, an effect that has the potential to 
     change the game state must be selected.
+encounter:
+  title: Encounter
+  text: >
+    Encounter is a keyword that appears on player cards with an
+    encounter card back, and it has the following rules:
+    
+    ⦁ Player cards with the encounter keyword cannot be included
+    in any player’s deck because they have encounter card backs.
+    Instead, when setting up a scenario, each player may set up to 3
+    cards with the encounter keyword aside, out of play. These cards
+    do not count toward the player’s deck minimum of 50 cards.
+    
+    ⦁ Player cards with the encounter keyword have a dash (-)
+    instead of a cost because they are never played from a player’s
+    hand. Instead, player cards with the encounter keyword are
+    meant to be shuffled into the encounter deck. In order to shuffle
+    one of the set aside player cards into the encounter deck, a card
+    effect must instruct a player to do so.
+    
+    ⦁ The “when revealed” effect on player cards with the encounter
+    keyword cannot be canceled.
+    
+    ⦁ If a player card with the encounter keyword is dealt as a
+    shadow card to an enemy, it is treated like an encounter card:
+    place it in the encounter discard pile after resolving that enemy’s
+    attack.
+    
+    ⦁ If a player card with the encounter keyword leaves play, it is
+    removed from the game. Do not place it in a player’s discard pile
+    or in the encounter deck discard pile.
 encounter deck:
   title: Encounter Deck
   text: >
@@ -401,6 +530,19 @@ encounter phase:
   page: 24
   text: >
     The steps of this phase and how to resolve engagement checks are described in timing entries 5.1–5.4.
+encounter side quests:
+  title: Encounter Side Quests
+  parent: side quests
+  text: >
+    A side quest with an encounter card back is called an “encounter side quest.”
+    An encounter side quest is both a quest card and an encounter card. Each
+    encounter side quest is part of an encounter set and it is shuffled into the
+    encounter deck when setting up a scenario that uses its encounter set. When an
+    encounter side quest is revealed from the encounter deck, it is added to the
+    staging area. Because side quests are quest cards as well as encounter cards,
+    the “when revealed” effects of side quests cannot be canceled by player card
+    effects. If a side quest is dealt to an enemy as a shadow card, it functions as
+    any other encounter card without shadow text.
 enemy cards:
   title: Enemy Cards
   text: >
@@ -581,6 +723,27 @@ forced:
     
     ⦁ Each forced ability must resolve as completely as possible before the
     next forced ability to the same triggering condition may initiate.
+fortitude tests:
+  title: Fortitude Tests
+  text: >
+    When a player is instructed to make a Fortitude test, he may exhaust
+    any number of heroes he controls to commit them to the test. Then,
+    he must discard the top X cards of the encounter deck, where X is the
+    tens digit of his threat dial. If the total willpower of the heroes
+    committed to the test is greater than the number of Sauron’s Eye
+    icons on the encounter cards discarded for the test, that player
+    successfully passes the Fortitude test. If the number of Sauron’s
+    Eye icons is equal to or greater than the total willpower of the
+    committed heroes, that player fails the Fortitude test. If the encounter
+    deck is ever empty during a Fortitude test, shuffle the encounter discard
+    pile into the encounter deck.
+    
+    
+    Fortitude tests interrupt the regular turn sequence and create a new action
+    window. After the total number of Sauron’s Eye icons on the discarded 
+    encounter cards has been determined, players are allowed to take actions.
+    Once the Fortitude test is resolved, play continues as normal and player 
+    actions are restricted to regular action windows.
 gains:
   title: Gains
   text: >
@@ -592,19 +755,49 @@ gains:
     ⦁ If a card gains a characteristic (such as a trait, keyword, or ability
     text), the card functions as if it possesses the gained characteristic. 
     Gained characteristics are not considered to be printed on the card.
+grapple:
+  title: Grapple
+  text: >
+    When an enemy with the Grapple keyword is revealed, or when you are
+    instructed to resolve an enemy’s Grapple keyword, immediately attach
+    that enemy facedown to the location in the staging area specified
+    in parentheses (for example, the location with the highest <:lotrthreat:972109367790956545>, or
+    the highest quest points). If more than one location meets the specified
+    criteria, the first player may choose which of those locations the enemy
+    grapples. If there are no locations in the staging area, add the enemy
+    to the staging area without attaching it to any location. While attached
+    to a location by the Grapple keyword, an enemy is “grappled with” that location.
+    
+    
+    While grappled with a location, an enemy is not considered to be in the
+    staging area, cannot be engaged, and is immune to player card effects.
+    Instead, it adds 2 <:lotrthreat:972109367790956545> to the
+    <:lotrthreat:972109367790956545> of the location it is grappled with.
+    When a location becomes the active location, or when a location in the
+    staging area is explored, any enemies grappled with that location are
+    detached, flipped faceup, and added to the staging area as normal
+    enemies.
 guarded:
   title: Guarded
+  aliases:
+    - guarded (x)
   text: >
     Guarded is a keyword ability. When an objective with the guarded keyword 
     is revealed, reveal the next card from the encounter deck and attach the
-    card with the guarded keyword to it and place them both in the staging area.
+    card with the guarded keyword to it and place them both in the staging
+    area. If the next card also has the guarded keyword, use the next card
+    of the encounter deck to fulfill the original keyword effect, and then
+    resolve the guarded keyword on the second card.
+
+
+    When a card with Guarded (X) is revealed, instead of revealing the next card
+    from the encounter deck, discard cards from the encounter deck until an
+    encounter card with the matching type is discarded. Then, add it to the
+    staging area and attach the just revealed objective to it. Once attached,
+    an objective with Guarded (X) works just like an objective with the Guarded
+    keyword.
     
-    
-    If the next card also has the guarded keyword, use the next card of the
-    encounter deck to fulfill the original keyword effect, and then resolve
-    the guarded keyword on the second card.
-    
-    
+        
     Enemy and location cards attached to guarded objectives do count their
     threat while in the staging area.
     
@@ -620,7 +813,6 @@ guarded:
     An encounter card attached to a guarded objective is dealt with in the following
     method, depending on its card type:
     
-  
     ⦁ **Enemy**: The enemy leaves play, either by being defeated or as the result of a card effect.
     
     ⦁ **Location**: The location leaves play, either by being explored or as the result of a card effect.
@@ -644,6 +836,38 @@ hero cards:
     
     ⦁ Hero cards remain in play unless destroyed or otherwise removed from play
     by a card ability.
+hide test:
+  title: Hide Test
+  text: >
+    When a player is instructed to make a Hide test, that player may exhaust
+    any number of characters he or she controls to commit those characters
+    to the Hide test. Then, that player discards the top X cards of the
+    encounter deck where X is equal to the Hide X value. Add the total
+    <:lotrthreat:972109367790956545> of the discarded cards and compare it to the total 
+    :lotrwillpower: of the characters committed to the Hide test. If the
+    total <:lotrthreat:972109367790956545> of the discarded cards is greater than the total
+    :lotrwillpower: of all characters committed to the Hide test, then
+    that player fails the Hide test. If the total :lotrwillpower of the
+    characters committed to the Hide test is greater than or equal to the
+    total <:lotrthreat:972109367790956545> of the discarded cards, then the Hide test is
+    successful. After the Hide test resolves, characters are no longer
+    committed to the test.
+    
+    
+    Hide tests interrupt the regular turn sequence and create a new action
+    window. After the total <:lotrthreat:972109367790956545> of the discarded cards has been
+    determined, players are allowed to take actions. Once the Hide test
+    is resolved, play continues as normal and player actions are restricted
+    to regular action windows.
+hide x:
+  title: Hide X
+  aliases:
+    - hide
+  text: >
+    When an encounter card with the Hide X keyword is revealed, the player who
+    revealed the card must make a Hide test. If the encounter card with the
+    Hide X keyword also has a “When Revealed” or “Forced” effect, the Hide
+    test must be resolved before resolving the rest of the card.
 hidden cards:
   title: Hidden Cards
   text: >
@@ -665,6 +889,20 @@ hidden cards:
     
     If a player is eliminated, any hidden cards in his play area
     are discarded.
+hinder:
+  title: Hinder
+  text: >
+    While engaged with a player, an enemy with the Hinder keyword is not dealt
+    a shadow card and does not make an attack during the combat phase.
+    
+    
+    Instead of making attacks, enemies with the Hinder keyword force players to
+    remove progress from the current quest or active location. At the beginning
+    of the combat phase, each player removes one progress from the current 
+    quest for each enemy with Hinder engaged with him. When there is no progress
+    remaining on the current quest, players remove progress from the active
+    location instead. If there is no progress on either the quest or active
+    location, there is no effect.
 hit points:
   title: Hit Points
   text: >
@@ -871,12 +1109,33 @@ lost effects:
     Some cards have “Lost:” effects on them. These effects are only triggered
     by other card effects, and are not tied to any timing structure or phase
     of the game.
+master:
+  title: Master
+  text: >
+    Cards with the Master trait represent the power of The Master Ring, and
+    can only be used by the player who controls The One Ring. Cards with the
+    Master trait cannot be used when playing saga expansions.
 may:
   title: May
   text: >
     The word “may” indicates that a specified player has the option to do
     that which follows. If no player is specified, the option is granted
     to the controller of the card with the ability in question.
+mire x:
+  title: Mire X
+  aliases:
+    - mire
+  text: >
+    At the end of the refresh phase, place 1 resource token on each location
+    in the staging area. Resource tokens placed on locations with the mire
+    keyword are called “mire tokens.” When a location with the mire keyword
+    has mire tokens equal to its mire X value, it is immediately discarded.
+    
+    
+    Each location with the mire keyword also has a Forced effect that triggers
+    when it is discarded from play by the mire keyword. These Forced effects
+    do not trigger when a location is discarded by any other effect, or when
+    a location is placed in the discard pile after being explored.
 modifiers:
   title: Modifiers
   text: >
@@ -965,6 +1224,17 @@ objective cards:
     
     ⦁ The encounter deck has control of the objective. If a player claims 
     an objective, then that player gains control of that objective.
+one ring:
+  title: The One Ring
+  text: >
+    The One Ring has Setup text that instructs you to attach it to a hero
+    you control. This is done immediately after placing your starting heroes
+    in your play area. If two or more players have The One Ring in their
+    decks, the first player decides which player will put his copy of 
+    The One Ring into play. Each other copy is removed from the game.
+    
+    
+    The One Ring is immune to non-Master card effects.
 optional engagement:
   title: Optional Engagement
   text: >
@@ -1010,6 +1280,29 @@ ownership and control:
     
     ⦁ Unless a duration is specified, a control change persists as long as the 
     card remains in play.
+peril:
+  title: Peril
+  text: >
+    When a player reveals an encounter card with the Peril keyword, he or she
+    must resolve the staging of that card on his or her own without conferring
+    with the other players. The other players cannot take any actions or
+    trigger any responses during the resolution of that card's staging.
+permanent:
+  title: Permanent
+  text: >
+    Once a boon or burden with the permanent keyword is earned, it is attached
+    to a hero and that choice is recorded in the Campaign Log. A card with the
+    permanent keyword can only be attached to one hero for the duration of a
+    campaign. Attachments with the permanent keyword cannot be discarded from
+    the attached hero while that hero is in play. If a hero leaves play, 
+    attachments with the permanent keyword attached to that hero are removed
+    from the game.
+phantom:
+  title: Phantom
+  text: >
+    During the ‘determine combat damage’ step of an attack made by an enemy
+    with Phantom, if any damage would be dealt by the attack it is canceled
+    and the defending player raises his threat by an equal amount instead.
 planning phase:
   title: Planning Phase
   page: 22
@@ -1084,6 +1377,15 @@ player elimination:
     there is one less player in the game.
     
     ⦁ If all players are eliminated, the game ends in a loss for the players.
+player side quests:
+  title: Player Side Quests
+  parent: side quests
+  text: >
+    A side quest with a player card back is called a “player side quest.” A 
+    player side quest is both a quest card and a player card, and can be 
+    included in player decks. A player side quest can be played from a player’s
+    hand during the planning phase by paying its cost. When a player side quest
+    is played or enters play, it is placed in the staging area.
 printed:
   title: Printed
   text: >
@@ -1137,6 +1439,34 @@ quest phase:
   text: >
     The steps of this phase and how to resolve the quest are described in 
     timing entries 3.1–3.5.
+race:
+  title: Race
+  text: >
+    When a quest stage with the race keyword is defeated, it is not
+    removed from play after it is defeated. Instead, the quest stage
+    remains in play and all progress is removed from it at the end
+    of the phase.
+racing x tests:
+  title: Racing X Tests
+  aliases:
+    - racing tests
+    - racing
+  text: >
+    Racing tests represent the heroes’ ability to drive their chariots
+    over difficult and dangerous terrain. Succeeding at these tests
+    will mean the difference between winning and losing the race.
+    Each quest stage has a Forced effect that initiates a racing X
+    test when that stage is defeated. When this happens, the first
+    player commits a single character to the test by exhausting it.
+    Then, the first player discards the top X cards of the encounter
+    deck, where X is the total value of that character’s indicated
+    attribute (<:lotrwillpower:971731802047774741>, 
+    <:lotrattack:971732794491420672>, or <:lotrdefense:971732765810761758>).
+    Some encounter cards have racing test results printed in their
+    lower-right-hand corners. The results types are **STRAIGHT**, **TURN**
+    and **WILD** (the **WILD** result counts as both a **STRAIGHT** and a
+    **TURN** result). Each racing Test specifies which result and how many
+    of that result the players need to discard in order to pass.
 ranged:
   title: Ranged
   text: >
@@ -1157,6 +1487,20 @@ ready:
     
     ⦁ If a player is instructed to ready an exhausted card, the card is
     returned to this ready state.
+reanimated dead:
+  title: Reanimated Dead
+  aliases:
+    - reanimate
+    - reanimated
+  text: >
+    When a player is instructed to reanimate a card, place that card facedown
+    in front of that player, as if it had just engaged that player from the
+    staging area. Facedown cards that have been reanimated are called 
+    “Reanimated Dead” and act as if they are Undead enemy cards with 0 engagement
+    cost, 2 <:lotrthreat:972109367790956545>, 2 <:lotrattack:971732794491420672>,
+    2 <:lotrdefense:971732765810761758>, and 2 hit points. If a Reanimated Dead
+    is destroyed or leaves play for any other reason, it is placed in its
+    owner’s discard pile.
 refresh phase:
   title: Refresh Phase
   page: 25
@@ -1299,6 +1643,62 @@ running out of tokens:
     
     If players run out of the provided resource, damage, or progress tokens, other
     tokens or coins may be used to track the current game state.
+safe:
+  title: Safe
+  text: >
+    When players travel to a location with the safe keyword, immediately return
+    all engaged enemies to the staging area. While a location with the safe
+    keyword is the active location, ignore the “when revealed” effects of all
+    treachery cards, treat the printed text box of all encounter side quests
+    as if they were blank, and enemies do not make engagement checks. At the end
+    of the quest phase, if a safe location is the active location, add it to the
+    victory display.
+sailing:
+  title: Sailing
+  aliases:
+    - sailing tests
+  text: >
+    At the beginning of each quest phase (before committing characters
+    to the quest), if the main quest has the Sailing keyword, the first
+    player must perform a Sailing test.
+    
+    
+    In order to perform a Sailing test, you must first shift your heading
+    off-course. This represents the shifting of the winds, and the
+    difficulty of navigating at sea. (If it is already at <:lotrheading270:975422082076778576>, it does not
+    change.)
+    
+    
+    Then, the player performing the Sailing test exhausts any number of
+    characters he or she controls, committing them to the Sailing test. After
+    choosing which characters to commit to the Sailing test, that player 
+    ooks at a number of cards from the top of the encounter deck equal to
+    the total number of characters committed to the Sailing test. If the
+    encounter deck does not contain enough cards to look at, shuffle the
+    encounter discard pile back into the encounter deck first.
+    
+    
+    Some encounter cards have a <:lotrsailing:975421014597066752> symbol on
+    the bottom left corner of their text box. This symbol represents a
+    success when performing a Sailing test. For each <:lotrsailing:975421014597066752>
+    symbol found on the looked at encounter cards, you may shift your heading
+    on-course. If no <:lotrsailing:975421014597066752> symbols are found,
+    your heading stays the same. Then, discard all of the looked at cards.
+    
+    
+    <:lotrsailing:975421014597066752> symbols have no effect other than
+    representing success during a Sailing test.
+    
+    
+    Players have the opportunity to use Action effects before and
+    after a Sailing test, but not during.
+scour:
+  title: Scour
+  text: >
+    The scour keyword does nothing by itself, but when the players are instructed
+    by quest card or encounter card text to trigger a scour effect they must
+    resolve the effect that follows the scour keyword on that card. The effect 
+    that follows the scour keyword on a card is called the “scour effect.”
 search:
   title: Search
   text: >
@@ -1394,6 +1794,66 @@ shadow effects:
     
     ⦁ Shadow effects only resolve when dealt as a shadow card during an
     enemy attack.
+ship-enemies:
+  title: Ship-Enemies
+  aliases:
+    ship enemies
+  text: >
+    Ship-enemies function in the same way as enemies and are considered to be
+    enemies for all purposes, with the following exceptions:
+    
+    ⦁ Attacks made by ship-enemies can only be defended by ship-objectives.
+    Non-ship cards cannot defend against a ship-enemy.
+    
+    ⦁ If an attack made by a ship-enemy is left undefended, damage from that
+    attack must be assigned to a ship-objective you control, instead of to a
+    hero you control
+ship-objectives:
+  title: Ship-Objectives
+  aliases:
+    ship objectives
+  text: >
+    Ship-objectives function in the same way as objective-allies and are
+    considered to be allies (and characters) for all purposes, with the
+    following exceptions:
+    
+    ⦁ Ship-objectives can only attack ship-enemies. Non-ship enemies cannot
+    be attacked by a ship-objective.
+    
+    ⦁ Ship-objectives can only defend against attacks made by ship-enemies.
+    Ship-objectives cannot defend against attacks made by non-ship enemies.
+side quests:
+  title: Side Quests
+  text: >
+    Side quests represent secondary adventures that the heroes may undertake
+    while pursuing the main goals of the quest deck. There are two kinds of
+    side quests: those with encounter card backs and those with player
+    card backs. Side quests are never considered to be a part of the quest
+    deck. The top card of the quest deck is called the “ main quest.”    
+    
+    
+    **Side Quests in play**
+    
+    
+    While any side quest is in the staging area, it functions like a quest card
+    with the following exception: when a side quest is defeated, the players do
+    not advance to the next stage of the quest deck. Instead, the side quest is
+    added the victory display.
+    
+    
+    At the beginning of each quest phase, if there are one or more side quests 
+    in the staging area, the first player may choose one to be the 
+    “current quest” until the end of the phase instead of the quest card that
+    is currently active via the quest deck. While a side quest is the current
+    quest, any progress that the players make is placed onto that side quest 
+    and any card effects that target the “current quest” target that side 
+    quest. Progress must still be placed on the active location before it can
+    be placed on a side quest. Any progress that is made beyond the current
+    quest’s total quest points is discarded; do not place progress on any
+    other quest card in play.
+    
+    
+    See also: $list
 siege:
   title: Siege
   aliases:
@@ -1558,6 +2018,13 @@ to:
     and the “do Y” aspect (following the word “to”) is considered an effect.
     
     ⦁ If an ability’s cost is not paid, its effect cannot be resolved.
+toughness x:
+  title: Toughness X
+  aliases:
+    - toughness
+  text: >
+    An enemy with the toughness keyword reduces the amount of damage it takes
+    by X each time it is assigned any amount of damage.
 traits:
   title: Traits
   text: >
@@ -1691,6 +2158,18 @@ unique encounter cards:
     A unique encounter card cannot enter play if there is another copy of
     that card already in play. If this is the case, the card's effects
     are ignored and the encounter card is placed in the encounter discard pile.
+valour:
+  title: Valour
+  text: >
+    Actions and Responses with the Valour trigger, presented as
+    “Valour Action" or “Valour Response,” can only be triggered by a player
+    whose threat is 40 or higher.
+    
+    
+    If an event card has two effects, one with the Valour trigger and one
+    without, you may only choose one of these two effects to trigger when
+    you play the card. You may still only choose the effect with the
+    Valour trigger if your threat is 40 or higher.
 venom:
   title: Venom
   aliases:
@@ -1778,6 +2257,12 @@ winning the game:
     
     ⦁ Some card abilities can introduce additional victory conditions to the
     game. Such a condition immediately ends the game if it is met.
+wizardry:
+  title: Wizardry
+  text: >
+    When a location with the Wizardry trigger leaves play as an explored
+    location, trigger its Wizardry effect (even if it is not the active
+    location).
 the letter x:
   title: The letter “X”
   aliases:

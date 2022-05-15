@@ -38,25 +38,6 @@ const populateMuse = async (personality_id, data, trx) => {
   }
 }
 
-const populateCampaign = async (server_id, trx) => {
-  let file = fs.readFileSync( path.resolve(__dirname, 'campaign.yaml'), 'utf8');
-  const campaign = YAML.parse(file);
-  for (const topic of Object.keys(campaign)) {
-    await trx('topic').insert({
-      title: campaign[topic].title,
-      key: topic,
-      text: campaign[topic].text,
-      custom: true,
-      modified: false,
-      wiki_slug: campaign[topic].wiki_slug,
-      parent: campaign[topic].parent,
-      page: campaign[topic].page,
-      alias_for: campaign[topic].references,
-      server_id: server_id
-    }).onConflict(['server_id', 'key']).merge();
-  }
-}
-
 const addGuild = async (guild, trx) => {
   await trx('guild').insert({
     id: guild.id,

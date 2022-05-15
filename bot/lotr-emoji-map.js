@@ -12,4 +12,6 @@ module.exports = {
   health: '<:lotrhealth:971732831761997837>',
   threat: '<:lotrthreat:972109367790956545>',
   unique: '<:lotrunique:972670966394155008>',
+  sailing: '<:lotrsailing:975421014597066752>',
+  heading270: '<:lotrheading270:975422082076778576>',
 };
