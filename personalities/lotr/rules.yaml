@@ -215,7 +215,7 @@ capture x:
 cardtypes:
   title: Cardtypes
   aliases:
-    - Card Types
+    - card types
   text: >
     The game’s cardtypes are: quest, enemy, location, treachery, objective, hero, ally, attachment, and event. Each of
     these card types, with a detailed card anatomy, is presented in Appendix I.
@@ -1797,7 +1797,7 @@ shadow effects:
 ship-enemies:
   title: Ship-Enemies
   aliases:
-    ship enemies
+    - ship enemies
   text: >
     Ship-enemies function in the same way as enemies and are considered to be
     enemies for all purposes, with the following exceptions:
@@ -1811,7 +1811,7 @@ ship-enemies:
 ship-objectives:
   title: Ship-Objectives
   aliases:
-    ship objectives
+    - ship objectives
   text: >
     Ship-objectives function in the same way as objective-allies and are
     considered to be allies (and characters) for all purposes, with the
