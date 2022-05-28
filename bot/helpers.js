@@ -1,9 +1,6 @@
 "use strict"
 
 const logger = require("./logger");
-const fs = require("fs");
-const path = require("path");
-const YAML = require("yaml");
 const knex = require("./db/connection");
 const {MessageEmbed} = require("discord.js");
 
@@ -69,7 +66,11 @@ const sendEntry = async (msg, entry, personality) => {
     content: text,
     embeds: embed ? [embed] : []
   };
-  await msg.reply(messagePayload);
+  try {
+    await msg.reply(messagePayload);
+  } catch(err) {
+    logger.error(err);
+  }
 }
 
 const hackDetected = async (msg) => {

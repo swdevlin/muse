@@ -1,8 +1,23 @@
 "use strict"
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
 const BasePersonality = require("./base");
+const cache = require("../cache");
+const axios = require("axios");
+const AWS = require('aws-sdk');
+const logger = require("../logger");
+
+const {MessageEmbed} = require("discord.js");
 
 const UWPRegex = /(.)(.)(.)(.)(.)(.)(.)-(.)/;
+const TRAVELLER_MAP_URL = 'https://travellermap.com';
+
+const s3 = new AWS.S3({
+  region: process.env.EB_AWS_REGION,
+  accessKeyId: process.env.AWS_ACCESS_KEY,
+  secretAccessKey: process.env.AWS_SECRET,
+});
 
 const governments = {
   "0": "None",
@@ -99,7 +114,11 @@ const lawLevels = {
   "9": {
     "weaponsBanned": "All Weapons",
     "armourBanned": "All"
-  }
+  },
+  "A": {
+    "weaponsBanned": "All Weapons",
+    "armourBanned": "All"
+  },
 };
 
 const planetSizes = {
@@ -445,6 +464,107 @@ class Traveller extends BasePersonality {
     return entry;
   }
 
+  renderSystem(system) {
+    return `**${system.name}**
+Sector: ${system.sector}
+UWP: ${system.uwp}
+    `;
+  }
+
+  async saveImage(system, jumps, style) {
+    const key = `sx${system.sectorX}sy${system.sectorY}hx${system.hexY}hy${system.hexY}j${jumps}${style}.png`;
+    try {
+      const params = {
+        Bucket: process.env.JUMP_IMAGE_BUCKET,
+        Key: key,
+      };
+      await s3.headObject(params).promise();
+      logger.info(`cache hit on ${key}`);
+      return `https://${process.env.JUMP_IMAGE_BUCKET}.s3.${process.env.AWS_DEFAULT_REGION}.amazonaws.com/${key}`;
+    } catch(err) {
+      // No jump map in S3
+    }
+    const url = `${TRAVELLER_MAP_URL}/api/jumpmap?sx=${system.sectorX}&sy=${system.sectorY}&hx=${system.hexX}&hy=${system.hexY}&jump=2&style=poster`;
+    const response = await axios.get(url, {responseType: 'arraybuffer'});
+    const params = {
+      Bucket: process.env.JUMP_IMAGE_BUCKET,
+      Key: key,
+      Body: response.data,
+      ContentEncoding: 'binary',
+      ContentType: 'image/png',
+    };
+    try {
+      const u = await s3.upload(params).promise();
+      return u.Location;
+    } catch(err) {
+      logger.error(err);
+      return null;
+    }
+  }
+
+  async replySystem(msg, system, jumps, style) {
+    let text = this.renderSystem(system);
+    const url = await this.saveImage(system, jumps, style);
+    if (url) {
+      let embed = new MessageEmbed().setImage(url);
+      const messagePayload = {
+        content: text,
+        embeds: [embed]
+      };
+      await msg.reply(messagePayload);
+      return true;
+    }
+    return null;
+  }
+
+  async checkExternal(msg) {
+    const lookup = this.tokens.join(' ');
+    const cache_key = this.channelId + this.authorId;
+    let lastRequest = await cache.get(cache_key);
+    if (lastRequest) {
+      lastRequest = JSON.parse(lastRequest);
+      const num = Number(lookup);
+      if (Number.isInteger(num) && num-1 <= lastRequest.systems.length)
+        return await this.replySystem(msg, lastRequest.systems[num-1]);
+    }
+    const term = encodeURIComponent(lookup);
+    let url = `${TRAVELLER_MAP_URL}/api/search?q=${term}`;
+    const response = await axios.get(url);
+    const matches = {
+      systems: [],
+      jump: 2,
+      style: 'poster',
+    };
+    for (const match of response.data.Results.Items) {
+      if (match.World) {
+        const system = {
+          sector: match.World.Sector,
+          hexX: match.World.HexX,
+          hexY: match.World.HexY,
+          sectorX: match.World.SectorX,
+          sectorY: match.World.SectorY,
+          name: match.World.Name,
+          uwp: match.World.Uwp,
+        };
+        matches.systems.push(system);
+      }
+    }
+    if (matches.systems.length === 1) {
+      await this.replySystem(msg, matches.systems[0], matches.jump, matches.style);
+      return true;
+    } else if (matches.systems.length > 1) {
+      let text = 'Multiple matches:\n';
+      let index = 1;
+      for (const system of matches.systems) {
+        text +=`${index}: ${system.name} / ${system.sector}\n`;
+        index++;
+      }
+      await cache.set(cache_key, JSON.stringify(matches));
+      await msg.reply(text);
+      return true;
+    }
+    return null;
+  }
 }
 
 module.exports = Traveller;

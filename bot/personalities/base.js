@@ -142,11 +142,15 @@ I know the following commands: ${commandList}`;
     if (this.lookup === 'help')
       return await this.doHelp(msg);
 
-    const entry = await this.findEntry();
-    if (entry)
-      await sendEntry(msg, entry, this);
-    else if (!await this.checkExternal(msg))
-      await this.noMatch(msg);
+    try {
+      const entry = await this.findEntry();
+      if (entry)
+        await sendEntry(msg, entry, this);
+      else if (!await this.checkExternal(msg))
+        await this.noMatch(msg);
+    } catch(err) {
+      logger.error(err);
+    }
   }
 
   async noMatch(msg) {
@@ -161,7 +165,6 @@ I know the following commands: ${commandList}`;
       await this.replyToMessage(msg);
     } catch (err) {
       logger.error(err);
-      await msg.reply(err);
     } finally {
       logger.info(`${msg.channelId} ${msg.author.id} ${msg.content}`);
     }
