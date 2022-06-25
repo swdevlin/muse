@@ -246,6 +246,7 @@ I know the following commands: ${commandList}`;
       if (this.knowledge) {
         for (const topic of Object.keys(this.knowledge)) {
           let l = topic.charAt(0).toLocaleUpperCase();
+          this.knowledge[topic].title = topic;
           letters.push(l);
           if (topics[l] === undefined)
             topics[l] = [];
