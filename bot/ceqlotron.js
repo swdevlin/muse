@@ -42,8 +42,8 @@ const handleRequest = async (msg) => {
         if (entry.aliases)
           for (const alias of entry.aliases) {
             await knex('channel_topic').insert({
-              title: entry.title,
-              key: alias,
+              title: alias,
+              key: alias.toLocaleLowerCase(),
               alias_for: topic.toLocaleLowerCase(),
               channel_id: request.channel_id
             }).onConflict(['channel_id', 'key']).ignore();
