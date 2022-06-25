@@ -1,84 +1,78 @@
-biomorphs:
-  title: Biomorphs
+Biomorphs:
   page: 54
   parent: morphs
   text: >
     Biomorphs are fully biological sleeves (often genetically modified and
-    equipped with implants), birthed naturally or from an exowomb, and grown
-    to adulthood either naturally or at a slightly accelerated rate.
+    equipped with implants), birthed naturally or from an exowomb, and grown to
+    adulthood either naturally or at a slightly accelerated rate.
 
 
     Common morphs are: $list
-bouncer:
-  title: Bouncer
+Bouncer:
   page: 55
   parent: biomorphs
   text: >
     Bouncers are genetically adapted for microgravity. Their legs are more
     limber and their feet can grasp as well as their hands. They can tolerate
-    the cold temperatures of beehive tunnels and have an oxygen reserve in
-    case they are exposed to vacuum. Bouncers are very common in the outer
-    system and zero-g habitats.
+    the cold temperatures of beehive tunnels and have an oxygen reserve in case
+    they are exposed to vacuum. Bouncers are very common in the outer system and
+    zero-g habitats.
 
     **Cost**: 4 MP • **Avail**: 60
 
     **WT**: 7 • **DUR**: 35 • **DR**: 53
 
     <:Insight:821743329297301504>1   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>1   <:Flex:821743231124897854>2
-exalt:
-  title: Exalt
+Exalt:
   page: 54
   parent: biomorphs
   text: >
     Exalts are the common, non-specialized “enhanced human” model. They are
     genetically upgraded to make them healthier, smarter, and more attractive
-    (based on everevolving beauty standards). A modified metabolism keeps
-    them fit and athletic for the duration of an extended lifespan.
+    (based on everevolving beauty standards). A modified metabolism keeps them
+    fit and athletic for the duration of an extended lifespan.
 
     **Cost**: 2 MP • **Avail**: 70
 
     **WT**: 7 • **DUR**: 35 • **DR**: 53
 
     <:Insight:821743329297301504>1   <:Moxie:821743387328643104>1   <:Vigor:821743354303479829>1   <:Flex:821743231124897854>0
-flat:
-  title: Flat
+Flat:
   page: 54
   parent: biomorphs
   text: >
     Flats are baseline unmodified humans, born with all of the natural defects,
     hereditary diseases, and other genetic mutations that evolution so lovingly
-    applies. Flats are increasingly rare outside bioconservative enclaves —
-    most died off with the rest of humanity during the Fall.
+    applies. Flats are increasingly rare outside bioconservative enclaves — most
+    died off with the rest of humanity during the Fall.
 
     **Cost**: 0 MP • **Avail**: 30
 
     **WT**: 6 • **DUR**: 30 • **DR**: 45
 
     <:Insight:821743329297301504>0   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>0   <:Flex:821743231124897854>0
-fury:
-  title: Fury
+Fury:
   page: 57
   parent: biomorphs
   text: >
     Furies are combat morphs. These transgenic humans are upgraded for
     endurance, strength, reflexes, and capacity to handle physical trauma.
     Behavioral modifications for aggressiveness are offset by gene sequences
-    promoting pack mentalities and cooperation, and they tend to be
-    biologically female.
+    promoting pack mentalities and cooperation, and they tend to be biologically
+    female.
 
     **Cost**: 6 MP • **Avail**: 40
 
     **WT**: 10 • **DUR**: 50 • **DR**: 75
 
     <:insight:821743329297301504>1   <:moxie:821743387328643104>1   <:vigor:821743354303479829>4   <:flex:821743231124897854>2
-futura:
-  title: Futura
+Futura:
   page: 56
   parent: biomorphs
   text: >
     Futura morphs were specially crafted for the “Lost Generation” of
-    accelerated-growth children. Adjusted for confidence, self-reliance,
-    and adaptability, futuras were intended to help transhumanity regain its
+    accelerated-growth children. Adjusted for confidence, self-reliance, and
+    adaptability, futuras were intended to help transhumanity regain its
     foothold. These programs proved disastrous and the line was discontinued,
     but some models and various spin-offs remain, viewed by some with distaste
     and others as collectibles or exotic oddities.
@@ -88,8 +82,7 @@ futura:
     **WT**: 7 • **DUR**: 35 • **DR**: 53
 
     <:insight:821743329297301504>2 <:Moxie:821743387328643104>4 <:Vigor:821743354303479829>1 <:Flex:821743231124897854>0
-ghost:
-  title: Ghost
+Ghost:
   page: 57
   parent: biomorphs
   text: >
@@ -103,79 +96,73 @@ ghost:
     **WT**: 9 • **DUR**: 45 • **DR**: 68
 
     <:insight:821743329297301504>2   <:moxie:821743387328643104>1   <:vigor:821743354303479829>3   <:flex:821743231124897854>2
-hibernoid:
-  title: Hibernoid
+Hibernoid:
   page: 56
   parent: biomorphs
   text: >
     Hibernoids are transgenic-modified humans with heavily altered sleep
     patterns and metabolic processes. Hibernoids have a decreased need for
-    sleep, requiring only 1–2 hours a day on average. They can also trigger
-    a form of voluntary hibernation, effectively halting their metabolism and
-    need for oxygen. Hibernoids make excellent long-duration space travelers,
-    but these morphs are also favored by personal aides and hypercapitalists
-    with non-stop lifestyles.
+    sleep, requiring only 1–2 hours a day on average. They can also trigger a
+    form of voluntary hibernation, effectively halting their metabolism and need
+    for oxygen. Hibernoids make excellent long-duration space travelers, but
+    these morphs are also favored by personal aides and hypercapitalists with
+    non-stop lifestyles.
 
     **Cost**: 4 MP • **Avail**: 70
 
     **WT**: 7 • **DUR**: 35 • **DR**: 53
 
     <:insight:821743329297301504>1 <:moxie:821743387328643104>1 <:vigor:821743354303479829>0 <:flex:821743231124897854>2
-menton:
-  title: Menton
+Menton:
   page: 56
   parent: biomorphs
   text: >
     Mentons are genetically modified to increase cognitive abilities,
-    particularly learning ability, creativity, attentiveness, and memory.
-    They are favored by academics, intellectuals, scientists, and engineers.
+    particularly learning ability, creativity, attentiveness, and memory. They
+    are favored by academics, intellectuals, scientists, and engineers.
 
     **Cost**: 4 MP • **Avail**: 60
 
     **WT**: 7 • **DUR**: 35 • **DR**: 53
 
     <:Insight:821743329297301504>3   <:Moxie:821743387328643104>1   <:Vigor:821743354303479829>1   <:Flex:821743231124897854>1
-neotenics:
-  title: Neotenics
+Neotenics:
   page: 55
   parent: biomorphs
   text: >
     Neotenics are transhumans modified to retain a child-like form. They are
-    smaller, more agile, inquisitive, and less resource-depleting, making
-    them ideal for habitat living and spacecraft. Some people find neotenic
-    sleeves distasteful, especially when employed in certain media and sex
-    work capacities, but most are designed to be neuter-gendered.
+    smaller, more agile, inquisitive, and less resource-depleting, making them
+    ideal for habitat living and spacecraft. Some people find neotenic sleeves
+    distasteful, especially when employed in certain media and sex work
+    capacities, but most are designed to be neuter-gendered.
 
     **Cost**: 2 MP • **Avail**: 50
 
     **WT**: 6 • **DUR**: 30 • **DR**: 45
 
     <:Insight:821743329297301504>2   <:Moxie:821743387328643104>1   <:Vigor:821743354303479829>1   <:Flex:821743231124897854>0
-olympian:
-  title: Olympian
+Olympian:
   page: 56
   parent: biomorphs
   text: >
     Olympians are human upgrades with improved athletic capabilities like
     endurance, hand-eye coordination, and cardiovascular functions. Olympians
-    are common among athletes, dancers, freerunners, gatecrashers, and
-    soldiers.
+    are common among athletes, dancers, freerunners, gatecrashers, and soldiers.
 
     **Cost**: 4 MP • **Avail**: 60
 
     **WT**: 8 • **DUR**: 40 • **DR**: 60
 
     <:Insight:821743329297301504>1   <:Moxie:821743387328643104>1   <:Vigor:821743354303479829>3   <:Flex:821743231124897854>1
-remade:
-  title: Remade
+Remade:
   page: 57
   parent: biomorphs
   text: >
     The remade are completely redesigned: humans 2.0. Their cardiovascular
-    system is stronger, their digestive tract sanitized and restructured,
-    and they have been optimized for health, intelligence, and longevity
-    with numerous transgenic mods. They look close to human, but are different
-    in very noticeable and sometimes eerie ways: taller, lack of hair, slightly
+    system is stronger, their digestive tract sanitized and restructured, and
+    they have been optimized for health, intelligence, and longevity with
+    numerous transgenic mods. They look close to human, but are different in
+    very noticeable and sometimes eerie ways: taller, lack of hair, slightly
     larger craniums, wider eyes, smaller noses, smaller teeth, and elongated
     digits. The remade are popular with the Ultimates faction.
 
@@ -184,8 +171,7 @@ remade:
     **WT**: 9 • **DUR**: 45 • **DR**: 68
 
     <:insight:821743329297301504>2   <:moxie:821743387328643104>2   <:vigor:821743354303479829>2   <:flex:821743231124897854>2
-ruster:
-  title: Ruster
+Ruster:
   page: 55
   parent: biomorphs
   text: >
@@ -199,8 +185,7 @@ ruster:
     **WT**: 7 • **DUR**: 35 • **DR**: 53
 
     <:Insight:821743329297301504>0   <:Moxie:821743387328643104>1   <:Vigor:821743354303479829>1   <:Flex:821743231124897854>1
-splicers:
-  title: Splicers
+Splicers:
   page: 54
   parent: biomorphs
   text: >
@@ -213,8 +198,7 @@ splicers:
     **WT**: 6 • **DUR**: 30 • **DR**: 45
 
     <:Insight:821743329297301504>0   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>0   <:Flex:821743231124897854>1
-sylphs:
-  title: Sylphs
+Sylphs:
   page: 56
   parent: biomorphs
   text: >

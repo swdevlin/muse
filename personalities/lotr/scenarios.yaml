@@ -1,23 +1,19 @@
-vengeance of mordor:
-  title: Vengeance of Mordor
-  text: >
+Vengeance of Mordor:
+  text: |
     The final cycle in the game.
-  
-    
+
     APs: $list
-fortress of nurn:
-  title: The Fortress of Nurn
+The Fortress of Nurn:
   parent: vengeance of mordor
   text: >
     Hall of Beorn: http://hallofbeorn.com/LotR/Scenarios/The-Fortress-of-Nurn
-    
-    
+
+
     Quest Companion: http://www.lotr-lcg-quest-companion.gamersdungeon.net/#vengeance-of-mordor-cycle-quest-the-fortress-of-nurn
-wrath and ruin:
-  title: Wrath and Ruin
+Wrath and Ruin:
   parent: vengeance of mordor
   text: >
     Hall of Beorn: http://hallofbeorn.com/LotR/Scenarios/Wrath-and-Ruin
-    
-    
+
+
     Quest Companion: http://www.lotr-lcg-quest-companion.gamersdungeon.net/#vengeance-of-mordor-cycle-quest-wrath-and-ruin

@@ -8,11 +8,11 @@ const populateMuse = async (personality_id, data, trx) => {
   for (const topic of Object.keys(data)) {
     const entry = data[topic];
     await trx('topic').insert({
-      title: entry.title,
-      key: topic,
+      title: topic,
+      key: topic.toLocaleLowerCase(),
       text: entry.text,
       personality: personality_id,
-      parent: entry.parent,
+      parent: entry.parent ? entry.parent.toLocaleLowerCase() : null,
       image: entry.image,
       wiki_slug: entry.wiki_slug,
       page: entry.page,
@@ -26,9 +26,9 @@ const populateMuse = async (personality_id, data, trx) => {
     if (entry.aliases)
       for (const alias of entry.aliases) {
         await trx('topic').insert({
-          title: entry.title,
-          key: alias,
-          alias_for: topic,
+          title: alias,
+          key: alias.toLocaleLowerCase(),
+          alias_for: topic.toLocaleLowerCase(),
           personality: personality_id
         }).onConflict(['personality', 'key']).ignore();
     }

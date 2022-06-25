@@ -1,80 +1,69 @@
-communication gear:
-  title: Communication Gear
+Communication Gear:
   page: 336
   parent: gear
   text: >
-    A variety of technologies are useful for keeping communication
-    lines open, even on alien worlds. Gear includes $list
-breadcrumb system:
-  title: Breadcrumb System
+    A variety of technologies are useful for keeping communication lines open,
+    even on alien worlds. Gear includes $list
+Breadcrumb System:
   page: 336
   parent: communication gear
-  text: >
+  text: |
     Leaves mote trail for meshing/positioning.  _Min/1_
-emergency distress beacon:
-  title: Emergency Distress Beacon
+Emergency Distress Beacon:
   page: 336
   parent: communication gear
-  text: >
+  text: |
     Powerful radio transmitter, 50/500 km range.  _Min/1_
-laser/microwave link (micro):
-  title: Laser/Microwave Link (Micro)
+Laser/Microwave Link (Micro):
   page: 336
   parent: communication gear
-  text: >
+  text: |
     Tight-beam communication links, line-of-sight 500 m range.  _Min/1_
-laser/microwave link (small):
-  title: Laser/Microwave Link (Small)
+Laser/Microwave Link (Small):
   page: 336
   parent: communication gear
-  text: >
+  text: |
     Tight-beam communication links, line-of-sight 50/500 km range.  _Mod/2_
-mission recorder:
-  title: Mission Recorder
+Mission Recorder:
   page: 336
   parent: communication gear
-  text: >
+  text: |
     Backs up all mission data.  _Mod/2_
-radio booster:
-  title: Radio Booster
+Radio Booster:
   page: 336
   parent: communication gear
-  text: >
+  text: |
     Extends radio ranges, 25/250km range.  _Min/1_
-satnet-in-a-can:
-  title: Satnet-in-a-Can
+Satnet-in-a-Can:
   page: 336
   parent: communication gear
   text: >
-    Deploys satellites into orbit for GPS, imaging, comms relay, Know: Metereology 60  _Maj/3_
-neutrino communicators:
-  title: Neutrino Communicators
+    Deploys satellites into orbit for GPS, imaging, comms relay, Know:
+    Metereology 60  _Maj/3_
+Neutrino Communicators:
   page: 336
   parent: gear
   text: >
-    Neutrino particles pass through solid matter with ease and are
-    impossible to block. As a result, they make an ideal medium for
-    communications. Unfortunately, they are also easy to intercept.
-    Even a tight beam of neutrinos sent between two locations can be
-    intercepted simply by placing another receiver behind the location
-    the broadcaster is sending to. Neutrino communicators require a
-    large power plant to power the high energy particle interactions
-    required to generate the neutrino broadcast. Neutrino communicators
-    usually broadcast neutrinos in all directions, though tight-beam
-    transmissions are also possible. Quite often neutrino communications
-    take advantage of quantum farcasting for security.
+    Neutrino particles pass through solid matter with ease and are impossible to
+    block. As a result, they make an ideal medium for communications.
+    Unfortunately, they are also easy to intercept. Even a tight beam of
+    neutrinos sent between two locations can be intercepted simply by placing
+    another receiver behind the location the broadcaster is sending to. Neutrino
+    communicators require a large power plant to power the high energy particle
+    interactions required to generate the neutrino broadcast. Neutrino
+    communicators usually broadcast neutrinos in all directions, though
+    tight-beam transmissions are also possible. Quite often neutrino
+    communications take advantage of quantum farcasting for security.
 
 
     Neutrino gear available includes: $list
-neutrino receiver:
-  title: Neutrino Receiver
+Neutrino Receiver:
   page: 336
   parent: neutrino communicators
-  text: >
+  text: |
     Receives neutrino communications.  _Maj/3_
-neutrino transceiver:
-  title: Neutrino Transceiver
+Neutrino Transceiver:
   page: 336
   parent: neutrino communicators
-  text: >
+  text: |
     Sends/receives neutrino communications, 100+ AU range.  _Rare/-_

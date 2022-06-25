@@ -1,14 +1,12 @@
-air-gapped systems:
-  title: Air-gapped Systems
+Air-gapped Systems:
   aliases:
     - air-gapped
     - air gapped
     - air gapped systems
   page: 241
   text: >
-    The most heavily secure systems are air-gapped — physically
-    separated from the mesh. They may be hardwired, lacking wireless
-    transceivers, or enclosed within radio-proof barriers. The only way
-    to access such systems is physically, either directly plugging in,
-    defeating the radio-blocking enclosure, or somehow attaching a
-    wireless transceiver to the system.
+    The most heavily secure systems are air-gapped — physically separated from
+    the mesh. They may be hardwired, lacking wireless transceivers, or enclosed
+    within radio-proof barriers. The only way to access such systems is
+    physically, either directly plugging in, defeating the radio-blocking
+    enclosure, or somehow attaching a wireless transceiver to the system.

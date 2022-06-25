@@ -1,5 +1,4 @@
-infomorphs:
-  title: Infomorphs
+Infomorphs:
   page: 67
   parent: morphs
   text: >
@@ -9,8 +8,7 @@ infomorphs:
 
 
     Common morphs are: $list
-agent:
-  title: Agent
+Agent:
   page: 67
   parent: infomorphs
   text: >
@@ -22,22 +20,20 @@ agent:
     **WT**: 8 • **DUR**: 40 • **DR**: 80
 
     <:Insight:821743329297301504>4   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>0   <:Flex:821743231124897854>0
-digimorph:
-  title: Digimorph
+Digimorph:
   page: 67
   parent: infomorphs
   text: >
     Digimorphs are bare-bones mind emulations, though customizable and widely
-    used. By default, an ego that evacuates (or is forked from) a cyberbrain is run
-    on a digimorph, unless another infomorph option is available.
+    used. By default, an ego that evacuates (or is forked from) a cyberbrain is
+    run on a digimorph, unless another infomorph option is available.
 
     **Cost**: 0 MP • **Avail**: 100
 
     **WT**: 5 • **DUR**: 25 • **DR**: 50
 
     <:Insight:821743329297301504>0   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>0   <:Flex:821743231124897854>0
-ikon:
-  title: Ikon
+Ikon:
   page: 67
   parent: infomorphs
   text: >
@@ -49,14 +45,13 @@ ikon:
     **WT**: 6 • **DUR**: 30 • **DR**: 60
 
     <:Insight:821743329297301504>1   <:Moxie:821743387328643104>3   <:Vigor:821743354303479829>0   <:Flex:821743231124897854>0
-operator:
-  title: Operator
+Operator:
   page: 67
   parent: infomorphs
   text: >
-    This infomorph is ideal for professions that involve drone remote
-    operation, whether maintenance bot fleets, surveillance drones, or
-    fighter craft and combat machines.
+    This infomorph is ideal for professions that involve drone remote operation,
+    whether maintenance bot fleets, surveillance drones, or fighter craft and
+    combat machines.
 
     **Cost**: 2 MP • **Avail**: 100
 

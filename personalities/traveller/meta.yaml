@@ -1,9 +1,9 @@
-about:
-  title: About
+About:
   aliases:
     - credits
   text: >
-    Traveller is a trademark of Far Future Enterprises https://www.farfuture.net/ .
+    Traveller is a trademark of Far Future Enterprises
+    https://www.farfuture.net/ .
 
 
     The source code for OpenMuse can be found at https://github.com/swdevlin/muse

@@ -1,40 +1,35 @@
-blue box:
-  title: Blue Box
+Blue Box:
   page: 340
   text: >
-    Named for the cobalt shade in which they were originally
-    manufactured, blue boxes are small-sized pandora gate control
-    devices. They must be physically attached to a gate to control it; this
-    requires a Hardware: Electronics task action at –10 with a timeframe
-    of 1 hour. Blue boxes have built-in self-destruct mechanisms, so that
-    you can destroy the device in the event it might fall into alien hands.
-    
+    Named for the cobalt shade in which they were originally manufactured, blue
+    boxes are small-sized pandora gate control devices. They must be physically
+    attached to a gate to control it; this requires a Hardware: Electronics task
+    action at –10 with a timeframe of 1 hour. Blue boxes have built-in
+    self-destruct mechanisms, so that you can destroy the device in the event it
+    might fall into alien hands.
+
     **Rare/-**
-mapping missile:
-  title: Mapping Missile
+Mapping Missile:
   page: 340
   text: >
-    This medium-sized portable rocket extends
-    struts, aims itself, and launches into a low polar orbit on any planet
-    with gravity below 2 g. Over a 1–2 day period, it uses a variety of
-    sensors (radar, visual, infrared, mass, spectrographic) to map the
-    planet and beam this information back. The maps are low resolution,
-    showing nothing less than 100 meters across, but it will identify
-    large masses, cities, lights on the planet’s dark side, atmospheric
+    This medium-sized portable rocket extends struts, aims itself, and launches
+    into a low polar orbit on any planet with gravity below 2 g. Over a 1–2 day
+    period, it uses a variety of sensors (radar, visual, infrared, mass,
+    spectrographic) to map the planet and beam this information back. The maps
+    are low resolution, showing nothing less than 100 meters across, but it will
+    identify large masses, cities, lights on the planet’s dark side, atmospheric
     conditions, and data on the planet’s rotation and gravity.
-    
+
     **Mod/2**
-scout missile:
-  title: Scout Missile
+Scout Missile:
   page: 340
   text: >
-    These small-sized missiles are easy to set up and
-    launch from a disposable tube. They map the area in a 5-kilometer
-    radius from their launch point, or out to 10 kilometers in a specified
-    direction, in 20 minutes. Carrying visual, infrared, radar, and
-    lidar sensors, and flying at an altitude of 100 meters, they can map
-    terrain, locate structures, identify features of interest, and search for
-    anything you specify with a Perceive 60. They transmit their sensor
-    and telemetry data in real-time.
-    
+    These small-sized missiles are easy to set up and launch from a disposable
+    tube. They map the area in a 5-kilometer radius from their launch point, or
+    out to 10 kilometers in a specified direction, in 20 minutes. Carrying
+    visual, infrared, radar, and lidar sensors, and flying at an altitude of 100
+    meters, they can map terrain, locate structures, identify features of
+    interest, and search for anything you specify with a Perceive 60. They
+    transmit their sensor and telemetry data in real-time.
+
     **Mod/2**

@@ -1,15 +1,12 @@
-surveillance bots:
-  title: Recon/Surveillance Bots
+Recon/Surveillance Bots:
   aliases:
     - recon bots
   page: 349
   wiki_slug: en/16/21-robots.html#reconsurveillance-bots
-  text: >
+  text: |
     Eyes in the sky remain one of the main uses of robots.
-
     Available bots are: $list
-aerostat:
-  title: Aerostat
+Aerostat:
   parent: surveillance bots
   page: 349
   wiki_slug: en/16/21-robots.html#reconsurveillance-bots
@@ -24,15 +21,14 @@ aerostat:
     **Armor**: 6/4   **WT**: 4   **DUR**: 20   **DR**: 40   **Size**: L   **Movement Rate**: 8/32 Microlight
 
     **Complexity/GP**: _Mod/2_
-gnat:
-  title: Gnat
+Gnat:
   parent: surveillance bots
   page: 349
   wiki_slug: en/16/21-robots.html#reconsurveillance-bots
   text: >
-    Gnats are small rotorcraft camera/surveillance drones. Many people use
-    gnats for personal lifelogging, while socialites and media use them to
-    capture the glamour or hottest news.
+    Gnats are small rotorcraft camera/surveillance drones. Many people use gnats
+    for personal lifelogging, while socialites and media use them to capture the
+    glamour or hottest news.
 
 
     **Ware**: Chameleon Skin, Enhanced Hearing, Enhanced Vision, Radar
@@ -42,16 +38,14 @@ gnat:
     **Complexity/GP**: _Min/1_
 
     <:Flex:821743231124897854>1
-
-saucer:
-  title: Saucer
+Saucer:
   parent: surveillance bots
   page: 349
   wiki_slug: en/16/21-robots.html#reconsurveillance-bots
   text: >
-    Gnats are small rotorcraft camera/surveillance drones. Many people use
-    gnats for personal lifelogging, while socialites and media use them to
-    capture the glamour or hottest news.
+    Gnats are small rotorcraft camera/surveillance drones. Many people use gnats
+    for personal lifelogging, while socialites and media use them to capture the
+    glamour or hottest news.
 
 
     **Ware**: Chameleon Skin, Enhanced Hearing, Enhanced Vision, Radar
@@ -59,8 +53,7 @@ saucer:
     **Armor**: 2/2   **WT**: 5   **DUR**: 25   **DR**: 50   **Size**: S   **Movement Rate**: 8/40 Ionic
 
     **Complexity/GP**: _Min/1_
-speck:
-  title: Speck
+Speck:
   parent: surveillance bots
   page: 349
   wiki_slug: en/16/21-robots.html#reconsurveillance-bots
@@ -68,8 +61,8 @@ speck:
     Specks are very small insectoid spy drones, roughly the size of a small
     fruit fly. They fly with tiny wings and are excellent for surveillance
     purposes or otherwise being a “speck on a wall.” Specks are difficult to
-    notice (−30 Perceive modifier) and almost impossible to distinguish from
-    an actual insect.
+    notice (−30 Perceive modifier) and almost impossible to distinguish from an
+    actual insect.
 
 
     **Ware**: Enhanced Hearing, Enhanced Vision, Grip Pads, Synthetic Mask
@@ -77,44 +70,39 @@ speck:
     **Armor**: 2/2  **WT**: 1  **DUR**: 5  **DR**: 10  **Size**: VS   **Movement Rate**: 4/12 Hopper, 8/32 Winged
 
     **Complexity/GP**: _Min/1_
-zephyr:
-  title: Zephyr
+Zephyr:
   parent: surveillance bots
   page: 349
   wiki_slug: en/16/21-robots.html#reconsurveillance-bots
   text: >
-    Zephyrs are medium-sized but light stealth planes, often thrown to
-    launch, used for long-distance recon or missile strikes.
+    Zephyrs are medium-sized but light stealth planes, often thrown to launch,
+    used for long-distance recon or missile strikes.
 
 
-    **Ware**: Chameleon Skin, Enhanced Vision, Laser Link, Radar, Radar Absorbent,
-    T-Ray Emitter, Weapon Mount (2 Static)
+    **Ware**: Chameleon Skin, Enhanced Vision, Laser Link, Radar, Radar Absorbent, T-Ray Emitter, Weapon Mount (2 Static)
 
     **Armor**: 6/4   **WT**: 6   **DUR**: 30   **DR**: 60   **Size**: M   **Movement Rate**: 8/32 Winged
 
     **Complexity/GP**: _Mod/2_
 
     <:Flex:821743231124897854>1
-personal bots:
-  title: Personal Bots
+Personal Bots:
   page: 348
   wiki_slug: en/16/21-robots.html#personal-bots
-  text: >
+  text: |
     Personal bots are worn or found throughout transhuman habitats.
-
     Available bots are: $list
-creepy:
-  title: Creepy
+Creepy:
   parent: personal bots
   page: 348
   wiki_slug: en/16/21-robots.html#personal-bots
   text: >
-    Creepies come in an eclectic variety of forms, from robo-squirrels
-    to insectoids to bizarre artsy mechanical creatures. Creepies were
-    originally designed as a robotic pet, but are commonly used as a
-    general-purpose household minion, like a more beloved servitor. Many
-    people wear a creepy on their person, dropping it to handle small tasks
-    for them and letting it crawl up, down, and over their body.
+    Creepies come in an eclectic variety of forms, from robo-squirrels to
+    insectoids to bizarre artsy mechanical creatures. Creepies were originally
+    designed as a robotic pet, but are commonly used as a general-purpose
+    household minion, like a more beloved servitor. Many people wear a creepy on
+    their person, dropping it to handle small tasks for them and letting it
+    crawl up, down, and over their body.
 
 
     **Ware**: Chameleon Skin, Grip Pads
@@ -122,18 +110,17 @@ creepy:
     **Armor**: 2/2   **WT**: 3   **DUR**: 15   **DR**: 30   **Size**: vs   **Movement Rate**: 4/12 Hopper/Walker
 
     **Complexity/GP**: _Min/1_
-manipulator:
-  title: Manipulator
+Manipulator:
   parent: personal bots
   page: 348
   wiki_slug: en/16/21-robots.html#personal-bots
   text: >
     This bot takes the form of an extra limb and a supportive band, bracing
     frame, rig, or cuff for wearing it. The manipulator can be meshed and
-    treated as an extension of your body or detached for autonomous
-    operation or remote control. Though human arm designs are common, a variety
-    of limb designs are available, from claws to tentacles. Treat as a
-    cyberlimb plus when worn.
+    treated as an extension of your body or detached for autonomous operation or
+    remote control. Though human arm designs are common, a variety of limb
+    designs are available, from claws to tentacles. Treat as a cyberlimb plus
+    when worn.
 
 
     **Ware**: Grip Pads, Magnetic System, Telescoping Limb, Utilimod
@@ -143,16 +130,15 @@ manipulator:
     **Complexity/GP**: _Maj/3
 
     <:Vigor:821743354303479829>1_
-servitor:
-  title: Servitor
+Servitor:
   parent: personal bots
   page: 348
   wiki_slug: en/16/21-robots.html#personal-bots
   text: >
-    Servitors are the most common robot, acting as cooks, janitors,
-    universal helpers, movers, and personal aides. Every home has one,
-    if not several. They come in a variety of non-humanoid shapes and
-    sizes, though most are medium sized, with 4–8 limbs on average.
+    Servitors are the most common robot, acting as cooks, janitors, universal
+    helpers, movers, and personal aides. Every home has one, if not several.
+    They come in a variety of non-humanoid shapes and sizes, though most are
+    medium sized, with 4–8 limbs on average.
 
 
     **Ware**: Grip Pads, Magnetic System, Telescoping Limb, Utilimod
@@ -160,19 +146,17 @@ servitor:
     **Armor**: 6/4   **WT**: 3   **DUR**: 15   **DR**: 30   **Size**: s   **Movement Rate**: 4/12 Walker
 
     **Complexity/GP**: _Min/1
-spider hand:
-  title: Spider Hand
+Spider Hand:
   parent: personal bots
   page: 348
   wiki_slug: en/16/21-robots.html#personal-bots
   text: >
-    This hand-shaped bot scurries like a spider. It functions as a
-    detachable hand for a cyberarm, though it is sometimes used by
-    uplifts or other morphs who need a hand design for certain tasks. Its
-    “legs” are more articulated than human fingers and can rotate/bend in
-    any direction. Though this bot does not have the leverage of a full
-    arm/body behind it, it can extend a meter-long brace for stabilization
-    and support.
+    This hand-shaped bot scurries like a spider. It functions as a detachable
+    hand for a cyberarm, though it is sometimes used by uplifts or other morphs
+    who need a hand design for certain tasks. Its “legs” are more articulated
+    than human fingers and can rotate/bend in any direction. Though this bot
+    does not have the leverage of a full arm/body behind it, it can extend a
+    meter-long brace for stabilization and support.
 
 
     **Ware**: Claws, Grip Pads, Magnetic System

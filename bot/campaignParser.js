@@ -5,7 +5,7 @@ const logger = require("./logger");
 const maxKeyLength = 100;
 const maxTextLength = 2000;
 const maxSlugLength = 200;
-const validKeys = ['title', 'text', 'aliases', 'page', 'parent', 'wiki_slug', 'category', 'image'];
+const validKeys = ['text', 'aliases', 'page', 'parent', 'wiki_slug', 'category', 'image'];
 
 const validateKey = (key) => {
   if (key.length > maxKeyLength)
@@ -18,8 +18,6 @@ const validateKey = (key) => {
     return `${key} cannot end with a space`;
   if (key.includes('  '))
     return `${key} cannot have multiple spaces`;
-  // if (invalidRX.test(key))
-  //   return `${key} cannot have punctuation`;
 
   return null;
 }
@@ -35,10 +33,6 @@ const campaignParser = async (text) => {
         return {entries: null, error: keyCheck};
       if (!('text' in entry))
         return {entries: null, error: `${key} has no text`};
-      if (!('title' in entry))
-        return {entries: null, error: `${key} has no title`};
-      if (entry.title === null || entry.title.length === 0)
-        return {entries: null, error: `${key} has a blank title`};
       if (entry.text.length > maxTextLength)
         return {entries: null, error: `${key} text exceeds max length of ${maxTextLength}`};
       const attrs = Object.keys(entry);

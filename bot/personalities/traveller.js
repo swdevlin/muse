@@ -271,7 +271,7 @@ const techLevels = {
   "B": {
     "level": "11",
     "shortDescription": "Early Stellar",
-    "technologyAge": "Aartificial Intelligence",
+    "technologyAge": "Artificial Intelligence",
     "details": "The first true artificial intelligences become possible, as computers are able to model synaptic networks. Grav-supported structures reach to the heavens. Jump 2 travel becomes possible, allowing easier travel beyond the one jump stellar mains."
   },
   "C": {
@@ -333,7 +333,7 @@ class Traveller extends BasePersonality {
     <p>
       <b>A832921-C</b><br/>
       <b>Starport (A)</b><br/>
-      This port is Excellent Berthing costs are 1DxCR1000 per day This port has Refined fuel<br/> 
+      This port is Excellent Berthing costs are 1DxCR1000 per day. This port has Refined fuel<br/> 
       <b>Size (8)</b><br/>
       12,800km in diameter<br/>
       Gravity is 1G<br/>

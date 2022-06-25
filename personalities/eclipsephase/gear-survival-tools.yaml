@@ -1,103 +1,90 @@
-electrogravitics net:
-  title: Electrogravitics Net
+Electrogravitics Net:
   category: Gear
   page: 341
   text: >
-    Also called a safety net, this failsafe system
-    uses electric fields to counter gravity when falling. While the system
-    is not able to actually levitate heavy objects, it will slow down a fall
-    enough that the user can land safely if the gravitational force is not
-    too high (less than 50 meters in 1 g). Reduce the distance of longer
-    falls by 50 meters when calculating damage. Generating these electric
-    fields consumes a lot of energy, so the net is only good for one
-    use before it must be recharged, taking 4 hours.
-    
+    Also called a safety net, this failsafe system uses electric fields to
+    counter gravity when falling. While the system is not able to actually
+    levitate heavy objects, it will slow down a fall enough that the user can
+    land safely if the gravitational force is not too high (less than 50 meters
+    in 1 g). Reduce the distance of longer falls by 50 meters when calculating
+    damage. Generating these electric fields consumes a lot of energy, so the
+    net is only good for one use before it must be recharged, taking 4 hours.
+
     **Min/1**
-electronic rope:
-  title: Electronic Rope
+Electronic Rope:
   category: Gear
   page: 341
   text: >
-    This rope's fibers can be controlled electronically:
-    making it move in a snakelike fashion, stiffen up, and wrap around
-    objects. It comes in a 50-meter length capable of supporting 250 kg.
-    An e-rope can be cut by inflicting 20 points of damage.
-    
+    This rope's fibers can be controlled electronically: making it move in a
+    snakelike fashion, stiffen up, and wrap around objects. It comes in a
+    50-meter length capable of supporting 250 kg. An e-rope can be cut by
+    inflicting 20 points of damage.
+
     **Min/1**
-emergency bubble:
-  title: Emergency Bubble
+Emergency Bubble:
   category: Gear
   page: 341
   text: >
-    Used as a last-resort life raft on spaceships, an
-    emergency bubble is made of advanced smart materials and comes in
-    a large but portable package that can be quickly inflated around you
-    in 1 action turn, usually inside an airlock. The bubble has a 5-meter
-    diameter and can comfortably accommodate 4 people for 1 week. It
-    maintains 1 atmosphere of pressure in a vacuum, protects the inhabitants
-    from temperatures ranging from –175 to 140 C, and provides
-    light and breathable air. A built-in autocook ▶343 provides food and
-    liquids. It features a simple airlock, carries an emergency distress
-    beacon, and can be transparent, opaque, or polarized. It is powered
-    by a nuclear battery and includes comfortable inflatable furniture.
-    This bubble can also be partially inflated as a dome and staked down
-    to a surface to serve as an emergency shelter on asteroids or other
-    surfaced environments.
-    
+    Used as a last-resort life raft on spaceships, an emergency bubble is made
+    of advanced smart materials and comes in a large but portable package that
+    can be quickly inflated around you in 1 action turn, usually inside an
+    airlock. The bubble has a 5-meter diameter and can comfortably accommodate 4
+    people for 1 week. It maintains 1 atmosphere of pressure in a vacuum,
+    protects the inhabitants from temperatures ranging from –175 to 140 C, and
+    provides light and breathable air. A built-in autocook ▶343 provides food
+    and liquids. It features a simple airlock, carries an emergency distress
+    beacon, and can be transparent, opaque, or polarized. It is powered by a
+    nuclear battery and includes comfortable inflatable furniture. This bubble
+    can also be partially inflated as a dome and staked down to a surface to
+    serve as an emergency shelter on asteroids or other surfaced environments.
+
     **Maj/3**
-pressure tent:
-  title: Pressure Tent
+Pressure Tent:
   category: Gear
   page: 341
   text: >
-    This pack self-unfolds in 3 action turns into a
-    pressurized shelter for up to 4 medium-sized people plus gear. A
-    built-in breather will convert carbon dioxide from the atmosphere
-    (if any) indefinitely. It also packs itself.
-    
+    This pack self-unfolds in 3 action turns into a pressurized shelter for up
+    to 4 medium-sized people plus gear. A built-in breather will convert carbon
+    dioxide from the atmosphere (if any) indefinitely. It also packs itself.
+
     **Mod/2**
-smart anchors:
-  title: Smart Anchors
+Smart Anchors:
   category: Gear
   page: 341
   text: >
-    When activated, this worn harness fires out up
-    to 6 anchoring cables with a length of 10 meters. These cables spike
-    into ice, dirt, or rock, or use grip pads to adhere to an appropriate
-    surface. This prevents you from drifting into space, accidentally
-    kicking off with terminal velocity, or falling off a cliff face. The
-    device’s ALI targets and deploys anchors, and can be instructed to
-    do so under certain conditions.
-    
+    When activated, this worn harness fires out up to 6 anchoring cables with a
+    length of 10 meters. These cables spike into ice, dirt, or rock, or use grip
+    pads to adhere to an appropriate surface. This prevents you from drifting
+    into space, accidentally kicking off with terminal velocity, or falling off
+    a cliff face. The device’s ALI targets and deploys anchors, and can be
+    instructed to do so under certain conditions.
+
     **Min/1**
-spindle:
-  title: Spindle
+Spindle:
   category: Gear
   page: 341
   text: >
-    Spindles are wound lengths of thin (0.2 millimeters)
-    but super-strong fullerene cable. It can extend 250 meters of cable
-    capable of supporting 5,000 kilograms of weight at 1 g. The spindle
-    also contains a specialized fabber that can manufacture more cable
-    and extend it indefinitely, at a rate of 1 meter per minute, as long
-    as it is fed with raw materials. The spindle can cut the cables it
-    produces at any length. If fixed in place with built-in grip pads, it
-    can also retract the cable at a rate of 50 meters per action turn, or
-    re-absorb cables at the rate of 5 meters per minute. Spindle cables
-    can be cut by inflicting 30 points of damage.
-    
+    Spindles are wound lengths of thin (0.2 millimeters) but super-strong
+    fullerene cable. It can extend 250 meters of cable capable of supporting
+    5,000 kilograms of weight at 1 g. The spindle also contains a specialized
+    fabber that can manufacture more cable and extend it indefinitely, at a rate
+    of 1 meter per minute, as long as it is fed with raw materials. The spindle
+    can cut the cables it produces at any length. If fixed in place with
+    built-in grip pads, it can also retract the cable at a rate of 50 meters per
+    action turn, or re-absorb cables at the rate of 5 meters per minute. Spindle
+    cables can be cut by inflicting 30 points of damage.
+
     **Mod/2**
-spindle climber:
-  title: Spindle Climber
+Spindle Climber:
   category: Gear
   page: 341
   text: >
-    This device attaches to a spindle and transforms
-    it into a highly effective climbing device. The spindle climber has
-    two functions. First, it attaches hardened tips to the spindle’s cable
-    and fires it at high speed, up to 50 meters, with sufficient force to
-    imbed the tip into almost any sufficiently durable surface (if used as
-    a weapon, it inflicts DV 2d10). Second, the spindle climber can pull
-    itself and up to 250 kg up the cable at a speed of 12 meters per turn.
-    
+    This device attaches to a spindle and transforms it into a highly effective
+    climbing device. The spindle climber has two functions. First, it attaches
+    hardened tips to the spindle’s cable and fires it at high speed, up to 50
+    meters, with sufficient force to imbed the tip into almost any sufficiently
+    durable surface (if used as a weapon, it inflicts DV 2d10). Second, the
+    spindle climber can pull itself and up to 250 kg up the cable at a speed of
+    12 meters per turn.
+
     **Min/1**

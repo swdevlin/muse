@@ -29,11 +29,11 @@ const handleRequest = async (msg) => {
       for (const topic of Object.keys(entries)) {
         const entry = entries[topic];
         await knex('channel_topic').insert({
-          title: entry.title,
+          title: topic,
           channel_id: request.channel_id,
-          key: topic,
+          key: topic.toLocaleLowerCase(),
           text: entry.text,
-          parent: entry.parent,
+          parent: entry.parent ? entry.parent.toLocaleLowerCase() : null,
           image: entry.image,
           category: entry.category,
           wiki_slug: entry.wiki_slug,
@@ -44,7 +44,7 @@ const handleRequest = async (msg) => {
             await knex('channel_topic').insert({
               title: entry.title,
               key: alias,
-              alias_for: topic,
+              alias_for: topic.toLocaleLowerCase(),
               channel_id: request.channel_id
             }).onConflict(['channel_id', 'key']).ignore();
           }

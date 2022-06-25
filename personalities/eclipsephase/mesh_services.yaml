@@ -1,56 +1,49 @@
-mesh services:
-  title: Mesh Services
+Mesh Services:
   page: 315
   text: >
     These software services, $list, are available as a per-month subscription
     from cloud-based servers. All apps are also available as mesh services.
-anonymizer:
-  title: Anonymizer
+Anonymizer:
   page: 315
   parent: mesh services
   text: >
-    You have an account with an anonymizing proxy service that masks
-    your Mesh ID ▶246. _Min/1_
-archive:
-  title: Archive
+    You have an account with an anonymizing proxy service that masks your Mesh
+    ID ▶246. _Min/1_
+Archive:
   page: 315
   parent: mesh services
   text: >
     Each archive has a different focus (as Know skill fields). Using a relevant
-    archive provides a +10 modifier to Research Tests involving that subject. _Min/1_
-data broker:
-  title: Data Broker
+    archive provides a +10 modifier to Research Tests involving that subject.
+    _Min/1_
+Data Broker:
   page: 315
   parent: mesh services
   text: >
     Both corporate marketers and black market cartels peddle people’s private
     data. Each broker focuses on a particular demographic, such as a city or
     profession. Apply a +10 modifier to relevant Research Tests. _Min/1_
-private sensor feed:
-  title: Private Sensor Feed
+Private Sensor Feed:
   page: 315
   parent: mesh services
   text: >
-    Each private sensor feed covers an area equivalent to a neighborhood
-    or small habitat. Using it provides a +10 bonus to Perceive Tests when
+    Each private sensor feed covers an area equivalent to a neighborhood or
+    small habitat. Using it provides a +10 bonus to Perceive Tests when
     surveiling that area. _Min/1_
-private server partition:
-  title: Private Server Partition
+Private Server Partition:
   page: 315
   parent: mesh services
   text: Home space for an infomorph on a protected cloud server. _Min/1_
-private server:
-  title: Private Server
+Private Server:
   page: 315
   parent: mesh services
   text: >
-    Capable of running simulspace and 50 infomorphs.
-    Private server, self-administrated _Min/1_. Managed by others _Mod/2_
-simulspace:
-  title: Simulspace
+    Capable of running simulspace and 50 infomorphs. Private server,
+    self-administrated _Min/1_. Managed by others _Mod/2_
+Simulspace:
   page: 315
   parent: mesh services
   text: >
     You have access to a virtual game environment, private meeting space,
-    interactive media service, unreal vacation library, or other
-    simulspace environment. _Min/1_
+    interactive media service, unreal vacation library, or other simulspace
+    environment. _Min/1_

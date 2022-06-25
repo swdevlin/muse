@@ -1,5 +1,4 @@
-upliftmorphs:
-  title: Upliftmorphs
+Upliftmorphs:
   parent: morphs
   text: >
     These biomorphs are the original bodies of various sapient non-humans.
@@ -8,47 +7,44 @@ upliftmorphs:
 
 
     Common morphs are: $list
-neo-avians:
+Neo-Avians:
   parent: upliftmorphs
-  title: Neo-Avians
   text: >
     Neo-avians include ravens, crows, and gray parrots uplifted to human-level
     intelligence. Their physical sizes are much larger than their non-uplifted
     cousins (to the size of a human child), with larger heads for their
     increased brain size. Numerous transgenic modifications have been made to
-    their wings, allowing them to retain limited flight capabilities at 1 g,
-    but giving them a more bat-like physiology so they can bend and fold
-    better and adding primitive digits for basic tool manipulation. Their toes
-    are also more articulated and now accompanied with an opposable thumb.
-    Neo-avians have adapted well to microgravity environments, and are favored
-    for their small size and reduced resource use.
+    their wings, allowing them to retain limited flight capabilities at 1 g, but
+    giving them a more bat-like physiology so they can bend and fold better and
+    adding primitive digits for basic tool manipulation. Their toes are also
+    more articulated and now accompanied with an opposable thumb. Neo-avians
+    have adapted well to microgravity environments, and are favored for their
+    small size and reduced resource use.
 
     **Cost**: 0 MP • **Avail**: 50
 
     **WT**: 5 • **DUR**: 25 • **DR**: 38
 
     <:Insight:821743329297301504>2   <:Moxie:821743387328643104>1   <:Vigor:821743354303479829>0   <:Flex:821743231124897854>0
-neo-bonobo:
-  title: Neo-Bonobo
+Neo-Bonobo:
   parent: upliftmorphs
   aliases:
     - neo-chimp
     - neo-chimpanzee
   text: >
     Like other neo-hominids, uplifted bonobo and chimpanzee morphs feature
-    enhanced intelligence and bipedal frames. Their long arms and
-    prehensile feet are a boon for climbing and maneuvering in microgravity
-    environments. They retain the body hair of their forebears, though it
-    is a common cultural practice to dye, stylize, or otherwise manipulate
-    it. Transgenic vocal systems allow them to speak as humans do.
+    enhanced intelligence and bipedal frames. Their long arms and prehensile
+    feet are a boon for climbing and maneuvering in microgravity environments.
+    They retain the body hair of their forebears, though it is a common cultural
+    practice to dye, stylize, or otherwise manipulate it. Transgenic vocal
+    systems allow them to speak as humans do.
 
     **Cost**: 1 MP • **Avail**: 50
 
     **WT**: 6 • **DUR**: 30 • **DR**: 45
 
     <:Insight:821743329297301504>0   <:Moxie:821743387328643104>2   <:Vigor:821743354303479829>1   <:Flex:821743231124897854>0
-neo-gorilla:
-  title: Neo-Gorilla
+Neo-Gorilla:
   parent: upliftmorphs
   text: >
     Neo-gorillas benefit from enhanced cognition and upright stances like other
@@ -60,23 +56,20 @@ neo-gorilla:
     **WT**: 9 • **DUR**: 45 • **DR**: 68
 
     <:Insight:821743329297301504>0   <:Moxie:821743387328643104>0   <:Vigor:821743354303479829>3   <:Flex:821743231124897854>1
-neo-neanderthal:
-  title: Neo-Neanderthal
+Neo-Neanderthal:
   parent: upliftmorphs
   text: >
-    This morph is derived from fossilized Neanderthal DNA, uplifted and
-    enhanced to transhuman equivalence. Neanderthal morphs appear
-    muscular with a heavy bone structure, distinctively long skulls,
-    heavy brow ridges, and weak chins. Pale complexions and red hair are
-    common features.
+    This morph is derived from fossilized Neanderthal DNA, uplifted and enhanced
+    to transhuman equivalence. Neanderthal morphs appear muscular with a heavy
+    bone structure, distinctively long skulls, heavy brow ridges, and weak
+    chins. Pale complexions and red hair are common features.
 
     **Cost**: 2 MP • **Avail**: 35
 
     **WT**: 7 • **DUR**: 35 • **DR**: 53
 
     <:Insight:821743329297301504>0   <:Moxie:821743387328643104>1   <:Vigor:821743354303479829>2   <:Flex:821743231124897854>1
-neo-octopus:
-  title: Neo-Octopus
+Neo-Octopus:
   parent: upliftmorphs
   text: >
     Colloquially known as “octomorphs,” these uplifted octopus sleeves are quite
@@ -95,8 +88,7 @@ neo-octopus:
     **WT**: 6 • **DUR**: 30 • **DR**: 45
 
     <:Insight:821743329297301504>1   <:Moxie:821743387328643104>1   <:Vigor:821743354303479829>1   <:Flex:821743231124897854>2
-neo-orangutan:
-  title: Neo-Orangutan
+Neo-Orangutan:
   parent: upliftmorphs
   text: >
     Neo-orangutans have the same uplifted features as their neo-hominid cousins.

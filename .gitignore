@@ -243,6 +243,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# local
 /bot/campaign.yaml
 /personalities/lotr/resources/lotr_cards.json
 /muse_web/personas/*.html
+**/fixed/**
