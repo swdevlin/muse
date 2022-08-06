@@ -2,13 +2,13 @@
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
-const BasePersonality = require("./base");
 const cache = require("../cache");
 const axios = require("axios");
 const AWS = require('aws-sdk');
 const logger = require("../logger");
 
 const {MessageEmbed} = require("discord.js");
+const MongooseTraveller2 = require("./mgt2");
 
 const UWPRegex = /(.)(.)(.)(.)(.)(.)(.)-(.)/;
 const TRAVELLER_MAP_URL = 'https://travellermap.com';
@@ -19,10 +19,25 @@ const s3 = new AWS.S3({
   secretAccessKey: process.env.AWS_SECRET,
 });
 
-const governments = {
-  "0": "None",
-  "1": "Company/Corporation",
-  "2": "Participating Democracy",
+const GOVERNMENTS = {
+  "0": {
+    "type": "None",
+    "description": "No government structure. In many cases, family bonds predominate",
+    "examples": "Family, Clan, Anarchy",
+    "contraband": "None",
+  },
+  "1": {
+    "type": "Company/Corporation",
+    "description": "Ruling functions are assumed by a company managerial elite, and most citizenry are company employees or dependants",
+    "examples": "Corporate outpost, asteroid mining, feudal domain",
+    "contraband": "Weapons, Drugs, Travellers",
+  },
+  "2": {
+    "type": "Participating Democracy",
+    "description": "",
+    "examples": "",
+    "contraband": "",
+  },
   "3": "Self-Perpetuating Oligarchy",
   "4": "Representative Democracy",
   "5": "Feudal Technocracy",
@@ -38,43 +53,65 @@ const governments = {
   "F": "Totalitarian Oligarchy"
 };
 
-const hydrospheres = {
+const HYDROSPHERES = {
   "0": {
-    "description": "Desert World"
+    "min": 0,
+    "max": 5,
+    "description": "Desert world"
   },
   "1": {
-    "description": "Dry World"
+    "min": 6,
+    "max": 15,
+    "description": "Dry world"
   },
   "2": {
+    "min": 16,
+    "max": 25,
     "description": "A few small seas"
   },
   "3": {
-    "description": "Small seas and Oceans"
+    "min": 26,
+    "max": 35,
+    "description": "Small seas and oceans"
   },
   "4": {
-    "description": "Wet World"
+    "min": 36,
+    "max": 45,
+    "description": "Wet world"
   },
   "5": {
-    "description": "Large Oceans"
+    "min": 46,
+    "max": 55,
+    "description": "Large oceans"
   },
   "6": {
-    "description": "Large Oceans"
+    "min": 56,
+    "max": 65,
+    "description": ""
   },
   "7": {
-    "description": "Large Oceans"
+    "min": 66,
+    "max": 75,
+    "description": "Earth-like world"
   },
   "8": {
+    "min": 76,
+    "max": 85,
     "description": "Water World"
   },
   "9": {
+    "min": 86,
+    "max": 95,
     "description": "Only a few small islands"
   },
   "A": {
-    "description": "Entirely Water"
+    "min": 96,
+    "max": 100,
+    "description": "Almost entirely water"
   }
 };
 
-const lawLevels = {
+const LAW_LEVELS = {
   "0": {
     "weaponsBanned": "No",
     "armourBanned": "No"
@@ -121,7 +158,7 @@ const lawLevels = {
   },
 };
 
-const planetSizes = {
+const PLANET_SIZES = {
   "0": {
     "diameter": "Less than 1,000km",
     "gravity": "Negligable"
@@ -201,7 +238,7 @@ const starPorts = {
   }
 };
 
-const techLevels = {
+const TECH_LEVELS = {
   "0": {
     "level": "0",
     "shortDescription": "Primitive",
@@ -320,16 +357,16 @@ const atmospheres = {
 };
 
 
-class Traveller extends BasePersonality {
-  static data = 'traveller';
-  static textName = 'traveller';
-  static title = 'Traveller';
-  static id = 1;
+class MongooseTraveller2022 extends MongooseTraveller2 {
+  static data = 'mgt2022';
+  static textName = 'mgt2022';
+  static title = 'Mongoose Traveller 2022';
+  static id = 6;
   static defaultPrefix = 'library';
   static webAbout = `
-    <p>A Muse persona for the Traveller RPG.</p>
-    <p>Muse can decompose a UWP. Enter <span class="command">library UWP</span> and Muse will breakdown the UWP. For example enter,
-    <span class="command">library A832921-C</span> and Muse will reply with</p>
+    <p>A Muse persona for the Mongoose Traveller 2022 RPG.</p>
+    <p>Muse can decompose a UWP. Enter <span class="command">library UWP</span> and Muse will break down the UWP.
+    For example enter, <span class="command">library A832921-C</span> and Muse will reply with</p>
     <p>
       <b>A832921-C</b><br/>
       <b>Starport (A)</b><br/>
@@ -355,216 +392,6 @@ class Traveller extends BasePersonality {
       Average Stellar<br/>
     </p>
   `;
-
-  validateUWP([starport, size, atmosphere, hydrosphere, population, government, law, tech]) {
-    return (
-      starport in starPorts &&
-      size in planetSizes &&
-      atmosphere in atmospheres &&
-      hydrosphere in hydrospheres &&
-      government in governments &&
-      law in lawLevels &&
-      tech in techLevels
-    );
-  }
-
-  starportText(starport) {
-    const {quality, berthingCost, fuelAvailable} = starPorts[starport];
-
-    let response;
-    if (quality === "None") {
-      response = '\tThere is **no starport** on this planet\n';
-    } else {
-      response = `\tThis port is ${quality}\n\tBerthing costs are ${berthingCost} per day\n`;
-    }
-
-    if (fuelAvailable === "None") {
-      response += '\tThis port has **No fuel**';
-    } else {
-      response += `\tThis port has ${fuelAvailable} fuel`;
-    }
-
-    return response;
-  }
-
-  governmentText(government) {
-    return `\t${governments[government]}`;
-  }
-
-  atmosphereText(atmosphere) {
-    const {composition, gearRequired} = atmospheres[atmosphere];
-    let response = `\t${composition} atmosphere\n\t`;
-    if (gearRequired === "None") {
-      response += `No special gear is required`;
-    } else {
-      response += `This atmosphere requires ${gearRequired}`;
-    }
-    return response;
-  }
-
-  lawText(law) {
-    const {weaponsBanned, armourBanned} = lawLevels[law];
-    return `\t*Bans*:\n\t\t${weaponsBanned};\n\t\t${armourBanned}`;
-  }
-
-  hydrosphereText(hydrosphere) {
-    const {description} = hydrospheres[hydrosphere];
-    return `\t${description}`;
-  }
-
-  techText(tech) {
-    const {level, shortDescription} = techLevels[tech];
-    return `\tTL ${level}\n\t${shortDescription}`;
-  }
-
-  populationText(population) {
-    const formatter = new Intl.NumberFormat('en-US', {useGrouping: true});
-    return '\t' + formatter.format(10**Number(population));
-  }
-
-  planetSizeText(size) {
-    const {diameter, gravity} = planetSizes[size];
-    return `\t${diameter} in diameter\n\tGravity is ${gravity}G`;
-  }
-
-  uwpDescription([starport, size, atmosphere, hydrosphere, population, government, law, tech]) {
-    let response = `**Starport (${starport})**\n${this.starportText(starport)}\n`;
-    response += `**Size (${size})**\n${this.planetSizeText(size)}\n`;
-    response += `**Atmosphere (${atmosphere})**\n${this.atmosphereText(atmosphere)} \n`;
-    response += `**Hydrosphere (${hydrosphere})**\n${this.hydrosphereText(hydrosphere)}\n`;
-    response += `**Population: (${population})**\n${this.populationText(population)}\n`;
-    response += `**Government (${government})**\n${this.governmentText(government)} \n`;
-    response += `**Law (${law})**\n${this.lawText(law)}  \n`;
-    response += `**Tech (${tech})**\n ${this.techText(tech)}  \n`;
-    return response;
-  }
-
-  checkForUWP() {
-    let uwp = UWPRegex.exec(this.originalContent);
-    if (!uwp)
-      return null;
-
-    // first item is the string searched
-    uwp.shift();
-    if (uwp)
-      if (this.validateUWP(uwp))
-        return {
-          title: this.originalContent,
-          text: this.uwpDescription(uwp)
-        };
-
-    return null;
-  }
-
-  async findEntry() {
-    let entry = await super.findEntry();
-    if (!entry)
-      entry = this.checkForUWP();
-
-    return entry;
-  }
-
-  renderSystem(system) {
-    return `**${system.name}**
-Sector: ${system.sector}
-UWP: ${system.uwp}
-    `;
-  }
-
-  async saveImage(system, jumps, style) {
-    const key = `sx${system.sectorX}sy${system.sectorY}hx${system.hexY}hy${system.hexY}j${jumps}${style}.png`;
-    try {
-      const params = {
-        Bucket: process.env.JUMP_IMAGE_BUCKET,
-        Key: key,
-      };
-      await s3.headObject(params).promise();
-      logger.info(`cache hit on ${key}`);
-      return `https://${process.env.JUMP_IMAGE_BUCKET}.s3.${process.env.AWS_DEFAULT_REGION}.amazonaws.com/${key}`;
-    } catch(err) {
-      // No jump map in S3
-    }
-    const url = `${TRAVELLER_MAP_URL}/api/jumpmap?sx=${system.sectorX}&sy=${system.sectorY}&hx=${system.hexX}&hy=${system.hexY}&jump=2&style=poster`;
-    const response = await axios.get(url, {responseType: 'arraybuffer'});
-    const params = {
-      Bucket: process.env.JUMP_IMAGE_BUCKET,
-      Key: key,
-      Body: response.data,
-      ContentEncoding: 'binary',
-      ContentType: 'image/png',
-    };
-    try {
-      const u = await s3.upload(params).promise();
-      return u.Location;
-    } catch(err) {
-      logger.error(err);
-      return null;
-    }
-  }
-
-  async replySystem(msg, system, jumps, style) {
-    let text = this.renderSystem(system);
-    const url = await this.saveImage(system, jumps, style);
-    if (url) {
-      let embed = new MessageEmbed().setImage(url);
-      const messagePayload = {
-        content: text,
-        embeds: [embed]
-      };
-      await msg.reply(messagePayload);
-      return true;
-    }
-    return null;
-  }
-
-  async checkExternal(msg) {
-    const lookup = this.tokens.join(' ');
-    const cache_key = this.channelId + this.authorId;
-    let lastRequest = await cache.get(cache_key);
-    if (lastRequest) {
-      lastRequest = JSON.parse(lastRequest);
-      const num = Number(lookup);
-      if (Number.isInteger(num) && num-1 <= lastRequest.systems.length)
-        return await this.replySystem(msg, lastRequest.systems[num-1]);
-    }
-    const term = encodeURIComponent(lookup);
-    let url = `${TRAVELLER_MAP_URL}/api/search?q=${term}`;
-    const response = await axios.get(url);
-    const matches = {
-      systems: [],
-      jump: 2,
-      style: 'poster',
-    };
-    for (const match of response.data.Results.Items) {
-      if (match.World) {
-        const system = {
-          sector: match.World.Sector,
-          hexX: match.World.HexX,
-          hexY: match.World.HexY,
-          sectorX: match.World.SectorX,
-          sectorY: match.World.SectorY,
-          name: match.World.Name,
-          uwp: match.World.Uwp,
-        };
-        matches.systems.push(system);
-      }
-    }
-    if (matches.systems.length === 1) {
-      await this.replySystem(msg, matches.systems[0], matches.jump, matches.style);
-      return true;
-    } else if (matches.systems.length > 1) {
-      let text = 'Multiple matches:\n';
-      let index = 1;
-      for (const system of matches.systems) {
-        text +=`${index}: ${system.name} / ${system.sector}\n`;
-        index++;
-      }
-      await cache.set(cache_key, JSON.stringify(matches));
-      await msg.reply(text);
-      return true;
-    }
-    return null;
-  }
 }
 
-module.exports = Traveller;
+module.exports = MongooseTraveller2022;

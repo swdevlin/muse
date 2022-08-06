@@ -21,7 +21,7 @@
         database to their game.
       </p>
       <p>Muse can assume different personas. Each persona includes a base set of knowledge. Each channel in a guild can
-        have its own persona. See <a href="#personas">personas</a></p>
+        have its own persona. See <a href="#personas">personas</a>.</p>
       <p>
         Muse was inspired by the muse ALI in the <a href="https://www.eclipsephase.com">Eclipse Phase RPG</a>
         by <a href="https://posthumanstudios.com">Posthuman Studios, LLC</a>
@@ -71,11 +71,9 @@
       <p>Only channel administrators can upload campaign files.</p>
       <h3>Campaign File Format</h3>
       <p>Campaign files are <a href="https://yaml.org/">YAML</a> files.
-      The yaml file is a dictionary. The key for each entry is the key used in the look up. keys are case insensitive and
-      converted to lower case. The properties of the entries are:</p>
+      The yaml file is a dictionary. The key for each entry is the title and is used as the key in the look-up. The properties
+        of the entries are:</p>
       <dl>
-        <dt>title</dt>
-        <dd>the title of the entry</dd>
         <dt><b>page</b></dt>
         <dd>if included, the page will be displayed with the topic. Page does not need to be numeric.</dd>
         <dt>text</dt>
@@ -83,6 +81,8 @@
           will return no results found.</dd>
         <dt>aliases</dt>
         <dd>An array of alternate keys for the same topic.</dd>
+        <dt>image</dt>
+        <dd>URL of image to display along with the text.</dd>
         <dt>parent</dt>
         <dd>The parent topic for this topic. In the parent topic, <i>$list</i> will be replaced with a list of child topics.</dd>
         <dt>wiki_slug</dt>

@@ -1,0 +1,51 @@
+Skills:
+  page: 142
+  text: >
+    A skill is a statement of ability based on a job, vocation, or interest. A knowledge
+    is a body of information based on a field of science or experience. A talent is a personal
+    ability not generally possible for a human, but which may be possible for some
+    specific non-humans.
+    
+    
+    Benchmarks. One level of a skill or knowledge or talent represents about one year of experience, education, or training.
+    A character with Skill-4 has four years of experience in that skill; Knowledge-3 is the equivalent of three years of instruction or
+    practical experience with that field of knowledge.
+
+
+    The Traveller skills are: $list
+Actor:
+  parent: skills
+  page: 146
+  text: >
+    Actor (Act, Acting, Drama) is expertise in the dramatic arts, including an
+    ability to adopt a personality or role, to convince an audience of a
+    viewpoint, and to convey a wide range of emotion while involved in the role
+    or part.
+    
+    
+    Characters with Actor have learned to conceal their true selves, their
+    motives, and their emotions while manipulating an audience into
+    believing whatever persona or emotion they are portraying.
+    
+    
+    Actor is a Default Skill. Most people can play rudimentary roles when
+    called upon. All characters have Actor-0.
+Admin:
+  parent: skills
+  page: 146
+  text: >
+    Admin (Administration, Management) is skill in the management
+    of resources, setting policy, and communicating
+    policy to members of the organization. Admin is the ability to
+    function within an organized structure: a company, a corporation,
+    a crew, a team, a governmental agency, or a military
+    unit, with an emphasis on directing resources toward the
+    achievement of organization goals.
+    
+    
+    Characters with Administration understand the problems
+    organizations (and organization staff) face, and have
+    an ability to work using an existing structure and available
+    resources. A character with Administration understands how
+    to talk to clerks and functionaries and how to motivate them
+    to put forth their best efforts.
