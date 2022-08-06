@@ -35,23 +35,88 @@ const GOVERNMENTS = {
   },
   "2": {
     "type": "Participating Democracy",
+    "description": "Ruling functions are reached by the advice and consent of the citizenry directly",
+    "examples": "Collective, tribal council, comm-linked consensus",
+    "contraband": "Drugs",
+  },
+  "3": {
+    "type": "Self-Perpetuating Oligarchy",
     "description": "",
     "examples": "",
     "contraband": "",
   },
-  "3": "Self-Perpetuating Oligarchy",
-  "4": "Representative Democracy",
-  "5": "Feudal Technocracy",
-  "6": "Captive Governemnt",
-  "7": "Balkinisation",
-  "8": "Civil Service Bureaucracy",
-  "9": "Impersonal Bureaucracy",
-  "A": "Charismatic Dictator",
-  "B": "Non-Charismatic Leadeer",
-  "C": "Charismatic Oligrachy",
-  "D": "Religious Distaorsahip",
-  "E": "Religious Autocracy",
-  "F": "Totalitarian Oligarchy"
+  "4": {
+    "type": "Representative Democracy",
+    "description": "",
+    "examples": "",
+    "contraband": "",
+  },
+  "5": {
+    "type": "Feudal Technocracy",
+    "description": "",
+    "examples": "",
+    "contraband": "",
+  },
+  "6": {
+    "type": "Captive Government",
+    "description": "",
+    "examples": "",
+    "contraband": "",
+  },
+  "7": {
+    "type": "Balkinisation",
+    "description": "",
+    "examples": "",
+    "contraband": "",
+  },
+  "8": {
+    "type": "Civil Service Bureaucracy",
+    "description": "",
+    "examples": "",
+    "contraband": "",
+  },
+  "9": {
+    "type": "Impersonal Bureaucracy",
+    "description": "",
+    "examples": "",
+    "contraband": "",
+  },
+  "A": {
+    "type": "Charismatic Dictator",
+    "description": "Ruling functions are performed by agencies directed by a single leader who enjoys the overwhelming confidence of the citizens",
+    "examples": "Revolutionary leader, messiah, emperor",
+    "contraband": "None",
+  },
+  "B": {
+    "type": "Non-Charismatic Leader",
+    "description": "A previous charismatic dictator has been replaced by a leader through normal channels",
+    "examples": "Military dictatorship, hereditary kingship",
+    "contraband": "Weapons, Technology, Computers",
+  },
+  "C": {
+    "type": "Charismatic Oligarchy",
+    "description": "Ruling functions are performed by a select group of members of an organisation or class which enjoys the overwhelming confidence of the citizenry",
+    "examples": "Junta, revolutionary council",
+    "contraband": "Weapons",
+  },
+  "D": {
+    "type": "Religious Dictatorship",
+    "description": "Ruling functions are performed by a religious organisation without regard to the specific individual needs of the citizenry",
+    "examples": "Cult, transcendent philosophy, psionic group mind",
+    "contraband": "Varies",
+  },
+  "E": {
+    "type": "Religious Autocracy",
+    "description": "Government by a single religious leader having absolute power over the citizenry",
+    "examples": "Messiah",
+    "contraband": "Varies",
+  },
+  "F": {
+    "type": "Totalitarian Oligarchy",
+    "description": "Government by an all-powerful minority which maintains absolute control through widespread coercion and oppresion",
+    "examples": "World church, Ruthless organizations",
+    "contraband": "Varies",
+  }
 };
 
 const HYDROSPHERES = {
@@ -426,7 +491,8 @@ class MongooseTraveller2 extends TravellerBase {
   }
 
   governmentText(government) {
-    return `\t${GOVERNMENTS[government]}`;
+    const gov = GOVERNMENTS[government].type;
+    return `\t${gov}`;
   }
 
   atmosphereText(atmosphere) {
