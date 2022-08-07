@@ -7,9 +7,9 @@ const chai = require('chai');
 chai.should();
 const expect = chai.expect;
 const sinon = require('sinon');
-const Traveller = require("../personalities/traveller");
+const MongooseTraveller2 = require("../personalities/mgt2");
 
-describe('Test Traveller', function () {
+describe('Test Mongoose Traveller 2', function () {
   let context = null;
 
   beforeEach(async() => {
@@ -28,7 +28,7 @@ describe('Test Traveller', function () {
         reply: sinon.stub().resolves('ok'),
       }
     };
-    context.traveller = new Traveller('tb');
+    context.traveller = new MongooseTraveller2('tb');
   })
 
   it('validates the UWP string', async() => {
@@ -73,7 +73,7 @@ describe('Test Traveller', function () {
 
   it('Handle hydrographics', function() {
     const response = context.traveller.hydrosphereText('3');
-    const expected = '\tSmall seas and Oceans';
+    const expected = '\tSmall seas and oceans';
     response.should.equal(expected);
   });
 

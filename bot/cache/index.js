@@ -26,9 +26,14 @@ const del = async (key) => {
   await client.del(rkey);
 };
 
+const done =  async () => {
+  await client.flushAll()
+};
+
 module.exports = {
   get: get,
   set: set,
   del: del,
+  done: done,
   client: client,
 }

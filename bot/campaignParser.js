@@ -4,7 +4,7 @@ const logger = require("./logger");
 // const invalidRX = /[\\!"#\$%&'()*\+,-.\/:;<=>?@\[\]^_`{|}~]+/;
 const maxKeyLength = 100;
 const maxTextLength = 2000;
-const maxSlugLength = 200;
+const MaxSlugLength = 200;
 const validKeys = ['text', 'aliases', 'page', 'parent', 'wiki_slug', 'category', 'image'];
 
 const validateKey = (key) => {
@@ -55,8 +55,8 @@ const campaignParser = async (text) => {
             if (parentCheck)
               return {entries: null, error: parentCheck};
           } else if (attribute === 'wiki_slug') {
-            if (entry.wiki_slug.length > maxSlugLength)
-              return {entries: null, error: `${key} wiki_slug exceeds max length of ${maxSlugLength}`};
+            if (entry.wiki_slug.length > MaxSlugLength)
+              return {entries: null, error: `wiki_slug exceeds max length of ${MaxSlugLength}`};
           }
         }
       }

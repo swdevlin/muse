@@ -132,7 +132,7 @@ describe('Test campaign file verifier', function () {
       - two
     `;
     const result = await campaignParser(entry);
-    result.error.should.equal('long text exceeds max length of 2000');
+    result.error.should.equal('wiki_slug exceeds max length of 200');
   });
 
 });

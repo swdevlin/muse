@@ -1,5 +1,4 @@
 is ok:
-  title: Is OK
   text: >
     this entry requires no changes
 " extra   spaces ":
@@ -7,14 +6,14 @@ is ok:
   text: >
     This has extra spaces
 Convert to Lower:
-  title: Convert to Lower
   text: >
     this entry is converted to lower case
 AccÉnt test:
-  title: accént test
   text: >
     The É was converted
 "Got ~`!@#$%^&*()-=_+][{}\\\"'|,./?><no punctuation":
-  title: "Got ~`!@#$%^&*()-=_+][{}\\\"'|,./?><punctuation"
   text: >
-    punctuation should be stripped
+    Punctuation allowed
+"-stuff":
+  text: >
+    Topics cannot start with a hyphen
