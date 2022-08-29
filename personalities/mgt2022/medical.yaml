@@ -1,0 +1,147 @@
+Cryoberth (TL10):
+  page: 114
+  text: >
+    A cryoberth, or ‘icebox’, is a
+    coffin-like machine similar to the low or frozen berths
+    used on some spacecraft. The main difference is
+    that a cryoberth works much faster than a low berth,
+    freezing and preserving its occupant almost instantly.
+    A cryoberth can therefore be used to place a severely
+    injured Traveller into stasis until they receive medical
+    treatment. A cryoberth’s internal power system can
+    function for up to one week on its own but a berth
+    is usually connected to a vehicle’s or ship’s power
+    supply.
+Medikit (TL8+):
+  page: 114
+  text: >
+    There are different types of medikit
+    available at different Tech Levels. All medikits
+    contain diagnostic devices and scanners, surgical
+    tools and a panoply of drugs and antibiotics,
+    allowing a medic to practise their art in the field.
+    Advanced medikits can help with more exotic
+    problems or when treating augmented individuals.
+    For example, a TL8 medikit can test blood pressure
+    and temperature, while a TL14 kit has a medical
+    densitometer to create a three-dimensional view
+    of the patient’s body and can scan brain activity on
+    the quantum level. All medikits mass 1kg, except at
+    TL14 where they have an effective mass of 0kg.
+    
+    TL10 grants DM+1 on Medic checks performed for first aid.
+    
+    TL12 grants DM+2 on Medic checks performed for first aid.
+    
+    TL14 grants DM+3 on Medic checks performed for first aid.
+Meds:
+  page: 115
+  text: >
+    The following are the drugs (or ‘meds’) in standard use: $list
+Anagathics:
+  page: 115
+  parent: meds
+  text: >
+    These slow the user’s ageing
+    process. Synthetic anagathics become possible at
+    TL15 but there are natural spices and other rare
+    compounds that have comparable effects. Anagathics
+    are illegal or heavily controlled on many worlds. One
+    dose must be taken each month to maintain the antiaging
+    effect.
+Anti-rad:
+  page: 115
+  parent: meds
+  aliases:
+    - anti-radiation
+  text: >
+    Anti-rad drugs must be administered
+    before or immediately (within 10 minutes) after
+    radiation exposure. They absorb up to 100 rads per
+    dose. A Traveller may only use anti-rad drugs once
+    per day – taking any more causes permanent END
+    damage of 1D per dose.
+Combat Drugs:
+  page: 115
+  parent: meds
+  text: >
+    Combat drugs increase
+    reaction times and improve a body’s responses to
+    trauma. A Traveller using combat drugs gains DM+4
+    to all Initiative rolls. They also gain a free Reaction
+    every round with no penalty applied and reduces all
+    damage sustained by -2 points. The drug kicks in
+    around 20 seconds (three rounds) after ingestion or
+    injection and lasts for around 10 minutes. When the
+    drug wears off, the user is Fatigued (see page 80).
+Fast Drug:
+  page: 115
+  parent: meds
+  text: >
+    Also called Hibernation, this
+    drug puts the user into a state akin to suspended
+    animation, slowing their metabolic rate down to a
+    ratio of 60:1 – a subjective day for the user is actually
+    two months. Fast drug is normally used to prolong
+    life support reserves or as a cheap substitute for a
+    cryoberth.
+Medicinal Drugs:
+  page: 115
+  parent: meds
+  text: >
+    Includes vaccines,
+    antitoxins and antibiotics. They range in cost from Cr5
+    to several thousand Credits, depending on the rarity
+    and complexity. Medicinal drugs require the Medic
+    skill to use properly – using the wrong drug can be
+    worse than doing nothing.
+Metabolic Accelerator:
+  page: 115
+  parent: meds
+  text: >
+    These boost the
+    user’s reaction time to superhuman levels. To the user,
+    everyone else appears to be moving much slower.
+    A Traveller using a metabolic accelerator in combat
+    gains DM+8 to all Initiative rolls. They also gain two
+    free Reactions every round with no penalties applied
+    for either. The drug kicks in 45 seconds after ingestion
+    or injection and lasts for around 10 minutes. When the
+    drug wears off, the user’s system crashes. They suffer
+    2D points of damage and is Fatigued (see page 80).
+Panaceas (TL8+):
+  page: 115
+  parent: meds
+  text: >
+    These are wide-spectrum
+    medicinal drugs specifically designed not to interact
+    harmfully. They can therefore be used on any wound
+    or illness and are guaranteed not to make things
+    worse. A Traveller using panaceas may make a
+    Medic check as if they had Medic 0 when treating an
+    infection or disease.
+Slow Drug:
+  page: 115
+  parent: meds
+  text: >
+    This is a variant of the metabolic
+    accelerator. It can only be applied safely in a medical
+    facility where life-support and cryotechnology is
+    available, as it increases the metabolism to around 30
+    times normal, allowing a patient to undergo a month
+    of healing in a single day. Using this drug outside
+    of a hospital or sickbay is a messy and painful way
+    to commit suicide, as the user will rapidly cook their
+    internal organs and suffer massive brain damage.
+Stims:
+  page: 115
+  parent: meds
+  text: >
+    These relieve fatigue, although at a
+    cost. A Traveller who uses stims removes Fatigue
+    (see page 80) but also sustains one point of damage.
+    If stims are used repeatedly without natural sleep
+    in between, the user suffers a cumulative additional
+    point of damage every time (so, on the second use,
+    two points of damage are sustained, on the third,
+    three points and so on).

@@ -1,0 +1,154 @@
+Slug Throwers:
+  page: 126
+  text: >
+    Despite advances in energy weapons and other offensive
+    technologies, accelerating a small piece of metal to high
+    velocity is still one of the most efficient ways of killing
+    someone. Chemically propelled firearms give way to
+    gyrojet (rocket bullets) and gauss (electromagnetically
+    launched bullets) as technology advances.
+    
+    These weapons require the Gun Combat (slug) skill: $list
+Accelerator Rifle:
+  page: 127
+  parent: Slug Throwers
+  text: >
+    **3D**
+    
+    Also known as gyrojet weapons,
+    accelerator rifles are designed for zero-gravity
+    combat. They fire tiny missiles that leave the rifle
+    with minimal velocity and thus minimal recoil, then
+    accelerate to high speed.
+Advanced Combat Rifle:
+  page: 127
+  parent: Slug Throwers
+  text: >
+    **3D**
+    
+    The ultimate evolution
+    of the conventional firearm, advanced combat
+    rifles are the weapon of choice for many military
+    units. Standard equipment includes an electronic
+    battlefield sight, incorporating both light amplification
+    and passive IR, visual magnification and a laser
+    rangefinder, which may also be used as a target
+    painting device. The weapon is also gyroscopically
+    stabilised during firing. A sling is provided and
+    the muzzle of the rifle includes an integral flash
+    suppressor and adaptor for launching a 40mm RAM
+    shoot-through grenade.
+Antique Pistol:
+  page: 127
+  parent: Slug Throwers
+  text: >
+    **2D-3**
+    
+    A flintlock or other primitive projectile
+    weapon. Unless the weapon is especially well made,
+    it will have DM-1 to all attacks. Antique pistols require
+    a successful Gun Combat (slug) check to reload,
+    taking 2D3 Minor Actions.
+Antique Rifle:
+  page: 127
+  parent: Slug Throwers
+  text: >
+    **3D-3**
+    
+    A musket or other primitive rifle.
+    Unless the weapon is especially well made, it will
+    have DM-1 to all attacks. Antique rifles require a
+    successful Gun Combat (slug) check to reload, taking
+    2D3 Minor Actions.
+Autopistol:
+  page: 127
+  parent: Slug Throwers
+  text: >
+    **3D-3**
+    
+    Variants of this semi-automatic pistol is
+    the standard sidearm for law enforcement officers
+    and criminals across the Imperium.
+Autorifle:
+  page: 127
+  parent: Slug Throwers
+  text: >
+    **3D**
+    
+    Automatic rifles have a higher muzzle
+    velocity and are capable of automatic fire. Sometimes
+    called battle rifles.
+Body Pistol:
+  page: 127
+  parent: Slug Throwers
+  text: >
+    **2D**
+    
+    Body pistols are manufactured from
+    plastics and cultured bone, making them very difficult
+    to detect using conventional weapons scanners. Body
+    pistols impose DM-4 to any Electronics (sensors)
+    checks made to detect them.
+Gauss Pistol:
+  page: 127
+  parent: Slug Throwers
+  text: >
+    **2D**
+    
+    Gauss pistols use electromagnetic
+    coils to accelerate metallic darts to hypersonic speeds.
+    Gauss weapons are lightweight, efficient and deadly.
+Gauss Rifle:
+  page: 127
+  parent: Slug Throwers
+  text: >
+    **4D**
+    
+    Gauss rifles replace conventional rifles
+    at TL13. Like the smaller gauss pistol, rifles fire high-velocity
+    projectiles using electromagnetic rails.
+Revolver:
+  page: 127
+  parent: Slug Throwers
+  text: >
+    **3D-3**
+    
+    A conventional six-shooter handgun.
+Rifle:
+  page: 127
+  parent: Slug Throwers
+  text: >
+    **3D**
+    
+    A long-range hunting rifle or light infantry weapon.
+Shotgun:
+  page: 127
+  parent: Slug Throwers
+  text: >
+    **4D**
+    
+    Shotguns are smoothbore weapons that
+    typically fire ammunition containing multiple small
+    pellets. They are most effective at short range. A
+    shotgun using pellet ammunition ignores Dodge dice
+    modifiers but armour gives double Protection against
+    pellet attacks.
+Snub Pistol:
+  page: 127
+  parent: Slug Throwers
+  text: >
+    **3D-3**
+    
+    These lightweight, low-recoil weapons
+    were designed for use aboard spacecraft and in
+    zero gravity.
+Submachine Gun:
+  page: 127
+  parent: Slug Throwers
+  text: >
+    **3D**
+    
+    A short weapon capable of
+    automatic fire, it puts the power of an assault rifle into
+    a small package. However, it lacks a rifle’s accuracy
+    at range.

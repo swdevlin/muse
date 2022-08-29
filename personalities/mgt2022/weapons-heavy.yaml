@@ -1,0 +1,77 @@
+Heavy Weapons:
+  page: 132
+  text: >
+    These are among the most powerful weapons to appear
+    on the battlefield and require special training to use
+    effectively. Only those mounted on vehicles and ships
+    will be more powerful at any equivalent Tech Level.
+    
+    Weapons requiring the Heavy Weapons (portable) skill include: $list
+FGHP:
+  page: 133
+  parent: Heavy Weapons
+  aliases:
+    - fgmp
+  text: >
+    **2DD**
+    
+    The ultimate personal firearm, the Fusion Gun,
+    Human Portable (similar weapons are available for
+    other alien species) is more like a piece of artillery.
+    It includes a gravity suspension system to reduce its
+    inertia and fires what amounts to a directed nuclear
+    explosion. Those without radiation protection who are
+    nearby when a FGHP is fired will suffer a potentially
+    lethal dose of radiation.
+Grenade Launcher:
+  page: 133
+  parent: Heavy Weapons
+  text: >
+    Grenade launchers are used
+    to fire grenades over long distances. They may be
+    equipped with any normal type of grenade.
+Machinegun:
+  page: 133
+  parent: Heavy Weapons
+  text: >
+    **3D**
+    
+    A larger and less portable version
+    of the autorifle, the machinegun may be relatively
+    low tech but it is capable of sawing even armoured
+    targets in half.
+PGHP:
+  page: 133
+  parent: Heavy Weapons
+  aliases:
+    - pgmp
+  text: >
+    **1DD**
+    
+    The Plasma Gun, Human Portable is the
+    standard assault weapon of the marines. It is so heavy
+    and bulky that it can only be used easily by a trooper
+    in battle dress. It is powered by a built-in micro-fusion
+    generator and fires a high-energy plasma stream.
+    More advanced plasma guns adjust the weapon’s
+    optimum range and plasma temperature.
+RAM Grenade Launcher:
+  page: 133
+  parent: Heavy Weapons
+  text: >
+    Rocket Assisted Multipurpose
+    grenade launchers have a longer range
+    and are capable of firing up to three grenades with a
+    single attack. They may be equipped with any normal
+    type of grenade.
+Rocket Launcher:
+  page: 133
+  parent: Heavy Weapons
+  text: >
+    **5D+6**
+    
+    A simple tube device that
+    launches rockets. Anyone standing behind a rocket
+    launcher when it is fired will be caught in its back blast
+    and suffer 3D damage from the burning gasses. It
+    takes three Minor Actions to reload a rocket launcher.

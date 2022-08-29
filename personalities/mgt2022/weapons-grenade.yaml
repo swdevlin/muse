@@ -1,0 +1,53 @@
+Grenades:
+  page: 131
+  text: >
+    These weapons are thrown or launched at an enemy
+    and are typically designed to affect several targets
+    across a wide area at once.
+    
+    Thrown grenades use the Athletics (dexterity) skill,
+    while those that are launched use the Heavy Weapons
+    (portable) skill.
+    
+    Missed attacks with grenades will generally result
+    in nothing interesting happening unless there are
+    dangerous or amusing targets nearby, at the discretion
+    of the referee.
+    
+    Available grenades are: $list
+Aerosol:
+  page: 131
+  parent: Grenades
+  text: >
+    Aerosol grenades create a fine mist that
+    diffuses any lasers that are fired into or through
+    it but the mist does not block normal vision. Any
+    laser attack tracing a line of sight into or through
+    the mist has its damage reduced by -10. Laser
+    communications are completely blocked by the
+    mist. Aerosol clouds dissipate after 1D x 3 rounds,
+    although heavy winds and rain can drastically reduce
+    this time.
+Frag:
+  page: 131
+  parent: Grenades
+  text: >
+    Fragmentation grenades explode in a blast of
+    shrapnel designed to kill or cripple anyone close by.
+Smoke:
+  page: 131
+  parent: Grenades
+  text: >
+    Smoke grenades creates a thick cloud that
+    disrupts vision. This imposes DM-2 to all attacks
+    on targets within the cloud. IR vision completely
+    bypasses this cloud of smoke. Smoke clouds
+    dissipate after 1D x 3 rounds, although heavy winds
+    and rain can drastically reduce this time.
+Stun:
+  page: 131
+  parent: Grenades
+  text: >
+    Stun grenades release a powerful pulse of
+    energy, usually in the form or light and/or sound that
+    incapacitates targets rather than killing them.

@@ -1,0 +1,147 @@
+Animal Traits:
+  page: 84
+  text: >
+    Animals can have the following traits: $list
+Alarm:
+  page: 84
+  parent: Animal Traits
+  text: >
+    When panicked or under threat, this animal
+    emits a powerful screech, odour or makes a bright
+    visual display, alerting others of its kind to danger. At
+    the referee’s option, this will either cause all animals of
+    the same type in the immediate area to flee or will bring
+    an additional 2D of them into combat.
+Amphibious:
+  page: 84
+  parent: Animal Traits
+  text: >
+    The animal is equally at home on land or
+    in the water. It will not suffocate while submerged and
+    its movement is not affected underwater.
+Armour Trait:
+  page: 84
+  parent: Animal Traits
+  text: >
+    The animal has dense layers of fat,
+    horny plates or some other form of physical protection.
+    It has a Protection score equal to the figure shown in
+    the Armour trait.
+Bioelectricity (+X):
+  page: 85
+  parent: Animal Traits
+  aliases:
+    - Bioelectricity
+  text: >
+    The animal naturally generates
+    a powerful electric current that is discharged when
+    it makes an attack. With each successful attack, the
+    animal will cause an additional amount of damage with
+    the Stun trait, as listed in its Bioelectricity trait.
+Camouflaged:
+  page: 85
+  parent: Animal Traits
+  text: >
+    The animal has physical adaptations
+    that allow it to blend into its environment, such as
+    chameleonic skin or psionic shielding. It gains DM+2 to
+    all Stealth checks.
+Diseased Trait:
+  page: 85
+  parent: Animal Traits
+  text: >
+    The animal is
+    a carrier of disease and will infect any creature it comes
+    into physical contact with. At the referee’s option,
+    merely being in the animal’s lair may cause exposure.
+    The difficulty, damage and interval of the disease is
+    noted within the Diseased trait.
+Echolocation:
+  page: 85
+  parent: Animal Traits
+  text: >
+    This animal has organs adapted
+    to emit high-frequency sounds, which it uses to
+    pinpoint objects and ‘observe’ its surroundings with
+    high precision. It can operate in complete darkness,
+    although two-dimensional details (such as writing on a
+    page) cannot be made out. Echolocation can operate in
+    noisy environments but can be completely blocked by
+    sounds operating at similar high frequencies.
+Fast Metabolism (+X):
+  page: 85
+  parent: Animal Traits
+  aliases:
+    - fast metabolism
+  text: >
+    The animal has a heightened
+    metabolism and very fast reactions. It gains a DM to
+    Initiative rolls equal to the figure shown in the Fast
+    Metabolism trait.
+Flyer Trait:
+  page: 85
+  parent: Animal Traits
+  text: >
+    The animal has wings, air sacs or some
+    other method of gaining altitude and soaring. When
+    flying, it may travel at a maximum Speed Band listed
+    in the Flyer trait.
+Heightened Senses:
+  page: 85
+  parent: Animal Traits
+  text: >
+    The animal has better hearing
+    and sense of smell than humans. It receives DM+1 to
+    any Recon and Survival checks it has to make.
+IR/UV Vision:
+  page: 85
+  parent: Animal Traits
+  aliases:
+    - ir vision
+    - uv vision
+  text: >
+    The animal views the world at a greatly
+    extended electromagnetic range, encompassing at least
+    infrared or ultraviolet wavelengths and perhaps more.
+    This allows it to see clearly in darkness and, at the
+    referee’s option, it may notice certain electromagnetic
+    emissions from the equipment of Travellers.
+Large Trait:
+  page: 85
+  parent: Animal Traits
+  text: >
+    The animal is extremely large and presents a
+    huge target. All ranged attacks made against the animal
+    gain a DM equal to the score listed in the Large trait
+Poison Trait:
+  page: 85
+  parent: Animal Traits
+  text: >
+    The animal’s
+    attacks are poisoned, making them much deadlier. The
+    difficulty, damage and interval of the poison is noted
+    within the Poison trait.
+Psionic Trait:
+  page: 85
+  parent: Animal Traits
+  text: >
+    The animal has a PSI characteristic equal
+    to the score listed in the Psionic trait. The referee
+    should determine which talents it has access to as
+    shown in the Psionics chapter.
+Slow Metabolism (-X):
+  page: 85
+  parent: Animal Traits
+  text: >
+    The animal has a lethargic
+    metabolism and very slow reactions. It suffers a DM
+    to Initiative rolls equal to the figure shown in the Slow
+    Metabolism trait.
+Small Trait:
+  page: 85
+  parent: Animal Traits
+  text: >
+    The animal is very small and presents a
+    difficult target. All ranged attacks made against the
+    animal suffer a DM equal to the score listed in the
+    Small trait.

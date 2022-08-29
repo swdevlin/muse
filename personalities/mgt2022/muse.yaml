@@ -1,2 +1,137 @@
 UWP:
   text: Universal World Profile
+Simple Task:
+  page: 60
+  aliases:
+    - simple
+  text: >
+    Simple tasks are trivial for everyone. A Simple task
+    might be requesting weather data from a standard
+    tourist computer system, ordering a meal in a language
+    you know well or sneaking up on a drugged guard.
+    Simple tasks require a **2** or more to be rolled for the
+    check if, indeed, they are rolled for at all.
+Easy Task:
+  page: 60
+  aliases:
+    - easy
+  text: >
+    Easy tasks are trivial for a trained professional and
+    simple for an amateur. An Easy task might be hiking
+    cross-country for a few hours, holding a ship in
+    perfectly level flight, or activating an unfamiliar device
+    that has a clear and simple interface. Easy tasks
+    require a **4** or more to be rolled for the check.
+Routine Task:
+  page: 60
+  aliases:
+    - Routine
+  text: >
+    A Routine task is trivial for a trained professional and
+    relatively easy even for an amateur. A Routine task
+    might be hitting a prone victim in melee, landing a
+    ship in optimum conditions with computer assistance,
+    translating a newspaper and so on. Routine tasks
+    require a **6** or more to be rolled for the check.
+Average Task:
+  page: 60
+  aliases:
+    - Average
+  text: >
+    An Average task is a moderate obstacle to a trained
+    professional. Shooting a gun accurately at range,
+    plotting the jump calculations for a starship, repairing
+    a damaged circuit board or finding a buyer for a cargo
+    bay full of machine parts on an industrial world are all
+    examples of Average tasks, which require the normal **8**
+    or more to be rolled for the check.
+Difficult Task:
+  page: 60
+  aliases:
+    - Difficult
+  text: >
+    A Difficult task is tough even for a trained professional.
+    Examples might be making an accurate shot in the
+    middle of a ferocious storm, defending a client in court
+    when they are clearly guilty, hacking into a secure
+    computer network or spotting the flash of sunlight
+    reflecting off a sniper’s scope. Difficult tasks require a
+    **10** or more to be rolled for the check.
+Very Difficult Task:
+  page: 60
+  aliases:
+    -  Very Difficult
+  text: >
+    Very Difficult tasks are hard for a trained professional
+    and nearly impossible for an amateur. They require a
+    **12** or more to be rolled for the check.
+Formidable Task:
+  page: 60
+  aliases:
+    - Formidable
+  text: >
+    Formidable tasks are exceptionally hard, such as
+    performing surgery on an alien of radically different
+    biology, hacking a military-grade computer network,
+    disarming a terrorist bomb or convincing a city of
+    superstitious natives that you are a peaceful trader
+    and not a demon from the outer darkness when you do
+    not speak a word of their language. Formidable tasks
+    require a **14** or more to be rolled for the check.
+Impossible Task:
+  page: 60
+  aliases:
+    - Impossible
+  text: >
+    Impossible tasks require near-miracles to pull off,
+    such reconstructing alien DNA, rebuilding a worldwide
+    military-grade computer network from scratch or
+    flying a starship through an area of space filled with
+    treacherous stellar phenomena in record-beating time.
+    Impossible tasks require a **16** or more to be rolled for
+    the check.
+Boon:
+  page: 61
+  text: >
+    If a Traveller has help, such as good tools, competent
+    aids or other beneficial circumstances, they receive a
+    Boon. This means they roll an extra dice during a check
+    and discard the lowest.
+Bane:
+  page: 61
+  text: >
+    If a Traveller is hindered in a check, such as with
+    poor tools, a dimly lit environment or other negative
+    circumstances, they receive a Bane. This means they
+    roll an extra dice during a check and discard the highest.
+Effect:
+  page: 61
+  text: >
+    The effect is how well, or poorly, the Traveller completed a task. To 
+    determine this, subtract the target number from the dice roll of the
+    check, including any modifiers. This margin of success (or failure) is the
+    Effect that can be consulted on the Effect Results table. This is
+    also used in combat to calculate damage.
+    
+    *For example, if a Traveller rolls a 4 and a 3 for an
+    Average (8+) check, then applies DM+3 for a total of
+    10, their Effect is (10 – 8) 2.*
+Fatigue:
+  page: 80
+  text: >
+    A Traveller can become fatigued in several ways:
+    
+    • After staying awake for a number of hours greater
+    than their END + 18.
+    
+     • After performing heavy labour for a number of
+    hours greater than their END.
+    
+    • After making a number of consecutive melee
+    attacks greater than their END in a single combat.
+    
+    A fatigued Traveller suffers DM-2 to all checks until they
+    rest. At the referee’s discretion, continuing exhausting
+    work while already fatigued can result in the Traveller
+    falling unconscious. Various drugs and treatments can
+    relieve fatigue.
