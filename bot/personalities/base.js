@@ -70,7 +70,7 @@ class BasePersonality {
   }
 
   prefixMatch() {
-    return this.tokens[0] === this.prefix;
+    return this.tokens[0] === this.prefix || this.tokens[0] === process.env.MUSE_PREFIX;
   }
 
   async doHelp(msg) {
