@@ -144,9 +144,10 @@ I know the following commands: ${commandList}`;
 
     try {
       const entry = await this.findEntry();
-      if (entry)
+      if (entry) {
         await sendEntry(msg, entry, this);
-      else if (!await this.checkExternal(msg))
+        logger.info(`${msg.channelId} ${msg.author.id} ${msg.content}`);
+      } else if (!await this.checkExternal(msg))
         await this.noMatch(msg);
     } catch(err) {
       logger.error(err);
@@ -166,7 +167,7 @@ I know the following commands: ${commandList}`;
     } catch (err) {
       logger.error(err);
     } finally {
-      logger.info(`${msg.channelId} ${msg.author.id} ${msg.content}`);
+      // logger.info(`${msg.channelId} ${msg.author.id} ${msg.content}`);
     }
   }
 
