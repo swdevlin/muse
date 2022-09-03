@@ -1,0 +1,104 @@
+Ninz-class Scout:
+  category: Ship
+  page: AoCS 294
+  aliases:
+    - Ninz
+  text: >
+    **100 tons  J2  M2**
+    
+    A standard civilian exploratory vessel used
+    by both commercial concerns and the
+    Consulate Navy for frontier exploration and
+    reconnaissance. An old and reliable design,
+    this scout is oriented more towards survey
+    and scientific missions and less to courier-type
+    duties than its Imperial counterpart
+    is. Ninz-class scouts see extensive use for
+    supplemental surveys off the main axis of
+    exploration within the Core Expeditions.
+    Ships in naval service are named after
+    former naval officers.
+Yetsasl-class Courier:
+  category: Ship
+  page: AoCS 296
+  aliases:
+    - Yetsasl
+  text: >
+    **200 tons  J3  M2**
+    
+    The Yetsasl-class is named after a racing
+    beast on Zhdant and individual ships
+    often after similar creatures on other
+    worlds. The courier design gives priority
+    to transport of important personnel, such
+    as government officials on diplomatic
+    missions. The Yetsasl’s role often
+    takes it outside the Consulate and it
+    is the Zhodani vessel most commonly
+    encountered in the Imperium. Yetsasls are
+    a separate design from Ninz scouts, unlike
+    the Imperial practice of using the same
+    hull for both scouts and couriers; a Yetsasl
+    is larger than a Ninz and contains more
+    extensive staterooms and fittings.
+Zdebr-class Trader:
+  category: Ship
+  page: AoCS 298
+  aliases:
+    - Zdebr
+  text: >
+    **400 tons  J2  M1**
+    
+    Individuals and small trading companies
+    are the most prolific operators Zdebr-class
+    traders and these ships are a common sight
+    in frontier regions of the Consulate. They
+    are more general-purpose vessels than
+    the 400-ton subsidised merchant used in
+    the Imperium, being closer in concept to
+    an oversized free trader. Atypically for a
+    Zhodani commercial vessel the Zdebr is
+    armed, albeit lightly. Zdebr-class ships are
+    named after historically famous seaports
+    and caravan routes on old Zhdant.
+Shianjo-class Liner:
+  category: Ship
+  page: AoCS 300
+  aliases:
+    - Shianjo
+  text: >
+    **900 tons  J4  M1**
+    
+    A passenger liner used in the core regions
+    of the Consulate and along most of its main
+    trade routes, the Shianjo (‘Good Journey’)
+    has a reputation for its stylish interior
+    design and high jump range. Nobles and
+    Intendants typically occupy staterooms,
+    while Proles travel in low passage unless
+    they are servants or retainers. Commercial
+    vessels are normally unarmed in peaceful
+    Consulate space but in wartime this
+    makes them easy targets for privateers and
+    commerce raiders, forcing the Zhodani
+    navy to provide escorts.
+Dazhia-Class Council Corvette:
+  category: Ship
+  page: AoCS 302
+  aliases:
+    - Council Corvette
+    - Dazhia
+    - Dazhia-class
+    - Plankwell-class
+    - plankwell
+  text: >
+    **2000 tons  J4  M4**
+    
+    Supreme council members and their agents
+    on Consular business use these fast, highly
+    advanced ships. Interior fittings are notably
+    luxurious, but they are unusual as they
+    carry a second starship internally – a 200
+    ton Yetsasl courier, used for side-trips or
+    ensuring the safety of the Consul on board
+    should the corvette come under attack.

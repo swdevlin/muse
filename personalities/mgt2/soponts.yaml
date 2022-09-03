@@ -1,0 +1,94 @@
+Sophont:
+  text: >
+    An intelligent being; a being with a base reasoning capacity roughly
+    equivalent to or greater than that of a human being. The word does not
+    apply to machines unless they have true artificial intelligence, rather
+    than mere processing capacity.
+    
+    
+    Sophont are designated a Major sophont if they achieved jump technology 
+    on their own. The major sophonts include: $list
+Aslan:
+  parent: Sophont
+  image: https://jonbrazer.files.wordpress.com/2021/01/7e9a4-aslan-female-preview.jpg
+  text: >
+    The Aslan are the youngest of the great powers, an
+    expansionist race of feuding clans and predatory
+    warriors, eager to seize all the universe has to offer.
+    Aslan are descended from four-limbed carnivorous
+    pouncer stock which was originally near the top of the
+    food chain in the forests of their homeworld, Kusyu. True
+    to their pouncer ancestry, Aslan are capable of short
+    bursts of speed somewhat greater than that manageable
+    by humans. They also have slightly superior hearing and
+    night vision. Otherwise, they are one of the most humanlike
+    of all alien races, excepting, of course, the Vargr
+    (who are, after all, genetically-altered mammalian stock
+    originally from Earth).
+    
+    
+    Early Terran explorers regarded the Aslan as ‘lion-like’, and
+    the simile has stuck ever since, although the Aslan bear
+    only a passing resemblance to terrestrial lions. Nonetheless,
+    this early misnomer has influenced a great deal of human
+    thinking about the Aslan, including terminology (the use of
+    pride to translate ahriy, for instance) and ascribed behaviour
+    – which is not at all leonine.
+Vargr:
+  parent: Sophont
+  image: https://i.pinimg.com/originals/ce/eb/63/ceeb63c5e1873c779ea2354677344df9.jpg
+  text: >
+    The Vargr are the only major race to have been uplifted by
+    the Ancients, a fact that the Vargr are extremely proud of.
+    They are typically seen by other races as aggressive pirates
+    and scavengers but the Vargr actually have a diverse
+    culture that is deeply rooted in their pack mentality and
+    the desire for companionship, charisma and loyalty. Their
+    constant struggle for charisma and leadership results in a
+    culture fuelled by conflict and change.
+    
+    
+    The Vargr are descended from carnivore/chaser stock;
+    genetically engineered by the Ancients circa –300,000
+    from the genus Canis. The carnivores were transplanted
+    from Terra to Lair/Grnouf in the Provence sector. The Vargr
+    bear a close resemblance to their canine ancestry, as
+    can be seen by their muzzle, tail and fur, though several
+    anatomical modifications were made by the Ancients
+    to the canine body structure. Vargr adopt a digitigrade
+    stance (putting their weight on their toes rather than the
+    soles of their feet) and many have a slight stoop.
+Vegans:
+  parent: Sophont
+  aliases:
+    - Tyui
+  image: https://openmuse.info/campaigns/arcturus/vegan.png
+  text: >
+    The Vegans are an alien race native to Muan Gwi in the
+    Vega subsector, named after the bright star near their
+    homeworld. They call themselves Tyui but prefer the
+    popular term Vegan when interacting with others. A
+    Vegan is roughly humanoid in shape but very nonhuman
+    in appearance. They have two legs, two arms and a head
+    but completely nonhuman in detail. Their bodies are
+    upright, bipedal and bilaterally symmetrical, towering
+    over an average Solomani or Vilani with an average
+    height of 2.2 metres.
+Hiver:
+  parent: Sophont
+  image: https://i.pinimg.com/736x/12/3b/57/123b5725f5bf485b4363d80512e3d85e.jpg
+  text: >
+    Hivers are a unique species with few species bearing any real commonalities
+    with Hivers, either in mindset, physiology, or otherwise. In a universe where
+    humanoids seem to predominate, they are non-humanoids. In a universe that
+    favors the violent and selfish, Hivers are altruists and seek to elevate
+    life. In a world of intense competition and deadly contests of survival,
+    the Hivers build vast, peaceful communities and make friends where enemies
+    once existed.
+    
+    
+    Descended from omnivore gatherer/scavenger stock, they are the most alien
+    of the major races. Hivers evolved from troglobytic (cave-dwelling)
+    creatures who developed mutualistic relationships with other cave-dwellers.
+    Hivers like planets of size 6 or less, with thin or standard atmospheres
+    and unvarying climates.

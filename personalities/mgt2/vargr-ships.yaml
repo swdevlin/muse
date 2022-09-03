@@ -1,0 +1,161 @@
+Aakum Heavy Fighter:
+  category: Ship
+  page: AoCS 224
+  aliases:
+    - Aakum
+  text: >
+    **40 tons  M9**
+    
+    The Aakum is the most common fighter
+    craft used by Vargr military organisations
+    and it appears in many corsair bands. It
+    is fast enough and tough enough to battle
+    other fighters, while carrying enough
+    firepower to assault larger vessels with
+    some effectiveness.
+Aetin Scout:
+  category: Ship
+  page: AoCS 226
+  aliases:
+    - Aetin
+  text: >
+    **100 tons  J2 M2**
+    
+    Using a 100-ton hull, the Aetin scout is
+    primarily used by the navy and corsair
+    bands for reconnaissance and ground
+    support duties but also lone prospectors
+    and explorers. Much like its Imperial
+    counterpart, the Aetin scout is a common
+    sight in the Extents and therefore easy to
+    maintain and repair.
+    
+    The Aetin scout only requires a crew of
+    one pilot but a gunner is carried as well
+    if weapons are mounted in the standard
+    double turret. Two additional crew or
+    personnel can be carried with double
+    occupancy if required.
+Koerae Trader:
+  category: Ship
+  page: AoCS 228
+  aliases:
+    - Koerae
+  text: >
+    **200 tons  J2 M2**
+    
+    This interstellar trading vessel is built on a
+    200-ton hull and is used extensively in the
+    Vargr Extents. Like most Vargr ships, the
+    Koerae is armoured to provide protection
+    against the many corsair bands that prowl
+    the trade lanes. While not sufficient to
+    keep the Koerae safe in pitched battle, the
+    thin armour is deemed enough to buy time
+    to escape an attacker.
+Avouz Courier:
+  category: Ship
+  page: AoCS 230
+  aliases:
+    - Avouz
+  text: >
+    **200 tons  J3 M3**
+    
+    Using a 200-ton hull, the Avouz courier
+    is designed for the fast transport of
+    emissaries and messages over interstellar
+    distances. The courier is generally used
+    by military and government organisations
+    for diplomatic and intelligence purposes
+    but its performance makes it attractive to
+    explorers, corsairs and Travellers alike.
+Rradhi Seeker:
+  category: Ship
+  page: AoCS 232
+  aliases:
+    - Rradhi
+  text: >
+    **200 tons  J1 M1**
+    
+    The Rradhi seeker is a versatile ship
+    designed for mining and prospecting. The
+    normal crew consists of a pilot, navigator,
+    engineer and medic, although some multi-skilled
+    prospectors will attempt to fly the
+    ship on their own. Up to four additional
+    workers can join the crew with double
+    occupancy if required, although care has to
+    be taken that this does not reduce profits.
+Akalvo Yacht:
+  category: Ship
+  page: AoCS 234
+  aliases:
+    - Akalvo
+  text: >
+    **300 tons  J2 M5**
+    
+    The Akalvo is a luxury pleasure craft – but
+    most certainly built for Vargr. Built for
+    speed as much as comfort, the interior is
+    a riot of colour and trimmings, pitched
+    perfectly to awe lesser Vargr. To the eyes of
+    other races, however, it appears the height
+    of vulgarity. Akalvo yachts are sold directly
+    to wealthy Vargr who have made their
+    fortunes in business or raiding ventures,
+    although the latter have been known to
+    continue their corsair life from the bridges
+    of these ships.
+Ruguelka Corsair:
+  category: Ship
+  page: AoCS 236
+  aliases:
+    - Reguelka
+  text: >
+    **400 tons  J2 M5**
+    
+    Using a small but potent 400-ton hull, the
+    Ruguelka is the raiding vessel of choice
+    for most corsair bands. It is a common
+    sight in Vargr space and one feared by
+    many Travellers. Extremely fast, it is hard
+    to escape from once an intercept course
+    has been set and it can carry a substantial
+    boarding party.
+Aerounkhu Packet:
+  category: Ship
+  page: AoCS 238
+  aliases:
+    - Aerounkhu
+  text: >
+    **600 tons  J1 M1**
+    
+    This merchant vessel is designed to
+    transport both passengers and cargo, and
+    is well armed to defend against would-be
+    raiders. The Aerounkhu is primarily used
+    as a passenger liner with the cargo space
+    allocated to luggage storage and supplies.
+    
+    The Aerounkhu typically has a standard crew
+    of eight, with many of the crew also serving
+    as gunners in the event of corsair attack.
+Leklun Corvette:
+  category: Ship
+  page: AoCS 240
+  aliases:
+    - Leklun
+  text: >
+    **800 tons  J4 M4**
+    
+    Using an 800-ton hull, the Leklun is
+    commonly used by Vargr military forces
+    for patrols and fighting corsair raiders.
+    Some variants sacrifice the fighters for a
+    G/Carrier, allowing a larger complement of
+    troops to be deployed in a single action.
+    While the smallest of true warships, the
+    Leklun is nonetheless potent enough
+    against raider vessels and when combined
+    into squadrons, the corvette can cause
+    problems for larger ships.
