@@ -1,7 +1,6 @@
 "use strict"
 
 const fs = require('fs');
-const BasePersonality = require("./base");
 
 const personalities = {};
 
@@ -14,15 +13,5 @@ fs.readdirSync(__dirname + '/').forEach(function(file) {
     personalities[handler.id] = handler;
   }
 });
-
-class Blank extends BasePersonality {
-  static data = 'blank';
-  static title = 'Blank';
-  static id = 0;
-
-}
-
-personalities[0] = Blank;
-
 
 module.exports = personalities;

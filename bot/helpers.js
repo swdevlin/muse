@@ -2,7 +2,7 @@
 
 const logger = require("./logger");
 const knex = require("./db/connection");
-const {MessageEmbed} = require("discord.js");
+const {EmbedBuilder, MessageEmbed} = require("discord.js");
 
 const populateMuse = async (personality_id, data, trx) => {
   for (const topic of Object.keys(data)) {
@@ -51,31 +51,31 @@ const addChannel = async (guild_id, channel, trx) => {
   return data;
 }
 
-const sendEntry = async (msg, entry, personality) => {
-  let text;
-  if (entry.page)
-    text = `**${entry.title}**   :book: ${entry.page}\n${entry.text}`;
-  else
-    text = `**${entry.title}**\n${entry.text}`;
-  if (entry.wiki_slug)
-    text += `_ ${personality.constructor.wikiBase}/${entry.wiki_slug} _`;
-  let embed = null;
-  if (entry.image)
-    embed = new MessageEmbed().setImage(entry.image)
-  const messagePayload = {
-    content: text,
-    embeds: embed ? [embed] : []
-  };
+const sendEntry = async (interaction, entry, personality) => {
   try {
-    await msg.reply(messagePayload);
+    let text;
+    if (entry.page)
+      text = `**${entry.title}**   :book: ${entry.page}\n${entry.text}`;
+    else
+      text = `**${entry.title}**\n${entry.text}`;
+    if (entry.wiki_slug)
+      text += `_ ${personality.constructor.wikiBase}/${entry.wiki_slug} _`;
+    let embed = null;
+    if (entry.image)
+      embed = new EmbedBuilder().setImage(entry.image);
+    const messagePayload = {
+      content: text,
+      embeds: embed ? [embed] : []
+    };
+    await interaction.reply(messagePayload);
   } catch(err) {
     logger.error(err);
   }
 }
 
-const hackDetected = async (msg) => {
+const hackDetected = async (interaction) => {
   const text = 'infosec check failed';
-  logger.info(`permissions fail - ${msg.guild.id} ${msg.author.id} ${msg.content}`);
+  logger.info(`permissions fail - ${interaction.guild.id} ${interaction.user.id}`);
   await msg.reply(text);
 }
 

@@ -26,11 +26,12 @@
   },
   "homepage": "https://github.com/swdevlin/muse#readme",
   "dependencies": {
+    "@discordjs/rest": "^1.1.0",
     "async-redis": "^2.0.0",
     "aws-sdk": "^2.1124.0",
     "axios": "^0.24.0",
     "discord": "^0.8.2",
-    "discord.js": "^13",
+    "discord.js": "^14.3",
     "dotenv": "^8.2.0",
     "knex": "^2.0.0",
     "natural": "^3.0.1",

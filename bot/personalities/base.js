@@ -1,14 +1,27 @@
 "use strict"
 
-const commands = require("../commands");
 const logger = require("../logger");
-const {sendEntry, populateMuse, findEntryInDB} = require("../helpers");
+const {sendEntry, populateMuse, findEntryInDB, hackDetected} = require("../helpers");
 const path = require("path");
 const fs = require("fs");
 const fsp = require("fs/promises");
 const YAML = require("yaml");
 const knex = require("../db/connection");
 const pug = require('pug');
+const {PermissionsBitField, Permissions, Routes} = require("discord.js");
+const Random = require("random-js").Random;
+const rng = new Random();
+
+const AWS = require('aws-sdk');
+const {REST} = require("@discordjs/rest");
+const campaignLoader = require("../campaignLoader");
+
+AWS.config.update({
+  region: process.env.AWS_DEFAULT_REGION,
+  accessKeyId: process.env.AWS_ACCESS_KEY,
+  secretAccessKey: process.env.AWS_SECRET,
+});
+const sqs = new AWS.SQS({apiVersion: '2012-11-05'});
 
 const docsFolder = '../muse_web/personas/';
 const documentationTemplate = pug.compileFile('./template.pug', {});
@@ -32,7 +45,6 @@ const QUERIES = [
   'what do you know about ',
 ];
 
-const tokenSplit = /\s+/;
 const spaceCollapse = /\s{2,}/g;
 const punctuationRx = /[~!@#$%^&*()`{}\[\];:"'<,.>?\/\\|\-_+=]+/g;
 
@@ -41,50 +53,138 @@ class BasePersonality {
   static webAbout = '';
 
   constructor(prefix) {
-    this.tokens = [];
     this.prefix = prefix;
     this.channelId = null;
     this.lookup = null;
-    this.content = null;
+    this.search = null;
     this.originalContent = null;
     this.authorId = null;
     this.knowledge = null;
   }
 
-  async getTokens(msg) {
-    this.content = msg.content;
-    this.content = this.content.toLocaleLowerCase().trim();
-    this.tokens = this.content.split(tokenSplit);
-    if (this.tokens.length === 1)
-      this.tokens.push('help');
-    else if (this.tokens.length ===2) {
-      if (this.tokens[1] === '-about')
-        this.tokens[1] = 'about';
-      else if (this.tokens[1] === '-help')
-        this.tokens[1] = 'help';
-    }
-
-    let ot = msg.content.split(tokenSplit);
-    ot.shift();
-    this.originalContent = ot.join(' ');
+  async getSearch(interaction) {
+    this.originalContent = interaction.options.getString('topic');
+    this.search = this.originalContent.toLocaleLowerCase().trim();
   }
 
-  prefixMatch() {
-    return this.tokens[0] === this.prefix || this.tokens[0] === process.env.MUSE_PREFIX;
-  }
+  async doHelp(interaction) {
+    const helpText = `Use the /muse command and specify a topic and I will look up information about the topic. For example, enter \`/muse c-ball\` to find out information about c-ball.
 
-  async doHelp(msg) {
-    const commandList = Object.keys(commands).join(', ');
-    const helpText = `Add text after \`${this.prefix}\` and I will look up information about the topic. For example, enter \`${this.prefix} c-ball\` to find out information about c-ball.
-
-My current persona is ${this.constructor.title}. You can change my persona with the \`-persona\` command.
-
-I know the following commands: ${commandList}`;
+My current persona is ${this.constructor.title}. You can change my persona with the \`/persona\` command.`;
     let entry = {
       title: 'Help',
       text: helpText
     }
-    await sendEntry(msg, entry, this);
+    await sendEntry(interaction, entry, this);
+  }
+
+  async doAbout(interaction) {
+    const helpText = `Muse is an RPG dictionary bot inspired by the muse ALI in the Eclipse Phase RPG published by Posthuman Studios.
+    
+Muse was built to help players with quick rules lookups and to deliver small bits of lore about the game setting.
+
+Each Discord server channel sets the game system to use; Muse calls these personas. Personas have information specific
+to a game system, typically rule summaries. GMs can also import campaign files with entries specific to their game. These
+entries are only available on the channel where they were imported. This enables Muse to support a unique game
+on each channel in the Discord server.
+    
+Muse is opensource. You can find the project at https://github.com/swdevlin/muse . Pull requests welcomed. :smiley:   
+
+_version: 0.9_`;
+    let entry = {
+      title: 'About',
+      text: helpText
+    }
+    await sendEntry(interaction, entry, this);
+  }
+
+  async doDiagnostics(interaction) {
+    const {channel} = interaction;
+
+    try {
+      await interaction.reply({ content: 'running self diagnostics....', ephemeral: true });
+      const topics = await knex('topic')
+        .where({personality: this.constructor.id, alias_for: null})
+        .count('topic.id as topic_count');
+
+      const campaign = await knex('channel_topic')
+        .join('channel', 'channel.id', 'channel_topic.channel_id')
+        .where({'channel.id': channel.id, alias_for: null})
+        .count('channel_topic.id as topic_count');
+
+      const message = `I know ${topics[0].topic_count} persona topics and ${campaign[0].topic_count} campaign topics.`;
+      logger.info(`diagnostics run for ${channel.id}`);
+      await interaction.followUp({ content: message, ephemeral: true });
+    } catch(err) {
+      logger.error(err);
+    }
+  }
+
+  async doReset(interaction) {
+    const {channel} = interaction;
+
+    try {
+      await knex('channel_topic').delete().where({channel_id: channel.id});
+      logger.info(`campaign entries deleted for ${channel.id}`);
+      const message = `Campaign entries have been deleted.`;
+      await interaction.reply({ content: message, ephemeral: true });
+    } catch(err) {
+      logger.error(err);
+    }
+  }
+
+  async doCampaign(interaction) {
+    const {channel} = interaction;
+
+    try {
+      const campaignFile = interaction.options.getAttachment('campaign');
+      if (campaignFile.size === 0)
+        return await interaction.reply({ content: 'campaign file is empty', ephemeral: true });
+
+      await interaction.deferReply({ephemeral: true});
+      await campaignLoader(interaction);
+    } catch(err) {
+      logger.error(err);
+    }
+  }
+
+  async doPersona(interaction) {
+    let newPersona = interaction.options.getString('persona');
+    if (newPersona === null) {
+      const msg = `My current persona is ${this.constructor.title}.`;
+      await interaction.reply(msg);
+    } else {
+      const channel = interaction.channel;
+      if (interaction.member.permissions.has(PermissionsBitField.Flags.ManageChannels)) {
+        newPersona = parseInt(newPersona);
+        const personalities = require("../personalities");
+        const p = personalities[newPersona];
+        await knex('channel').update({personality: p.id}).where({id: channel.id});
+        logger.info(`persona changed to ${p.textName} for ${channel.id}`);
+        return await interaction.reply(`My persona has been changed to ${p.title}`)
+      } else {
+        const text = 'Only channel admins can change my persona';
+        logger.info(`persona permissions fail - ${channel.id} ${interaction.user.id}`);
+        return await interaction.reply(text);
+      }
+    }
+  }
+
+  async doRandom(interaction) {
+    const {channel} = interaction;
+
+    try {
+      const items = await knex.select('key')
+        .from('topic')
+        .where({personality: this.constructor.id, alias_for: null});
+
+      const r = rng.integer(0, items.length-1);
+      let entry = await findEntryInDB(items[r].key, channel.id, this.constructor.id);
+      await sendEntry(interaction, entry, this);
+      logger.info(`${channel.id} ${interaction.user.id} random`);
+    } catch(err) {
+      logger.error(err);
+    }
   }
 
   async findEntry() {
@@ -103,7 +203,7 @@ I know the following commands: ${commandList}`;
   }
 
   async getLookup() {
-    this.lookup = this.tokens.join(' ');
+    this.lookup = this.search;
     if (this.lookup.startsWith('please '))
       this.lookup = this.lookup.substring(7);
 
@@ -117,38 +217,25 @@ I know the following commands: ${commandList}`;
       this.lookup = this.lookup.substring(4);
     if (this.lookup.startsWith('a '))
       this.lookup = this.lookup.substring(2);
-    if (this.lookup === 'you')
-      this.lookup = 'muse';
   }
 
   async checkExternal(msg) {
     return null;
   }
 
-  async doCommand(msg) {
-    return await commands[this.tokens[1]].do(msg, this);
-  }
-
-  async replyToMessage(msg) {
-    if (commands[this.tokens[1]])
-      return this.doCommand(msg);
-
-    this.tokens.shift();
-    this.channelId = msg.channel.id;
-    this.authorId = msg.author.id;
+  async replyToMessage(interaction) {
+    this.channelId = interaction.channel.id;
+    this.authorId = interaction.user.id;
 
     this.getLookup();
-
-    if (this.lookup === 'help')
-      return await this.doHelp(msg);
 
     try {
       const entry = await this.findEntry();
       if (entry) {
-        await sendEntry(msg, entry, this);
-        logger.info(`${msg.channelId} ${msg.author.id} ${msg.content}`);
-      } else if (!await this.checkExternal(msg))
-        await this.noMatch(msg);
+        await sendEntry(interaction, entry, this);
+        logger.info(`${interaction.channelId} ${interaction.user.id} ${this.originalContent}`);
+      } else if (!await this.checkExternal(interaction))
+        await this.noMatch(interaction);
     } catch(err) {
       logger.error(err);
     }
@@ -158,16 +245,30 @@ I know the following commands: ${commandList}`;
     await msg.reply(`no data found for ${this.lookup}`);
   }
 
-  async handleMessage(msg) {
+  async handleInteraction(interaction) {
     try {
-      await this.getTokens(msg);
-      if (!this.prefixMatch())
-        return;
-      await this.replyToMessage(msg);
+      if (interaction.commandName === 'help')
+        await this.doHelp(interaction);
+      else if (interaction.commandName === 'about')
+        await this.doAbout(interaction);
+      else if (interaction.commandName === 'persona')
+        await this.doPersona(interaction);
+      else if (interaction.commandName === 'diagnostics')
+        await this.doDiagnostics(interaction);
+      else if (interaction.commandName === 'reset')
+        await this.doReset(interaction);
+      else if (interaction.commandName === 'campaign')
+        await this.doCampaign(interaction);
+      else if (interaction.commandName === 'random')
+        await this.doRandom(interaction);
+      else {
+        await this.getSearch(interaction);
+        await this.replyToMessage(interaction);
+      }
     } catch (err) {
       logger.error(err);
     } finally {
-      // logger.info(`${msg.channelId} ${msg.author.id} ${msg.content}`);
+      // Should log something here
     }
   }
 
