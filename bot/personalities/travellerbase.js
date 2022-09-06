@@ -8,7 +8,7 @@ const axios = require("axios");
 const AWS = require('aws-sdk');
 const logger = require("../logger");
 
-const {MessageEmbed} = require("discord.js");
+const {EmbedBuilder} = require("discord.js");
 
 const UWPRegex = /(.)(.)(.)(.)(.)(.)(.)-(.)/;
 const TRAVELLER_MAP_URL = 'https://travellermap.com';
@@ -506,7 +506,7 @@ UWP: ${system.uwp}
     let text = this.renderSystem(system);
     const url = await this.saveImage(system, jumps, style);
     if (url) {
-      let embed = new MessageEmbed().setImage(url);
+      let embed = new EmbedBuilder().setImage(url);
       const messagePayload = {
         content: text,
         embeds: [embed]

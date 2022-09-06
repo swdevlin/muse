@@ -11,7 +11,7 @@ try {
   cards = {};
 }
 
-const {MessageEmbed} = require("discord.js");
+const {EmbedBuilder} = require("discord.js");
 
 class LordOfTheRings extends BasePersonality {
   static data = 'lotr';
@@ -57,7 +57,7 @@ class LordOfTheRings extends BasePersonality {
 
   async replyCard(msg, card) {
     let text = this.renderCard(card);
-    let embed = new MessageEmbed().setImage(`https://ringsdb.com${card.imagesrc}`);
+    let embed = new EmbedBuilder().setImage(`https://ringsdb.com${card.imagesrc}`);
     const messagePayload = {
       content: text,
       embeds: [embed]

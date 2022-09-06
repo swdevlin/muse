@@ -40,6 +40,19 @@ commands.push(
 
 commands.push(
   new SlashCommandBuilder()
+    .setName('campaign')
+    .setDescription('Import a campaign file')
+    .setDefaultMemberPermissions(PermissionFlagsBits.ManageChannel)
+    .addAttachmentOption(
+      option => option
+        .setName('campaign')
+        .setDescription('YAML file containing campaign knowledgebase')
+        .setRequired(true)
+    )
+);
+
+commands.push(
+  new SlashCommandBuilder()
     .setName('reset')
     .setDescription("Remove Muse's campaign entries")
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageChannel)

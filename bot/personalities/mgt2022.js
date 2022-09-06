@@ -7,7 +7,6 @@ const axios = require("axios");
 const AWS = require('aws-sdk');
 const logger = require("../logger");
 
-const {MessageEmbed} = require("discord.js");
 const MongooseTraveller2 = require("./mgt2");
 
 const UWPRegex = /(.)(.)(.)(.)(.)(.)(.)-(.)/;

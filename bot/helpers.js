@@ -2,7 +2,7 @@
 
 const logger = require("./logger");
 const knex = require("./db/connection");
-const {MessageEmbed} = require("discord.js");
+const {EmbedBuilder, MessageEmbed} = require("discord.js");
 
 const populateMuse = async (personality_id, data, trx) => {
   for (const topic of Object.keys(data)) {
@@ -52,21 +52,21 @@ const addChannel = async (guild_id, channel, trx) => {
 }
 
 const sendEntry = async (interaction, entry, personality) => {
-  let text;
-  if (entry.page)
-    text = `**${entry.title}**   :book: ${entry.page}\n${entry.text}`;
-  else
-    text = `**${entry.title}**\n${entry.text}`;
-  if (entry.wiki_slug)
-    text += `_ ${personality.constructor.wikiBase}/${entry.wiki_slug} _`;
-  let embed = null;
-  if (entry.image)
-    embed = new MessageEmbed().setImage(entry.image)
-  const messagePayload = {
-    content: text,
-    embeds: embed ? [embed] : []
-  };
   try {
+    let text;
+    if (entry.page)
+      text = `**${entry.title}**   :book: ${entry.page}\n${entry.text}`;
+    else
+      text = `**${entry.title}**\n${entry.text}`;
+    if (entry.wiki_slug)
+      text += `_ ${personality.constructor.wikiBase}/${entry.wiki_slug} _`;
+    let embed = null;
+    if (entry.image)
+      embed = new EmbedBuilder().setImage(entry.image);
+    const messagePayload = {
+      content: text,
+      embeds: embed ? [embed] : []
+    };
     await interaction.reply(messagePayload);
   } catch(err) {
     logger.error(err);

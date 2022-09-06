@@ -8,9 +8,20 @@ const fsp = require("fs/promises");
 const YAML = require("yaml");
 const knex = require("../db/connection");
 const pug = require('pug');
-const {PermissionsBitField, Permissions} = require("discord.js");
+const {PermissionsBitField, Permissions, Routes} = require("discord.js");
 const Random = require("random-js").Random;
 const rng = new Random();
+
+const AWS = require('aws-sdk');
+const {REST} = require("@discordjs/rest");
+const campaignLoader = require("../campaignLoader");
+
+AWS.config.update({
+  region: process.env.AWS_DEFAULT_REGION,
+  accessKeyId: process.env.AWS_ACCESS_KEY,
+  secretAccessKey: process.env.AWS_SECRET,
+});
+const sqs = new AWS.SQS({apiVersion: '2012-11-05'});
 
 const docsFolder = '../muse_web/personas/';
 const documentationTemplate = pug.compileFile('./template.pug', {});
@@ -97,6 +108,21 @@ My current persona is ${this.constructor.title}. You can change my persona with 
       logger.info(`campaign entries deleted for ${channel.id}`);
       const message = `Campaign entries have been deleted.`;
       await interaction.reply({ content: message, ephemeral: true });
+    } catch(err) {
+      logger.error(err);
+    }
+  }
+
+  async doCampaign(interaction) {
+    const {channel} = interaction;
+
+    try {
+      const campaignFile = interaction.options.getAttachment('campaign');
+      if (campaignFile.size === 0)
+        return await interaction.reply({ content: 'campaign file is empty', ephemeral: true });
+
+      await interaction.deferReply({ephemeral: true});
+      await campaignLoader(interaction);
     } catch(err) {
       logger.error(err);
     }
@@ -209,6 +235,8 @@ My current persona is ${this.constructor.title}. You can change my persona with 
         await this.doDiagnostics(interaction);
       else if (interaction.commandName === 'reset')
         await this.doReset(interaction);
+      else if (interaction.commandName === 'campaign')
+        await this.doCampaign(interaction);
       else if (interaction.commandName === 'random')
         await this.doRandom(interaction);
       else {
