@@ -1,6 +1,6 @@
 # Muse
 Muse is a [Discord](https://discord.com) bot for [Eclipse Phase](https://www.eclipsephase.com/) by [Posthuman Studios, LLC](https://posthumanstudios.com/). 
-It was built to help new players with quick rules lookups. When invited to a Discord server, a user can type `muse topic` and 
+It was built to help new players with quick rules lookups. When invited to a Discord server, a user can type `/muse topic` and 
 muse will post what it knows about the topic.
 
 You can invite Muse to your [Discord](https://discord.com) using the following link 
