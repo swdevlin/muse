@@ -51,7 +51,7 @@ const addChannel = async (guild_id, channel, trx) => {
   return data;
 }
 
-const sendEntry = async (msg, entry, personality) => {
+const sendEntry = async (interaction, entry, personality) => {
   let text;
   if (entry.page)
     text = `**${entry.title}**   :book: ${entry.page}\n${entry.text}`;
@@ -67,15 +67,15 @@ const sendEntry = async (msg, entry, personality) => {
     embeds: embed ? [embed] : []
   };
   try {
-    await msg.reply(messagePayload);
+    await interaction.reply(messagePayload);
   } catch(err) {
     logger.error(err);
   }
 }
 
-const hackDetected = async (msg) => {
+const hackDetected = async (interaction) => {
   const text = 'infosec check failed';
-  logger.info(`permissions fail - ${msg.guild.id} ${msg.author.id} ${msg.content}`);
+  logger.info(`permissions fail - ${interaction.guild.id} ${interaction.user.id}`);
   await msg.reply(text);
 }
 
