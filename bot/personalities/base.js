@@ -78,6 +78,26 @@ My current persona is ${this.constructor.title}. You can change my persona with 
     await sendEntry(interaction, entry, this);
   }
 
+  async doAbout(interaction) {
+    const helpText = `Muse is an RPG dictionary bot inspired by the muse ALI in the Eclipse Phase RPG published by Posthuman Studios.
+    
+Muse was built to help players with quick rules lookups and to deliver small bits of lore about the game setting.
+
+Each Discord server channel sets the game system to use; Muse calls these personas. Personas have information specific
+to a game system, typically rule summaries. GMs can also import campaign files with entries specific to their game. These
+entries are only available on the channel where they were imported. This enables Muse to support a unique game
+on each channel in the Discord server.
+    
+Muse is opensource. You can find the project at https://github.com/swdevlin/muse . Pull requests welcomed. :smiley:   
+
+_version: 0.9_`;
+    let entry = {
+      title: 'About',
+      text: helpText
+    }
+    await sendEntry(interaction, entry, this);
+  }
+
   async doDiagnostics(interaction) {
     const {channel} = interaction;
 
@@ -229,6 +249,8 @@ My current persona is ${this.constructor.title}. You can change my persona with 
     try {
       if (interaction.commandName === 'help')
         await this.doHelp(interaction);
+      else if (interaction.commandName === 'about')
+        await this.doAbout(interaction);
       else if (interaction.commandName === 'persona')
         await this.doPersona(interaction);
       else if (interaction.commandName === 'diagnostics')

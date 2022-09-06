@@ -28,7 +28,13 @@ commands.push(
 commands.push(
   new SlashCommandBuilder()
     .setName('random')
-    .setDescription('Show a random entry from the knowledgebase')
+    .setDescription('Show a random entry from the knowledge base')
+);
+
+commands.push(
+  new SlashCommandBuilder()
+    .setName('about')
+    .setDescription('All about muse')
 );
 
 commands.push(
