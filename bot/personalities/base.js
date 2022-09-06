@@ -71,6 +71,7 @@ My current persona is ${this.constructor.title}. You can change my persona with 
     const {channel} = interaction;
 
     try {
+      await interaction.reply({ content: 'running self diagnostics....', ephemeral: true });
       const topics = await knex('topic')
         .where({personality: this.constructor.id, alias_for: null})
         .count('topic.id as topic_count');
@@ -80,9 +81,9 @@ My current persona is ${this.constructor.title}. You can change my persona with 
         .where({'channel.id': channel.id, alias_for: null})
         .count('channel_topic.id as topic_count');
 
-      const message = `running self diagnostics....\n\nI know ${topics[0].topic_count} persona topics and ${campaign[0].topic_count} campaign topics.`;
+      const message = `I know ${topics[0].topic_count} persona topics and ${campaign[0].topic_count} campaign topics.`;
       logger.info(`diagnostics run for ${channel.id}`);
-      await interaction.reply({ content: message, ephemeral: true });
+      await interaction.followUp({ content: message, ephemeral: true });
     } catch(err) {
       logger.error(err);
     }
