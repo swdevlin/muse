@@ -41,7 +41,7 @@ commands.push(
   new SlashCommandBuilder()
     .setName('diagnostics')
     .setDescription('Show data about Muse')
-    .setDefaultMemberPermissions(PermissionFlagsBits.ManageChannel)
+    .setDefaultMemberPermissions(PermissionFlagsBits.ManageChannels)
 );
 
 commands.push(
