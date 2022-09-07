@@ -11,7 +11,7 @@ try {
   cards = {};
 }
 
-const {EmbedBuilder} = require("discord.js");
+const {EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle} = require("discord.js");
 
 class LordOfTheRings extends BasePersonality {
   static data = 'lotr';
@@ -24,16 +24,20 @@ class LordOfTheRings extends BasePersonality {
     <p>Lord of the Rings keyword and card lookup.</p>
   `;
 
-  async checkExternal(msg) {
-    const lookup = this.tokens.join(' ');
-    const cache_key = this.channelId + this.authorId;
+  async handleButton(interaction) {
+    const cache_key = interaction.channelId + interaction.user.id;
     let lastRequest = await cache.get(cache_key);
     if (lastRequest) {
       lastRequest = JSON.parse(lastRequest);
-      const num = Number(lookup);
-      if (Number.isInteger(num) && num-1 <= lastRequest.length)
-        return await this.replyCard(msg, cards[lastRequest[num-1]]);
+      const num = Number(interaction.customId);
+      if (Number.isInteger(num) && num < lastRequest.length)
+        return await this.replyCard(interaction, cards[lastRequest[num]]);
     }
+  }
+
+  async checkExternal(interaction) {
+    const lookup = this.lookup;
+    const cache_key = this.channelId + this.authorId;
 
     const matches = [];
     for (const key of Object.keys(cards))
@@ -41,28 +45,45 @@ class LordOfTheRings extends BasePersonality {
         matches.push(key);
 
     if (matches.length === 1) {
-      return await this.replyCard(msg, cards[matches[0]]);
+      return await this.replyCard(interaction, cards[matches[0]]);
     } else if (matches.length > 1) {
-      let text = 'Multiple matches:\n';
+      let text = 'Multiple matches:';
+      let buttonCount = 0;
+      let rowIndex = 0;
+      const rows = [new ActionRowBuilder()];
       matches.forEach((key, index) => {
+        if (index >= 25)
+          return;
         const card = cards[key];
-        text +=`${index+1}: ${card.name} ${emojiMap[card.sphere_code]}\n`;
+        rows[rowIndex].addComponents(
+          new ButtonBuilder()
+            .setCustomId(`${index}`)
+            .setLabel(card.name)
+            .setEmoji(emojiMap[card.sphere_code])
+            .setStyle(ButtonStyle.Secondary)
+        );
+        buttonCount++;
+        if (buttonCount === 5) {
+          rowIndex++;
+          buttonCount = 0;
+          rows.push(new ActionRowBuilder());
+        }
       });
       await cache.set(cache_key, JSON.stringify(matches));
-      await msg.reply(text);
+      await interaction.reply({content: text, components: rows});
       return true;
     } else
       return null;
   }
 
-  async replyCard(msg, card) {
+  async replyCard(interaction, card) {
     let text = this.renderCard(card);
     let embed = new EmbedBuilder().setImage(`https://ringsdb.com${card.imagesrc}`);
     const messagePayload = {
       content: text,
       embeds: [embed]
     };
-    await msg.reply(messagePayload);
+    await interaction.reply(messagePayload);
     return true;
   }
 
