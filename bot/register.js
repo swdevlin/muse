@@ -48,7 +48,7 @@ commands.push(
   new SlashCommandBuilder()
     .setName('campaign')
     .setDescription('Import a campaign file')
-    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
+    .setDefaultMemberPermissions(PermissionFlagsBits.ManageChannels)
     .addAttachmentOption(
       option => option
         .setName('campaign')
@@ -61,7 +61,7 @@ commands.push(
   new SlashCommandBuilder()
     .setName('reset')
     .setDescription("Remove Muse's campaign entries")
-    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
+    .setDefaultMemberPermissions(PermissionFlagsBits.ManageChannels)
 );
 
 const personaChoices = [];
