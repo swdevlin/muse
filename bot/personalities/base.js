@@ -241,8 +241,12 @@ _version: 0.9_`;
     }
   }
 
-  async noMatch(msg) {
-    await msg.reply(`no data found for ${this.lookup}`);
+  async noMatch(interaction) {
+    await interaction.reply(`no data found for ${this.lookup}`);
+  }
+
+  async handleButton(interaction) {
+
   }
 
   async handleInteraction(interaction) {

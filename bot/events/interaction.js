@@ -8,7 +8,7 @@ const knex = require('../db/connection');
 const personalities = require("../personalities");
 
 const handler = async (interaction) => {
-  if (!interaction.isChatInputCommand())
+  if (!interaction.isChatInputCommand() && !interaction.isButton())
     return;
 
   // await interaction.deferReply();
@@ -35,7 +35,10 @@ const handler = async (interaction) => {
   }
 
   const personality = channel.personality ? new personalities[channel.personality](process.env.MUSE_PREFIX) : new personalities[4](process.env.MUSE_PREFIX);
-  await personality.handleInteraction(interaction);
+  if (interaction.isButton())
+    await personality.handleButton(interaction);
+  else
+    await personality.handleInteraction(interaction);
 }
 
 module.exports = handler;

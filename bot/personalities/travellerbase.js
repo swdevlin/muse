@@ -8,7 +8,7 @@ const axios = require("axios");
 const AWS = require('aws-sdk');
 const logger = require("../logger");
 
-const {EmbedBuilder} = require("discord.js");
+const {EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle} = require("discord.js");
 
 const UWPRegex = /(.)(.)(.)(.)(.)(.)(.)-(.)/;
 const TRAVELLER_MAP_URL = 'https://travellermap.com';
@@ -502,7 +502,7 @@ UWP: ${system.uwp}
     }
   }
 
-  async replySystem(msg, system, jumps, style) {
+  async replySystem(interaction, system, jumps, style) {
     let text = this.renderSystem(system);
     const url = await this.saveImage(system, jumps, style);
     if (url) {
@@ -511,22 +511,26 @@ UWP: ${system.uwp}
         content: text,
         embeds: [embed]
       };
-      await msg.reply(messagePayload);
+      await interaction.reply(messagePayload);
       return true;
     }
     return null;
   }
 
-  async checkExternal(msg) {
-    const lookup = this.tokens.join(' ');
-    const cache_key = this.channelId + this.authorId;
+  async handleButton(interaction) {
+    const cache_key = interaction.channelId + interaction.user.id;
     let lastRequest = await cache.get(cache_key);
     if (lastRequest) {
       lastRequest = JSON.parse(lastRequest);
-      const num = Number(lookup);
+      const num = Number(interaction.customId);
       if (Number.isInteger(num) && num-1 <= lastRequest.systems.length)
-        return await this.replySystem(msg, lastRequest.systems[num-1]);
+        return await this.replySystem(interaction, lastRequest.systems[num-1]);
     }
+  }
+
+  async checkExternal(interaction) {
+    const lookup = this.lookup;
+    const cache_key = this.channelId + this.authorId;
     const term = encodeURIComponent(lookup);
     let url = `${TRAVELLER_MAP_URL}/api/search?q=${term}`;
     const response = await axios.get(url);
@@ -553,14 +557,32 @@ UWP: ${system.uwp}
       await this.replySystem(msg, matches.systems[0], matches.jump, matches.style);
       return true;
     } else if (matches.systems.length > 1) {
-      let text = 'Multiple matches:\n';
-      let index = 1;
+      let text = 'Multiple matches:';
+      let index = 0;
+      let buttonCount = 0;
+      let rowIndex = 0;
+      const rows = [new ActionRowBuilder()];
       for (const system of matches.systems) {
-        text +=`${index}: ${system.name} / ${system.sector}\n`;
         index++;
+        if (!system.name.toLocaleLowerCase().startsWith(lookup))
+          continue;
+        rows[rowIndex].addComponents(
+          new ButtonBuilder()
+            .setCustomId(`${index}`)
+            .setLabel(`${system.name} / ${system.sector}`)
+            .setStyle(ButtonStyle.Secondary)
+        );
+        buttonCount++;
+        if (buttonCount === 5) {
+          rowIndex++;
+          if (rowIndex === 5)
+            break;
+          buttonCount = 0;
+          rows.push(new ActionRowBuilder());
+        }
       }
       await cache.set(cache_key, JSON.stringify(matches));
-      await msg.reply(text);
+      await interaction.reply({content: text, components: rows});
       return true;
     }
     return null;
