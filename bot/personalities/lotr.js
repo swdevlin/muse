@@ -20,9 +20,7 @@ class LordOfTheRings extends BasePersonality {
   static id = 3;
   static defaultPrefix = 'muse';
   static wikiBase = 'https://ringsdb.com';
-  static webAbout = `
-    <p>Lord of the Rings keyword and card lookup.</p>
-  `;
+  static webAbout = '<p>Lord of the Rings keyword and card lookup.</p>';
 
   async handleButton(interaction) {
     const cache_key = interaction.channelId + interaction.user.id;
