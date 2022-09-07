@@ -32,32 +32,44 @@
         </a>
       </p>
       <h2>Commands</h2>
-      <p>Muse has commands that are common across all persona. Commands are prefixed with a hyphen(-).</p>
-      <h5>-about</h5>
-      <p>The <b>-about</b> command </p>
-      <h5>-diagnostics</h5>
-      <p>The <b>-diagnostics</b> command displays summary data about the current persona and campaign topics.</p>
-      <h5>-help</h5>
-      <p>The <b>-help</b> command explains how the bot works, displays Muse's persona for the channel, and the
-      list of available commands.</p>
-      <h5>-persona</h5>
-      <p>The <b>-persona</b> command is used to change the persona for the channel. The -persona command takes two
-        arguments: the name of the persona to use and the word confirm. For example to switch to the blank canvas
-        persona, use <span class="command">muse -persona blank confirm</span>.</p>
+      <p>Muse supports the following slash commands across all personas.</p>
+
+      <h5>/about</h5>
+      <p>Use <b>/about</b> to learn of Muse's inspiration and history.</p>
+
+      <h5>/campaign</h5>
+      <p>Use the <b>/campaign</b> command to upload custom entries to Muse. The entries will be specific to the
+        channel where the command is issued. The command takes one parameter which is a YAML file containing the
+        entries to add. See <a href="#campaignentries">Campaign Entries</a> for a entries will display a random persona's topic. Campaign topics are not included.</p>
+
+      <h5>/diagnostics</h5>
+      <p>The <b>/diagnostics</b> command displays summary data about the current persona and campaign topics. Only
+        members with the <span class="permission">Manage Channels</span> permission can use this command.
+      </p>
+      <p>Only members with the <span class="permission">Manage Channels</span> permission can use this command.</p>
+
+      <h5>/help</h5>
+      <p>The <b>/help</b> command explains how to use Muse.</p>
+
+      <h5>/persona</h5>
+      <p>The <b>/persona</b> command is used to change the persona for the channel. Using the persona command
+        without specifying a persona will display the current persona for the channel. Specifying a persona
+        after the command will change the persona of the channel. For example, using
+        <span class="command">/persona Blank Canvas</span> to set the persona to Blank Canvas. See
+        <a href="#personas">Personas</a> for the list of the support personas.
+      </p>
       <p>Changing the persona does not remove any campaign entries.</p>
-      <p>Only channel administrators can use this command.</p>
-      <h5>-prefix</h5>
-      <p>The <b>-prefix</b> command is used to change the message prefix for the channel. The -prefix command takes two
-        arguments: the new prefix to use and the word confirm. For example, using <span class="command">muse -prefix m confirm</span>
-      will change Muse's prefix to m.</p>
-      <p>Only channel administrators can use this command.</p>
-      <h5>-random</h5>
-      <p>The <b>-random</b> command will display a random persona's topic. Campaign topics are not included.</p>
-      <h5>-reset</h5>
-      <p>The <b>-reset</b> command will delete all campaign entries from the channel. The <i>confirm</i> parameter must
-        be specified for the reset to work.</p>
-      <p>Only channel administrators can use this command.</p>
-      <h2>Campaign Entries</h2>
+      <p>See the bottom of the page for the list of the supported personas.</p>
+      <p>Only members with the <span class="permission">Manage Channels</span> permission can use this command.</p>
+
+      <h5>/random</h5>
+      <p>The <b>/random</b> command will display a random persona's topic. Campaign topics are not included.</p>
+
+      <h5>/reset</h5>
+      <p>The <b>/reset</b> command will delete all campaign entries from the channel.</p>
+      <p>Only members with the <span class="permission">Manage Channel</span> permission can use this command.</p>
+
+      <h2><a id="campaignentries">Campaign Entries</a></h2>
       <p>Channel administrators can customize the channel's topics by uploading their own campaign files.</p>
       <p>It is not possible to edit a persona's entries, but you can overwrite them. Muse first searches campaign topics
         for a match. If it does not find one, Muse then searches the persona's topics. If you want to change the text of
@@ -90,35 +102,40 @@
       </dl>
       <h2 id="personas">Personas</h2>
       <p>Muse has the following personas:</p>
+
       <h5>Eclipse Phase</h5>
       <p>Eclipse Phase's muse ALI is the inspiration for Muse.</p>
-      <p>Use <span class="command">muse -persona eclipsephase confirm</span> to set the channel to the <a href="personas/eclipsephase.html">Eclipse Phase persona</a>.</p>
+      <p>Use <span class="command">/persona Eclipse Phase</span> to set the channel to the <a href="personas/eclipsephase.html">Eclipse Phase persona</a>.</p>
       <p><a href="https://eclipsephase.com/">Eclipse Phase</a> is published by <a href="https://posthumanstudios.com/">Posthuman Studios</a>.</p>
+
       <h5>Lord of the Rings: The Card Game</h5>
       <p>The Lord of the Rings persona contains keyword summaries as well as card lookup.</p>
-      <p>Use <span class="command">muse -persona lotr confirm</span> to set the channel to the <a href="personas/lotr.html">Lord of the Rings persona</a>.</p>
+      <p>Use <span class="command">/persona Lord of the Rings</span> to set the channel to the <a href="personas/lotr.html">Lord of the Rings persona</a>.</p>
       <p>Card data and images are from <a href="https://ringsdb.com">https://ringsdb.com</a>.</p>
       <p>
         <a href="https://www.fantasyflightgames.com/en/products/the-lord-of-the-rings-the-card-game/">Lord of the Rings: The Card Game</a>
         is published by <a href="https://www.fantasyflightgames.com">Fantasy Flight Games</a>.
       </p>
+
       <h5>Mongoose Traveller 2nd Edition</h5>
       <p>Library data for Mongoose Traveller 2nd Edition.</p>
-      <p>Use <span class="command">muse -persona mgt2 confirm</span> to set the channel to the <a href="personas/mgt2.html">Mongoose Traveller 2nd Edition persona</a>.</p>
+      <p>Use <span class="command">/persona Mongoose Traveller 2</span> to set the channel to the <a href="personas/mgt2.html">Mongoose Traveller 2nd Edition persona</a>.</p>
       <p>
         <a href="https://www.mongoosepublishing.com/collections/traveller-rpgs">Traveller</a>
         is published by <a href="https://www.mongoosepublishing.com/">Mongoose Publishing</a>.
       </p>
+
       <h5>Mongoose Traveller 2022 Edition</h5>
       <p>Library data for Mongoose Traveller 2022 Edition.</p>
-      <p>Use <span class="command">muse -persona mgt2022 confirm</span> to set the channel to the <a href="personas/mgt2022.html">Mongoose Traveller 2022 persona</a>.</p>
+      <p>Use <span class="command">/persona Mongoose Traveller 2022</span> to set the channel to the <a href="personas/mgt2022.html">Mongoose Traveller 2022 persona</a>.</p>
       <p>
         <a href="https://www.mongoosepublishing.com/collections/traveller-rpgs">Traveller</a>
         is published by <a href="https://www.mongoosepublishing.com/">Mongoose Publishing</a>.
       </p>
+
       <h5>Blank Canvas</h5>
       <p>The Blank Canvas persona has no topics. Use this one if Muse does not have a persona for your game.</p>
-      <p>Use <span class="command">muse -persona blank confirm</span> to set the channel to the <a href="personas/blank.html">blank persona</a>.</p>
+      <p>Use <span class="command">/persona Blank Canvas</span> to set the channel to the <a href="personas/blank.html">blank persona</a>.</p>
       <div class="container">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
           <div class="col-md-4 d-flex align-items-center">
