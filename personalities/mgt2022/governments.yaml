@@ -1,0 +1,176 @@
+Government 0:
+  aliases:
+    - gov 0
+    - gov0
+  page: 253
+  text: >
+    **None**: No government structure. In many cases, family bonds predominate
+    
+    *examples*: Family, Clan, Anarchy
+    
+    *contraband*: None
+Government 1:
+  aliases:
+    - gov 1
+    - gov1
+  page: 253
+  text: >
+    **Company/Corporation**: Ruling functions are assumed by a company managerial elite, and most citizenry are company employees or dependants
+    
+    *examples*: Corporate outpost, asteroid mining, feudal domain
+    
+    *contraband*: Weapons, Drugs, Travellers
+Government 2:
+  aliases:
+    - gov 2
+    - gov2
+  page: 253
+  text: >
+    **Participating Democracy**: Ruling functions are reached by the advice and consent of the citizenry directly
+    
+    *examples*: Collective, tribal council, comm-linked consensus
+    
+    *contraband*: Drugs
+Government 3:
+  aliases:
+    - gov 3
+    - gov3
+  page: 253
+  text: >
+    **Self-Perpetuating Oligarchy**: Ruling functions are performed by a restricted minority, with little or no input from the mass of citizenry
+    
+    *examples*: Plutocracy, hereditary ruling caste
+    
+    *contraband*: Technology, Weapons, Travellers
+Government 4:
+  aliases:
+    - gov 4
+    - gov4
+  page: 253
+  text: >
+    **Representative Democracy**: Ruling functions are performed by elected representatives
+    
+    *examples*: Republic, Democracy
+    
+    *contraband*: Drugs, Weapons, Psionics
+Government 5:
+  aliases:
+    - gov 5
+    - gov5
+  page: 253
+  text: >
+    **Feudal Technocracy**: Ruling functions are performed by specific individuals for persons who agree to be ruled by them. Relationships are based on the performance of technical activities which are mutually beneficial
+    
+    *examples*: Those with access to higher technology tend to have higher social status
+    
+    *contraband*: Technology, Weapons, Computers
+Government 6:
+  aliases:
+    - gov 6
+    - gov6
+  page: 253
+  text: >
+    **Captive Government**: Ruling functions are performed by an imposed leadership answerable to an outside group
+    
+    *examples*: A colony or conquered area
+    
+    *contraband*: Weapons, Technology, Travellers
+Government 7:
+  aliases:
+    - gov 7
+    - gov7
+  page: 253
+  text: >
+    **Balkinisation**: No central authority exists; rival governments complete for control. Law level refers to the government nearest the starport
+    
+    *examples*: Multiple governments, civil wars
+    
+    *contraband*: Varies
+Government 8:
+  aliases:
+    - gov 8
+    - gov8
+  page: 253
+  text: >
+    **Civil Service Bureaucracy**: Ruling functions are performed by government agencies employing individuals selected for their expertise
+    
+    *examples*: Technocracy, Communism
+    
+    *contraband*: Drugs, Weapons
+Government 9:
+  aliases:
+    - gov 9
+    - gov9
+  page: 253
+  text: >
+    **Impersonal Bureaucracy**: Ruling functions are performed by agencies which have become insulated from the governed citizens
+    
+    *examples*: Entrenched castes of bureaucrats, decaying empire
+    
+    *contraband*: Technology, Weapons, Drugs, Travellers, Psionics
+Government A:
+  aliases:
+    - gov a
+    - gova
+  page: 253
+  text: >
+    **Charismatic Dictator**: Ruling functions are performed by agencies directed by a single leader who enjoys the overwhelming confidence of the citizens
+    
+    *examples*: Revolutionary leader, messiah, emperor
+    
+    *contraband*: None
+Government B:
+  aliases:
+    - gov b
+    - govb
+  page: 253
+  text: >
+    **Non-Charismatic Leader**: A previous charismatic dictator has been replaced by a leader through normal channels
+    
+    *examples*: Military dictatorship, hereditary kingship
+    
+    *contraband*: Weapons, Technology, Computers
+Government C:
+  aliases:
+    - gov c
+    - govc
+  page: 253
+  text: >
+    **Charismatic Oligarchy**: Ruling functions are performed by a select group of members of an organisation or class which enjoys the overwhelming confidence of the citizenry
+    
+    *examples*: Junta, revolutionary council
+    
+    *contraband*: Weapons
+Government D:
+  aliases:
+    - gov d
+    - govd
+  page: 253
+  text: >
+    **Religious Dictatorship**: Ruling functions are performed by a religious organisation without regard to the specific individual needs of the citizenry
+    
+    *examples*: Cult, transcendent philosophy, psionic group mind
+    
+    *contraband*: Varies
+Government E:
+  aliases:
+    - gov e
+    - gove
+  page: 253
+  text: >
+    **Religious Autocracy**: Government by a single religious leader having absolute power over the citizenry
+    
+    *examples*: Messiah
+    
+    *contraband*: Varies
+Government F:
+  aliases:
+    - gov f
+    - govf
+  page: 253
+  text: >
+    **Totalitarian Oligarchy**: Government by an all-powerful minority which maintains absolute control through widespread coercion and oppression
+    
+    *examples*: World church, Ruthless organizations
+    
+    *contraband*: Varies
