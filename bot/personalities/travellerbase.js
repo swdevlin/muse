@@ -554,7 +554,7 @@ UWP: ${system.uwp}
       }
     }
     if (matches.systems.length === 1) {
-      await this.replySystem(msg, matches.systems[0], matches.jump, matches.style);
+      await this.replySystem(interaction, matches.systems[0], matches.jump, matches.style);
       return true;
     } else if (matches.systems.length > 1) {
       let text = 'Multiple matches:';

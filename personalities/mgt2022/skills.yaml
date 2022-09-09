@@ -23,17 +23,32 @@ Task Difficulty:
     weather data from a standard tourist computer system or sneaking up on a
     drugged guard. Simple tasks succeed on a **2** or more.
 
-    **Easy** tasks are trivial for a trained professional, and simple for an amateur. An Easy task might be hiking cross-country for a few hours or activating an unfamiliar device that has a clear and simple interface. Easy tasks succeed on a **4** or more.
+    **Easy** tasks are trivial for a trained professional, and simple for an 
+    amateur. An Easy task might be hiking cross-country for a few hours or 
+    activating an unfamiliar device that has a clear and simple interface. 
+    Easy tasks succeed on a **4** or more.
+    
+    A **Routine** task is trivial for a trained professional, and relatively 
+    easy even for an amateur. A Routine task might be hitting a prone victim
+    in melee or landing a ship in optimum conditions with computer assistance. 
+    Routine tasks succeed on a **6** or more.
 
-    A **Routine** task is trivial for a trained professional, and relatively easy even for an amateur. A Routine task might be hitting a prone victim in melee or landing a ship in optimum conditions with computer assistance. Routine tasks succeed on a **6** or more.
+    An **Average** task is a moderate obstacle to a trained professional. An 
+    Average task might be shooting a gun accurately at range or repairing a 
+    damaged circuit board. Average tasks succeed on an **8** or more.
 
-    An **Average** task is a moderate obstacle to a trained professional. An Average task might be shooting a gun accurately at range or repairing a damaged circuit board. Average tasks succeed on an **8** or more.
+    A **Difficult** task is difficult even for a trained professional. Examples
+    might be making an accurate shot in the middle of a ferocious storm or 
+    hacking into a secure computer network. Difficult tasks succeed on 
+    a **10** or more.
 
-    A **Difficult** task is difficult even for a trained professional. Examples might be making an accurate shot in the middle of a ferocious storm or hacking into a secure computer network. Difficult tasks succeed on a **10** or more.
+    **Very Difficult** tasks are hard for a trained professional, and nearly 
+    impossible for an amateur. They succeed on a **12** or more.
 
-    Very Difficult tasks are hard for a trained professional, and nearly impossible for an amateur. They succeed on a **12** or more.
-
-    Formidable tasks are exceptionally hard, such as performing surgery on an unknown alien of radically different biology or hacking a military-grade computer network. Formidable tasks succeed on a **14** or more.
+    **Formidable** tasks are exceptionally hard, such as performing surgery 
+    on an unknown alien of radically different biology or hacking a 
+    military-grade computer network. Formidable tasks succeed on a **14** 
+    or more.
 Admin:
   parent: skills
   page: 64

@@ -76,7 +76,7 @@ const sendEntry = async (interaction, entry, personality) => {
 const hackDetected = async (interaction) => {
   const text = 'infosec check failed';
   logger.info(`permissions fail - ${interaction.guild.id} ${interaction.user.id}`);
-  await msg.reply(text);
+  await interaction.reply(text);
 }
 
 const reList = /[^$]\$list/;

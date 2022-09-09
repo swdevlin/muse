@@ -219,7 +219,7 @@ _version: 0.9_`;
       this.lookup = this.lookup.substring(2);
   }
 
-  async checkExternal(msg) {
+  async checkExternal(interaction) {
     return null;
   }
 
