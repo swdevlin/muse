@@ -146,12 +146,12 @@ const HYDROSPHERES = {
   "5": {
     "min": 46,
     "max": 55,
-    "description": "Large oceans"
+    "description": "A large ocean"
   },
   "6": {
     "min": 56,
     "max": 65,
-    "description": ""
+    "description": "Large oceans"
   },
   "7": {
     "min": 66,
@@ -161,17 +161,17 @@ const HYDROSPHERES = {
   "8": {
     "min": 76,
     "max": 85,
-    "description": "Water World"
+    "description": "Only a few islands and archipelagos"
   },
   "9": {
     "min": 86,
     "max": 95,
-    "description": "Only a few small islands"
+    "description": "Almost entirely water"
   },
   "A": {
     "min": 96,
     "max": 100,
-    "description": "Almost entirely water"
+    "description": "Waterworld"
   }
 };
 

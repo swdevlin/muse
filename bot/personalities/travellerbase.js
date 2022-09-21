@@ -599,7 +599,11 @@ UWP: ${system.uwp}
         content: text,
         embeds: [embed]
       };
-      await interaction.reply(messagePayload);
+      try {
+        await interaction.reply(messagePayload);
+      } catch(err) {
+        console.log(err);
+      }
       return true;
     }
     return null;
@@ -612,7 +616,7 @@ UWP: ${system.uwp}
       lastRequest = JSON.parse(lastRequest);
       const num = Number(interaction.customId);
       if (Number.isInteger(num) && num-1 <= lastRequest.systems.length)
-        return await this.replySystem(interaction, lastRequest.systems[num-1]);
+        return await this.replySystem(interaction, lastRequest.systems[num-1], 3, 'poster');
     }
   }
 

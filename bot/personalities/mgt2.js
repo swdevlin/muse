@@ -152,7 +152,7 @@ const HYDROSPHERES = {
   "6": {
     "min": 56,
     "max": 65,
-    "description": ""
+    "description": "Large oceans"
   },
   "7": {
     "min": 66,
