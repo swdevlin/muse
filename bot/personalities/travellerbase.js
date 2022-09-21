@@ -74,50 +74,101 @@ const hydrospheres = {
   }
 };
 
-const lawLevels = {
+const LAW_LEVELS = {
   "0": {
-    "weaponsBanned": "No",
-    "armourBanned": "No"
+    "description": "No Law",
+    "weaponsBanned": "None",
+    "armourBanned": "None"
   },
   "1": {
+    "description": "Low Law",
     "weaponsBanned": "Poison Gas, Explosives, Undetectable Weapons and WMD",
     "armourBanned": "Battle Dress"
   },
   "2": {
+    "description": "Low Law",
     "weaponsBanned": "Portable energy, Laser, Poison Gas, Explosives, Undetectable Weapons and WMD",
     "armourBanned": "Combat Armour, Battle Dress"
   },
   "3": {
+    "description": "Low Law",
     "weaponsBanned": "Military, Portable energy, Laser, Poison Gas, Explosives, Undetectable Weapons and WMD",
     "armourBanned": "Flak, Combat Armour, Battle Dress"
   },
   "4": {
+    "description": "Moderate Law",
     "weaponsBanned": "Submachine guns, light assault, Military, Portable energy, Laser, Poison Gas, Explosives, Undetectable Weapons and WMD",
     "armourBanned": "Cloth, Flak, Combat Armour, Battle Dress"
   },
   "5": {
+    "description": "Moderate Law",
     "weaponsBanned": "Personal Concealable Weapons, Submachine guns, light assault, Military, Portable energy, Laser, Poison Gas, Explosives, Undetectable Weapons and WMD",
     "armourBanned": "Mesh, Cloth, Flak, Combat Armour, Battle Dress"
   },
   "6": {
+    "description": "Moderate Law",
     "weaponsBanned": "All Firearms, except shotguns and stunners",
     "armourBanned": "Cloth, Flak, Combat Armour, Battle Dress"
   },
   "7": {
+    "description": "Moderate Law",
     "weaponsBanned": "All Firearms, including Shotguns",
     "armourBanned": "Cloth, Flak, Combat Armour, Battle Dress"
   },
   "8": {
+    "description": "High Law",
     "weaponsBanned": "All bladed weapons, stunners and all firearms",
-    "armourBanned": "All visible"
+    "armourBanned": "All visible armour"
   },
   "9": {
+    "description": "High Law",
     "weaponsBanned": "All Weapons",
-    "armourBanned": "All"
+    "armourBanned": "All Armour"
   },
   "A": {
+    "description": "Extreme Law",
     "weaponsBanned": "All Weapons",
-    "armourBanned": "All"
+    "armourBanned": "All Armour"
+  },
+  "B": {
+    "description": "Continental passports required",
+    "weaponsBanned": "All Weapons",
+    "armourBanned": "All Armour"
+  },
+  "C": {
+    "description": "Unrestricted invasion of privacy",
+    "weaponsBanned": "All Weapons",
+    "armourBanned": "All Armour"
+  },
+  "D": {
+    "description": "Paramilitary law enforcement",
+    "weaponsBanned": "All Weapons",
+    "armourBanned": "All Armour"
+  },
+  "E": {
+    "description": "Full-fledged police state",
+    "weaponsBanned": "All Weapons",
+    "armourBanned": "All Armour"
+  },
+  "F": {
+    "description": "Daily life rigidly controlled",
+    "weaponsBanned": "All Weapons",
+    "armourBanned": "All Armour"
+  },
+  "G": {
+    "description": "Disproportionate punishments",
+    "weaponsBanned": "All Weapons",
+    "armourBanned": "All Armour"
+  },
+  "H": {
+    "description": "Leagalized oppressive practices",
+    "weaponsBanned": "All Weapons",
+    "armourBanned": "All Armour"
+  },
+  "J": {
+    "description": "Routinely oppressive and restrictive",
+    "weaponsBanned": "All Weapons",
+    "armourBanned": "All Armour"
   },
 };
 
@@ -328,8 +379,8 @@ class TravellerBase extends BasePersonality {
   static defaultPrefix = 'library';
   static webAbout = `
     <p>A Muse persona for the Traveller RPG.</p>
-    <p>Muse can decompose a UWP. Enter <span class="command">library UWP</span> and Muse will breakdown the UWP. For example enter,
-    <span class="command">library A832921-C</span> and Muse will reply with</p>
+    <p>Muse can decompose a UWP. Enter <span class="command">/muse UWP</span> and Muse will breakdown the UWP. For example enter,
+    <span class="command">/muse A832921-C</span> and Muse will reply with</p>
     <p>
       <b>A832921-C</b><br/>
       <b>Starport (A)</b><br/>
@@ -402,9 +453,12 @@ class TravellerBase extends BasePersonality {
     return response;
   }
 
-  lawText(law) {
-    const {weaponsBanned, armourBanned} = lawLevels[law];
-    return `\t*Bans*:\n\t\t${weaponsBanned};\n\t\t${armourBanned}`;
+  lawText(law, forSystem) {
+    const {description, weaponsBanned, armourBanned} = LAW_LEVELS[law];
+    if (forSystem)
+      return `${description} *Bans*: ${weaponsBanned}; ${armourBanned}`;
+    else
+      return `\t${description} *Bans*: ${weaponsBanned}; ${armourBanned}`;
   }
 
   hydrosphereText(hydrosphere) {
@@ -439,6 +493,19 @@ class TravellerBase extends BasePersonality {
     return response;
   }
 
+  uwpEmbed(embed, [starport, size, atmosphere, hydrosphere, population, government, law, tech]) {
+    embed.addFields(
+      { name: `Starport: ${starport}`, value: this.starportText(starport)},
+      { name: `Size: ${size}`, value: this.planetSizeText(size)},
+      { name: `Atmosphere: ${atmosphere}`, value: this.atmosphereText(atmosphere)},
+      { name: `Hydrosphere: ${hydrosphere}`, value: this.hydrosphereText(hydrosphere)},
+      { name: `Population: ${population}`, value: this.populationText(population)},
+      { name: `Government: ${government}`, value: this.governmentText(government)},
+      { name: `Law: ${law}`, value: this.lawText(law, true)},
+      { name: `Tech: ${tech}`, value: this.techText(tech)},
+    );
+  }
+
   checkForUWP() {
     let uwp = UWPRegex.exec(this.originalContent);
     if (!uwp)
@@ -471,6 +538,20 @@ UWP: ${system.uwp}
     `;
   }
 
+  mapUrl(system) {
+    return `${TRAVELLER_MAP_URL}/api/jumpmap?sx=${system.sectorX}&sy=${system.sectorY}&hx=${system.hexX}&hy=${system.hexY}&jump=2&style=poster`;
+  }
+
+  travellerMapLinkURL(system) {
+    let hexX = system.hexX;
+    if (hexX < 10)
+      hexX = '0' + hexX;
+    let hexY = system.hexY;
+    if (hexY < 10)
+      hexY = '0' + hexY;
+    return `${TRAVELLER_MAP_URL}/go/${encodeURIComponent(system.sector)}/${hexX}${hexY}`;
+  }
+
   async saveImage(system, jumps, style) {
     const key = `sx${system.sectorX}sy${system.sectorY}hx${system.hexY}hy${system.hexY}j${jumps}${style}.png`;
     try {
@@ -484,7 +565,7 @@ UWP: ${system.uwp}
     } catch(err) {
       // No jump map in S3
     }
-    const url = `${TRAVELLER_MAP_URL}/api/jumpmap?sx=${system.sectorX}&sy=${system.sectorY}&hx=${system.hexX}&hy=${system.hexY}&jump=2&style=poster`;
+    const url = this.mapUrl(system);
     const response = await axios.get(url, {responseType: 'arraybuffer'});
     const params = {
       Bucket: process.env.JUMP_IMAGE_BUCKET,
@@ -506,7 +587,14 @@ UWP: ${system.uwp}
     let text = this.renderSystem(system);
     const url = await this.saveImage(system, jumps, style);
     if (url) {
+      let uwp = UWPRegex.exec(system.uwp);
+      uwp.shift();
       let embed = new EmbedBuilder().setImage(url);
+      this.uwpEmbed(embed, uwp);
+      const linkUrl = this.travellerMapLinkURL(system);
+      embed.setAuthor(
+        { name: 'Traveller Map', iconURL: 'https://travellermap.s3.amazonaws.com/images/ImperialStarburst.svg', url: linkUrl }
+      );
       const messagePayload = {
         content: text,
         embeds: [embed]

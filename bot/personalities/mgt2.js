@@ -178,48 +178,99 @@ const HYDROSPHERES = {
 
 const LAW_LEVELS = {
   "0": {
-    "weaponsBanned": "No",
-    "armourBanned": "No"
+    "description": "No Law",
+    "weaponsBanned": "None",
+    "armourBanned": "None"
   },
   "1": {
+    "description": "Low Law",
     "weaponsBanned": "Poison Gas, Explosives, Undetectable Weapons and WMD",
     "armourBanned": "Battle Dress"
   },
   "2": {
+    "description": "Low Law",
     "weaponsBanned": "Portable energy, Laser, Poison Gas, Explosives, Undetectable Weapons and WMD",
     "armourBanned": "Combat Armour, Battle Dress"
   },
   "3": {
+    "description": "Low Law",
     "weaponsBanned": "Military, Portable energy, Laser, Poison Gas, Explosives, Undetectable Weapons and WMD",
     "armourBanned": "Flak, Combat Armour, Battle Dress"
   },
   "4": {
+    "description": "Moderate Law",
     "weaponsBanned": "Submachine guns, light assault, Military, Portable energy, Laser, Poison Gas, Explosives, Undetectable Weapons and WMD",
     "armourBanned": "Cloth, Flak, Combat Armour, Battle Dress"
   },
   "5": {
+    "description": "Moderate Law",
     "weaponsBanned": "Personal Concealable Weapons, Submachine guns, light assault, Military, Portable energy, Laser, Poison Gas, Explosives, Undetectable Weapons and WMD",
     "armourBanned": "Mesh, Cloth, Flak, Combat Armour, Battle Dress"
   },
   "6": {
+    "description": "Moderate Law",
     "weaponsBanned": "All Firearms, except shotguns and stunners",
     "armourBanned": "Cloth, Flak, Combat Armour, Battle Dress"
   },
   "7": {
+    "description": "Moderate Law",
     "weaponsBanned": "All Firearms, including Shotguns",
     "armourBanned": "Cloth, Flak, Combat Armour, Battle Dress"
   },
   "8": {
+    "description": "High Law",
     "weaponsBanned": "All bladed weapons, stunners and all firearms",
     "armourBanned": "All visible"
   },
   "9": {
+    "description": "High Law",
     "weaponsBanned": "All Weapons",
-    "armourBanned": "All"
+    "armourBanned": "All Armour"
   },
   "A": {
+    "description": "Extreme Law",
     "weaponsBanned": "All Weapons",
-    "armourBanned": "All"
+    "armourBanned": "All Armour"
+  },
+  "B": {
+    "description": "Continental passports required",
+    "weaponsBanned": "All Weapons",
+    "armourBanned": "All Armour"
+  },
+  "C": {
+    "description": "Unrestricted invasion of privacy",
+    "weaponsBanned": "All Weapons",
+    "armourBanned": "All Armour"
+  },
+  "D": {
+    "description": "Paramilitary law enforcement",
+    "weaponsBanned": "All Weapons",
+    "armourBanned": "All Armour"
+  },
+  "E": {
+    "description": "Full-fledged police state",
+    "weaponsBanned": "All Weapons",
+    "armourBanned": "All Armour"
+  },
+  "F": {
+    "description": "Daily life rigidly controlled",
+    "weaponsBanned": "All Weapons",
+    "armourBanned": "All Armour"
+  },
+  "G": {
+    "description": "Disproportionate punishments",
+    "weaponsBanned": "All Weapons",
+    "armourBanned": "All Armour"
+  },
+  "H": {
+    "description": "Leagalized oppressive practices",
+    "weaponsBanned": "All Weapons",
+    "armourBanned": "All Armour"
+  },
+  "J": {
+    "description": "Routinely oppressive and restrictive",
+    "weaponsBanned": "All Weapons",
+    "armourBanned": "All Armour"
   },
 };
 
@@ -505,9 +556,13 @@ class MongooseTraveller2 extends TravellerBase {
     return response;
   }
 
-  lawText(law) {
-    const {weaponsBanned, armourBanned} = LAW_LEVELS[law];
-    return `\t*Bans*:\n\t\t${weaponsBanned};\n\t\t${armourBanned}`;
+  lawText(law, forSytem) {
+    if (!forSytem)
+      return super.lawText(law, forSytem);
+    else {
+      const {description, weaponsBanned, armourBanned} = LAW_LEVELS[law];
+      return `${description}\nBans: ${weaponsBanned}; ${armourBanned}`;
+    }
   }
 
   hydrosphereText(hydrosphere) {
