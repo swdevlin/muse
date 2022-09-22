@@ -585,6 +585,74 @@ class MongooseTraveller2 extends TravellerBase {
     return `\t${diameter} in diameter\n\tGravity is ${gravity}G`;
   }
 
+  determineTradeCodes = ([starport, size, atmosphere, hydrosphere, population, government, law, tech]) => {
+    const tradeCodes = [];
+    if (atmosphere >= '4' && atmosphere <= '9')
+      if (hydrosphere >= '4' && hydrosphere <= '8')
+        if (population >= '5' && population <= 7)
+          tradeCodes.push('Ag');
+
+    if (size === '0' && atmosphere === '0' && hydrosphere === '0')
+      tradeCodes.push('As');
+
+    if (population === '0' && government === '0' && law === '0')
+      tradeCodes.push('Ba');
+
+    if (atmosphere >= '2' && atmosphere <= '9' && hydrosphere === '0')
+      tradeCodes.push('De');
+
+    if (atmosphere >= 'A' && hydrosphere >= '1')
+      tradeCodes.push('Fl');
+
+    if (size >= '6' && size <= '8')
+      if (atmosphere === '5' || atmosphere === '6' || atmosphere === '8')
+        if (hydrosphere >= '5' && hydrosphere <= '7')
+          tradeCodes.push('Ga');
+
+    if (population >= '9')
+      tradeCodes.push('Hi')
+
+    if (tech >= 'C')
+      tradeCodes.push('Ht')
+
+    if (atmosphere <= '1' && hydrosphere >= '1')
+      tradeCodes.push('Ic')
+
+    if (atmosphere <= '2' || atmosphere === '4' || atmosphere === '7' || atmosphere === '9')
+      if (population >= '9')
+        tradeCodes.push('In')
+
+    if (population >= '1' && population <= '3')
+      tradeCodes.push('Lo')
+
+    if (tech <= '5')
+      tradeCodes.push('Lt')
+
+    if (atmosphere >= '0' && atmosphere <= '3')
+      if (hydrosphere >= '0' && hydrosphere <= '3')
+        if (population >= '6')
+          tradeCodes.push('Na')
+
+    if (population >= '0' && population <= '6')
+      tradeCodes.push('Ni')
+
+    if (atmosphere >= '2' && atmosphere <= '5')
+      if (hydrosphere >= '0' && hydrosphere <= '3')
+        tradeCodes.push('Po')
+
+    if (atmosphere === '6' || atmosphere === '8')
+      if (population >= '6' && population <= '8')
+        if (government >= '4' && government <= '9')
+          tradeCodes.push('Ri')
+
+    if (atmosphere === '0')
+      tradeCodes.push('Va')
+
+    if (hydrosphere >= 'A')
+      tradeCodes.push('Wa')
+    return tradeCodes;
+  }
+
 }
 
 module.exports = MongooseTraveller2;
