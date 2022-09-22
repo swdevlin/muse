@@ -300,9 +300,20 @@ _version: 0.9_`;
       const basePath = path.resolve(__dirname, '..', '../personalities/', this.constructor.data);
       const files = fs.readdirSync(basePath);
 
-      const yamlFiles = files.filter(function (file) {
+      let yamlFiles = files.filter(function (file) {
         return path.extname(file) === ".yaml";
       });
+      yamlFiles = yamlFiles.map(function(f) { return path.resolve(basePath, f)});
+
+      let additionalYaml = []
+      const privatePath = path.resolve(basePath, 'private');
+      if (fs.existsSync(privatePath)) {
+        const privateFiles = fs.readdirSync(privatePath);
+        additionalYaml = privateFiles.filter(function (file) {
+          return path.extname(file) === ".yaml";
+        });
+        additionalYaml = additionalYaml.map(function(f) { return path.resolve(privatePath, f)});
+      }
 
       let muse;
       try {
@@ -312,9 +323,9 @@ _version: 0.9_`;
         muse = {};
       }
 
-      for (const name of yamlFiles) {
-        if (name !== 'muse.yaml') {
-          let file = fs.readFileSync(path.resolve(basePath, name), 'utf8');
+      for (const name of [...yamlFiles, ...additionalYaml]) {
+        if (!name.endsWith('muse.yaml')) {
+          let file = fs.readFileSync(name, 'utf8');
           const y = YAML.parse(file);
           muse = Object.assign(muse, y);
         }
