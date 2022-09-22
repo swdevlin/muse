@@ -1,6 +1,6 @@
 {
   "name": "muse",
-  "version": "0.9",
+  "version": "10",
   "description": "A muse meshed through Discord",
   "main": "bot.js",
   "scripts": {

@@ -90,7 +90,7 @@ on each channel in the Discord server.
     
 Muse is opensource. You can find the project at https://github.com/swdevlin/muse . Pull requests welcomed. :smiley:   
 
-_version: 0.9_`;
+_version: 10_`;
     let entry = {
       title: 'About',
       text: helpText
