@@ -306,7 +306,7 @@ _version: 10_`;
       yamlFiles = yamlFiles.map(function(f) { return path.resolve(basePath, f)});
 
       let additionalYaml = []
-      const privatePath = path.resolve(basePath, 'private');
+      const privatePath = path.resolve(__dirname, '..', '..', 'personalities', 'private', this.constructor.data);
       if (fs.existsSync(privatePath)) {
         const privateFiles = fs.readdirSync(privatePath);
         additionalYaml = privateFiles.filter(function (file) {
