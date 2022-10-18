@@ -28,5 +28,5 @@ async function processLineByLine() {
   fs.writeFileSync('muse.yaml', yamlStr, 'utf8');
 }
 
-processLineByLine();
+await processLineByLine();
 
