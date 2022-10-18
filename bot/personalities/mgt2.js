@@ -313,12 +313,32 @@ const PLANET_SIZES = {
   },
   "9": {
     "diameter": "14,400km",
-    "gravity": "1.25"
+    "gravity": "1.125"
   },
   "A": {
     "diameter": "16,000km",
-    "gravity": "1.4"
-  }
+    "gravity": "1.25"
+  },
+  "B": {
+    "diameter": "17,600km",
+    "gravity": "1.375"
+  },
+  "C": {
+    "diameter": "19,200km",
+    "gravity": "1.5"
+  },
+  "D": {
+    "diameter": "20,800km",
+    "gravity": "1.625"
+  },
+  "E": {
+    "diameter": "22,400km",
+    "gravity": "1.75"
+  },
+  "F": {
+    "diameter": "24,000km",
+    "gravity": "1.875"
+  },
 };
 
 const starPorts = {

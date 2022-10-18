@@ -172,7 +172,7 @@ const LAW_LEVELS = {
   },
 };
 
-const planetSizes = {
+const PLANET_SIZES = {
   "0": {
     "diameter": "Less than 1,000km",
     "gravity": "Negligable"
@@ -211,12 +211,32 @@ const planetSizes = {
   },
   "9": {
     "diameter": "14,400km",
-    "gravity": "1.25"
+    "gravity": "1.125"
   },
   "A": {
     "diameter": "16,000km",
-    "gravity": "1.4"
-  }
+    "gravity": "1.25"
+  },
+  "B": {
+    "diameter": "17,600km",
+    "gravity": "1.375"
+  },
+  "C": {
+    "diameter": "19,200km",
+    "gravity": "1.5"
+  },
+  "D": {
+    "diameter": "20,800km",
+    "gravity": "1.625"
+  },
+  "E": {
+    "diameter": "22,400km",
+    "gravity": "1.75"
+  },
+  "F": {
+    "diameter": "24,000km",
+    "gravity": "1.875"
+  },
 };
 
 const starPorts = {
@@ -410,7 +430,7 @@ class TravellerBase extends BasePersonality {
   validateUWP([starport, size, atmosphere, hydrosphere, population, government, law, tech]) {
     return (
       starport in starPorts &&
-      size in planetSizes &&
+      size in PLANET_SIZES &&
       atmosphere in atmospheres &&
       hydrosphere in hydrospheres &&
       government in governments &&
@@ -477,7 +497,7 @@ class TravellerBase extends BasePersonality {
   }
 
   planetSizeText(size) {
-    const {diameter, gravity} = planetSizes[size];
+    const {diameter, gravity} = PLANET_SIZES[size];
     return `\t${diameter} in diameter\n\tGravity is ${gravity}G`;
   }
 
