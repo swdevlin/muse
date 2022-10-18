@@ -33,6 +33,7 @@
     "discord": "^0.8.2",
     "discord.js": "^14.3",
     "dotenv": "^8.2.0",
+    "js-yaml": "^4.1.0",
     "knex": "^2.0.0",
     "natural": "^3.0.1",
     "node-fetch": "^2.6.1",

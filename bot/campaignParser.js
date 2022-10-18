@@ -1,7 +1,6 @@
 const YAML = require("js-yaml");
 const logger = require("./logger");
 
-// const invalidRX = /[\\!"#\$%&'()*\+,-.\/:;<=>?@\[\]^_`{|}~]+/;
 const maxKeyLength = 100;
 const maxTextLength = 2000;
 const MaxSlugLength = 200;

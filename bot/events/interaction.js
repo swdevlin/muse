@@ -2,7 +2,7 @@
 
 const client = require("../client");
 const logger = require("../logger");
-const dm = require("../dms");
+// const dm = require("../dms");
 const {addGuild, guildExists, addChannel, findChannel} = require("../helpers");
 const knex = require('../db/connection');
 const personalities = require("../personalities");

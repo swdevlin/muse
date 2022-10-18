@@ -58,7 +58,7 @@ const sendEntry = async (interaction, entry, personality) => {
       text = `**${entry.title}**   :book: ${entry.page}\n${entry.text}`;
     else
       text = `**${entry.title}**\n${entry.text}`;
-    if (entry.wiki_slug)
+    if (entry.wiki_slug && personality.constructor.wikiBase)
       text += `_ ${personality.constructor.wikiBase}/${entry.wiki_slug} _`;
     let embed = null;
     if (entry.image)

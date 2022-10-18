@@ -54,6 +54,7 @@ const punctuationRx = /[~!@#$%^&*()`{}\[\];:"'<,.>?\/\\|\-_+=]+/g;
 class BasePersonality {
   static data = null;
   static webAbout = '';
+  static wikiBase = null;
 
   constructor(prefix) {
     this.prefix = prefix;

@@ -2,7 +2,7 @@
 
 const client = require("../client");
 const logger = require("../logger");
-const dm = require("../dms");
+// const dm = require("../dms");
 const {addGuild, guildExists, addChannel, findChannel} = require("../helpers");
 const knex = require('../db/connection');
 const personalities = require("../personalities");
@@ -15,7 +15,7 @@ const message = async (msg) => {
   const msgChannel = msg.channel;
 
   if (msgChannel.type === "DM") {
-    await dm(msg);
+    // await dm(msg);
   } else {
     const {guild} = msgChannel;
     let channel;
