@@ -4,7 +4,7 @@ const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, './.env') });
 
 
-;(async (scount) => {
+;(async () => {
   const personalities = require("./personalities");
 
   for (const k of Object.keys(personalities)) {
@@ -13,7 +13,7 @@ require('dotenv').config({ path: path.resolve(__dirname, './.env') });
   }
   console.log('finished loading data');
 })()
-  .then(res => process.exit(0))
+  .then(() => process.exit(0))
   .catch(err => {
     console.log(err.stack);
     process.exit(0);
