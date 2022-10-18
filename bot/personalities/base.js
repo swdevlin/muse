@@ -16,6 +16,9 @@ const AWS = require('aws-sdk');
 const {REST} = require("@discordjs/rest");
 const campaignLoader = require("../campaignLoader");
 
+const PRIVATE_SOURCE = 1;
+const STANDARD_SOURCE = 2;
+
 AWS.config.update({
   region: process.env.AWS_DEFAULT_REGION,
   accessKeyId: process.env.AWS_ACCESS_KEY,
@@ -293,32 +296,39 @@ _version: 10_`;
     return y;
   }
 
-  async loadData() {
+  async loadData(sources = PRIVATE_SOURCE | STANDARD_SOURCE) {
     try {
       if (!this.constructor.id)
         return;
       const basePath = path.resolve(__dirname, '..', '../personalities/', this.constructor.data);
       const files = fs.readdirSync(basePath);
 
-      let yamlFiles = files.filter(function (file) {
-        return path.extname(file) === ".yaml";
-      });
-      yamlFiles = yamlFiles.map(function(f) { return path.resolve(basePath, f)});
-
-      let additionalYaml = []
-      const privatePath = path.resolve(__dirname, '..', '..', 'personalities', 'private', this.constructor.data);
-      if (fs.existsSync(privatePath)) {
-        const privateFiles = fs.readdirSync(privatePath);
-        additionalYaml = privateFiles.filter(function (file) {
+      let yamlFiles = [];
+      if (sources & STANDARD_SOURCE) {
+        let sFiles = files.filter(function (file) {
           return path.extname(file) === ".yaml";
         });
-        additionalYaml = additionalYaml.map(function(f) { return path.resolve(privatePath, f)});
+        yamlFiles = yamlFiles.map(function(f) { return path.resolve(basePath, f)});
       }
 
-      let muse;
+      let additionalYaml = []
+      if (sources & PRIVATE_SOURCE) {
+        const privatePath = path.resolve(__dirname, '..', '..', 'personalities', 'private', this.constructor.data);
+        if (fs.existsSync(privatePath)) {
+          const privateFiles = fs.readdirSync(privatePath);
+          additionalYaml = privateFiles.filter(function (file) {
+            return path.extname(file) === ".yaml";
+          });
+          additionalYaml = additionalYaml.map(function(f) { return path.resolve(privatePath, f)});
+        }
+      }
+
+      let muse = {};
       try {
-        let file = fs.readFileSync(path.resolve(basePath, 'muse.yaml'), 'utf8');
-        muse = YAML.parse(file);
+        if (sources & STANDARD_SOURCE) {
+          let file = fs.readFileSync(path.resolve(basePath, 'muse.yaml'), 'utf8');
+          muse = YAML.parse(file);
+        }
       } catch (err) {
         muse = {};
       }
@@ -355,11 +365,23 @@ _version: 10_`;
 
   async createDocumentation() {
     try {
-      this.loadData();
       const data = {letters: [], topics: {}};
       data.title = this.constructor.title;
       const letters = [];
       const topics = {};
+      await this.loadData(PRIVATE_SOURCE);
+      if (this.knowledge) {
+        for (const topic of Object.keys(this.knowledge)) {
+          let l = topic.charAt(0).toLocaleUpperCase();
+          this.knowledge[topic].title = topic;
+          letters.push(l);
+          if (topics[l] === undefined)
+            topics[l] = [];
+          this.knowledge[topic].text = 'Topic text only available via Muse.';
+          topics[l].push(this.knowledge[topic]);
+        }
+      }
+      await this.loadData(STANDARD_SOURCE);
       if (this.knowledge) {
         for (const topic of Object.keys(this.knowledge)) {
           let l = topic.charAt(0).toLocaleUpperCase();
@@ -369,11 +391,11 @@ _version: 10_`;
             topics[l] = [];
           topics[l].push(this.knowledge[topic]);
         }
-        data.letters = [...new Set(letters)].sort();
-        for (const l of data.letters)
-          topics[l] = topics[l].sort((a,b) => { if (a.title < b.title) return -1; else return 1;});
-        data.topics = topics;
       }
+      data.letters = [...new Set(letters)].sort();
+      for (const l of data.letters)
+        topics[l] = topics[l].sort((a,b) => { if (a.title < b.title) return -1; else return 1;});
+      data.topics = topics;
       data.about = this.constructor.webAbout;
       const docs = documentationTemplate(data);
       console.log(`documentation generated for ${this.constructor.data}`);
