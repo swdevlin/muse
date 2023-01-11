@@ -67,6 +67,8 @@ const sendEntry = async (interaction, entry, personality) => {
       content: text,
       embeds: embed ? [embed] : []
     };
+    if (entry.is_private)
+      messagePayload.ephemeral = true;
     await interaction.reply(messagePayload);
   } catch(err) {
     logger.error(err);
@@ -98,12 +100,12 @@ const getChildren = async (topic, channel_id, personality_id) => {
 }
 
 const findEntryInDB = async (topic, channel_id, personality_id) => {
-  const topics = await knex.select('title', 'text', 'alias_for', 'page', 'wiki_slug', 'image')
+  const topics = await knex.select('channel_topic.id', 'title', 'text', 'alias_for', 'page', 'wiki_slug', 'image', 'is_private')
     .from('channel_topic')
     .join('channel', 'channel.id', 'channel_topic.channel_id')
     .where({key: topic, 'channel.id': channel_id})
     .union([
-      knex.select('title', 'text', 'alias_for', 'page', 'wiki_slug', 'image')
+      knex.select(knex.raw("null as id"), 'title', 'text', 'alias_for', 'page', 'wiki_slug', 'image', knex.raw("false as is_private"))
         .from('topic')
         .where({key: topic, personality: personality_id})
     ])

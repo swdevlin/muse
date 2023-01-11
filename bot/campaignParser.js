@@ -4,7 +4,7 @@ const logger = require("./logger");
 const maxKeyLength = 100;
 const maxTextLength = 2000;
 const MaxSlugLength = 200;
-const validKeys = ['text', 'aliases', 'page', 'parent', 'wiki_slug', 'category', 'image'];
+const validKeys = ['text', 'aliases', 'page', 'parent', 'wiki_slug', 'category', 'image', 'private'];
 
 const validateKey = (key) => {
   if (key.length > maxKeyLength)
@@ -47,8 +47,12 @@ const campaignParser = async (text) => {
               return {entries: null, error: aliasCheck};
           }
         } else {
-          if (typeof entry[attribute] !== 'string' && !Number.isInteger(entry[attribute]))
+          if (attribute === 'private') {
+            if (typeof entry[attribute] !== 'boolean')
+              return {entries: null, error: `${key} ${attribute} is an invalid data type`};
+          } else if (typeof entry[attribute] !== 'string' && !Number.isInteger(entry[attribute]))
             return {entries: null, error: `${key} ${attribute} is an invalid data type`};
+
           if (attribute === 'parent') {
             const parentCheck = validateKey(entry.parent);
             if (parentCheck)

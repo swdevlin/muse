@@ -124,6 +124,60 @@ _version: 10_`;
     }
   }
 
+  async doPublic(interaction) {
+    this.channelId = interaction.channel.id;
+    this.authorId = interaction.user.id;
+
+    try {
+      await this.getSearch(interaction);
+      this.getLookup();
+      const entry = await this.findEntry();
+      if (entry) {
+        if (entry.id) {
+          await knex('channel_topic')
+            .where({id: entry.id})
+            .update({is_private: false});
+
+          await interaction.reply({ content: `${entry.title} is now public`, ephemeral: true });
+          logger.info(`${entry.title} made public on ${this.channelId}`);
+        } else {
+          await interaction.reply({ content: `${entry.title} is not a campaign topic`, ephemeral: true });
+          logger.info(`${entry.title} not a campaign topic on ${this.channelId}`);
+        }
+      } else
+        await interaction.reply({ content: `${this.originalContent} was not found`, ephemeral: true });
+    } catch(err) {
+      logger.error(err);
+    }
+  }
+
+  async doPrivate(interaction) {
+    this.channelId = interaction.channel.id;
+    this.authorId = interaction.user.id;
+
+    try {
+      await this.getSearch(interaction);
+      this.getLookup();
+      const entry = await this.findEntry();
+      if (entry) {
+        if (entry.id) {
+          await knex('channel_topic')
+            .where({id: entry.id})
+            .update({is_private: true});
+
+          await interaction.reply({ content: `${entry.title} is now private`, ephemeral: true });
+          logger.info(`${entry.title} made private on ${this.channelId}`);
+        } else {
+          await interaction.reply({ content: `${entry.title} is not a campaign topic`, ephemeral: true });
+          logger.info(`${entry.title} not a campaign topic on ${this.channelId}`);
+        }
+      } else
+        await interaction.reply({ content: `${this.originalContent} was not found`, ephemeral: true });
+    } catch(err) {
+      logger.error(err);
+    }
+  }
+
   async doReset(interaction) {
     const {channel} = interaction;
 
@@ -236,8 +290,16 @@ _version: 10_`;
     try {
       const entry = await this.findEntry();
       if (entry) {
-        await sendEntry(interaction, entry, this);
-        logger.info(`${interaction.channelId} ${interaction.user.id} ${this.originalContent}`);
+        if (entry.is_private) {
+          if (interaction.member.permissions.has(PermissionsBitField.Flags.ManageChannels)) {
+            await sendEntry(interaction, entry, this);
+            logger.info(`${interaction.channelId} ${interaction.user.id} ${this.originalContent}`);
+          } else
+            await this.noMatch(interaction);
+        } else {
+          await sendEntry(interaction, entry, this);
+          logger.info(`${interaction.channelId} ${interaction.user.id} ${this.originalContent}`);
+        }
       } else if (!await this.checkExternal(interaction))
         await this.noMatch(interaction);
     } catch(err) {
@@ -265,6 +327,10 @@ _version: 10_`;
         await this.doDiagnostics(interaction);
       else if (interaction.commandName === 'reset')
         await this.doReset(interaction);
+      else if (interaction.commandName === 'public')
+        await this.doPublic(interaction);
+      else if (interaction.commandName === 'private')
+        await this.doPrivate(interaction);
       else if (interaction.commandName === 'campaign')
         await this.doCampaign(interaction);
       else if (interaction.commandName === 'random')

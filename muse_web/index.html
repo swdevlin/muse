@@ -16,7 +16,7 @@
     <div class="container">
       <h1>Welcome to Muse</h1>
       <p>Muse is a <a href="https://discord.com">Discord</a> dictionary bot. You can type</p>
-      <pre>muse topic</pre>
+      <pre>/muse topic</pre>
       <p>and muse will reply with that it knows about <i>topic</i>. Channel administrators can upload knowledge bases to tailor Muse's
         database to their game.
       </p>
@@ -34,40 +34,65 @@
       <h2>Commands</h2>
       <p>Muse supports the following slash commands across all personas.</p>
 
-      <h5>/about</h5>
-      <p>Use <b>/about</b> to learn of Muse's inspiration and history.</p>
+      <h5>/muse</h5>
+      <p><span class="command">/muse <span class="option">topic</span></span> is the main command. Muse will check its knowledgebase for a match and display what it
+        knows about the topic.</p>
 
-      <h5>/campaign</h5>
-      <p>Use the <b>/campaign</b> command to upload custom entries to Muse. The entries will be specific to the
-        channel where the command is issued. The command takes one parameter which is a YAML file containing the
-        entries to add. See <a href="#campaignentries">Campaign Entries</a> for a entries will display a random persona's topic. Campaign topics are not included.</p>
+      <h5>/random</h5>
+      <p>The <span class="command">/random</span> command will display a random topic from the channel's persona
+        knowledgebase. No campaign entries are included.
+      </p>
 
-      <h5>/diagnostics</h5>
-      <p>The <b>/diagnostics</b> command displays summary data about the current persona and campaign topics. Only
-        members with the <span class="permission">Manage Channels</span> permission can use this command.
+      <h5>/public</h5>
+      <p>
+        Topics in Muse can be public or private. Use the
+        <span class="command">/public <span class="option">topic</span></span> command to make a channel specific topic
+        public. This command has no effect on persona topics.
       </p>
       <p>Only members with the <span class="permission">Manage Channels</span> permission can use this command.</p>
 
+      <h5>/private</h5>
+      <p>
+        Topics in Muse can be public or private. Use the
+        <span class="command">/private <span class="option">topic</span></span> command to make a channel specific topic
+        private. Private topics are only visible to channel admins. This command has no effect on persona topics.
+      </p>
+      <p class="permissions">Only members with the <span class="permission">Manage Channels</span> permission can use this command.</p>
+
+      <h5>/campaign</h5>
+      <p>
+        Use the <span class="command">/campaign <span class="option">file</span></span> command to upload custom entries to Muse. The entries will be specific to the
+        channel where the command is issued. The command takes one parameter which is a YAML file containing the
+        entries to add. See <a href="#campaignentries">Campaign Entries</a> for a entries will display a random persona's topic. Campaign topics are not included.
+      </p>
+      <p class="permissions">Only members with the <span class="permission">Manage Channels</span> permission can use this command.</p>
+
+      <h5>/about</h5>
+      <p>Use <span class="command">/about</span> to learn of Muse's inspiration and history.</p>
+
+      <h5>/diagnostics</h5>
+      <p>
+        The <span class="command">/diagnostics</span> command displays summary data about the current persona and campaign topics.
+      </p>
+      <p class="permissions">Only members with the <span class="permission">Manage Channels</span> permission can use this command.</p>
+
       <h5>/help</h5>
-      <p>The <b>/help</b> command explains how to use Muse.</p>
+      <p>The <span class="command">/help</span> command explains how to use Muse.</p>
 
       <h5>/persona</h5>
-      <p>The <b>/persona</b> command is used to change the persona for the channel. Using the persona command
+      <p>The <span class="command">/persona</span> command is used to change the persona for the channel. Using the persona command
         without specifying a persona will display the current persona for the channel. Specifying a persona
         after the command will change the persona of the channel. For example, using
-        <span class="command">/persona Blank Canvas</span> to set the persona to Blank Canvas. See
+        <span class="command">/persona <span class="option">Blank Canvas</span></span> to set the persona to Blank Canvas. See
         <a href="#personas">Personas</a> for the list of the support personas.
       </p>
       <p>Changing the persona does not remove any campaign entries.</p>
       <p>See the bottom of the page for the list of the supported personas.</p>
-      <p>Only members with the <span class="permission">Manage Channels</span> permission can use this command.</p>
-
-      <h5>/random</h5>
-      <p>The <b>/random</b> command will display a random persona's topic. Campaign topics are not included.</p>
+      <p class="permissions">Only members with the <span class="permission">Manage Channels</span> permission can use this command.</p>
 
       <h5>/reset</h5>
-      <p>The <b>/reset</b> command will delete all campaign entries from the channel.</p>
-      <p>Only members with the <span class="permission">Manage Channel</span> permission can use this command.</p>
+      <p>The <span class="command">/reset</span> command will delete all campaign entries from the channel.</p>
+      <p class="permissions">Only members with the <span class="permission">Manage Channel</span> permission can use this command.</p>
 
       <h2><a id="campaignentries">Campaign Entries</a></h2>
       <p>Channel administrators can customize the channel's topics by uploading their own campaign files.</p>
@@ -76,11 +101,8 @@
         a persona's topic, include a topic with the same name and Muse will find that first and display that data.</p>
       <p>If you want to remove a persona's topic, include a topic in your campaign file with a blank text entry. Muse
       will not display entries with blank text.</p>
-      <p>To upload a campaign file, get a copy of the channel id. Then send a direct message to Muse with the text</p>
-        <pre>upload channelid</pre>
-      <p>Attach the campaign file to the message. Muse will process the file in the background and reply to you when
-      the upload is complete.</p>
-      <p>Only channel administrators can upload campaign files.</p>
+      <p>Use the <span class="command">/campaign</span> command to upload campaign files.</p>
+
       <h3>Campaign File Format</h3>
       <p>Campaign files are <a href="https://yaml.org/">YAML</a> files.
       The yaml file is a dictionary. The key for each entry is the title and is used as the key in the look-up. The properties
@@ -89,14 +111,23 @@
         <dt><b>page</b></dt>
         <dd>if included, the page will be displayed with the topic. Page does not need to be numeric.</dd>
         <dt>text</dt>
-        <dd>The text for the topic. The maximum length is 2000 characters. If the text is blank a search for the title
-          will return no results found.</dd>
+        <dd>
+          The text for the topic. The maximum length is 2000 characters. If the text is blank a search for the title
+          will return no results found.
+        </dd>
         <dt>aliases</dt>
         <dd>An array of alternate keys for the same topic.</dd>
         <dt>image</dt>
         <dd>URL of image to display along with the text.</dd>
         <dt>parent</dt>
-        <dd>The parent topic for this topic. In the parent topic, <i>$list</i> will be replaced with a list of child topics.</dd>
+        <dd>
+          The parent topic for this topic. In the parent topic, <i>$list</i> will be replaced with a list of child topics.
+        </dd>
+        <dt>private</dt>
+        <dd>
+          If true, the topic will only be visible to channel admins. By default, topics are public. If this is not
+          included, the topic will be available to everyone.
+        </dd>
         <dt>wiki_slug</dt>
         <dd>If included, the last line of the topic will be a link to the wiki page associated with the topic.</dd>
       </dl>
@@ -105,12 +136,21 @@
 
       <h5>Eclipse Phase</h5>
       <p>Eclipse Phase's muse ALI is the inspiration for Muse.</p>
-      <p>Use <span class="command">/persona Eclipse Phase</span> to set the channel to the <a href="personas/eclipsephase.html">Eclipse Phase persona</a>.</p>
-      <p><a href="https://eclipsephase.com/">Eclipse Phase</a> is published by <a href="https://posthumanstudios.com/">Posthuman Studios</a>.</p>
+      <p>
+        Use <span class="command">/persona <span class="option">Eclipse Phase</span></span> to set the channel to the
+        <a href="personas/eclipsephase.html">Eclipse Phase persona</a>.
+      </p>
+      <p>
+        <a href="https://eclipsephase.com/">Eclipse Phase</a> is published by
+        <a href="https://posthumanstudios.com/">Posthuman Studios</a>.
+      </p>
 
       <h5>Lord of the Rings: The Card Game</h5>
       <p>The Lord of the Rings persona contains keyword summaries as well as card lookup.</p>
-      <p>Use <span class="command">/persona Lord of the Rings</span> to set the channel to the <a href="personas/lotr.html">Lord of the Rings persona</a>.</p>
+      <p>
+        Use <span class="command">/persona <span class="option">Lord of the Rings</span></span> to set the channel to
+        the <a href="personas/lotr.html">Lord of the Rings persona</a>.
+      </p>
       <p>Card data and images are from <a href="https://ringsdb.com">https://ringsdb.com</a>.</p>
       <p>
         <a href="https://www.fantasyflightgames.com/en/products/the-lord-of-the-rings-the-card-game/">Lord of the Rings: The Card Game</a>
@@ -119,7 +159,7 @@
 
       <h5>Mongoose Traveller 2nd Edition</h5>
       <p>Library data for Mongoose Traveller 2nd Edition.</p>
-      <p>Use <span class="command">/persona Mongoose Traveller 2</span> to set the channel to the <a href="personas/mgt2.html">Mongoose Traveller 2nd Edition persona</a>.</p>
+      <p>Use <span class="command">/persona <span class="option">Mongoose Traveller 2</span></span> to set the channel to the <a href="personas/mgt2.html">Mongoose Traveller 2nd Edition persona</a>.</p>
       <p>
         <a href="https://www.mongoosepublishing.com/collections/traveller-rpgs">Traveller</a>
         is published by <a href="https://www.mongoosepublishing.com/">Mongoose Publishing</a>.
@@ -127,7 +167,7 @@
 
       <h5>Mongoose Traveller 2022 Edition</h5>
       <p>Library data for Mongoose Traveller 2022 Edition.</p>
-      <p>Use <span class="command">/persona Mongoose Traveller 2022</span> to set the channel to the <a href="personas/mgt2022.html">Mongoose Traveller 2022 persona</a>.</p>
+      <p>Use <span class="command">/persona <span class="option">Mongoose Traveller 2022</span></span> to set the channel to the <a href="personas/mgt2022.html">Mongoose Traveller 2022 persona</a>.</p>
       <p>
         <a href="https://www.mongoosepublishing.com/collections/traveller-rpgs">Traveller</a>
         is published by <a href="https://www.mongoosepublishing.com/">Mongoose Publishing</a>.
@@ -135,11 +175,11 @@
 
       <h5>Blank Canvas</h5>
       <p>The Blank Canvas persona has no topics. Use this one if Muse does not have a persona for your game.</p>
-      <p>Use <span class="command">/persona Blank Canvas</span> to set the channel to the <a href="personas/blank.html">blank persona</a>.</p>
+      <p>Use <span class="command">/persona <span class="option">Blank Canvas</span></span> to set the channel to the <a href="personas/blank.html">blank persona</a>.</p>
       <div class="container">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
           <div class="col-md-4 d-flex align-items-center">
-            <span class="text-muted">OpenMuse v0.9</span>
+            <span class="text-muted">OpenMuse v0.11</span>
           </div>
 
           <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">

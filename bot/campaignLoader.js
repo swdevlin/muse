@@ -28,6 +28,7 @@ const campaignLoader = async (interaction) => {
           parent: entry.parent ? entry.parent.toLocaleLowerCase() : null,
           image: entry.image,
           category: entry.category,
+          is_private: entry.private ? entry.private : false,
           wiki_slug: entry.wiki_slug,
           page: entry.page,
         }).onConflict(['channel_id', 'key']).merge();

@@ -614,7 +614,8 @@ UWP: ${system.uwp}
     if (url) {
       let uwp = UWPRegex.exec(system.uwp);
       uwp.shift();
-      let embed = new EmbedBuilder().setImage(url);
+      let embed = new EmbedBuilder();
+      embed.setImage(url);
       this.uwpEmbed(embed, uwp);
       const linkUrl = this.travellerMapLinkURL(system);
       embed.setAuthor(
@@ -625,7 +626,7 @@ UWP: ${system.uwp}
         embeds: [embed]
       };
       try {
-        await interaction.reply(messagePayload);
+        await interaction.editReply(messagePayload);
       } catch(err) {
         console.log(err);
       }
@@ -640,12 +641,15 @@ UWP: ${system.uwp}
     if (lastRequest) {
       lastRequest = JSON.parse(lastRequest);
       const num = Number(interaction.customId);
-      if (Number.isInteger(num) && num-1 <= lastRequest.systems.length)
+      if (Number.isInteger(num) && num-1 <= lastRequest.systems.length) {
+        await interaction.deferReply()
         return await this.replySystem(interaction, lastRequest.systems[num-1], 3, 'poster');
+      }
     }
   }
 
   async checkExternal(interaction) {
+    await interaction.deferReply();
     const lookup = this.lookup;
     const cache_key = this.channelId + this.authorId;
     const term = encodeURIComponent(lookup);
@@ -699,7 +703,7 @@ UWP: ${system.uwp}
         }
       }
       await cache.set(cache_key, JSON.stringify(matches));
-      await interaction.reply({content: text, components: rows});
+      await interaction.editReply({content: text, components: rows});
       return true;
     }
     return null;

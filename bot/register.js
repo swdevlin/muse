@@ -21,6 +21,30 @@ commands.push(
 
 commands.push(
   new SlashCommandBuilder()
+    .setName('public')
+    .setDescription("Make a private topic available to everyone")
+    .setDefaultMemberPermissions(PermissionFlagsBits.ManageChannels)
+    .addStringOption(option =>
+      option.setName('topic')
+        .setDescription('The topic to make public')
+        .setRequired(true)
+    )
+);
+
+commands.push(
+  new SlashCommandBuilder()
+    .setName('private')
+    .setDescription("Make a public topic private")
+    .setDefaultMemberPermissions(PermissionFlagsBits.ManageChannels)
+    .addStringOption(option =>
+      option.setName('topic')
+        .setDescription('The topic to make private')
+        .setRequired(true)
+    )
+);
+
+commands.push(
+  new SlashCommandBuilder()
     .setName('help')
     .setDescription('Show Muse help')
 );
