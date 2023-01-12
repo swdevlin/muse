@@ -596,7 +596,6 @@ UWP: ${system.uwp}
       Bucket: process.env.JUMP_IMAGE_BUCKET,
       Key: key,
       Body: response.data,
-      ContentEncoding: 'binary',
       ContentType: 'image/png',
     };
     try {
