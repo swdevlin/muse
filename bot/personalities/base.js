@@ -375,7 +375,7 @@ _version: 10_`;
         let sFiles = files.filter(function (file) {
           return path.extname(file) === ".yaml";
         });
-        yamlFiles = yamlFiles.map(function(f) { return path.resolve(basePath, f)});
+        yamlFiles = sFiles.map(function(f) { return path.resolve(basePath, f)});
       }
 
       let additionalYaml = []
