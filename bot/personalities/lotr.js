@@ -68,7 +68,7 @@ class LordOfTheRings extends BasePersonality {
         }
       });
       await cache.set(cache_key, JSON.stringify(matches));
-      await interaction.reply({content: text, components: rows});
+      await interaction.editReply({content: text, components: rows});
       return true;
     } else
       return null;
@@ -101,7 +101,8 @@ class LordOfTheRings extends BasePersonality {
 ${cost}${emojiMap[card.sphere_code]}  ${card.type_name}${stats}
 ${traits}
 ${text}
-_ ${card.url} _    
+_ ${card.url} _
+_ ${'https://hallofbeorn.com/LotR/Details/' + card.code} _    
     `;
   }
 
