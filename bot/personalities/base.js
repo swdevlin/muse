@@ -1,19 +1,18 @@
 "use strict"
 
 const logger = require("../logger");
-const {sendEntry, populateMuse, findEntryInDB, hackDetected} = require("../helpers");
+const {sendEntry, populateMuse, findEntryInDB} = require("../helpers");
 const path = require("path");
 const fs = require("fs");
 const fsp = require("fs/promises");
 const YAML = require("yaml");
 const knex = require("../db/connection");
 const pug = require('pug');
-const {PermissionsBitField, Permissions, Routes} = require("discord.js");
+const {PermissionsBitField} = require("discord.js");
 const Random = require("random-js").Random;
 const rng = new Random();
 
 const AWS = require('aws-sdk');
-const {REST} = require("@discordjs/rest");
 const campaignLoader = require("../campaignLoader");
 
 const PRIVATE_SOURCE = 1;
@@ -24,7 +23,6 @@ AWS.config.update({
   accessKeyId: process.env.AWS_ACCESS_KEY,
   secretAccessKey: process.env.AWS_SECRET,
 });
-const sqs = new AWS.SQS({apiVersion: '2012-11-05'});
 
 const docsFolder = '../muse_web/personas/';
 const documentationTemplate = pug.compileFile('./template.pug', {});
@@ -192,8 +190,6 @@ _version: 10_`;
   }
 
   async doCampaign(interaction) {
-    const {channel} = interaction;
-
     try {
       const campaignFile = interaction.options.getAttachment('campaign');
       if (campaignFile.size === 0)
@@ -288,6 +284,7 @@ _version: 10_`;
     this.getLookup();
 
     try {
+      await interaction.deferReply();
       const entry = await this.findEntry();
       if (entry) {
         if (entry.is_private) {
@@ -304,11 +301,12 @@ _version: 10_`;
         await this.noMatch(interaction);
     } catch(err) {
       logger.error(err);
+      await interaction.editReply("Unable to process request at this time");
     }
   }
 
   async noMatch(interaction) {
-    await interaction.reply(`no data found for ${this.lookup}`);
+    await interaction.editReply(`no data found for ${this.lookup}`);
   }
 
   async handleButton(interaction) {
