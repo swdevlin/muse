@@ -492,8 +492,35 @@ class TravellerBase extends BasePersonality {
   }
 
   populationText(population) {
-    const formatter = new Intl.NumberFormat('en-US', {useGrouping: true});
-    return '\t' + formatter.format(10**Number(population));
+    let pop;
+    if (population === '0')
+      pop = 'None';
+    else if (population === '1')
+      pop = 'Few';
+    else if (population === '2')
+      pop = 'Hundreds';
+    else if (population === '3')
+      pop = 'Thousands';
+    else if (population === '4')
+      pop = 'Tens of thousands';
+    else if (population === '5')
+      pop = 'Hundreds of thousands';
+    else if (population === '6')
+      pop = 'Millions';
+    else if (population === '7')
+      pop = 'Tens of millions';
+    else if (population === '8')
+      pop = 'Hundreds of millions';
+    else if (population === '9')
+      pop = 'Billions';
+    else if (population === 'A')
+      pop = 'Tens of billions';
+    else if (population === 'B')
+      pop = 'Hundreds of billions';
+    else if (population === 'C')
+      pop = 'Trillions';
+
+    return `\t${pop}`;
   }
 
   planetSizeText(size) {
@@ -648,7 +675,6 @@ UWP: ${system.uwp}
   }
 
   async checkExternal(interaction) {
-    await interaction.deferReply();
     const lookup = this.lookup;
     const cache_key = this.channelId + this.authorId;
     const term = encodeURIComponent(lookup);
@@ -693,17 +719,27 @@ UWP: ${system.uwp}
             .setStyle(ButtonStyle.Secondary)
         );
         buttonCount++;
-        if (buttonCount === 5) {
+        if (buttonCount === 4) {
           rowIndex++;
-          if (rowIndex === 5)
+          if (rowIndex === 4)
             break;
           buttonCount = 0;
           rows.push(new ActionRowBuilder());
         }
       }
-      await cache.set(cache_key, JSON.stringify(matches));
-      await interaction.editReply({content: text, components: rows});
-      return true;
+      try {
+        await interaction.editReply({content: text, components: rows});
+        await cache.set(cache_key, JSON.stringify(matches));
+        return true;
+      } catch(err) {
+        if (err.rawError && err.rawError.code === 50035) {
+          logger.error(err);
+          await interaction.editReply("Too many possible system matches. Please refine your search.");
+          return true;
+        } else {
+          throw err;
+        }
+      }
     }
     return null;
   }

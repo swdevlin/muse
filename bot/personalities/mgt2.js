@@ -2,22 +2,7 @@
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
-const BasePersonality = require("./base");
-const cache = require("../cache");
-const axios = require("axios");
-const AWS = require('aws-sdk');
-const logger = require("../logger");
-
 const TravellerBase = require("./travellerbase");
-
-const UWPRegex = /(.)(.)(.)(.)(.)(.)(.)-(.)/;
-const TRAVELLER_MAP_URL = 'https://travellermap.com';
-
-const s3 = new AWS.S3({
-  region: process.env.EB_AWS_REGION,
-  accessKeyId: process.env.AWS_ACCESS_KEY,
-  secretAccessKey: process.env.AWS_SECRET,
-});
 
 const GOVERNMENTS = {
   "0": {
@@ -593,11 +578,6 @@ class MongooseTraveller2 extends TravellerBase {
   techText(tech) {
     const {level, shortDescription} = TECH_LEVELS[tech];
     return `\tTL ${level}\n\t${shortDescription}`;
-  }
-
-  populationText(population) {
-    const formatter = new Intl.NumberFormat('en-US', {useGrouping: true});
-    return '\t' + formatter.format(10**Number(population));
   }
 
   planetSizeText(size) {
