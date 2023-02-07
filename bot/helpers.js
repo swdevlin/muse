@@ -69,7 +69,7 @@ const sendEntry = async (interaction, entry, personality) => {
     };
     if (entry.is_private)
       messagePayload.ephemeral = true;
-    await interaction.reply(messagePayload);
+    await interaction.editReply(messagePayload);
   } catch(err) {
     logger.error(err);
   }
@@ -78,7 +78,7 @@ const sendEntry = async (interaction, entry, personality) => {
 const hackDetected = async (interaction) => {
   const text = 'infosec check failed';
   logger.info(`permissions fail - ${interaction.guild.id} ${interaction.user.id}`);
-  await interaction.reply(text);
+  await interaction.editReply(text);
 }
 
 const reList = /[^$]\$list/;
