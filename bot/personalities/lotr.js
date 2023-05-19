@@ -53,11 +53,19 @@ class LordOfTheRings extends BasePersonality {
         if (index >= 25)
           return;
         const card = cards[key];
+        if (emojiMap[card.sphere_code] !== '')
+          rows[rowIndex].addComponents(
+            new ButtonBuilder()
+              .setCustomId(`${index}`)
+              .setLabel(card.name)
+              .setEmoji(emojiMap[card.sphere_code])
+              .setStyle(ButtonStyle.Secondary)
+          );
+        else
         rows[rowIndex].addComponents(
           new ButtonBuilder()
             .setCustomId(`${index}`)
             .setLabel(card.name)
-            .setEmoji(emojiMap[card.sphere_code])
             .setStyle(ButtonStyle.Secondary)
         );
         buttonCount++;
