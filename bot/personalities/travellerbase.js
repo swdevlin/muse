@@ -10,7 +10,7 @@ const logger = require("../logger");
 
 const {EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle} = require("discord.js");
 
-const UWPRegex = /(.)(.)(.)(.)(.)(.)(.)-(.)/;
+const UWPRegex = /(.)(.)(.)(.)(.)(.)(.)[–\-](.)/;
 const TRAVELLER_MAP_URL = 'https://travellermap.com';
 
 const s3 = new AWS.S3({
