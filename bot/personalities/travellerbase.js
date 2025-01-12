@@ -645,7 +645,7 @@ UWP: ${system.uwp}
       this.uwpEmbed(embed, uwp);
       const linkUrl = this.travellerMapLinkURL(system);
       embed.setAuthor(
-        { name: 'Traveller Map', iconURL: 'https://travellermap.s3.amazonaws.com/images/ImperialStarburst.svg', url: linkUrl }
+        { name: 'Traveller Map', iconURL: 'https://travellermap.s3.amazonaws.com/images/ImperialStarburst.png', url: linkUrl }
       );
       const messagePayload = {
         content: text,
