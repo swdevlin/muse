@@ -11,7 +11,7 @@ require('dotenv').config({ path: path.resolve(__dirname, './.env') });
     const p = new personalities[k]();
     await p.createDocumentation();
   }
-  console.log('finished loading data');
+  console.log('finished creating documentation');
 })()
   .then(() => process.exit(0))
   .catch(err => {
